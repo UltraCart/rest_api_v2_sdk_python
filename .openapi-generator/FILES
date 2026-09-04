@@ -185,6 +185,9 @@ docs/ConversationAgentStatusRollupSearchRequest.md
 docs/ConversationAgentStatusRollupSearchResponse.md
 docs/ConversationAgentStatusSummaryResponse.md
 docs/ConversationAgentStatusTimelineResponse.md
+docs/ConversationAgentTestSessionJoinRequest.md
+docs/ConversationAgentTestSessionRequest.md
+docs/ConversationAgentTestSessionResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -193,6 +196,7 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationCustomerAuth.md
 docs/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
@@ -1331,6 +1335,9 @@ ultracart/model/conversation_agent_status_rollup_search_request.py
 ultracart/model/conversation_agent_status_rollup_search_response.py
 ultracart/model/conversation_agent_status_summary_response.py
 ultracart/model/conversation_agent_status_timeline_response.py
+ultracart/model/conversation_agent_test_session_join_request.py
+ultracart/model/conversation_agent_test_session_request.py
+ultracart/model/conversation_agent_test_session_response.py
 ultracart/model/conversation_autocomplete_request.py
 ultracart/model/conversation_autocomplete_response.py
 ultracart/model/conversation_autocomplete_value.py
@@ -1338,6 +1345,7 @@ ultracart/model/conversation_canned_message.py
 ultracart/model/conversation_canned_message_response.py
 ultracart/model/conversation_canned_messages_response.py
 ultracart/model/conversation_canned_messages_search.py
+ultracart/model/conversation_customer_auth.py
 ultracart/model/conversation_delete_knowledge_base_document_response.py
 ultracart/model/conversation_department.py
 ultracart/model/conversation_department_member.py

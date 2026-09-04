@@ -38,6 +38,9 @@ from ultracart.model.conversation_agent_status_rollup_search_request import Conv
 from ultracart.model.conversation_agent_status_rollup_search_response import ConversationAgentStatusRollupSearchResponse
 from ultracart.model.conversation_agent_status_summary_response import ConversationAgentStatusSummaryResponse
 from ultracart.model.conversation_agent_status_timeline_response import ConversationAgentStatusTimelineResponse
+from ultracart.model.conversation_agent_test_session_join_request import ConversationAgentTestSessionJoinRequest
+from ultracart.model.conversation_agent_test_session_request import ConversationAgentTestSessionRequest
+from ultracart.model.conversation_agent_test_session_response import ConversationAgentTestSessionResponse
 from ultracart.model.conversation_autocomplete_request import ConversationAutocompleteRequest
 from ultracart.model.conversation_autocomplete_response import ConversationAutocompleteResponse
 from ultracart.model.conversation_canned_message import ConversationCannedMessage
@@ -5447,6 +5450,71 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.join_agent_test_session_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join',
+                'operation_id': 'join_agent_test_session',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'conversation_uuid',
+                    'join_request',
+                ],
+                'required': [
+                    'user_id',
+                    'conversation_uuid',
+                    'join_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'conversation_uuid':
+                        (str,),
+                    'join_request':
+                        (ConversationAgentTestSessionJoinRequest,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                    'conversation_uuid': 'conversation_uuid',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'conversation_uuid': 'path',
+                    'join_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.join_conversation_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -6303,6 +6371,65 @@ class ConversationApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.start_agent_test_session_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationAgentTestSessionResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/test_session',
+                'operation_id': 'start_agent_test_session',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'test_session_request',
+                ],
+                'required': [
+                    'user_id',
+                    'test_session_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'test_session_request':
+                        (ConversationAgentTestSessionRequest,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'test_session_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -16146,6 +16273,97 @@ class ConversationApi(object):
             pbx_audio
         return self.insert_user_pbx_audio_endpoint.call_with_http_info(**kwargs)
 
+    def join_agent_test_session(
+        self,
+        user_id,
+        conversation_uuid,
+        join_request,
+        **kwargs
+    ):
+        """Join a test conversation as the simulated customer  # noqa: E501
+
+        Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.join_agent_test_session(user_id, conversation_uuid, join_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+            conversation_uuid (str):
+            join_request (ConversationAgentTestSessionJoinRequest): Test session join request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        kwargs['conversation_uuid'] = \
+            conversation_uuid
+        kwargs['join_request'] = \
+            join_request
+        return self.join_agent_test_session_endpoint.call_with_http_info(**kwargs)
+
     def join_conversation(
         self,
         conversation_uuid,
@@ -17410,6 +17628,93 @@ class ConversationApi(object):
         kwargs['conversation_uuid'] = \
             conversation_uuid
         return self.sms_unsubscribe_conversation_endpoint.call_with_http_info(**kwargs)
+
+    def start_agent_test_session(
+        self,
+        user_id,
+        test_session_request,
+        **kwargs
+    ):
+        """Start a test conversation with this AI agent  # noqa: E501
+
+        Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.start_agent_test_session(user_id, test_session_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+            test_session_request (ConversationAgentTestSessionRequest): Test session request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationAgentTestSessionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        kwargs['test_session_request'] = \
+            test_session_request
+        return self.start_agent_test_session_endpoint.call_with_http_info(**kwargs)
 
     def start_conversation(
         self,
