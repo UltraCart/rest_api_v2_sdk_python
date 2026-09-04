@@ -99,7 +99,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             'access_custom_collections': (bool,),  # noqa: E501
             'access_storefront_and_item': (bool,),  # noqa: E501
             'cancel_subscription': (bool,),  # noqa: E501
-            'custom_collection_oids': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'custom_collection_oids': ([int],),  # noqa: E501
             'custom_collections': ([ConversationVirtualAgentCapabilityCustomCollection],),  # noqa: E501
             'delay_subscription': (bool,),  # noqa: E501
             'generate_coupon': (bool,),  # noqa: E501
@@ -188,7 +188,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             access_custom_collections (bool): Permission flag to allow this Agent to search the merchant's custom Typesense collections.. [optional]  # noqa: E501
             access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
-            custom_collection_oids (bool, date, datetime, dict, float, int, list, str, none_type): The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.. [optional]  # noqa: E501
+            custom_collection_oids ([int]): The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.. [optional]  # noqa: E501
             custom_collections ([ConversationVirtualAgentCapabilityCustomCollection]): Read only.  All of the merchant's custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.. [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
             generate_coupon (bool): Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions. [optional]  # noqa: E501
@@ -292,7 +292,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             access_custom_collections (bool): Permission flag to allow this Agent to search the merchant's custom Typesense collections.. [optional]  # noqa: E501
             access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
-            custom_collection_oids (bool, date, datetime, dict, float, int, list, str, none_type): The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.. [optional]  # noqa: E501
+            custom_collection_oids ([int]): The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.. [optional]  # noqa: E501
             custom_collections ([ConversationVirtualAgentCapabilityCustomCollection]): Read only.  All of the merchant's custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.. [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
             generate_coupon (bool): Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions. [optional]  # noqa: E501
