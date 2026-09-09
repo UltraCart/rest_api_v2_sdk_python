@@ -1004,7 +1004,13 @@ from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_storefront import SfvbStorefront
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_theme import SfvbTheme
+from ultracart.model.sfvb_theme_attribute import SfvbThemeAttribute
+from ultracart.model.sfvb_theme_attribute_update import SfvbThemeAttributeUpdate
+from ultracart.model.sfvb_theme_attribute_update_request import SfvbThemeAttributeUpdateRequest
+from ultracart.model.sfvb_theme_attributes_response import SfvbThemeAttributesResponse
 from ultracart.model.sfvb_theme_duplicate_request import SfvbThemeDuplicateRequest
+from ultracart.model.sfvb_theme_font import SfvbThemeFont
+from ultracart.model.sfvb_theme_font_family import SfvbThemeFontFamily
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
 from ultracart.model.sfvb_upsell_offer import SfvbUpsellOffer
