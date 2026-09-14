@@ -3638,8 +3638,9 @@ class SfvbApi(object):
         element_type,
         **kwargs
     ):
-        """Configuration schema for one element type  # noqa: E501
+        """Configuration schema and field card for one element type  # noqa: E501
 
+        schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

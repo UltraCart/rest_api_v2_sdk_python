@@ -82,6 +82,7 @@ class SfvbElement(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'doc_available': (bool,),  # noqa: E501
             'schema_available': (bool,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
@@ -92,6 +93,7 @@ class SfvbElement(ModelNormal):
 
 
     attribute_map = {
+        'doc_available': 'doc_available',  # noqa: E501
         'schema_available': 'schema_available',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
@@ -137,6 +139,7 @@ class SfvbElement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            doc_available (bool): True when a markdown field card for this element is available from elements/{element_type}.. [optional]  # noqa: E501
             schema_available (bool): True when a per element configuration schema is available from elements/{element_type}.. [optional]  # noqa: E501
             type (str): The element type as it appears in the type property of a CJSON node.. [optional]  # noqa: E501
         """
@@ -224,6 +227,7 @@ class SfvbElement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            doc_available (bool): True when a markdown field card for this element is available from elements/{element_type}.. [optional]  # noqa: E501
             schema_available (bool): True when a per element configuration schema is available from elements/{element_type}.. [optional]  # noqa: E501
             type (str): The element type as it appears in the type property of a CJSON node.. [optional]  # noqa: E501
         """

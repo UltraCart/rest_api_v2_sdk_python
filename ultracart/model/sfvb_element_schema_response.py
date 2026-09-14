@@ -82,6 +82,7 @@ class SfvbElementSchemaResponse(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'doc': (str,),  # noqa: E501
             'schema': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
@@ -92,6 +93,7 @@ class SfvbElementSchemaResponse(ModelNormal):
 
 
     attribute_map = {
+        'doc': 'doc',  # noqa: E501
         'schema': 'schema',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
@@ -137,7 +139,8 @@ class SfvbElementSchemaResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schema (str): JSON schema for this element's config object, as a JSON string.  Null when no schema has been published for this element yet.. [optional]  # noqa: E501
+            doc (str): Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.. [optional]  # noqa: E501
+            schema (str): Draft-07 JSON schema for this element's config object, as a JSON string.  Omitted when no schema has been published for this element.. [optional]  # noqa: E501
             type (str): The element type.. [optional]  # noqa: E501
         """
 
@@ -224,7 +227,8 @@ class SfvbElementSchemaResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schema (str): JSON schema for this element's config object, as a JSON string.  Null when no schema has been published for this element yet.. [optional]  # noqa: E501
+            doc (str): Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.. [optional]  # noqa: E501
+            schema (str): Draft-07 JSON schema for this element's config object, as a JSON string.  Omitted when no schema has been published for this element.. [optional]  # noqa: E501
             type (str): The element type.. [optional]  # noqa: E501
         """
 

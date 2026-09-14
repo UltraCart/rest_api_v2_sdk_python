@@ -166,7 +166,7 @@ class SfvbThemeJobResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             complete (bool): True once the job has stopped, whether it succeeded or failed.. [optional]  # noqa: E501
             description (str): Human readable description of the job.. [optional]  # noqa: E501
-            error_message (str): Failure detail.  Populated only when status is error.. [optional]  # noqa: E501
+            error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
             finished_dts (str): When the job stopped.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501
@@ -263,7 +263,7 @@ class SfvbThemeJobResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             complete (bool): True once the job has stopped, whether it succeeded or failed.. [optional]  # noqa: E501
             description (str): Human readable description of the job.. [optional]  # noqa: E501
-            error_message (str): Failure detail.  Populated only when status is error.. [optional]  # noqa: E501
+            error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
             finished_dts (str): When the job stopped.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501

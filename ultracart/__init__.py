@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.1.153"
+__version__ = "4.1.154"
 
 # import ApiClient
 from ultracart.api_client import ApiClient
