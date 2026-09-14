@@ -996,6 +996,12 @@ from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_facet import SfvbLibraryFacet
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
+from ultracart.model.sfvb_page_attribute import SfvbPageAttribute
+from ultracart.model.sfvb_page_attribute_update import SfvbPageAttributeUpdate
+from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttributeUpdateRequest
+from ultracart.model.sfvb_page_multimedia import SfvbPageMultimedia
+from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
+from ultracart.model.sfvb_page_response import SfvbPageResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
 from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResponse
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse

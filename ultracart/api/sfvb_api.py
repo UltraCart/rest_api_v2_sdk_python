@@ -44,6 +44,9 @@ from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
+from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttributeUpdateRequest
+from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
+from ultracart.model.sfvb_page_response import SfvbPageResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
 from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResponse
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse
@@ -243,6 +246,74 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'if_match': 'header',
                     'path': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_sfvb_page_multimedia_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages/multimedia',
+                'operation_id': 'delete_sfvb_page_multimedia',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                    'code',
+                    'default',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'path',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                    'code':
+                        (str,),
+                    'default':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                    'code': 'code',
+                    'default': 'default',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
+                    'code': 'query',
+                    'default': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -848,6 +919,64 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'library_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_page_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages',
+                'operation_id': 'get_sfvb_page',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'path',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1773,6 +1902,136 @@ class SfvbApi(object):
                     'if_match': 'header',
                     'file_write_request': 'body',
                     'path': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.put_sfvb_page_attributes_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages/attributes',
+                'operation_id': 'put_sfvb_page_attributes',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                    'page_attribute_update_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'path',
+                    'page_attribute_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                    'page_attribute_update_request':
+                        (SfvbPageAttributeUpdateRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
+                    'page_attribute_update_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.put_sfvb_page_multimedia_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages/multimedia',
+                'operation_id': 'put_sfvb_page_multimedia',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                    'page_multimedia_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'path',
+                    'page_multimedia_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                    'page_multimedia_request':
+                        (SfvbPageMultimediaRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
+                    'page_multimedia_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2759,6 +3018,95 @@ class SfvbApi(object):
             if_match
         return self.delete_sfvb_file_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sfvb_page_multimedia(
+        self,
+        storefront_oid,
+        path,
+        **kwargs
+    ):
+        """Detach an image from a page  # noqa: E501
+
+        Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_page_multimedia(storefront_oid, path, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            path (str): Page path, for example /catalog/dispensers/
+
+        Keyword Args:
+            code (str): Image code to detach. [optional]
+            default (bool): True to detach the default image. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['path'] = \
+            path
+        return self.delete_sfvb_page_multimedia_endpoint.call_with_http_info(**kwargs)
+
     def delete_sfvb_preview_session(
         self,
         storefront_oid,
@@ -3625,6 +3973,93 @@ class SfvbApi(object):
         kwargs['library_oid'] = \
             library_oid
         return self.get_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_page(
+        self,
+        storefront_oid,
+        path,
+        **kwargs
+    ):
+        """Read a page's attributes and images  # noqa: E501
+
+        What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_page(storefront_oid, path, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            path (str): Page path, for example /catalog/dispensers/
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['path'] = \
+            path
+        return self.get_sfvb_page_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_preview_url(
         self,
@@ -4985,6 +5420,188 @@ class SfvbApi(object):
         kwargs['file_write_request'] = \
             file_write_request
         return self.put_sfvb_file_content_endpoint.call_with_http_info(**kwargs)
+
+    def put_sfvb_page_attributes(
+        self,
+        storefront_oid,
+        path,
+        page_attribute_update_request,
+        **kwargs
+    ):
+        """Change a page's attributes  # noqa: E501
+
+        A partial update.  Only the attributes you name are changed.  Every entry is checked before any is written.  List, slider, item set, page collection and video list attributes are refused - edit those in the page editor.  Always needs sfvb_publish, because a page's attributes are shared by every theme and there is no dormant copy to change instead.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.put_sfvb_page_attributes(storefront_oid, path, page_attribute_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            path (str): Page path, for example /catalog/dispensers/
+            page_attribute_update_request (SfvbPageAttributeUpdateRequest): Attributes to change
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['path'] = \
+            path
+        kwargs['page_attribute_update_request'] = \
+            page_attribute_update_request
+        return self.put_sfvb_page_attributes_endpoint.call_with_http_info(**kwargs)
+
+    def put_sfvb_page_multimedia(
+        self,
+        storefront_oid,
+        path,
+        page_multimedia_request,
+        **kwargs
+    ):
+        """Attach an image to a page  # noqa: E501
+
+        Upload the image with files/upload to the page path followed by a filename first, then name that filename here as either the default image or an image code.  The default image is what a pageimage element with no pageImageCode renders, and what a subgroup tile shows.  Replaces whatever that slot held.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.put_sfvb_page_multimedia(storefront_oid, path, page_multimedia_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            path (str): Page path, for example /catalog/dispensers/
+            page_multimedia_request (SfvbPageMultimediaRequest): Image to attach
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['path'] = \
+            path
+        kwargs['page_multimedia_request'] = \
+            page_multimedia_request
+        return self.put_sfvb_page_multimedia_endpoint.call_with_http_info(**kwargs)
 
     def put_sfvb_preview_session(
         self,
