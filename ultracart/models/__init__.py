@@ -1002,6 +1002,8 @@ from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttribute
 from ultracart.model.sfvb_page_multimedia import SfvbPageMultimedia
 from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
 from ultracart.model.sfvb_page_response import SfvbPageResponse
+from ultracart.model.sfvb_preview_access_request import SfvbPreviewAccessRequest
+from ultracart.model.sfvb_preview_access_response import SfvbPreviewAccessResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
 from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResponse
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse
