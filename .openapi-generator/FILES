@@ -1007,6 +1007,10 @@ docs/SfvbFilesResponse.md
 docs/SfvbLibraryEntry.md
 docs/SfvbLibraryFacet.md
 docs/SfvbLibraryResponse.md
+docs/SfvbMenu.md
+docs/SfvbMenuItem.md
+docs/SfvbMenuWriteRequest.md
+docs/SfvbMenusResponse.md
 docs/SfvbPageAttribute.md
 docs/SfvbPageAttributeUpdate.md
 docs/SfvbPageAttributeUpdateRequest.md
@@ -2158,6 +2162,10 @@ ultracart/model/sfvb_files_response.py
 ultracart/model/sfvb_library_entry.py
 ultracart/model/sfvb_library_facet.py
 ultracart/model/sfvb_library_response.py
+ultracart/model/sfvb_menu.py
+ultracart/model/sfvb_menu_item.py
+ultracart/model/sfvb_menu_write_request.py
+ultracart/model/sfvb_menus_response.py
 ultracart/model/sfvb_page_attribute.py
 ultracart/model/sfvb_page_attribute_update.py
 ultracart/model/sfvb_page_attribute_update_request.py

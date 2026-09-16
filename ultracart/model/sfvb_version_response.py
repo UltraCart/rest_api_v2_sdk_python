@@ -94,6 +94,8 @@ class SfvbVersionResponse(ModelNormal):
             'max_cjson_bytes': (int,),  # noqa: E501
             'max_directory_entries': (int,),  # noqa: E501
             'max_library_results_per_page': (int,),  # noqa: E501
+            'max_menu_depth': (int,),  # noqa: E501
+            'max_menu_items': (int,),  # noqa: E501
             'max_preview_session_bytes': (int,),  # noqa: E501
             'max_revertable_bytes': (int,),  # noqa: E501
             'max_search_results': (int,),  # noqa: E501
@@ -118,6 +120,8 @@ class SfvbVersionResponse(ModelNormal):
         'max_cjson_bytes': 'max_cjson_bytes',  # noqa: E501
         'max_directory_entries': 'max_directory_entries',  # noqa: E501
         'max_library_results_per_page': 'max_library_results_per_page',  # noqa: E501
+        'max_menu_depth': 'max_menu_depth',  # noqa: E501
+        'max_menu_items': 'max_menu_items',  # noqa: E501
         'max_preview_session_bytes': 'max_preview_session_bytes',  # noqa: E501
         'max_revertable_bytes': 'max_revertable_bytes',  # noqa: E501
         'max_search_results': 'max_search_results',  # noqa: E501
@@ -177,6 +181,8 @@ class SfvbVersionResponse(ModelNormal):
             max_cjson_bytes (int): Largest CJSON document that will be parsed, in bytes.. [optional]  # noqa: E501
             max_directory_entries (int): Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.. [optional]  # noqa: E501
             max_library_results_per_page (int): Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.. [optional]  # noqa: E501
+            max_menu_depth (int): How deeply store menu entries can nest.. [optional]  # noqa: E501
+            max_menu_items (int): Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.. [optional]  # noqa: E501
             max_preview_session_bytes (int): Largest payload one preview session may hold, in bytes.. [optional]  # noqa: E501
             max_revertable_bytes (int): Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.. [optional]  # noqa: E501
             max_search_results (int): Hard ceiling on file search results per page.. [optional]  # noqa: E501
@@ -278,6 +284,8 @@ class SfvbVersionResponse(ModelNormal):
             max_cjson_bytes (int): Largest CJSON document that will be parsed, in bytes.. [optional]  # noqa: E501
             max_directory_entries (int): Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.. [optional]  # noqa: E501
             max_library_results_per_page (int): Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.. [optional]  # noqa: E501
+            max_menu_depth (int): How deeply store menu entries can nest.. [optional]  # noqa: E501
+            max_menu_items (int): Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.. [optional]  # noqa: E501
             max_preview_session_bytes (int): Largest payload one preview session may hold, in bytes.. [optional]  # noqa: E501
             max_revertable_bytes (int): Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.. [optional]  # noqa: E501
             max_search_results (int): Hard ceiling on file search results per page.. [optional]  # noqa: E501

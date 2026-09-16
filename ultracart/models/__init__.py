@@ -996,6 +996,10 @@ from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_facet import SfvbLibraryFacet
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
+from ultracart.model.sfvb_menu import SfvbMenu
+from ultracart.model.sfvb_menu_item import SfvbMenuItem
+from ultracart.model.sfvb_menu_write_request import SfvbMenuWriteRequest
+from ultracart.model.sfvb_menus_response import SfvbMenusResponse
 from ultracart.model.sfvb_page_attribute import SfvbPageAttribute
 from ultracart.model.sfvb_page_attribute_update import SfvbPageAttributeUpdate
 from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttributeUpdateRequest
