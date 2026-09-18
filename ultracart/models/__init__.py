@@ -1013,6 +1013,10 @@ from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResp
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
+from ultracart.model.sfvb_site_attribute import SfvbSiteAttribute
+from ultracart.model.sfvb_site_attribute_update import SfvbSiteAttributeUpdate
+from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
+from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResponse
 from ultracart.model.sfvb_storefront import SfvbStorefront
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_theme import SfvbTheme
