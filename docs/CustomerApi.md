@@ -56,7 +56,7 @@ from ultracart.models import CustomerStoreCreditAddRequest
 customer_api = CustomerApi(api_client())
 
 # Set the email and retrieve customer
-email = "test@ultracart.com"
+email = "test@test.com"
 customer = customer_api.get_customer_by_email(email).customer
 customer_oid = customer.customer_profile_oid
 
@@ -72,7 +72,7 @@ store_credit_request = CustomerStoreCreditAddRequest(
 api_response = customer_api.add_customer_store_credit(customer_oid, store_credit_request)
 
 # Check for errors
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     exit()
@@ -138,7 +138,7 @@ from ultracart.models import AdjustInternalCertificateRequest
 customer_api = CustomerApi(api_client())
 
 # Set the email and retrieve customer
-email = "test@ultracart.com"
+email = "test@test.com"
 customer = customer_api.get_customer_by_email(email).customer
 customer_oid = customer.customer_profile_oid
 
@@ -147,16 +147,16 @@ adjust_request = AdjustInternalCertificateRequest(
     description="Adjusting customer cashback balance because they called and complained about product.",
     expiration_days=365,  # expires in 365 days
     vesting_days=45,  # customer has to wait 45 days to use it
-    adjustment_amount=59,  # add 59 to their balance
+    adjustment_amount=59.0,  # add 59 to their balance
     order_id='DEMO-12345',  # or leave None. This ties the adjustment to a particular order
-    entry_dts=None  # use current time
+    # entry_dts= 'iso8601 date here'  # use current time
 )
 
 # Adjust internal certificate
 api_response = customer_api.adjust_internal_certificate(customer_oid, adjust_request)
 
 # Check for errors
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     exit()
@@ -359,7 +359,8 @@ def main():
             comments="I really want this for my birthday",
             priority=3  # Low priority
         )
-        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        api_response = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        first_created_wish_item = api_response['wishlist_item']
 
         # Add second wish list item
         second_wish_item = CustomerWishListItem(
@@ -368,29 +369,30 @@ def main():
             comments="Christmas Idea!",
             priority=5  # High priority
         )
-        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        api_response = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        second_created_wish_item = api_response['wishlist_item']
 
         # Retrieve one wishlist item
         first_created_wish_item_copy = customer_api.get_customer_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         ).wishlist_item
 
         # Retrieve all wishlist items
         all_wish_list_items = customer_api.get_customer_wish_list(customer_oid).wishlist_items
 
-        # Update an item
-        second_created_wish_item.priority = 4
+        # Update a wish list item by changing its priority
+        second_created_wish_item['priority'] = 4
         updated_second_wish_item = customer_api.update_wish_list_item(
             customer_oid,
-            second_created_wish_item.customer_wishlist_item_oid,
+            second_created_wish_item['customer_wishlist_item_oid'],
             second_created_wish_item
         )
 
         # Delete a wish list item
         customer_api.delete_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         )
 
         # Clean up
@@ -807,7 +809,7 @@ def add_customer_store_credit():
             description='First credit add',
             vesting_days=10,
             expiration_days=20,  # that's not a lot of time!
-            amount=20
+            amount=20.0
         )
         customer_api.add_customer_store_credit(customer_oid, add_request_1)
 
@@ -816,7 +818,7 @@ def add_customer_store_credit():
             description='Second credit add',
             vesting_days=0,  # immediately available
             expiration_days=90,
-            amount=40
+            amount=40.0
         )
         customer_api.add_customer_store_credit(customer_oid, add_request_2)
 
@@ -914,7 +916,10 @@ def main():
             comments="I really want this for my birthday",
             priority=3  # Low priority
         )
-        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item).wishlist_item
+
+        # print("First created wishlist item:")
+        # print(first_created_wish_item)
 
         # Add second wish list item
         second_wish_item = CustomerWishListItem(
@@ -923,29 +928,34 @@ def main():
             comments="Christmas Idea!",
             priority=5  # High priority
         )
-        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item).wishlist_item
+
+        # print("Second created wishlist item:")
+        # print(second_created_wish_item)
+
+
 
         # Retrieve one wishlist item
         first_created_wish_item_copy = customer_api.get_customer_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         ).wishlist_item
 
         # Retrieve all wishlist items
         all_wish_list_items = customer_api.get_customer_wish_list(customer_oid).wishlist_items
 
         # Update an item
-        second_created_wish_item.priority = 4
+        second_created_wish_item['priority'] = 4
         updated_second_wish_item = customer_api.update_wish_list_item(
             customer_oid,
-            second_created_wish_item.customer_wishlist_item_oid,
+            second_created_wish_item['customer_wishlist_item_oid'],
             second_created_wish_item
         )
 
         # Delete a wish list item
         customer_api.delete_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         )
 
         # Clean up
@@ -1037,7 +1047,10 @@ def main():
             comments="I really want this for my birthday",
             priority=3  # Low priority
         )
-        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item).wishlist_item
+
+        # print("First created wishlist item:")
+        # print(first_created_wish_item)
 
         # Add second wish list item
         second_wish_item = CustomerWishListItem(
@@ -1046,29 +1059,34 @@ def main():
             comments="Christmas Idea!",
             priority=5  # High priority
         )
-        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item).wishlist_item
+
+        # print("Second created wishlist item:")
+        # print(second_created_wish_item)
+
+
 
         # Retrieve one wishlist item
         first_created_wish_item_copy = customer_api.get_customer_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         ).wishlist_item
 
         # Retrieve all wishlist items
         all_wish_list_items = customer_api.get_customer_wish_list(customer_oid).wishlist_items
 
         # Update an item
-        second_created_wish_item.priority = 4
+        second_created_wish_item['priority'] = 4
         updated_second_wish_item = customer_api.update_wish_list_item(
             customer_oid,
-            second_created_wish_item.customer_wishlist_item_oid,
+            second_created_wish_item['customer_wishlist_item_oid'],
             second_created_wish_item
         )
 
         # Delete a wish list item
         customer_api.delete_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         )
 
         # Clean up
@@ -1376,14 +1394,14 @@ def get_customer_chunk(
 
     # Optional sorting
     sort = "email"
-    since = None
+    # since = ''
 
     # Retrieve customer chunk
     api_response = customer_api.get_customers_by_query(
         query,
-        offset,
-        limit,
-        since=since,
+        offset=offset,
+        limit=limit,
+        # since=since,
         sort=sort,
         expand=expand
     )
@@ -1904,7 +1922,10 @@ def main():
             comments="I really want this for my birthday",
             priority=3  # Low priority
         )
-        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item).wishlist_item
+
+        # print("First created wishlist item:")
+        # print(first_created_wish_item)
 
         # Add second wish list item
         second_wish_item = CustomerWishListItem(
@@ -1913,29 +1934,34 @@ def main():
             comments="Christmas Idea!",
             priority=5  # High priority
         )
-        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item).wishlist_item
+
+        # print("Second created wishlist item:")
+        # print(second_created_wish_item)
+
+
 
         # Retrieve one wishlist item
         first_created_wish_item_copy = customer_api.get_customer_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         ).wishlist_item
 
         # Retrieve all wishlist items
         all_wish_list_items = customer_api.get_customer_wish_list(customer_oid).wishlist_items
 
         # Update an item
-        second_created_wish_item.priority = 4
+        second_created_wish_item['priority'] = 4
         updated_second_wish_item = customer_api.update_wish_list_item(
             customer_oid,
-            second_created_wish_item.customer_wishlist_item_oid,
+            second_created_wish_item['customer_wishlist_item_oid'],
             second_created_wish_item
         )
 
         # Delete a wish list item
         customer_api.delete_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         )
 
         # Clean up
@@ -2148,8 +2174,9 @@ Retrieves customers from the account by matching the search value against most c
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2233,7 +2260,7 @@ def update_customer_example():
         expand = "billing,shipping"
 
         # Retrieve customer details
-        customer = customer_api.get_customer(customer_oid, expand).customer
+        customer = customer_api.get_customer(customer_oid, expand=expand).customer
 
         # TODO: Modify customer details
         # Change billing address (assuming first billing entry)
@@ -2241,7 +2268,7 @@ def update_customer_example():
 
         # Update customer
         # Notice expand is passed to update to get back the same fields for comparison
-        api_response = customer_api.update_customer(customer_oid, customer, expand)
+        api_response = customer_api.update_customer(customer_oid, customer, expand=expand)
 
         # Verify the update
         print(api_response.customer)
@@ -2440,7 +2467,10 @@ def main():
             comments="I really want this for my birthday",
             priority=3  # Low priority
         )
-        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item)
+        first_created_wish_item = customer_api.insert_wish_list_item(customer_oid, first_wish_item).wishlist_item
+
+        # print("First created wishlist item:")
+        # print(first_created_wish_item)
 
         # Add second wish list item
         second_wish_item = CustomerWishListItem(
@@ -2449,29 +2479,34 @@ def main():
             comments="Christmas Idea!",
             priority=5  # High priority
         )
-        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item)
+        second_created_wish_item = customer_api.insert_wish_list_item(customer_oid, second_wish_item).wishlist_item
+
+        # print("Second created wishlist item:")
+        # print(second_created_wish_item)
+
+
 
         # Retrieve one wishlist item
         first_created_wish_item_copy = customer_api.get_customer_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         ).wishlist_item
 
         # Retrieve all wishlist items
         all_wish_list_items = customer_api.get_customer_wish_list(customer_oid).wishlist_items
 
         # Update an item
-        second_created_wish_item.priority = 4
+        second_created_wish_item['priority'] = 4
         updated_second_wish_item = customer_api.update_wish_list_item(
             customer_oid,
-            second_created_wish_item.customer_wishlist_item_oid,
+            second_created_wish_item['customer_wishlist_item_oid'],
             second_created_wish_item
         )
 
         # Delete a wish list item
         customer_api.delete_wish_list_item(
             customer_oid,
-            first_created_wish_item.customer_wishlist_item_oid
+            first_created_wish_item['customer_wishlist_item_oid']
         )
 
         # Clean up

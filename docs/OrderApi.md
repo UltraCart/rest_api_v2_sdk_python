@@ -81,7 +81,7 @@ try:
 
     # Set order details
     order_id = 'DEMO-0009104390'
-    desired_total = '21.99'
+    desired_total = '23.38'
 
     # Adjust order total
     api_response = order_api.adjust_order_total(order_id, desired_total)
@@ -150,8 +150,57 @@ Assigns an order to an affiliate.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+"""
+OrderApi.assignToAffiliate() will assign an affiliate and (optionally) affiliate sub_id to an order.
+You may do this manually in the backend here:
+At https://secure.ultracart.com/merchant/orderprocessing/util/reviewOrdersLoad.do
+click on a single order, then from the left menu, choose Tools -> Assign to Affiliate
 
-(No example for this operation).
+This will only work if you have affiliates turned on for your merchant account.  Affiliates are not
+active by default because they require setup and configuration.
+"""
+from ultracart.model.order_assign_to_affiliate_request import OrderAssignToAffiliateRequest
+
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
+
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
+
+    order_id = 'DEMO-0009105981'
+    expand = 'affiliate'
+
+    req = OrderAssignToAffiliateRequest()
+    req['affiliate_id'] = 94822
+    req['affiliate_sub_id'] = 'bobby'
+
+    api_response = order_api.assign_to_affiliate(order_id, req, expand=expand)
+    print(api_response)
+
+    # Check for errors
+    if hasattr(api_response, 'error') and api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('Assignment could not be made. See Python error log.')
+        exit()
+
+    # Check success
+    if api_response.success:
+        print('Order was assigned successfully.')
+
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Order could not be assigned due to an API error.')
+```
 
 
 
@@ -227,7 +276,7 @@ except ApiException as e:
     logging.error(f"Exception when calling OrderApi->block_refund_on_order: {e}")
     exit()
 
-print('Metho executed successfully. Returns back 204 No Content')
+print('Method executed successfully. Returns back 204 No Content')
 ```
 
 
@@ -320,7 +369,7 @@ try:
 
 except ApiException as e:
     logger.error(f"API Exception: {e}")
-    print('Order could not be canceled due to an API error.')
+    print('Order could not be canceled due to an API error.  An exception will occur if you attempt to cancel an order that has immediate transmission configured for the distribution center.  Those orders cannot be canceled because they were immedatiately sent to a fulfillment center.')
 ```
 
 
@@ -392,7 +441,7 @@ try:
     order_api = OrderApi(api_client())
 
     # Set order to delete
-    order_id = 'DEMO-0008104390'
+    order_id = 'DEMO-0009105482'
 
     # Delete order
     order_api.delete_order(order_id)
@@ -1148,7 +1197,7 @@ order_id = 'DEMO-0009104390'
 api_response = order_api.get_order(order_id, expand=expand)
 
 # Check for errors
-if api_response.error:
+if hasattr(api_response, 'error') and api_response.error:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     exit()
@@ -1157,7 +1206,7 @@ if api_response.error:
 order = api_response.order
 
 # Print order details
-print(order)
+# print(order)
 ```
 
 
@@ -1249,7 +1298,7 @@ expand = "billing,checkout,coupon,customer_profile,item,payment,shipping,summary
 # Example would be: www.mysite.com/receipt?orderToken=[OrderToken]
 
 # TODO: Handle retrieving the order token from request parameters
-order_token = "DEMO:UZBOGywSKKwD2a5wx5JwmkwyIPNsGrDHNPiHfxsi0iAEcxgo9H74J/l6SR3X8g=="  # Replace with actual order token
+order_token = "DEMO:T5xAFygRLa0M2ql2zpZ9mEQyLbQjGLfAP/aIdhglmBoFexpK6X74LvF7TR3Q96Q="  # Replace with actual order token
 
 # To generate an order token manually for testing, refer to generate_order_token.py
 # TODO: Handle missing order token (e.g., if this page is called incorrectly by a search engine, etc.)
@@ -1314,8 +1363,49 @@ Retrieves the customer activity associated with the email address on this order.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+from ultracart.apis import OrderApi
+from samples import api_client
 
-(No example for this operation).
+# get_order_customer_activity() returns the customer activity associated with the email address on an
+# order.  This includes email engagement history, email list and segment membership, lifetime metrics and
+# email suppression status.
+#
+# A customer profile is NOT required and is not consulted.  The activity is keyed off the email address on
+# the order, so this works for guest orders that have never had a customer profile established.  For the
+# page views captured during the session that placed the order, use get_order_page_view_history() instead.
+#
+# If the order has no valid email address, email and customer_activity both come back None.  That is a
+# successful response rather than an error - without an email there is no activity record to find.
+#
+# Note: activity.ts is a unix timestamp in milliseconds, not an ISO 8601 string like most dates in this API.
+#
+# Possible Errors:
+# order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+# Create Order API instance
+order_api = OrderApi(api_client())
+
+# Order ID to retrieve customer activity for
+order_id = "DEMO-0009104976"
+
+# Retrieve customer activity
+response = order_api.get_order_customer_activity(order_id)
+
+print("Customer activity for: {}".format(response.email))
+
+customer_activity = response.customer_activity
+
+if customer_activity is None:
+    print("No customer activity found for this order.")
+else:
+    print("Globally unsubscribed: {}".format(customer_activity.global_unsubscribed))
+    print("Spam complaint: {}".format(customer_activity.spam_complaint))
+
+    # Print the activity history
+    for activity in customer_activity.activities or []:
+        print(activity)
+```
 
 
 
@@ -1433,8 +1523,54 @@ Retrieves email delivery records associated with the specified order id.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+from ultracart.apis import OrderApi
+from samples import api_client
 
-(No example for this operation).
+# get_order_emails() returns the delivery records for every email UltraCart sent regarding an order,
+# oldest first.  Each record carries the subject and send time plus delivery, open, click and bounce
+# status, which makes this useful evidence that a customer was notified about their order.
+#
+# A customer profile is NOT required.  These records are tied to the order id itself.
+#
+# An order with no email history, or one whose emails were all suppressed, comes back with an empty emails
+# list.  That is a successful response rather than an error.
+#
+# The internal flag marks messages sent to merchant staff rather than to the customer.  Filter those out
+# if you only want what the customer actually received.
+#
+# Possible Errors:
+# order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+# Create Order API instance
+order_api = OrderApi(api_client())
+
+# Order ID to retrieve email delivery information for
+order_id = "DEMO-0009104976"
+
+# Retrieve the emails sent for this order
+emails = order_api.get_order_emails(order_id).emails or []
+
+if not emails:
+    print("No emails were sent for this order.")
+else:
+    for email in emails:
+        print("{} - {} - {}".format(email.send_dts, email.email, email.subject))
+
+        status = []
+        if email.delivered:
+            status.append("delivered {}".format(email.delivery_dts))
+        if email.opened:
+            status.append("opened {}".format(email.opened_dts))
+        if email.clicked:
+            status.append("clicked {}".format(email.clicked_dts))
+        if email.skipped:
+            status.append("skipped: {}".format(email.skip_reason))
+        if email.bounce_type:
+            status.append("bounced {}/{}".format(email.bounce_type, email.bounce_sub_type))
+
+        print("    {}".format(", ".join(status) if status else "no delivery events recorded"))
+```
 
 
 
@@ -1483,8 +1619,53 @@ Retrieves the page views captured during the session that placed this order.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+from ultracart.apis import OrderApi
+from samples import api_client
 
-(No example for this operation).
+# get_order_page_view_history() returns the page views captured during the session that placed an order,
+# along with the referrer that started that session.
+#
+# A customer profile is NOT required.  These page views are keyed off an analytics client id stored on the
+# order itself, so this works for guest orders.  For the email engagement side of customer activity, use
+# get_order_customer_activity() instead.
+#
+# An order placed outside the storefront, such as a phone order or an order imported from a channel
+# partner, will have no analytics session attached.  In that case page_views comes back empty.  That is a
+# successful response rather than an error.
+#
+# Note: view_dts is an ISO 8601 string here.  Be aware that the ts field on get_order_customer_activity()
+# is unix milliseconds instead, so do not assume the two methods format dates the same way.
+#
+# Possible Errors:
+# order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+# Create Order API instance
+order_api = OrderApi(api_client())
+
+# Order ID to retrieve page view history for
+order_id = "DEMO-0009104976"
+
+# Retrieve page view history
+response = order_api.get_order_page_view_history(order_id)
+
+print("Session referrer: {}".format(response.referrer or "(none captured)"))
+
+page_views = response.page_views or []
+
+if not page_views:
+    print("No page views were captured for this order.")
+else:
+    for page_view in page_views:
+        time_on_page = " ({}s on page)".format(page_view.time_on_page) if page_view.time_on_page else ""
+        print("{} - {}{}".format(page_view.view_dts, page_view.url, time_on_page))
+
+        for param in page_view.params or []:
+            print("    param {} = {}".format(param.name, param.value))
+
+        for meta in page_view.meta_data or []:
+            print("    meta  {} = {}".format(meta.name, meta.value))
+```
 
 
 
@@ -1533,8 +1714,9 @@ Creates a new cart using cloned information from the order, but with a specific 
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1592,9 +1774,7 @@ from ultracart.apis import OrderApi
 from samples import api_client
 
 # Increase time limit, pulling all orders could take a long time.
-time_limit = 3000
-# Set max execution time
-time.sleep(time_limit)
+time_limit = 3
 # Set display errors
 display_errors = 1
 
@@ -1622,48 +1802,72 @@ def get_order_chunk(order_api, offset, limit):
     # shipping            shipping.tracking_number_details    summary
     # taxes
 
-    order_id = None
-    payment_method = None
-    company = None
-    first_name = None
-    last_name = None
-    city = None
-    state_region = None
-    postal_code = None
-    country_code = None
-    phone = None
+    # Set max execution time
+    time.sleep(time_limit)
+
+    # order_id = ''
+    # payment_method = ''
+    # company = ''
+    # first_name = ''
+    # last_name = ''
+    # city = ''
+    # state_region = ''
+    # postal_code = ''
+    # country_code = ''
+    # phone = ''
     email = 'support@ultracart.com'  # <-- this is the only filter we're using.
-    cc_email = None
-    total = None
-    screen_branding_theme_code = None
-    storefront_host_name = None
-    creation_date_begin = None
-    creation_date_end = None
-    payment_date_begin = None
-    payment_date_end = None
-    shipment_date_begin = None
-    shipment_date_end = None
-    rma = None
-    purchase_order_number = None
-    item_id = None
-    current_stage = None
-    channel_partner_code = None
-    channel_partner_order_id = None
-    _sort = None
+    # cc_email = ''
+    # total = 0
+    # screen_branding_theme_code = ''
+    # storefront_host_name = ''
+    # creation_date_begin = 'iso8601 format'
+    # creation_date_end = 'iso8601 format'
+    # payment_date_begin = 'iso8601 format'
+    # payment_date_end = 'iso8601 format'
+    # shipment_date_begin = 'iso8601 format'
+    # shipment_date_end = 'iso8601 format'
+    # rma = ''
+    # purchase_order_number = ''
+    # item_id = ''
+    # current_stage = 'Completed'
+    # channel_partner_code = ''
+    # channel_partner_order_id = ''
+    # sort = ''
 
     # See all these parameters? That is why you should use getOrdersByQuery() instead of getOrders()
     try:
         api_response = order_api.get_orders(
-            order_id=order_id, payment_method=payment_method, company=company, first_name=first_name,
-            last_name=last_name, city=city, state_region=state_region, postal_code=postal_code,
-            country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total,
-            screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name,
-            creation_date_begin=creation_date_begin, creation_date_end=creation_date_end,
-            payment_date_begin=payment_date_begin, payment_date_end=payment_date_end,
-            shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma,
-            purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage,
-            channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id,
-            limit=limit, offset=offset, _sort=_sort, expand=expand
+            # order_id=order_id,
+            # payment_method=payment_method,
+            # company=company,
+            # first_name=first_name,
+            # last_name=last_name,
+            # city=city,
+            # state_region=state_region,
+            # postal_code=postal_code,
+            # country_code=country_code,
+            # phone=phone,
+            email=email,
+            # cc_email=cc_email,
+            # total=total,
+            # screen_branding_theme_code=screen_branding_theme_code,
+            # storefront_host_name=storefront_host_name,
+            # creation_date_begin=creation_date_begin,
+            # creation_date_end=creation_date_end,
+            # payment_date_begin=payment_date_begin,
+            # payment_date_end=payment_date_end,
+            # shipment_date_begin=shipment_date_begin,
+            # shipment_date_end=shipment_date_end,
+            # rma=rma,
+            # purchase_order_number=purchase_order_number,
+            # item_id=item_id,
+            # current_stage=current_stage,
+            # channel_partner_code=channel_partner_code,
+            # channel_partner_order_id=channel_partner_order_id,
+            limit=limit,
+            offset=offset,
+            # sort=sort,
+            expand=expand
         )
     except ApiException as e:
         print(f"Exception when calling OrderApi->get_orders: {e}")
@@ -1816,7 +2020,7 @@ order_batch.order_ids = [
 api_response = api_instance.get_orders_batch(order_batch=order_batch, expand=expansion)
 orders = api_response.orders
 
-# pprint(orders)
+pprint(orders)
 for order in orders:
     pprint(order)
 print(f"{len(orders)} were returned.")
@@ -2017,8 +2221,9 @@ This method adds items to an order in the hold stage and releases it
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2069,8 +2274,9 @@ This method releases an order from the hold stage
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2218,8 +2424,8 @@ except ApiException as e:
     exit()
 
 # This could get verbose...
-import pprint
-pprint.pprint(api_response)
+# import pprint
+# pprint.pprint(api_response)
 ```
 
 
@@ -2313,7 +2519,7 @@ new_order = api_response.order
 items = []
 item = OrderItem()
 item.merchant_item_id = 'simple_teapot'
-item.quantity = 1
+item.quantity = 1.0
 item.description = "A lovely teapot"
 item.distribution_center_code = 'DFLT'  # Where is this item shipping out of?
 
@@ -2324,7 +2530,7 @@ item.cost = cost
 
 weight = Weight()
 weight.uom = "OZ"
-weight.value = 6
+weight.value = 6.0
 item.weight = weight
 
 items.append(item)
@@ -2354,14 +2560,12 @@ except ApiException as e:
     logging.error(f"Exception when calling OrderApi->process_payment: {e}")
     exit()
 
-transaction_details = payment_response.payment_transaction  # Do whatever you wish with this.
-
 # This could get verbose...
-import pprint
-print("New Order (after updated items):")
-pprint.pprint(updated_order)
-print("\nPayment Response:")
-pprint.pprint(payment_response)
+# import pprint
+# print("New Order (after updated items):")
+# pprint.pprint(updated_order)
+# print("\nPayment Response:")
+# pprint.pprint(payment_response)
 ```
 
 
@@ -2435,10 +2639,10 @@ order_api = OrderApi(api_client())
 
 # For the refund, we only need the items expanded to adjust their quantities.
 # See: https://www.ultracart.com/api/ for a list of all expansions.
-expand = "items"
+expand = "item"
 
 # Step 1. Retrieve the order
-order_id = 'DEMO-0009104436'
+order_id = 'DEMO-0009106282'
 try:
     api_response = order_api.get_order(order_id, expand=expand)
 except ApiException as e:
@@ -2455,14 +2659,20 @@ for item in order.items:
 reject_after_refund = False
 skip_customer_notification = True
 cancel_associated_auto_orders = True  # Does not matter for this sample. The order is not a recurring order.
-consider_manual_refund_done_externally = False  # No, I want an actual refund done through my gateway.
+consider_manual_refund_done_externally = True  # Usually this is false for Credit Card orders.  This example is a cash order.
 reverse_affiliate_transactions = True  # Can't let my affiliates get money on a refunded order. Bad business.
 
 try:
-    refund_response = order_api.refund_order(order_id, order, reject_after_refund, skip_customer_notification,
-                                             cancel_associated_auto_orders, consider_manual_refund_done_externally,
-                                             reverse_affiliate_transactions, include_refunded_amounts=False,
-                                             reason=None, expand=expand)
+    order.refund_reason = "CustomerCancel"
+    refund_response = order_api.refund_order(order_id,
+                                             order,
+                                             reject_after_refund=reject_after_refund,
+                                             skip_customer_notification=skip_customer_notification,
+                                             auto_order_cancel=cancel_associated_auto_orders,
+                                             manual_refund=consider_manual_refund_done_externally,
+                                             reverse_affiliate_transactions=reverse_affiliate_transactions,
+                                             # auto_order_cancel_reason='Customer Dissatisfied',
+                                             expand=expand)
 except ApiException as e:
     logging.error(f"Exception when calling OrderApi->refund_order: {e}")
     exit()
@@ -2612,13 +2822,13 @@ items = []
 
 item1 = OrderReplacementItem()
 item1.merchant_item_id = 'TSHIRT'
-item1.quantity = 1
+item1.quantity = 1.0
 # $item1->setArbitraryUnitCost(9.99);  # Optional: Set cost if needed
 items.append(item1)
 
 item2 = OrderReplacementItem()
 item2.merchant_item_id = 'BONE'
-item2.quantity = 2
+item2.quantity = 2.0
 items.append(item2)
 
 replacement_options.items = items
@@ -2714,7 +2924,7 @@ except ApiException as e:
     exit()
 
 # Check if there was an error in the API response
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     print('Order could not be adjusted. See the error log.')
@@ -2795,17 +3005,17 @@ except ApiException as e:
     exit()
 
 # Check if there was an error in the API response
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     print('Order could not be adjusted. See the error log.')
     exit()
 
 # Output the result
-if api_response.success:
+if hasattr(api_response, 'success') and api_response.success:
     print('Shipment confirmation was resent.')
-else:
-    print('Failed to resend shipment confirmation.')
+if hasattr(api_response, 'warning') and api_response.warning is not None:
+    print('Failed to resend shipment confirmation: ' + api_response['warning']['warning_message'])
 ```
 
 
@@ -2880,7 +3090,7 @@ except ApiException as e:
     logging.error(f"Exception when calling OrderApi->unblock_refund_on_order: {e}")
     exit()
 
-print('Metho executed successfully. Returns back 204 No Content')
+print('Method executed successfully. Returns back 204 No Content')
 ```
 
 
@@ -2997,27 +3207,28 @@ order_id = 'DEMO-0009104976'
 
 # Step 1: Retrieve the order
 try:
-    api_response = order_api.get_order(order_id, expansion)
+    api_response = order_api.get_order(order_id, expand=expansion)
     order = api_response.order
 except ApiException as e:
     print(f"Exception when calling OrderApi->get_order: {e}")
     exit()
 
 # Output the current order details
-print("<html lang='en'><body><pre>")
 print(order)
 
 # TODO: Do some updates to the order here.
 
 # Step 2: Update the order
 try:
-    api_response = order_api.update_order(order_id, order, expansion)
+    # do something here related to the order. what will you change?
+    # then call update_order
+    api_response = order_api.update_order(order_id, order, expand=expansion)
 except ApiException as e:
     print(f"Exception when calling OrderApi->update_order: {e}")
     exit()
 
 # Check for errors in the API response
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     exit()
@@ -3124,14 +3335,13 @@ order_id = 'DEMO-0009104976'
 
 # Step 1: Retrieve the order
 try:
-    api_response = order_api.get_order(order_id, expansion)
+    api_response = order_api.get_order(order_id, expand=expansion)
     order = api_response.order
 except ApiException as e:
     print(f"Exception when calling OrderApi->get_order: {e}")
     exit()
 
 # Output the current order details
-print("<html lang='en'><body><pre>")
 print(order)
 
 # TODO: Do some updates to the order here.
@@ -3139,7 +3349,7 @@ print(order)
 # Step 2: Validate the order
 validation_request = OrderValidationRequest()
 validation_request.order = order
-validation_request.checks = None  # leaving this null to perform all validations
+# validation_request.checks = "Billing Validate City State Zip"
 
 try:
     api_response = order_api.validate_order(validation_request)
@@ -3155,11 +3365,9 @@ if api_response.errors is not None:
 
 # Output validation messages, if any
 print('Validation messages:<br>')
-if api_response.messages is not None:
+if hasattr(api_response, 'messages') and api_response.messages is not None:
     for message in api_response.messages:
         print(message)
-
-print('</pre></body></html>')
 ```
 
 

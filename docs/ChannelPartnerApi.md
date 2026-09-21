@@ -81,11 +81,11 @@ from samples import channel_partner_api_client
 
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-channel_partner_order_id = 'BLAH-BLAH-123'
+channel_partner_order_id = 'ORD847K5M'
 
 try:
     cancel_result = channel_partner_api.cancel_order_by_channel_partner_order_id(channel_partner_order_id)
-    if not cancel_result.success:
+    if not hasattr(cancel_result, 'success'):
         for error in cancel_result.cancel_errors:
             print(error)
 
@@ -142,27 +142,62 @@ Cancel channel partner order by UltraCart order id
 
 ```python
 """
-Deletes a ChannelPartnerShiptoPreference. These preferences are used by EDI channel partners to automatically
-apply return policies and add additional free items to EDI orders based on the EDI code that is present.
+cancelOrderByUltraCartOrderId takes an UltraCart order id and attempts to 'cancel' the order.
+UltraCart doesn't have a cancel order state, so this needs some explanation of what happens.
 
-Success will return a status code 204 (No content)
+Here is the logic of the cancel process:
+If the Order stage is [this] then do [that]:
+    'Completed Order'       -> Error: "Order has already been completed."
+    'Rejected'             -> Error: "Order has already been rejected."
+    'Accounts Receivable'  -> Success: order is rejected.
+    'Preordered'          -> Success: order is rejected.
+    'Quote Sent'          -> Success: order is rejected.
+    'Quote Requested'     -> Success: order is rejected.
 
-Possible Errors:
-Attempting to interact with a channel partner other than the one tied to your API Key:
-    "Invalid channel_partner_oid specified. Your REST API key may only interact with channel_partner_oid: 12345"
-Supply a bad preference oid: "Invalid channel_partner_ship_to_preference_oid specified."
+The remaining stages are Fraud Review and Shipping Department. Orders in these stages have already completed payment.
+From this point, complex logic determines if the order has already shipped, or is queued to ship in a way that cannot be canceled.
+Here is the logic for those stages, but the gist of it all is this: If you receive any of the errors below, the order has progressed past a point where it can be canceled.
+
+SHIPPING LOGIC:
+Iterate through each item and consider it's shipping status:
+    Item has already been transmitted to fulfillment center (contains a transmitted dts) -> Error: "The order has already had an item that has been transmitted to the distribution center."
+    Does item DC (distribution center) have a transmission mechanism configured?
+        YES -> Does the transmission have schedules? If NO -> Error: "The distribution center does not have any schedules so it would be an immediate transmission."
+        NO -> Error: "Cant tell if we can cancel because the DC doesnt have a transport configured."
+
+If the above logic completes without errors, the following conditions must be met:
+Order has DC activity records. If NO -> Error: "There is no activity in the DC queue when there should be."
+There must be at least 5 minutes before the next DC transmission. If NO -> Error: "Activity record is not at least 5 minutes away so we need to bail."
+
+At this point, the order will be canceled with the following activity:
+1) Distribution Center activity is cleared
+2) The order is refunded. If the order is less than 24 hours old, a void is attempted instead.
+
+Other Possible Errors:
+System errors -> "Internal error. Please contact UltraCart Support."
+Order does not exist -> "Invalid order ID specified."
+During refunding, original transaction could not be found -> "Unable to find original transaction on the order."
+During refunding, original transaction was found, but transaction id could not be found -> "Unable to locate original transaction reference number."
+During refunding, PayPal was used by no longer configured -> "PayPal is no longer configured on your account to refund against."
+Gateway does not support refunds -> [GatewayName] does not support refunds at this time.
 """
 
 from ultracart.apis import ChannelPartnerApi
+from ultracart.exceptions import ApiException
 from samples import channel_partner_api_client
 
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-# you will usually get this by calling get_channel_partner_ship_to_preferences()
-channel_partner_shipto_preference_oid = 67890
-channel_partner_oid = 12345
+ultracart_order_id = 'DEMO-0009106201'
 
-channel_partner_api.delete_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_shipto_preference_oid)
+try:
+    cancel_result = channel_partner_api.cancel_order_by_ultra_cart_order_id(ultracart_order_id)
+    if not hasattr(cancel_result, 'success'):
+        for error in cancel_result.cancel_errors:
+            print(error)
+
+except ApiException as e:
+    print(e)  # Prints the exception information
 ```
 
 
@@ -214,76 +249,27 @@ Delete a ship to preference record for the channel partner.
 
 ```python
 """
-This is a helper function for call centers to calculate the shipping cost on an order. In a typical flow, the call center
-will collect all the shipping information and items being purchased into a ChannelPartnerOrder object.
-They will then call this method, passing in the order object. The response will contain the shipping estimates
-that the call center can present to the customer. Once the customer selects a particulate estimate,
-they can then plug that cost into their call center application and complete the order.
+Deletes a ChannelPartnerShiptoPreference. These preferences are used by EDI channel partners to automatically
+apply return policies and add additional free items to EDI orders based on the EDI code that is present.
+
+Success will return a status code 204 (No content)
 
 Possible Errors:
-Using an API key that is not tied to a channel partner: "This API Key does not have permission to interact with channel partner orders. Please review your Channel Partner configuration."
-Order has invalid channel partner code: "Invalid channel partner code"
-Order has no items: "null order.items passed." or "order.items array contains a null entry."
-Order has no channel partner order id: "order.channelPartnerOrderId must be specified."
-Order channel partner order id is a duplicate: "order.channelPartnerOrderId [XYZ] already used."
-Channel Partner is inactive: "partner is inactive."
+Attempting to interact with a channel partner other than the one tied to your API Key:
+    "Invalid channel_partner_oid specified. Your REST API key may only interact with channel_partner_oid: 12345"
+Supply a bad preference oid: "Invalid channel_partner_ship_to_preference_oid specified."
 """
 
 from ultracart.apis import ChannelPartnerApi
-from ultracart.models import ChannelPartnerOrder, ChannelPartnerOrderItem, ChannelPartnerOrderItemOption
 from samples import channel_partner_api_client
-from datetime import datetime, timedelta
 
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-order = ChannelPartnerOrder()
-order.channel_partner_order_id = "widget-1245-abc-1"
-order.coupons = ["10OFF"]
-# Delivery date will impact shipping estimates if there is a delivery deadline.
-# order.delivery_date = (datetime.now() + timedelta(days=14)).isoformat()
+# you will usually get this by calling get_channel_partner_ship_to_preferences()
+channel_partner_shipto_preference_oid = 100201
+channel_partner_oid = 18413
 
-item = ChannelPartnerOrderItem()
-# item.arbitrary_unit_cost = 9.99
-# item.auto_order_last_rebill_dts = (datetime.now() - timedelta(days=30)).isoformat()
-# item.auto_order_schedule = "Weekly"
-item.merchant_item_id = "shirt"
-
-size_option = ChannelPartnerOrderItemOption()
-size_option.name = "Size"
-size_option.value = "Small"
-
-color_option = ChannelPartnerOrderItemOption()
-color_option.name = "Color"
-color_option.value = "Orange"
-
-item.options = [size_option, color_option]
-item.quantity = 1
-item.upsell = False
-
-order.items = [item]
-
-# order.ship_on_date = (datetime.now() + timedelta(days=7)).isoformat()
-order.ship_to_residential = True
-order.shipto_address1 = "55 Main Street"
-order.shipto_address2 = "Suite 202"
-order.shipto_city = "Duluth"
-order.shipto_company = "Widgets Inc"
-order.shipto_country_code = "US"
-order.shipto_day_phone = "6785552323"
-order.shipto_evening_phone = "7703334444"
-order.shipto_first_name = "Sally"
-order.shipto_last_name = "McGonkyDee"
-order.shipto_postal_code = "30097"
-order.shipto_state_region = "GA"
-order.shipto_title = "Director"
-
-api_response = channel_partner_api.estimate_shipping_for_channel_partner_order(order)
-estimates = api_response.estimates
-
-# TODO: Apply one estimate shipping method (name) and cost to your channel partner order.
-
-for estimate in estimates:
-    print(estimate)
+channel_partner_api.delete_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_shipto_preference_oid)
 ```
 
 
@@ -361,7 +347,7 @@ color_option.name = "Color"
 color_option.value = "Orange"
 
 item.options = [size_option, color_option]
-item.quantity = 1
+item.quantity = 1.0
 item.upsell = False
 
 order.items = [item]
@@ -465,7 +451,7 @@ color_option.name = "Color"
 color_option.value = "Orange"
 
 item.options = [size_option, color_option]
-item.quantity = 1
+item.quantity = 1.0
 item.upsell = False
 
 order.items = [item]
@@ -478,7 +464,17 @@ order.shipto_city = "Duluth"
 order.shipto_company = "Widgets Inc"
 order.shipto_country_code = "US"
 order.shipto_day_phone = "6785552323"
-ord
+order.shipto_evening_phone = "7703334444"
+order.shipto_first_name = "Sally"
+order.shipto_last_name = "McGonkyDee"
+order.shipto_postal_code = "30097"
+order.shipto_state_region = "GA"
+order.shipto_title = "Director"
+
+api_response = channel_partner_api.estimate_tax_for_channel_partner_order(order)
+tax = api_response.arbitrary_tax
+
+print(tax)
 ```
 
 
@@ -556,10 +552,10 @@ taxes
 expand = "item,summary,shipping"
 
 # This order MUST be an order associated with this channel partner or you will receive a 400 Bad Request.
-order_id = 'DEMO-0009110366'
+order_id = 'DEMO-0009106202'
 api_response = channel_partner_api.get_channel_partner_order(order_id, expand=expand)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -645,10 +641,10 @@ taxes
 expand = "item,summary,shipping"
 
 # This order MUST be an order associated with this channel partner or you will receive a 400 Bad Request.
-channel_partner_order_id = 'MY-CALL-CENTER-BLAH-BLAH'
+channel_partner_order_id = 'ORD847K4M'
 api_response = channel_partner_api.get_channel_partner_order_by_channel_partner_order_id(channel_partner_order_id, expand=expand)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -781,11 +777,11 @@ Supplying a bad channel partner shipto preference oid: "Invalid channel_partner_
 """
 
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
-channel_partner_oid = 12345
-channel_partner_shipto_preference_oid = 67890
+channel_partner_oid = 18413
+channel_partner_shipto_preference_oid = 100221
 api_response = channel_partner_api.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_shipto_preference_oid)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -859,10 +855,10 @@ Supplying a bad channel partner oid: "Invalid channel_partner_oid specified."
 """
 
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
-channel_partner_oid = 12345
+channel_partner_oid = 18413
 api_response = channel_partner_api.get_channel_partner_ship_to_preferences(channel_partner_oid)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -932,7 +928,7 @@ Channel Partner, then the results will contain only that Channel Partner.
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 api_response = channel_partner_api.get_channel_partners()
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -1152,7 +1148,8 @@ order.billto_title = "Sir"
 order.cc_email = "orders@widgets.com"
 order.channel_partner_order_id = "widget-1245-abc"
 order.consider_recurring = False
-order.coupons = ["10OFF", "BUY1GET1"]
+# order.coupons = ["10OFF", "BUY1GET1"]
+order.coupons = ["10OFF"]
 
 order.credit_card_expiration_month = 5
 order.credit_card_expiration_year = 2032
@@ -1313,7 +1310,7 @@ from samples import channel_partner_api_client
 
 # Initialize API
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
-channel_partner_oid = 12345
+channel_partner_oid = 18413
 
 # Create preference object
 preference = ChannelPartnerShipToPreference()
@@ -1326,7 +1323,7 @@ preference.description = "This is a merchant friendly description to help me rem
 # Insert the preference
 api_response = channel_partner_api.insert_channel_partner_ship_to_preference(channel_partner_oid, preference)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
@@ -1385,6 +1382,8 @@ Perform a refund operation on a channel partner order and then update the order 
 
 ```python
 from ultracart.apis import ChannelPartnerApi
+from ultracart.model.currency import Currency
+
 from samples import channel_partner_api_client
 
 # Initialize API
@@ -1394,47 +1393,62 @@ channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 expand = "item,summary,shipping"
 
 # Order ID must be associated with this channel partner
-order_id = 'DEMO-0009106820'
+order_id = 'DEMO-0009106202'
 api_response = channel_partner_api.get_channel_partner_order(order_id, expand=expand)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()
 
 order = api_response.order
+print(order)
 
 # Set refund details
-order.refund_reason = 'Damage Product'
-order.summary.tax_refunded = order.summary.tax_refunded
-order.summary.shipping_handling_refunded = order.summary.shipping_handling_total
+order.refund_reason = 'Abandoned'
+order.reject_reason = 'Abandoned'
+order['summary']['tax_refunded'] = Currency()
+order['summary']['tax_refunded'].value = order['summary']['tax']['value']
+
+order['summary']['shipping_handling_refunded'] = Currency()
+order['summary']['shipping_handling_refunded'].value = order['summary']['shipping_handling_total']['value']
 
 # Process refunds for all items
-for item in order.items:
-    item.refund_reason = 'DifferentItem'
-    item.quantity_refunded = item.quantity
-    item.total_refunded = item.total_cost_with_discount
+for item in order['items']:
+    item['refund_reason'] = 'DifferentItem'
+    item['quantity_refunded'] = item['quantity']
+    item['total_refunded'] = Currency()
+    item['total_refunded'].value = item['total_cost_with_discount'].value
 
 # Refund parameters
 reject_after_refund = False
-skip_customer_notifications = True
+skip_customer_notification = True
 auto_order_cancel = False  # Set True to cancel auto orders
-manual_refund = False  # Set True if refund processed outside system
+manual_refund = True  # Set True if refund processed outside system
 reverse_affiliate_transactions = True  # Whether affiliate should get credit
 issue_store_credit = False  # True for store credit instead of card refund
-auto_order_cancel_reason = None
+# auto_order_cancel_reason = ''
 
 # Process the refund
 api_response = channel_partner_api.refund_channel_partner_order(
-    order_id, order, reject_after_refund, skip_customer_notifications,
-    auto_order_cancel, manual_refund, reverse_affiliate_transactions,
-    issue_store_credit, auto_order_cancel_reason, expand=expand
+    order_id,
+    order,
+    reject_after_refund=reject_after_refund,
+    skip_customer_notification=skip_customer_notification,
+    auto_order_cancel=auto_order_cancel,
+    manual_refund=manual_refund,
+    reverse_affiliate_transactions=reverse_affiliate_transactions,
+    issue_store_credit=issue_store_credit,
+    # auto_order_cancel_reason=auto_order_cancel_reason,
+    expand=expand
 )
 
-error = api_response.error
+if hasattr(api_response, 'error'):
+    error = api_response.error
+    print(error)
+    exit(1)
+
 updated_order = api_response.order
-print(error)
-print("\n\n")
 print(updated_order)
 ```
 
@@ -1500,8 +1514,8 @@ from samples import channel_partner_api_client
 
 # Initialize API
 channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
-channel_partner_oid = 12345
-channel_partner_ship_to_preference_oid = 67890
+channel_partner_oid = 18413
+channel_partner_ship_to_preference_oid = 100221
 
 # Get existing preference
 api_response = channel_partner_api.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid)
@@ -1517,7 +1531,7 @@ preference.description = "This is a merchant friendly description to help me rem
 # Update the preference
 api_response = channel_partner_api.update_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, preference)
 
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(api_response.error.developer_message)
     print(api_response.error.user_message)
     exit()

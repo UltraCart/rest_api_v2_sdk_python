@@ -295,8 +295,8 @@ from samples import api_client
 item_api = ItemApi(api_client())
 
 # Specify item and review OIDs
-merchant_item_oid = 123456
-review_oid = 987654
+merchant_item_oid = 794919
+review_oid = 33431
 
 # Delete the review
 item_api.delete_review(review_oid, merchant_item_oid)
@@ -496,7 +496,8 @@ try:
     """
 
     # Create a digital item to get an item
-    digital_item_oid = insert_sample_digital_item()
+    # TODO - uncomment this if you have no digital items in your account.  but this can only be run once, after which you'll get a duplicate image error
+    # digital_item_oid = insert_sample_digital_item()
 
     # Create Item API client
     item_api = ItemApi(api_client())
@@ -504,16 +505,10 @@ try:
     # Set parameters for getDigitalItems
     limit = 100
     offset = 0
-    since = None  # digital items do not use since. leave as None.
-    sort = None  # if None, use default of original_filename
-    expand = None  # digital items have no expansion. leave as None. this value is ignored
-    placeholders = None  # digital items have no placeholders. leave as None.
 
     # Retrieve digital items
-    api_response = item_api.get_digital_items(limit=limit, offset=offset, since=since,
-                                              sort=sort, expand=expand,
-                                              placeholders=placeholders)
-    digital_items = api_response.get_digital_items()  # assuming this succeeded
+    api_response = item_api.get_digital_items(limit=limit, offset=offset)
+    digital_items = api_response.digital_items  # assuming this succeeded
 
     print('The following items were retrieved via get_digital_items():')
     for digital_item in digital_items:
@@ -592,24 +587,27 @@ try:
     """
 
     # Generate a unique external ID
-    external_id = str(uuid.uuid4())
+    # external_id = str(uuid.uuid4())
+    external_id = 'something_random'
     print(f'My external id is {external_id}')
 
     # Create digital item with a specific external id I can later use
-    digital_item_oid = insert_sample_digital_item(external_id)
+    # TODO - uncomment this if you need to create a digital item, but this will error if it has run before with a duplicate image error
+    # digital_item_oid = insert_sample_digital_item(external_id)
 
     # Create Item API client
     item_api = ItemApi(api_client())
 
     # Retrieve digital items by external ID
     api_response = item_api.get_digital_items_by_external_id(external_id)
-    digital_items = api_response.get_digital_items()  # assuming this succeeded
+    digital_items = api_response.digital_items  # assuming this succeeded
 
     print('The following item was retrieved via get_digital_items_by_external_id():')
     print(digital_items)
 
     # Delete the sample digital item
-    delete_sample_digital_item(digital_item_oid)
+    # TODO - uncomment this if you created the sample digital item above
+    # delete_sample_digital_item(digital_item_oid)
 
 except Exception as e:
     print('An exception occurred. Please review the following error:')
@@ -731,8 +729,8 @@ try:
     inventories = api_response.inventories
 
     # Iterate and print inventories
-    for inventory in inventories:
-        print(inventory)
+    #for inventory in inventories:
+    #   print(inventory)
 
 except ApiException as e:
     print('An ApiException occurred. Please review the following error:')
@@ -806,10 +804,10 @@ try:
     customer_api = CustomerApi(api_client())  # only needed for accessing reviewer information below
 
     # The expand variable is None in the following call. We just need the base object this time.
-    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=None, active=False)
-    item = api_response.get_item()  # assuming this succeeded
+    api_response = item_api.get_item_by_merchant_item_id(item_id, expand='')
+    item = api_response.item  # assuming this succeeded
 
-    merchant_item_oid = item.get_merchant_item_oid()
+    merchant_item_oid = item['merchant_item_oid']
 
     """
     The real devil in the getItem calls is the expansion, making sure you return everything you need without
@@ -828,28 +826,28 @@ try:
     """
     # Expand reviews to illustrate accessing product reviews
     expand = "reviews,reviews.individual_reviews"
-    api_response = item_api.get_item(merchant_item_oid, expand=expand, active=False)
-    item = api_response.get_item()
+    api_response = item_api.get_item(merchant_item_oid, expand=expand)
+    item = api_response.item
 
-    item_reviews = item.get_reviews()
-    individual_reviews = item_reviews.get_individual_reviews()
-
-    # Iterate through individual reviews
-    for individual_review in individual_reviews:
-        # Access rating names and scores (configurable by merchant)
-        # See Home -> Configuration -> Items -> Reviews -> Settings
-        # Or this URL: https://secure.ultracart.com/merchant/item/review/reviewSettingsLoad.do
-        rating_name1 = individual_review.get_rating_name1()  # Not the full question, but a key string
-        rating_score1 = individual_review.get_rating_score1()
-
-        # Retrieve reviewer information (careful: can result in many API calls)
-        # Consider adding sleep calls and caching results daily or weekly
-        customer_response = customer_api.get_customer(
-            individual_review.get_customer_profile_oid(),
-            expand="reviewer"
-        )
-        customer = customer_response.get_customer()
-        reviewer = customer.get_reviewer()
+    # item_reviews = item['reviews']
+    # individual_reviews = item_reviews['individual_reviews']
+    #
+    # # Iterate through individual reviews
+    # for individual_review in individual_reviews:
+    #     # Access rating names and scores (configurable by merchant)
+    #     # See Home -> Configuration -> Items -> Reviews -> Settings
+    #     # Or this URL: https://secure.ultracart.com/merchant/item/review/reviewSettingsLoad.do
+    #     rating_name1 = individual_review['rating_name1']  # Not the full question, but a key string
+    #     rating_score1 = individual_review['rating_score1']
+    #
+    #     # Retrieve reviewer information (careful: can result in many API calls)
+    #     # Consider adding sleep calls and caching results daily or weekly
+    #     customer_response = customer_api.get_customer(
+    #         individual_review['customer_profile_oid'],
+    #         expand="reviewer"
+    #     )
+    #     customer = customer_response.customer
+    #     reviewer = customer.reviewer
 
     print('The following item was retrieved via get_item():')
     print(item)
@@ -943,8 +941,8 @@ try:
     tax, third_party_email_marketing, variations, wishlist_member
     """
     expand = "kit_definition,options,shipping,tax,variations"
-    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand, active=False)
-    item = api_response.get_item()
+    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand)
+    item = api_response.item
 
     print('The following item was retrieved via get_item_by_merchant_item_id():')
     print(item)
@@ -1033,17 +1031,16 @@ def get_item_chunk(item_api, offset, limit):
 
     # Retrieve items with no category filtering
     api_response = item_api.get_items(
-        parent_category_id=None,
-        parent_category_path=None,
+        # parent_category_id=0,
+        # parent_category_path='',
         limit=limit,
         offset=offset,
-        since=None,
-        sort=None,
-        expand=expand,
-        active=False
+        # since='', # don't pass anything if you wish defaults.
+        # sort='', # don't pass anything if you wish defaults.
+        expand=expand
     )
 
-    return api_response.get_items() or []
+    return api_response.items or []
 
 
 def main():
@@ -1079,7 +1076,7 @@ def main():
         sys.exit(1)
 
     # Print all retrieved items (will be verbose)
-    print(items)
+    # print(items)
 
 
 if __name__ == "__main__":
@@ -1160,7 +1157,7 @@ except Exception as e:
     print(e)
     raise
 
-print(api_response.get_pricing_tiers())
+# print(api_response.pricing_tiers)
 ```
 
 
@@ -1232,24 +1229,25 @@ call ItemApi.get_reviews() to get all reviews where you can then grab the oid fr
 item_api = ItemApi(api_client())
 
 # Example OIDs (replace with actual values)
-merchant_item_oid = 123456
-review_oid = 987654
+merchant_item_oid = 226937
+review_oid = 206522
 
 # Retrieve the specific review
 api_response = item_api.get_review(review_oid, merchant_item_oid)
 
 # Check for errors
-if api_response.get_error() is not None:
-    error = api_response.get_error()
-    print(f"Developer Message: {error.get_developer_message()}")
-    print(f"User Message: {error.get_user_message()}")
+if hasattr(api_response, 'error') and api_response.error is not None:
+    error = api_response.error
+    print(f"Developer Message: {error.developer_message}")
+    print(f"User Message: {error.user_message}")
     raise Exception("Review retrieval failed")
 
-# Get the review
-review = api_response.get_review()
+else:
+    # Get the review
+    review = api_response.review
 
-# Print the review
-print(review)
+    # Print the review
+    # print(review)
 ```
 
 
@@ -1315,21 +1313,21 @@ ItemApi.getItemByMerchantItemId() to retrieve the item, and then it's oid $item-
 item_api = ItemApi(api_client())
 
 # Specify the merchant item OID
-merchant_item_oid = 123456
+merchant_item_oid = 226937
 
 # Retrieve reviews
-api_response = item_api.get_item_reviews(merchant_item_oid)
+api_response = item_api.get_reviews(merchant_item_oid)
 
 # Check for errors
-if api_response.error is not None:
+if hasattr(api_response, 'error') and api_response.error is not None:
     print(f"Developer Message: {api_response.error.developer_message}")
     print(f"User Message: {api_response.error.user_message}")
     exit()
 
 # Process and print reviews
 reviews = api_response.reviews
-for review in reviews:
-    print(review)
+#for review in reviews:
+#    print(review)
 ```
 
 
@@ -1405,34 +1403,38 @@ try:
     # Create an unassociated digital item
     digital_item_oid = insert_sample_digital_item()
 
+except ApiException as e:
+    print('Ignoring create digital item error as it is probably due to trying to insert the same image multiple times.')
+
+
+try:
     # Initialize Item API
     item_api = ItemApi(api_client())
 
     # Set up parameters for retrieving unassociated digital items
     limit = 100
     offset = 0
-    since = None  # digital items do not use since.  leave as None
-    sort = None  # if None, use default of original_filename
-    expand = None  # digital items have no expansion.  leave as None
-    placeholders = None  # digital items have no placeholders. leave as None
+    # since = ''  # digital items do not use since.  do not provide
+    # sort = ''  # if empty, use default of original_filename
+    expand = ''  # digital items have no expansion.  don't provide
+    # placeholders = ''  # digital items have no placeholders. do not provide
 
     # Retrieve unassociated digital items
     api_response = item_api.get_unassociated_digital_items(
         limit=limit,
         offset=offset,
-        since=since,
-        sort=sort,
-        expand=expand,
-        placeholders=placeholders
+        # since=since,
+        # sort=sort,
+        expand=expand
     )
 
     # Extract digital items from the response
     digital_items = api_response.digital_items
 
     # Print retrieved digital items
-    print('The following items were retrieved via get_unassociated_digital_items():')
-    for digital_item in digital_items:
-        print(digital_item)
+    # print('The following items were retrieved via get_unassociated_digital_items():')
+    # for digital_item in digital_items:
+    #    print(digital_item)
 
 except ApiException as e:
     print('An ApiException occurred. Please review the following error:')
@@ -1808,7 +1810,7 @@ Success will return back a status code of 204 (No Content)
 item_api = ItemApi(api_client())
 
 # Specify the merchant item OID
-merchant_item_oid = 12345
+merchant_item_oid = 226937
 
 # Create content attribute
 attribute = ItemContentAttribute(
@@ -1994,59 +1996,48 @@ Update a new item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-from flask import Flask
 from ultracart import ApiException
 from ultracart.apis import ItemApi
 from samples import api_client
 from item_functions import insert_sample_item, delete_sample_item
 
-app = Flask(__name__)
+try:
+    # Insert a sample item
+    item_id = insert_sample_item()
 
+    # Create Item API client
+    item_api = ItemApi(api_client())
 
-@app.route('/update_item')
-def update_item():
-    try:
-        # Insert a sample item
-        item_id = insert_sample_item()
+    # Expand pricing information
+    expand = "pricing"
 
-        # Create Item API client
-        item_api = ItemApi(api_client())
+    # Get the item by merchant item ID
+    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand)
+    item = api_response.item
 
-        # Expand pricing information
-        expand = "pricing"
+    # Store original price
+    original_price = item['pricing']['cost']
 
-        # Get the item by merchant item ID
-        api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand, _expand=False)
-        item = api_response.get_item()
+    # Update the item's price
+    item_pricing = item['pricing']
+    item_pricing.cost = 12.99
 
-        # Store original price
-        original_price = item.get_pricing().get_cost()
+    # Update the item
+    api_response = item_api.update_item(item.merchant_item_oid, item, expand=expand)
+    updated_item = api_response.item
 
-        # Update the item's price
-        item_pricing = item.get_pricing()
-        item_pricing.set_cost(12.99)
+    # Print price changes
+    print(f'Original Price: {original_price}')
+    print(f"Updated Price: {updated_item['pricing']['cost']}")
 
-        # Update the item
-        api_response = item_api.update_item(item.get_merchant_item_oid(), item, expand=expand, _expand=False)
-        updated_item = api_response.get_item()
+    # Delete the sample item
+    delete_sample_item(item_id)
 
-        # Print price changes
-        print(f'Original Price: {original_price}')
-        print(f'Updated Price: {updated_item.get_pricing().get_cost()}')
+    print("Item update successful")
 
-        # Delete the sample item
-        delete_sample_item(item_id)
-
-        return "Item update successful"
-
-    except ApiException as e:
-        print('An ApiException occurred. Please review the following error:')
-        print(e)
-        return "Error updating item", 500
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
 ```
 
 
@@ -2100,59 +2091,52 @@ Update multiple item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-from flask import Flask
 from ultracart import ApiException
 from ultracart.apis import ItemApi
 from ultracart.models import ItemsRequest
 from samples import api_client
 from item_functions import insert_sample_item, delete_sample_item
 
-app = Flask(__name__)
 
-@app.route('/update_multiple_items')
-def update_multiple_items():
-    try:
-        # Insert two sample items
-        item_id1 = insert_sample_item()
-        item_id2 = insert_sample_item()
+try:
+    # Insert two sample items
+    item_id1 = insert_sample_item()
+    item_id2 = insert_sample_item()
 
-        # Create Item API client
-        item_api = ItemApi(api_client())
+    # Create Item API client
+    item_api = ItemApi(api_client())
 
-        # Expand pricing information
-        expand = "pricing"
+    # Expand pricing information
+    expand = "pricing"
 
-        # Get items by merchant item IDs
-        api_response = item_api.get_item_by_merchant_item_id(item_id1, expand=expand, _expand=False)
-        item1 = api_response.get_item()
-        api_response = item_api.get_item_by_merchant_item_id(item_id2, expand=expand, _expand=False)
-        item2 = api_response.get_item()
+    # Get items by merchant item IDs
+    api_response = item_api.get_item_by_merchant_item_id(item_id1, expand=expand)
+    item1 = api_response.item
+    api_response = item_api.get_item_by_merchant_item_id(item_id2, expand=expand)
+    item2 = api_response.item
 
-        # Update prices of items
-        item1.get_pricing().set_cost(12.99)
-        item2.get_pricing().set_cost(14.99)
+    # Update prices of items
+    item1.pricing.cost = 12.99
+    item2.pricing.cost = 14.99
 
-        # Create items request
-        update_items_request = ItemsRequest()
-        items = [item1, item2]
-        update_items_request.items = items
+    # Create items request
+    update_items_request = ItemsRequest()
+    items = [item1, item2]
+    update_items_request.items = items
 
-        # Update multiple items
-        item_api.update_items(update_items_request, expand=expand, _expand=False, _async=False)
+    # Update multiple items
+    item_api.update_items(update_items_request, expand=expand)
 
-        # Delete sample items
-        delete_sample_item(item_id1)
-        delete_sample_item(item_id2)
+    # Delete sample items
+    delete_sample_item(item_id1)
+    delete_sample_item(item_id2)
 
-        return "Multiple items updated successfully"
+    print("Multiple items updated successfully")
 
-    except ApiException as e:
-        print('An ApiException occurred. Please review the following error:')
-        print(e)
-        return "Error updating items", 500
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
 
-if __name__ == '__main__':
-    app.run(debug=True)
 ```
 
 
@@ -2270,69 +2254,62 @@ from samples import api_client
 from item_functions import insert_sample_item
 
 
-def update_item():
-    try:
-        # Insert a sample item
-        item_id = insert_sample_item()
-        # Create Item API client
-        item_api = ItemApi(api_client())
+try:
+    # Insert a sample item
+    item_id = insert_sample_item()
+    # Create Item API client
+    item_api = ItemApi(api_client())
 
-        with open('./ultracart_icon.png', 'rb') as file:
-
-
-            file_blob = io.BytesIO(file.read())
-            file_blob.name = 'ultracart_icon.png'
-
-            # upload the file and get the resultant oid
-            upload_response = item_api.upload_temporary_multimedia(file = file_blob)
-            pprint.pprint(upload_response)
-
-            temp_oid = upload_response['temp_multimedia']['temp_multimedia_oid']
-
-            # Expand pricing information
-            expand = "content.multimedia"
-            get_response = item_api.get_item_by_merchant_item_id(merchant_item_id = item_id, expand = expand)
-            item = get_response['item']
-
-            content = item['content']
-            if content is None:
-                content = ItemContent()
-                item['content'] = content
-
-            multimedia = content['multimedia']
-            if multimedia is None:
-                multimedia = []
-                content['multimedia'] = multimedia
-
-            a_multimedia = ItemContentMultimedia()
-            a_multimedia.file_name = 'ultracart_icon.png'
-            a_multimedia.description = 'ultracart icon'
-            a_multimedia.temp_multimedia_oid = temp_oid
-            multimedia.append(a_multimedia)
-
-            # this DOES work
-            b_multimedia = ItemContentMultimedia()
-            b_multimedia.file_name = 'universe.png'
-            b_multimedia.code = 'universe'
-            b_multimedia.description = 'some random NASA picture'
-            b_multimedia.url = 'https://www.nasa.gov/wp-content/uploads/2022/07/web_first_images_release.png?resize=2000,1158'
-            multimedia.append(b_multimedia)
-
-            update_response = item_api.update_item(merchant_item_oid = item.merchant_item_oid, item = item, expand = expand)
-
-            pprint.pprint(update_response)
+    with open('./ultracart_icon.png', 'rb') as file:
 
 
+        file_blob = io.BytesIO(file.read())
+        file_blob.name = 'ultracart_icon.png'
 
-    except ApiException as e:
-        print('An ApiException occurred. Please review the following error:')
-        print(e)
-        return "Error updating item", 500
+        # upload the file and get the resultant oid
+        upload_response = item_api.upload_temporary_multimedia(file = file_blob)
+        pprint.pprint(upload_response)
+
+        temp_oid = upload_response['temp_multimedia']['temp_multimedia_oid']
+
+        # Expand pricing information
+        expand = "content.multimedia"
+        get_response = item_api.get_item_by_merchant_item_id(merchant_item_id = item_id, expand = expand)
+        item = get_response['item']
+
+        content = item['content']
+        if content is None:
+            content = ItemContent()
+            item['content'] = content
+
+        multimedia = content['multimedia']
+        if multimedia is None:
+            multimedia = []
+            content['multimedia'] = multimedia
+
+        a_multimedia = ItemContentMultimedia()
+        a_multimedia.file_name = 'ultracart_icon.png'
+        a_multimedia.description = 'ultracart icon'
+        a_multimedia.temp_multimedia_oid = temp_oid
+        multimedia.append(a_multimedia)
+
+        # this DOES work
+        b_multimedia = ItemContentMultimedia()
+        b_multimedia.file_name = 'universe.png'
+        b_multimedia.code = 'universe'
+        b_multimedia.description = 'some random NASA picture'
+        b_multimedia.url = 'https://www.nasa.gov/wp-content/uploads/2022/07/web_first_images_release.png?resize=2000,1158'
+        multimedia.append(b_multimedia)
+
+        update_response = item_api.update_item(merchant_item_oid = item.merchant_item_oid, item = item, expand = expand)
+
+        pprint.pprint(update_response)
 
 
-if __name__ == '__main__':
-    update_item()
 
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
 ```
 
 

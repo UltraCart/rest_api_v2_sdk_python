@@ -199,8 +199,9 @@ Delete a custom report on the UltraCart account.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -351,8 +352,9 @@ Execute a custom report on the UltraCart account.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -649,8 +651,9 @@ Retrieve a custom report
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -699,8 +702,9 @@ Retrieve a custom report account configuration
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -796,8 +800,9 @@ Retrieve a custom reports
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1045,8 +1050,9 @@ Retrieve a list of reports available
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1193,8 +1199,9 @@ Create a new custom report on the UltraCart account.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1397,8 +1404,9 @@ Update a custom report on the UltraCart account.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1448,8 +1456,9 @@ Update custom report account config.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 

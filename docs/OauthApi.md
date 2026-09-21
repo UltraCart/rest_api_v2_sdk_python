@@ -141,8 +141,9 @@ Initiates the device authorization flow by returning a device code and user code
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 

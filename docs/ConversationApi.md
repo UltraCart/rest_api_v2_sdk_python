@@ -162,8 +162,9 @@ Delete a knowledge base document
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -263,8 +264,9 @@ Sets active=false on the row and the DDB sync record. The Twilio Activity is pre
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -461,8 +463,9 @@ Delete a pbx address
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -612,8 +615,9 @@ Delete a class of service
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -662,8 +666,9 @@ Delete a pbx hardware phone
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1068,8 +1073,9 @@ Delete a pbx audio file owned by the authenticated user
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1213,8 +1219,9 @@ Retrieve knowledge base documents
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1415,8 +1422,9 @@ Retrieve the agents profile
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1462,8 +1470,9 @@ Returns all custom statuses (active and soft-deactivated) for the merchant.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1508,8 +1517,9 @@ Returns ECharts-shaped agent x hour grid for the requested metric (availability,
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1553,8 +1563,9 @@ Top-line summary: total_agents, avg_available_pct, status_breakdown, per-agent r
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1601,8 +1612,9 @@ Returns merged status events + PBX calls + chat conversations for the agent on t
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2044,8 +2056,9 @@ Retrieve an item with sparse variations populated
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2094,8 +2107,9 @@ Get a pre-signed conversation knowledge base document upload URL
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2651,8 +2665,9 @@ Retrieve a pbx address
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -2701,8 +2716,9 @@ Retrieve pbx addresses
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3096,8 +3112,9 @@ Retrieve a single PBX call record with full details
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3146,8 +3163,9 @@ Retrieve a single class of service
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3196,8 +3214,9 @@ Retrieve all classes of service for the merchant
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3243,8 +3262,9 @@ Retrieve audit log entries for class of service enforcement
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3296,8 +3316,9 @@ Returns the merchant's stored default timezone (IANA name). Falls back to Americ
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3338,8 +3359,9 @@ Retrieve a pbx hardware phone
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3388,8 +3410,9 @@ Retrieve pbx hardware phone manufacturers and models for auto-provisioning
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -3435,8 +3458,9 @@ Retrieve pbx hardware phones
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4127,8 +4151,9 @@ Retrieve voicemail notification capabilities including available channels
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4273,8 +4298,9 @@ Retrieve a pbx audio file owned by the authenticated user
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4323,8 +4349,9 @@ Retrieve pbx audio files owned by the authenticated user
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4464,8 +4491,9 @@ Insert a knowledge base document
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4566,8 +4594,9 @@ Create a custom status. Enforces a 20-active-status-per-merchant cap and the 50-
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4769,8 +4798,9 @@ Insert a pbx address
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4870,8 +4900,9 @@ Create a new class of service
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -4920,8 +4951,9 @@ Insert a pbx hardware phone
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5225,8 +5257,9 @@ Insert a pbx audio file for the authenticated user
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5578,8 +5611,9 @@ Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot 
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5628,8 +5662,9 @@ Purchase a phone number from Twilio. The phone_number must be from the available
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5678,8 +5713,9 @@ Update a pbx hardware phone
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5779,8 +5815,9 @@ Paginated search over conversation_agent_status_events_all. Filters: agent_user_
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5826,8 +5863,9 @@ Aggregated over conversation_agent_status_events_all via date_histogram + terms.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5922,8 +5960,9 @@ Search for available phone numbers from Twilio that can be purchased
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -5978,8 +6017,9 @@ Search and list PBX call records with filtering, sorting, and pagination
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -6286,8 +6326,9 @@ Update a custom status. Renaming flows through to the Twilio Activity.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -6544,8 +6585,9 @@ Update a pbx address
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -6750,8 +6792,9 @@ Update an existing class of service
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -6801,8 +6844,9 @@ Persists the IANA timezone on the Config#<merchant_id>/default DDB record (creat
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -6846,8 +6890,9 @@ Update a pbx hardware phone
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -7209,8 +7254,9 @@ Update a pbx audio file owned by the authenticated user
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 

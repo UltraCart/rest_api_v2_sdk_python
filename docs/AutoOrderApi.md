@@ -88,8 +88,28 @@ Cancels a single item on an auto order identified by the original order id and t
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+# Cancel a single item on an auto order, identified by the reference (original) order id
+# that placed the auto order and the original item id on that order. This is useful when
+# you know the original UltraCart order id rather than the auto_order_oid.
 
-(No example for this operation).
+from ultracart.apis import AutoOrderApi
+from samples import api_client
+
+auto_order_api = AutoOrderApi(api_client())
+
+reference_order_id = "DEMO-12345678"  # the UltraCart order id that placed the auto order
+original_item_id   = "ITEM001"        # the merchant item id on that original order
+expand             = "items"          # see https://www.ultracart.com/api/#resource_auto_order.html for list
+
+response = auto_order_api.cancel_auto_order_item_by_reference_order_id(
+    reference_order_id,
+    original_item_id,
+    expand=expand
+)
+auto_order = response.auto_order
+print(auto_order)
+```
 
 
 
@@ -158,11 +178,11 @@ def consolidate_auto_orders():
     expand = "items,items.future_schedules,original_order,rebill_orders"
 
     # set getAutoOrdersByQuery for retrieving auto orders where you can get their auto_order_oid
-    target_auto_order_oid = 123456789
+    target_auto_order_oid = 7829098
 
     consolidate_request = AutoOrderConsolidate()
-    # these are the autoorder_oids you wish to consolidate into the target
-    consolidate_request.source_auto_order_oids = [23456789, 3456789]
+    # these are the auto_order_oid you wish to consolidate into the target
+    consolidate_request.source_auto_order_oids = [7829798, 7806098]
 
     api_response = auto_order_api.consolidate_auto_orders(
         target_auto_order_oid,
@@ -245,7 +265,7 @@ def establish_and_update_auto_order():
     # see https://www.ultracart.com/api/#resource_auto_order.html for list
     expand = "items,items.future_schedules,original_order,rebill_orders"
 
-    original_order_id = "DEMO-123457"
+    original_order_id = "DEMO-0009106215"
     api_response = auto_order_api.establish_auto_order_by_reference_order_id(original_order_id, expand=expand)
 
     empty_auto_order = api_response.auto_order
@@ -253,8 +273,8 @@ def establish_and_update_auto_order():
 
     items = []
     item = AutoOrderItem()
-    item.original_item_id = "ITEM_ABC"  # This item should be configured with auto order features.
-    item.original_quantity = 1
+    item.original_item_id = "99-AO"  # This item should be configured with auto order features.
+    item.original_quantity = 1.0
     item.arbitrary_unit_cost = 59.99
 
     # Valid Frequencies
@@ -265,7 +285,7 @@ def establish_and_update_auto_order():
     empty_auto_order.items = items
 
     validate_original_order = 'No'
-    api_response = auto_order_api.update_auto_order(auto_order_oid, empty_auto_order, validate_original_order, expand=expand)
+    api_response = auto_order_api.update_auto_order(auto_order_oid, empty_auto_order, validate_original_order=validate_original_order, expand=expand)
     updated_auto_order = api_response.auto_order
     print(updated_auto_order)
 
@@ -336,7 +356,7 @@ def get_auto_order():
     expand = "items,items.future_schedules,original_order,rebill_orders"
 
     # If you don't know the oid, use getAutoOrdersByQuery for retrieving auto orders
-    auto_order_oid = 123456789
+    auto_order_oid = 2133352
     api_response = auto_order_api.get_auto_order(auto_order_oid, expand=expand)
     auto_order = api_response.auto_order
     print(auto_order)
@@ -469,7 +489,7 @@ def get_auto_order_by_code():
 
     # contact us if you're unsure what you need
     expand = "items,items.future_schedules,original_order,rebill_orders"
-    code = "RT2A9CBSX9"
+    code = "MG494JTC7Z"
     api_response = auto_order_api.get_auto_order_by_code(code, expand=expand)
     auto_order = api_response.auto_order
 
@@ -599,7 +619,7 @@ def get_auto_order_by_reference_order_id():
 
     # contact us if you're unsure what you need
     expand = "items,items.future_schedules,original_order,rebill_orders"
-    original_order_id = "DEMO-12345678"
+    original_order_id = "DEMO-0009103116"
     api_response = auto_order_api.get_auto_order_by_reference_order_id(original_order_id, expand=expand)
     auto_order = api_response.auto_order
 
@@ -659,8 +679,28 @@ Retrieves auto order cancel reasons.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+from ultracart.apis import AutoOrderApi
+from samples import api_client
 
-(No example for this operation).
+
+# Retrieves the list of cancel reasons that can be presented to customers when
+# cancelling an auto order (e.g., in MyAccount). Each reason includes the reason
+# text, an optional MyAccount alternate description, and whether the reason is
+# visible in MyAccount.
+
+def get_auto_order_cancel_reasons():
+    auto_order_api = AutoOrderApi(api_client())
+
+    api_response = auto_order_api.get_auto_order_cancel_reasons()
+
+    for cancel_reason in api_response.cancel_reasons:
+        print(cancel_reason)
+
+
+if __name__ == "__main__":
+    get_auto_order_cancel_reasons()
+```
 
 
 
@@ -791,32 +831,52 @@ def get_auto_order_chunk(auto_order_api, offset, limit):
     rebill_orders.summary	            rebill_orders.taxes
     """
 
-    auto_order_code = None
-    original_order_id = None
-    first_name = None
-    last_name = None
-    company = None
-    city = None
-    state = None
-    postal_code = None
-    country_code = None
-    phone = None
+    # auto_order_code = ''
+    # original_order_id = ''
+    # first_name = ''
+    # last_name = ''
+    # company = ''
+    # city = ''
+    # state = ''
+    # postal_code = ''
+    # country_code = ''
+    # phone = ''
     email = 'test@ultracart.com'  # <-- for this example, we are only filtering on email address.
-    original_order_date_begin = None
-    original_order_date_end = None
-    next_shipment_date_begin = None
-    next_shipment_date_end = None
-    card_type = None
-    item_id = None
-    status = None
-    since = None
-    sort = None
+    # original_order_date_begin = ''
+    # original_order_date_end = ''
+    # next_shipment_date_begin = ''
+    # next_shipment_date_end = ''
+    # card_type = ''
+    # item_id = ''
+    # status = ''
+    # since = ''
+    # sort = ''
 
     # see all these parameters?  that is why you should use getAutoOrdersByQuery() instead of getAutoOrders()
-    api_response = auto_order_api.get_auto_orders(auto_order_code, original_order_id, first_name, last_name,
-        company, city, state, postal_code, country_code, phone, email, original_order_date_begin,
-        original_order_date_end, next_shipment_date_begin, next_shipment_date_end, card_type, item_id, status,
-        limit, offset, since, sort, expand=expand)
+    api_response = auto_order_api.get_auto_orders(
+        # auto_order_code=auto_order_code,
+        # original_order_id=original_order_id,
+        # first_name=first_name,
+        # last_name=last_name,
+        # company=company,
+        # city=city,
+        # state=state,
+        # postal_code=postal_code,
+        # country_code=country_code,
+        # phone=phone,
+        email=email,
+        # original_order_date_begin=original_order_date_begin,
+        # original_order_date_end=original_order_date_end,
+        # next_shipment_date_begin=next_shipment_date_begin,
+        # next_shipment_date_end=next_shipment_date_end,
+        # card_type=card_type,
+        # item_id=item_id,
+        # status=status,
+        limit=limit,
+        offset=offset,
+        # since=since,
+        # sort=sort,
+        expand=expand)
 
     if api_response.auto_orders is not None:
         return api_response.auto_orders
@@ -984,9 +1044,9 @@ def get_auto_orders_batch():
     # rebill_orders.summary
     # rebill_orders.taxes
 
-    # contact us if you're unsure what you need
+    # contact us if you're unsure what expansions you need
     expand = "items,items.future_schedules,original_order,rebill_orders"
-    auto_order_oids = [123456, 234567, 345678, 456789]
+    auto_order_oids = [7829098, 7829798, 7806098, 6134349]
     batch_request = AutoOrderQueryBatch()
     batch_request.auto_order_oids = auto_order_oids
     api_response = auto_order_api.get_auto_orders_batch(batch_request, expand=expand)
@@ -1060,12 +1120,12 @@ from samples import api_client
 auto_order_api = AutoOrderApi(api_client())
 
 
-def get_auto_order_chunk(auto_order_api: AutoOrderApi, offset: int, limit: int) -> List:
+def get_auto_order_chunk(api: AutoOrderApi, offset: int, limit: int) -> List:
     """
     Retrieve a chunk of auto orders with pagination.
 
     Args:
-        auto_order_api: The AutoOrderApi instance
+        api: The AutoOrderApi instance
         offset: Starting position for fetching records
         limit: Maximum number of records to fetch
 
@@ -1082,7 +1142,7 @@ def get_auto_order_chunk(auto_order_api: AutoOrderApi, offset: int, limit: int) 
     query = AutoOrderQuery()
     query.email = "support@ultracart.com"
 
-    api_response = auto_order_api.get_auto_orders_by_query(query, limit=limit, offset=offset, sort=sort, expand=expand)
+    api_response = api.get_auto_orders_by_query(query, limit=limit, offset=offset, sort=sort, expand=expand)
 
     if api_response.auto_orders is not None:
         return api_response.auto_orders
@@ -1093,7 +1153,7 @@ def main():
     auto_orders = []
     iteration = 1
     offset = 0
-    limit = 200
+    limit = 2
     more_records_to_fetch = True
 
     try:
@@ -1104,6 +1164,7 @@ def main():
             auto_orders.extend(chunk_of_orders)
             offset += limit
             more_records_to_fetch = len(chunk_of_orders) == limit
+            more_records_to_fetch = False
             iteration += 1
 
     except ApiException as e:
@@ -1190,7 +1251,7 @@ from samples import api_client
 auto_order_api = AutoOrderApi(api_client())
 
 expand = "items"  # see https://www.ultracart.com/api/#resource_auto_order.html for list
-auto_order_oid = 123456789  # get an auto order and update it.  There are many ways to retrieve an auto order.
+auto_order_oid = 5712828  # get an auto order and update it.  There are many ways to retrieve an auto order.
 get_response = auto_order_api.get_auto_order(auto_order_oid, expand=expand)
 auto_order = get_response.auto_order
 
@@ -1267,16 +1328,16 @@ auto_order_api = AutoOrderApi(api_client())
 expand = "items,items.future_schedules,original_order,rebill_orders"
 
 # Get an auto order and update it. There are many ways to retrieve an auto order.
-auto_order_oid = 123456789
+auto_order_oid = 5712848
 
 # Retrieve the auto order
-api_response = auto_order_api.get_auto_order(auto_order_oid)
+api_response = auto_order_api.get_auto_order(auto_order_oid, expand=expand)
 auto_order = api_response.auto_order
 validate_original_order = 'No'
 
 # For this example, the customer supplied the wrong postal code when ordering.
 # So to change the postal code for all subsequent auto orders, we change the original order.
-auto_order.original_order.billing.postal_code = '44233'
+auto_order['original_order']['billing.postal_code'] = '44233'
 
 # Update the auto order
 api_response = auto_order_api.update_auto_order(auto_order_oid, auto_order,
@@ -1335,8 +1396,9 @@ Update an auto order item add ons.  Returns the auto order based upon expansion
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1388,8 +1450,9 @@ Update an auto order item properties.  Returns the auto order based upon expansi
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1493,8 +1556,9 @@ Update an auto order properties.  Returns the auto order based upon expansion
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
 
-(No example for this operation).
+```
 
 
 
@@ -1561,6 +1625,18 @@ make a bad assumption and corrupt a thousand auto orders. UltraCart support is r
 # Initialize the API client
 auto_order_api = AutoOrderApi(api_client())
 
+# see https://www.ultracart.com/api/#resource_auto_order.html for list
+expand = "items,items.future_schedules,original_order,rebill_orders"
+
+# If you don't know the oid, use getAutoOrdersByQuery for retrieving auto orders
+auto_order_oid = 2133352
+first_auto_order = auto_order_api.get_auto_order(auto_order_oid, expand=expand).auto_order
+
+auto_order_oid = 5712889
+second_auto_order = auto_order_api.get_auto_order(auto_order_oid, expand=expand).auto_order
+
+# TODO - update the auto orders in some fashion.  whatever changes you wish to make
+
 # The async parameter is what it seems. True if async.
 # The max records allowed depends on the async flag. Sync max is 20, Async max is 100.
 async_flag = True  # if true, success returns back a 204 No Content. False returns back the updated orders.
@@ -1568,14 +1644,14 @@ async_flag = True  # if true, success returns back a 204 No Content. False retur
 # Since we're async, nothing is returned, so we don't care about expansions.
 # If you are doing a synchronous operation, then set your expand appropriately.
 # See getAutoOrders() sample for expansion samples.
-expand = None
+expand = ''
 
 # Mostly used for UI, not needed for a pure scripting operation
 placeholders = False
 
 # TODO: This should be an array of auto orders that have been updated.
 # See any getAutoOrders method for retrieval.
-auto_orders = []
+auto_orders = [first_auto_order, second_auto_order]
 
 # Create the request object and set the auto orders
 auto_orders_request = AutoOrdersRequest()
@@ -1583,7 +1659,7 @@ auto_orders_request.auto_orders = auto_orders
 
 # Perform the batch update
 api_response = auto_order_api.update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders,
-                                                       async_flag=async_flag)
+                                                       async_req=async_flag)
 
 if api_response is not None:
     # Something went wrong if we have a response

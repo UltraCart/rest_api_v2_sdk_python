@@ -47,16 +47,28 @@ from samples import api_client
 # Takes a postal code and returns back a city and state (US Only)
 
 checkout_api = CheckoutApi(api_client())
+cart = checkout_api.get_cart().cart
 
-cart_id = '123456789123456789123456789123456789'  # you should have the cart id from session or cookie
-cart = Cart()
-cart.cart_id = cart_id  # required
+# this cart is lazy, therefore it's not real (yet).
+# so call update cart before calling cityState to persist it on the server side.
+cart = checkout_api.update_cart(cart).cart
+
+# cart_id = '123456789123456789123456789123456789'  # you should have the cart id from session or cookie
+# cart = Cart()
+# cart.cart_id = cart_id  # required
 cart.shipping = CartShipping()
 cart.shipping.postal_code = '44233'
 
 api_response = checkout_api.city_state(cart)
-print(f'City: {api_response.city}')
-print(f'State: {api_response.state}')
+if hasattr(api_response, 'city'):
+    print(f'City: {api_response.city}')
+else:
+    print("No city returned.")
+
+if hasattr(api_response, 'state'):
+    print(f'State: {api_response.state}')
+else:
+    print("No state returned.")
 ```
 
 
@@ -137,7 +149,8 @@ summary                     upsell_after
 """
 
 # Assuming you have a function to get cookies in your Python framework
-cart_id = request.cookies.get('UltraCartShoppingCartID')  # Replace with your actual cookie handling
+# cart_id = request.cookies.get('UltraCartShoppingCartID')  # Replace with your actual cookie handling
+cart_id = 'D5797CC8D3E6D5019A17A6A782800100'
 
 if cart_id is None:
     api_response = checkout_api.get_cart(expand=expand)
@@ -146,6 +159,9 @@ else:
 cart = api_response.cart
 
 # TODO - add some items, collect billing and shipping, use hosted fields to collect payment, etc.
+# for this example, I created the cart in the 'Manual Order Entry' screen at https://secure.ultracart.com/merchant/orderentry/orderEntryApp.do
+# and after saving and validating the cart, I grabbed the cart id from the console window.  This is the javascript variable
+# for the cart id in the Manual Order Entry screen: app.data.cart.attributes.shoppingCartId
 
 finalize_request = CartFinalizeOrderRequest()
 finalize_request.cart = cart
@@ -223,10 +239,10 @@ from flask import session, request
 checkout_api = CheckoutApi(api_client())
 
 # this should be retrieved from a session or cookie
-cart_id = '123456789123456789123456789123456789'
+cart_id = '7FD88BAC1FEC55019A17AF331A800100'
 
 api_response = checkout_api.get_affirm_checkout(cart_id)
-if api_response.errors is not None and len(api_response.errors) > 0:
+if hasattr(api_response, 'errors') and api_response.errors is not None:
     # TODO: display errors to customer about the failure
     for error in api_response.errors:
         print(error)
