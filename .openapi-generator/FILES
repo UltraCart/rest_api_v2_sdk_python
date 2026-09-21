@@ -504,6 +504,10 @@ docs/EmailClicksResponse.md
 docs/EmailCommseq.md
 docs/EmailCommseqEmail.md
 docs/EmailCommseqEmailResponse.md
+docs/EmailCommseqEmailReviewStatus.md
+docs/EmailCommseqEmailReviewStatusResponse.md
+docs/EmailCommseqEmailReviewStatusesRequest.md
+docs/EmailCommseqEmailReviewStatusesResponse.md
 docs/EmailCommseqEmailSendTestRequest.md
 docs/EmailCommseqEmailSendTestResponse.md
 docs/EmailCommseqEmailsRequest.md
@@ -1697,6 +1701,10 @@ ultracart/model/email_clicks_response.py
 ultracart/model/email_commseq.py
 ultracart/model/email_commseq_email.py
 ultracart/model/email_commseq_email_response.py
+ultracart/model/email_commseq_email_review_status.py
+ultracart/model/email_commseq_email_review_status_response.py
+ultracart/model/email_commseq_email_review_statuses_request.py
+ultracart/model/email_commseq_email_review_statuses_response.py
 ultracart/model/email_commseq_email_send_test_request.py
 ultracart/model/email_commseq_email_send_test_response.py
 ultracart/model/email_commseq_emails_request.py
