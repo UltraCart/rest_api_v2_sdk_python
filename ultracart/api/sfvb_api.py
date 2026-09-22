@@ -49,6 +49,7 @@ from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
+from ultracart.model.sfvb_item_containers_response import SfvbItemContainersResponse
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
 from ultracart.model.sfvb_menu import SfvbMenu
@@ -2583,6 +2584,83 @@ class SfvbApi(object):
                     'storefront_fs_directory_oid': 'query',
                     'theme_oid': 'query',
                     'max_entries': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_sfvb_item_containers_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemContainersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/item_containers',
+                'operation_id': 'list_sfvb_item_containers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'merchant_item_id',
+                    'merchant_item_oid',
+                    'container_name',
+                    'max_results',
+                    'offset',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'merchant_item_id':
+                        (str,),
+                    'merchant_item_oid':
+                        (int,),
+                    'container_name':
+                        (str,),
+                    'max_results':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'merchant_item_id': 'merchant_item_id',
+                    'merchant_item_oid': 'merchant_item_oid',
+                    'container_name': 'container_name',
+                    'max_results': 'max_results',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'merchant_item_id': 'query',
+                    'merchant_item_oid': 'query',
+                    'container_name': 'query',
+                    'max_results': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7985,6 +8063,94 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.list_sfvb_files_endpoint.call_with_http_info(**kwargs)
+
+    def list_sfvb_item_containers(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the item containers on the account  # noqa: E501
+
+        An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller's storefront but does not narrow the result.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_sfvb_item_containers(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            merchant_item_id (str): Restrict to one item, by the merchant item id a storefront carries. [optional]
+            merchant_item_oid (int): Restrict to one item, by oid.  Send this or merchant_item_id, not both. [optional]
+            container_name (str): Restrict to one slot name, matched without regard to case. [optional]
+            max_results (int): [optional]
+            offset (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemContainersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.list_sfvb_item_containers_endpoint.call_with_http_info(**kwargs)
 
     def list_sfvb_pages(
         self,

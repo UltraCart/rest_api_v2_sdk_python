@@ -1007,6 +1007,8 @@ from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
+from ultracart.model.sfvb_item_container import SfvbItemContainer
+from ultracart.model.sfvb_item_containers_response import SfvbItemContainersResponse
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_facet import SfvbLibraryFacet
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
