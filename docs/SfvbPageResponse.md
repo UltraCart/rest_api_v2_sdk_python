@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**[SfvbPageAttribute]**](SfvbPageAttribute.md) | Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name. | [optional] 
+**description** | **str** | The page description, the text a page template renders as the page&#39;s description.  Omitted when empty. | [optional] 
 **exclude_from_sitemap** | **bool** | True when the page is left out of the sitemap and marked noindex. | [optional] 
 **group_template** | **str** | Template file that renders the page itself, a bare .vm name found anywhere in the active theme. | [optional] 
 **item_template** | **str** | Template file that renders the item pages under this page. | [optional] 
