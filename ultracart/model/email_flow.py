@@ -56,6 +56,11 @@ class EmailFlow(ModelNormal):
     """
 
     allowed_values = {
+        ('reentry_policy',): {
+            'ANYTIME': "anytime",
+            'AFTER_DAYS': "after_days",
+            'NEVER': "never",
+        },
     }
 
     validations = {
@@ -105,6 +110,8 @@ class EmailFlow(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'open_rate_formatted': (str,),  # noqa: E501
+            'reentry_delay_days': (int,),  # noqa: E501
+            'reentry_policy': (str,),  # noqa: E501
             'revenue_formatted': (str,),  # noqa: E501
             'revenue_per_customer_formatted': (str,),  # noqa: E501
             'screenshot_large_full_url': (str,),  # noqa: E501
@@ -144,6 +151,8 @@ class EmailFlow(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'open_rate_formatted': 'open_rate_formatted',  # noqa: E501
+        'reentry_delay_days': 'reentry_delay_days',  # noqa: E501
+        'reentry_policy': 'reentry_policy',  # noqa: E501
         'revenue_formatted': 'revenue_formatted',  # noqa: E501
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',  # noqa: E501
         'screenshot_large_full_url': 'screenshot_large_full_url',  # noqa: E501
@@ -218,6 +227,8 @@ class EmailFlow(ModelNormal):
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email flow. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails, formatted. [optional]  # noqa: E501
+            reentry_delay_days (int): Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.. [optional]  # noqa: E501
+            reentry_policy (str): Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.. [optional]  # noqa: E501
             revenue_formatted (str): Revenue, formatted. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer, formatted. [optional]  # noqa: E501
             screenshot_large_full_url (str): URL to a large full length screenshot. [optional]  # noqa: E501
@@ -334,6 +345,8 @@ class EmailFlow(ModelNormal):
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email flow. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails, formatted. [optional]  # noqa: E501
+            reentry_delay_days (int): Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.. [optional]  # noqa: E501
+            reentry_policy (str): Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.. [optional]  # noqa: E501
             revenue_formatted (str): Revenue, formatted. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer, formatted. [optional]  # noqa: E501
             screenshot_large_full_url (str): URL to a large full length screenshot. [optional]  # noqa: E501

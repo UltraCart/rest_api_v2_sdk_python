@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **merchant_id** | **str** | Merchant ID | [optional] 
 **name** | **str** | Name of email flow | [optional] 
 **open_rate_formatted** | **str** | Open rate of emails, formatted | [optional] 
+**reentry_delay_days** | **int** | Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095. | [optional] 
+**reentry_policy** | **str** | Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment. | [optional] 
 **revenue_formatted** | **str** | Revenue, formatted | [optional] 
 **revenue_per_customer_formatted** | **str** | Revenue per customer, formatted | [optional] 
 **screenshot_large_full_url** | **str** | URL to a large full length screenshot | [optional] 
