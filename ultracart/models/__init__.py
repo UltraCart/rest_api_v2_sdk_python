@@ -1059,6 +1059,9 @@ from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResp
 from ultracart.model.sfvb_storefront import SfvbStorefront
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_template import SfvbTemplate
+from ultracart.model.sfvb_template_resolve_candidate import SfvbTemplateResolveCandidate
+from ultracart.model.sfvb_template_resolve_path import SfvbTemplateResolvePath
+from ultracart.model.sfvb_template_resolve_response import SfvbTemplateResolveResponse
 from ultracart.model.sfvb_templates_response import SfvbTemplatesResponse
 from ultracart.model.sfvb_theme import SfvbTheme
 from ultracart.model.sfvb_theme_attribute import SfvbThemeAttribute

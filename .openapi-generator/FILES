@@ -1070,6 +1070,9 @@ docs/SfvbSiteAttributesResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTemplate.md
+docs/SfvbTemplateResolveCandidate.md
+docs/SfvbTemplateResolvePath.md
+docs/SfvbTemplateResolveResponse.md
 docs/SfvbTemplatesResponse.md
 docs/SfvbTheme.md
 docs/SfvbThemeAttribute.md
@@ -2281,6 +2284,9 @@ ultracart/model/sfvb_site_attributes_response.py
 ultracart/model/sfvb_storefront.py
 ultracart/model/sfvb_storefronts_response.py
 ultracart/model/sfvb_template.py
+ultracart/model/sfvb_template_resolve_candidate.py
+ultracart/model/sfvb_template_resolve_path.py
+ultracart/model/sfvb_template_resolve_response.py
 ultracart/model/sfvb_templates_response.py
 ultracart/model/sfvb_theme.py
 ultracart/model/sfvb_theme_attribute.py

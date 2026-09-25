@@ -83,6 +83,7 @@ from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
 from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResponse
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
+from ultracart.model.sfvb_template_resolve_response import SfvbTemplateResolveResponse
 from ultracart.model.sfvb_templates_response import SfvbTemplatesResponse
 from ultracart.model.sfvb_theme import SfvbTheme
 from ultracart.model.sfvb_theme_attribute_update_request import SfvbThemeAttributeUpdateRequest
@@ -5175,6 +5176,69 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.resolve_sfvb_template_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTemplateResolveResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/templates/resolve',
+                'operation_id': 'resolve_sfvb_template',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'name',
+                    'theme_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'name':
+                        (str,),
+                    'theme_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'name': 'name',
+                    'theme_oid': 'theme_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'name': 'query',
+                    'theme_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.revert_sfvb_container_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbContainerResponse,),
@@ -7473,7 +7537,7 @@ class SfvbApi(object):
     ):
         """End an experiment  # noqa: E501
 
-        Ends a running experiment.  With winner_variation_number the winner gets all new visitors, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Visitors already assigned to a url experiment keep their page for up to 30 days.  Always needs sfvb_publish.   # noqa: E501
+        Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12968,6 +13032,94 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.reserve_sfvb_widget_ids_endpoint.call_with_http_info(**kwargs)
+
+    def resolve_sfvb_template(
+        self,
+        storefront_oid,
+        name,
+        **kwargs
+    ):
+        """Resolve a template name to the file a page renders  # noqa: E501
+
+        A page stores only its template's file name.  This runs the storefront's own template search for that name and returns the file a page naming it renders, relative to the theme.  It also lists the theme's resource paths in search order with every file of that name below each, so a theme copy overriding a shared core copy, or a copy in a snippets folder that is never used, is visible.  exists is false when a page naming the template cannot render.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.resolve_sfvb_template(storefront_oid, name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            name (str): The template file name, such as catalog.vm
+
+        Keyword Args:
+            theme_oid (int): Resolve in this theme instead of the active theme. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTemplateResolveResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['name'] = \
+            name
+        return self.resolve_sfvb_template_endpoint.call_with_http_info(**kwargs)
 
     def revert_sfvb_container(
         self,
