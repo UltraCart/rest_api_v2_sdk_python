@@ -1052,6 +1052,8 @@ docs/SfvbPageItemsResponse.md
 docs/SfvbPageListResponse.md
 docs/SfvbPageMultimedia.md
 docs/SfvbPageMultimediaRequest.md
+docs/SfvbPageRefreshRequest.md
+docs/SfvbPageRefreshResponse.md
 docs/SfvbPageResponse.md
 docs/SfvbPageSelectors.md
 docs/SfvbPageSettingsRequest.md
@@ -2266,6 +2268,8 @@ ultracart/model/sfvb_page_items_response.py
 ultracart/model/sfvb_page_list_response.py
 ultracart/model/sfvb_page_multimedia.py
 ultracart/model/sfvb_page_multimedia_request.py
+ultracart/model/sfvb_page_refresh_request.py
+ultracart/model/sfvb_page_refresh_response.py
 ultracart/model/sfvb_page_response.py
 ultracart/model/sfvb_page_selectors.py
 ultracart/model/sfvb_page_settings_request.py

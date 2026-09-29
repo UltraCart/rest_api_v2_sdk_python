@@ -70,6 +70,8 @@ from ultracart.model.sfvb_page_items_remove_request import SfvbPageItemsRemoveRe
 from ultracart.model.sfvb_page_items_response import SfvbPageItemsResponse
 from ultracart.model.sfvb_page_list_response import SfvbPageListResponse
 from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
+from ultracart.model.sfvb_page_refresh_request import SfvbPageRefreshRequest
+from ultracart.model.sfvb_page_refresh_response import SfvbPageRefreshResponse
 from ultracart.model.sfvb_page_response import SfvbPageResponse
 from ultracart.model.sfvb_page_selectors import SfvbPageSelectors
 from ultracart.model.sfvb_page_settings_request import SfvbPageSettingsRequest
@@ -4910,6 +4912,65 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'theme_oid': 'path',
                     'attribute_update_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.refresh_sfvb_page_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageRefreshResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages/refresh',
+                'operation_id': 'refresh_sfvb_page',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'page_refresh_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'page_refresh_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'page_refresh_request':
+                        (SfvbPageRefreshRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'page_refresh_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -12675,6 +12736,93 @@ class SfvbApi(object):
         kwargs['attribute_update_request'] = \
             attribute_update_request
         return self.put_sfvb_theme_attributes_endpoint.call_with_http_info(**kwargs)
+
+    def refresh_sfvb_page(
+        self,
+        storefront_oid,
+        page_refresh_request,
+        **kwargs
+    ):
+        """Drop one page's cached copy  # noqa: E501
+
+        The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.refresh_sfvb_page(storefront_oid, page_refresh_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            page_refresh_request (SfvbPageRefreshRequest): The page to refresh
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageRefreshResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['page_refresh_request'] = \
+            page_refresh_request
+        return self.refresh_sfvb_page_endpoint.call_with_http_info(**kwargs)
 
     def remove_sfvb_page_blog_posts(
         self,

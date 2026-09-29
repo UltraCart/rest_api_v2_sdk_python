@@ -1041,6 +1041,8 @@ from ultracart.model.sfvb_page_items_response import SfvbPageItemsResponse
 from ultracart.model.sfvb_page_list_response import SfvbPageListResponse
 from ultracart.model.sfvb_page_multimedia import SfvbPageMultimedia
 from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
+from ultracart.model.sfvb_page_refresh_request import SfvbPageRefreshRequest
+from ultracart.model.sfvb_page_refresh_response import SfvbPageRefreshResponse
 from ultracart.model.sfvb_page_response import SfvbPageResponse
 from ultracart.model.sfvb_page_selectors import SfvbPageSelectors
 from ultracart.model.sfvb_page_settings_request import SfvbPageSettingsRequest

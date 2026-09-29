@@ -81,6 +81,7 @@ Method | HTTP request | Description
 [**put_sfvb_preview_session**](SfvbApi.md#put_sfvb_preview_session) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
 [**put_sfvb_site_attributes**](SfvbApi.md#put_sfvb_site_attributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 [**put_sfvb_theme_attributes**](SfvbApi.md#put_sfvb_theme_attributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
+[**refresh_sfvb_page**](SfvbApi.md#refresh_sfvb_page) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 [**remove_sfvb_page_blog_posts**](SfvbApi.md#remove_sfvb_page_blog_posts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 [**remove_sfvb_page_items**](SfvbApi.md#remove_sfvb_page_items) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 [**render_sfvb_widgets**](SfvbApi.md#render_sfvb_widgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
@@ -4041,6 +4042,57 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refresh_sfvb_page**
+> SfvbPageRefreshResponse refresh_sfvb_page(storefront_oid, page_refresh_request)
+
+Drop one page's cached copy
+
+The next request renders the page fresh.  Use it when a write succeeded, a read shows the new value, and the public page still shows the old one.  Writes normally refresh the pages they affect, so a stale page after a write is a bug worth reporting with its URL.  One page per request.  The response says whether the page had a cached copy and whether anything was dropped. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **page_refresh_request** | [**SfvbPageRefreshRequest**](SfvbPageRefreshRequest.md)| The page to refresh |
+
+### Return type
+
+[**SfvbPageRefreshResponse**](SfvbPageRefreshResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
