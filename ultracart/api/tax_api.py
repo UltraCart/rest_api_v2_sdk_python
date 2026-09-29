@@ -29,12 +29,14 @@ from ultracart.model.tax_county import TaxCounty
 from ultracart.model.tax_postal_code import TaxPostalCode
 from ultracart.model.tax_provider_activate_result import TaxProviderActivateResult
 from ultracart.model.tax_provider_anrok import TaxProviderAnrok
+from ultracart.model.tax_provider_anrok_test_result import TaxProviderAnrokTestResult
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.tax_provider_avalara_companies_result import TaxProviderAvalaraCompaniesResult
 from ultracart.model.tax_provider_self import TaxProviderSelf
 from ultracart.model.tax_provider_self_countries_response import TaxProviderSelfCountriesResponse
 from ultracart.model.tax_provider_self_regions_response import TaxProviderSelfRegionsResponse
 from ultracart.model.tax_provider_sovos import TaxProviderSovos
+from ultracart.model.tax_provider_tax_cloud import TaxProviderTaxCloud
 from ultracart.model.tax_provider_tax_jar import TaxProviderTaxJar
 from ultracart.model.tax_provider_test_result import TaxProviderTestResult
 from ultracart.model.tax_provider_ultra_cart import TaxProviderUltraCart
@@ -406,7 +408,7 @@ class TaxApi(object):
         )
         self.get_tax_provider_anrok_test_endpoint = _Endpoint(
             settings={
-                'response_type': (TaxProviderTestResult,),
+                'response_type': (TaxProviderAnrokTestResult,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -788,6 +790,96 @@ class TaxApi(object):
                 ],
                 'endpoint_path': '/tax/providers/sovos/test',
                 'operation_id': 'get_tax_provider_sovos_test',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tax_provider_tax_cloud_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaxProviderTaxCloud,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/tax/providers/taxcloud',
+                'operation_id': 'get_tax_provider_tax_cloud',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tax_provider_tax_cloud_test_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaxProviderTestResult,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/tax/providers/taxcloud/test',
+                'operation_id': 'get_tax_provider_tax_cloud_test',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1578,6 +1670,59 @@ class TaxApi(object):
             },
             api_client=api_client
         )
+        self.update_tax_provider_tax_cloud_endpoint = _Endpoint(
+            settings={
+                'response_type': (TaxProviderTaxCloud,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/tax/providers/taxcloud',
+                'operation_id': 'update_tax_provider_tax_cloud',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tax_provider_taxcloud',
+                ],
+                'required': [
+                    'tax_provider_taxcloud',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'tax_provider_taxcloud':
+                        (TaxProviderTaxCloud,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'tax_provider_taxcloud': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_tax_provider_tax_jar_endpoint = _Endpoint(
             settings={
                 'response_type': (TaxProviderTaxJar,),
@@ -2204,7 +2349,7 @@ class TaxApi(object):
     ):
         """Attempts to connect to Anrok and returns back the response  # noqa: E501
 
-        Attempts to connect to Anrok and returns back the response.   # noqa: E501
+        Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2245,7 +2390,7 @@ class TaxApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TaxProviderTestResult
+            TaxProviderAnrokTestResult
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -2909,6 +3054,162 @@ class TaxApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_tax_provider_sovos_test_endpoint.call_with_http_info(**kwargs)
+
+    def get_tax_provider_tax_cloud(
+        self,
+        **kwargs
+    ):
+        """Retrieve the TaxCloud tax provider  # noqa: E501
+
+        Retrieves the TaxCloud tax provider.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tax_provider_tax_cloud(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaxProviderTaxCloud
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_tax_provider_tax_cloud_endpoint.call_with_http_info(**kwargs)
+
+    def get_tax_provider_tax_cloud_test(
+        self,
+        **kwargs
+    ):
+        """Attempts to connect to TaxCloud and returns back the response  # noqa: E501
+
+        Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tax_provider_tax_cloud_test(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaxProviderTestResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_tax_provider_tax_cloud_test_endpoint.call_with_http_info(**kwargs)
 
     def get_tax_provider_tax_jar(
         self,
@@ -4074,6 +4375,89 @@ class TaxApi(object):
         kwargs['tax_provider_sovos'] = \
             tax_provider_sovos
         return self.update_tax_provider_sovos_endpoint.call_with_http_info(**kwargs)
+
+    def update_tax_provider_tax_cloud(
+        self,
+        tax_provider_taxcloud,
+        **kwargs
+    ):
+        """Update the TaxCloud tax provider  # noqa: E501
+
+        Update the TaxCloud tax provider.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_tax_provider_tax_cloud(tax_provider_taxcloud, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            tax_provider_taxcloud (TaxProviderTaxCloud): TaxProviderTaxCloud object
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TaxProviderTaxCloud
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['tax_provider_taxcloud'] = \
+            tax_provider_taxcloud
+        return self.update_tax_provider_tax_cloud_endpoint.call_with_http_info(**kwargs)
 
     def update_tax_provider_tax_jar(
         self,

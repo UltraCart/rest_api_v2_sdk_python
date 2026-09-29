@@ -1120,6 +1120,7 @@ docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
 docs/TaxCity.md
+docs/TaxCloudConfig.md
 docs/TaxCountry.md
 docs/TaxCountryCode.md
 docs/TaxCounty.md
@@ -1127,6 +1128,8 @@ docs/TaxJarConfig.md
 docs/TaxPostalCode.md
 docs/TaxProviderActivateResult.md
 docs/TaxProviderAnrok.md
+docs/TaxProviderAnrokProduct.md
+docs/TaxProviderAnrokTestResult.md
 docs/TaxProviderAvalara.md
 docs/TaxProviderAvalaraCompaniesResult.md
 docs/TaxProviderAvalaraCompany.md
@@ -1134,6 +1137,7 @@ docs/TaxProviderSelf.md
 docs/TaxProviderSelfCountriesResponse.md
 docs/TaxProviderSelfRegionsResponse.md
 docs/TaxProviderSovos.md
+docs/TaxProviderTaxCloud.md
 docs/TaxProviderTaxJar.md
 docs/TaxProviderTestResult.md
 docs/TaxProviderUltraCart.md
@@ -2333,6 +2337,7 @@ ultracart/model/store_front.py
 ultracart/model/store_front_page_content_attribute.py
 ultracart/model/store_fronts_response.py
 ultracart/model/tax_city.py
+ultracart/model/tax_cloud_config.py
 ultracart/model/tax_country.py
 ultracart/model/tax_country_code.py
 ultracart/model/tax_county.py
@@ -2340,6 +2345,8 @@ ultracart/model/tax_jar_config.py
 ultracart/model/tax_postal_code.py
 ultracart/model/tax_provider_activate_result.py
 ultracart/model/tax_provider_anrok.py
+ultracart/model/tax_provider_anrok_product.py
+ultracart/model/tax_provider_anrok_test_result.py
 ultracart/model/tax_provider_avalara.py
 ultracart/model/tax_provider_avalara_companies_result.py
 ultracart/model/tax_provider_avalara_company.py
@@ -2347,6 +2354,7 @@ ultracart/model/tax_provider_self.py
 ultracart/model/tax_provider_self_countries_response.py
 ultracart/model/tax_provider_self_regions_response.py
 ultracart/model/tax_provider_sovos.py
+ultracart/model/tax_provider_tax_cloud.py
 ultracart/model/tax_provider_tax_jar.py
 ultracart/model/tax_provider_test_result.py
 ultracart/model/tax_provider_ultra_cart.py

@@ -1106,6 +1106,7 @@ from ultracart.model.store_front import StoreFront
 from ultracart.model.store_front_page_content_attribute import StoreFrontPageContentAttribute
 from ultracart.model.store_fronts_response import StoreFrontsResponse
 from ultracart.model.tax_city import TaxCity
+from ultracart.model.tax_cloud_config import TaxCloudConfig
 from ultracart.model.tax_country import TaxCountry
 from ultracart.model.tax_country_code import TaxCountryCode
 from ultracart.model.tax_county import TaxCounty
@@ -1113,6 +1114,8 @@ from ultracart.model.tax_jar_config import TaxJarConfig
 from ultracart.model.tax_postal_code import TaxPostalCode
 from ultracart.model.tax_provider_activate_result import TaxProviderActivateResult
 from ultracart.model.tax_provider_anrok import TaxProviderAnrok
+from ultracart.model.tax_provider_anrok_product import TaxProviderAnrokProduct
+from ultracart.model.tax_provider_anrok_test_result import TaxProviderAnrokTestResult
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.tax_provider_avalara_companies_result import TaxProviderAvalaraCompaniesResult
 from ultracart.model.tax_provider_avalara_company import TaxProviderAvalaraCompany
@@ -1120,6 +1123,7 @@ from ultracart.model.tax_provider_self import TaxProviderSelf
 from ultracart.model.tax_provider_self_countries_response import TaxProviderSelfCountriesResponse
 from ultracart.model.tax_provider_self_regions_response import TaxProviderSelfRegionsResponse
 from ultracart.model.tax_provider_sovos import TaxProviderSovos
+from ultracart.model.tax_provider_tax_cloud import TaxProviderTaxCloud
 from ultracart.model.tax_provider_tax_jar import TaxProviderTaxJar
 from ultracart.model.tax_provider_test_result import TaxProviderTestResult
 from ultracart.model.tax_provider_ultra_cart import TaxProviderUltraCart
