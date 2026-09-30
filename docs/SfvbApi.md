@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**get_sfvb_page_items**](SfvbApi.md#get_sfvb_page_items) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 [**get_sfvb_page_selectors**](SfvbApi.md#get_sfvb_page_selectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
 [**get_sfvb_preview_url**](SfvbApi.md#get_sfvb_preview_url) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
+[**get_sfvb_server_log**](SfvbApi.md#get_sfvb_server_log) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 [**get_sfvb_site_attributes**](SfvbApi.md#get_sfvb_site_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 [**get_sfvb_theme**](SfvbApi.md#get_sfvb_theme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**get_sfvb_theme_attributes**](SfvbApi.md#get_sfvb_theme_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
@@ -65,6 +66,7 @@ Method | HTTP request | Description
 [**list_sfvb_files**](SfvbApi.md#list_sfvb_files) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
 [**list_sfvb_item_containers**](SfvbApi.md#list_sfvb_item_containers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 [**list_sfvb_pages**](SfvbApi.md#list_sfvb_pages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
+[**list_sfvb_server_logs**](SfvbApi.md#list_sfvb_server_logs) | **GET** /sfvb/storefronts/{storefront_oid}/logs | List recent storefront render logs
 [**list_sfvb_storefronts**](SfvbApi.md#list_sfvb_storefronts) | **GET** /sfvb/storefronts | List storefronts
 [**list_sfvb_templates**](SfvbApi.md#list_sfvb_templates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
 [**list_sfvb_themes**](SfvbApi.md#list_sfvb_themes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
@@ -2149,6 +2151,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sfvb_server_log**
+> SfvbServerLogDetail get_sfvb_server_log(storefront_oid, log_id)
+
+Get one storefront render log
+
+One render's server log with its lines, each with a level, a category such as VELOCITY or FLOW, and the message.  log_id comes from the list, or from the X-UltraCart-Storefront-Log-Id header a page sends inside an SFVB preview session.  min_level is debug, info, warn or error, default debug. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **log_id** | **str**|  |
+ **min_level** | **str**|  | [optional]
+
+### Return type
+
+[**SfvbServerLogDetail**](SfvbServerLogDetail.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_sfvb_site_attributes**
 > SfvbSiteAttributesResponse get_sfvb_site_attributes(storefront_oid)
 
@@ -3189,6 +3242,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SfvbPageListResponse**](SfvbPageListResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_sfvb_server_logs**
+> SfvbServerLogsResponse list_sfvb_server_logs(storefront_oid)
+
+List recent storefront render logs
+
+The server log the storefront Developer Tools panel shows, one per page render, newest first and without the log text.  Each carries counts of error and warning lines, including Velocity problems such as a null #set, so a failing render stands out without reading every log.  Filter by uri (a case insensitive contains match on the rendered address) and errors_only.  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept for seven days and only the newest 1000.  With a filter the newest 200 logs in the window are searched, and more_available says whether older ones were left unread. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **uri** | **str**|  | [optional]
+ **since** | **str**|  | [optional]
+ **errors_only** | **bool**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**SfvbServerLogsResponse**](SfvbServerLogsResponse.md)
 
 ### Authorization
 

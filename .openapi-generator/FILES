@@ -1069,6 +1069,10 @@ docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbServerLog.md
+docs/SfvbServerLogDetail.md
+docs/SfvbServerLogEntry.md
+docs/SfvbServerLogsResponse.md
 docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
@@ -2293,6 +2297,10 @@ ultracart/model/sfvb_preview_session_response.py
 ultracart/model/sfvb_preview_url_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
+ultracart/model/sfvb_server_log.py
+ultracart/model/sfvb_server_log_detail.py
+ultracart/model/sfvb_server_log_entry.py
+ultracart/model/sfvb_server_logs_response.py
 ultracart/model/sfvb_site_attribute.py
 ultracart/model/sfvb_site_attribute_update.py
 ultracart/model/sfvb_site_attribute_update_request.py
