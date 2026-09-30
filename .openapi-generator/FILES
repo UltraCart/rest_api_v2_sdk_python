@@ -986,6 +986,10 @@ docs/ScreenshotsResponse.md
 docs/SelfConfig.md
 docs/SfvbApi.md
 docs/SfvbBlogPost.md
+docs/SfvbBlogPostDetail.md
+docs/SfvbBlogPostImage.md
+docs/SfvbBlogPostImageRequest.md
+docs/SfvbBlogPostRequest.md
 docs/SfvbBlogPostsResponse.md
 docs/SfvbCompileRequest.md
 docs/SfvbCompileResponse.md
@@ -2206,6 +2210,10 @@ ultracart/model/screen_recording_user_property.py
 ultracart/model/screenshots_response.py
 ultracart/model/self_config.py
 ultracart/model/sfvb_blog_post.py
+ultracart/model/sfvb_blog_post_detail.py
+ultracart/model/sfvb_blog_post_image.py
+ultracart/model/sfvb_blog_post_image_request.py
+ultracart/model/sfvb_blog_post_request.py
 ultracart/model/sfvb_blog_posts_response.py
 ultracart/model/sfvb_compile_request.py
 ultracart/model/sfvb_compile_response.py
