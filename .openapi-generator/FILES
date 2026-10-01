@@ -1067,6 +1067,12 @@ docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
 docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
+docs/SfvbRecording.md
+docs/SfvbRecordingEvent.md
+docs/SfvbRecordingEventsResponse.md
+docs/SfvbRecordingPageView.md
+docs/SfvbRecordingParameter.md
+docs/SfvbRecordingResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbServerLog.md
@@ -2295,6 +2301,12 @@ ultracart/model/sfvb_preview_access_response.py
 ultracart/model/sfvb_preview_session_request.py
 ultracart/model/sfvb_preview_session_response.py
 ultracart/model/sfvb_preview_url_response.py
+ultracart/model/sfvb_recording.py
+ultracart/model/sfvb_recording_event.py
+ultracart/model/sfvb_recording_events_response.py
+ultracart/model/sfvb_recording_page_view.py
+ultracart/model/sfvb_recording_parameter.py
+ultracart/model/sfvb_recording_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
 ultracart/model/sfvb_server_log.py

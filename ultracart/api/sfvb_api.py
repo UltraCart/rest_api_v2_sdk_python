@@ -83,6 +83,8 @@ from ultracart.model.sfvb_preview_access_response import SfvbPreviewAccessRespon
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
 from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResponse
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse
+from ultracart.model.sfvb_recording_events_response import SfvbRecordingEventsResponse
+from ultracart.model.sfvb_recording_response import SfvbRecordingResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
@@ -2538,6 +2540,128 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'preview_session_id': 'path',
                     'path': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_recording_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRecordingResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}',
+                'operation_id': 'get_sfvb_recording',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'screen_recording_uuid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'screen_recording_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'screen_recording_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'screen_recording_uuid': 'screen_recording_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'screen_recording_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_recording_page_view_events_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRecordingEventsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events',
+                'operation_id': 'get_sfvb_recording_page_view_events',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'screen_recording_uuid',
+                    'screen_recording_page_view_uuid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'screen_recording_uuid',
+                    'screen_recording_page_view_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'screen_recording_uuid':
+                        (str,),
+                    'screen_recording_page_view_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'screen_recording_uuid': 'screen_recording_uuid',
+                    'screen_recording_page_view_uuid': 'screen_recording_page_view_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'screen_recording_uuid': 'path',
+                    'screen_recording_page_view_uuid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -10011,6 +10135,184 @@ class SfvbApi(object):
         kwargs['preview_session_id'] = \
             preview_session_id
         return self.get_sfvb_preview_url_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_recording(
+        self,
+        storefront_oid,
+        screen_recording_uuid,
+        **kwargs
+    ):
+        """Get a screen recording  # noqa: E501
+
+        One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_recording(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            screen_recording_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRecordingResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['screen_recording_uuid'] = \
+            screen_recording_uuid
+        return self.get_sfvb_recording_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_recording_page_view_events(
+        self,
+        storefront_oid,
+        screen_recording_uuid,
+        screen_recording_page_view_uuid,
+        **kwargs
+    ):
+        """Get one recorded page view's replay events  # noqa: E501
+
+        The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_recording_page_view_events(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            screen_recording_uuid (str):
+            screen_recording_page_view_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRecordingEventsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['screen_recording_uuid'] = \
+            screen_recording_uuid
+        kwargs['screen_recording_page_view_uuid'] = \
+            screen_recording_page_view_uuid
+        return self.get_sfvb_recording_page_view_events_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_server_log(
         self,
