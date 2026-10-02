@@ -1064,6 +1064,9 @@ from ultracart.model.sfvb_recording_events_response import SfvbRecordingEventsRe
 from ultracart.model.sfvb_recording_page_view import SfvbRecordingPageView
 from ultracart.model.sfvb_recording_parameter import SfvbRecordingParameter
 from ultracart.model.sfvb_recording_response import SfvbRecordingResponse
+from ultracart.model.sfvb_recording_settings import SfvbRecordingSettings
+from ultracart.model.sfvb_recording_settings_request import SfvbRecordingSettingsRequest
+from ultracart.model.sfvb_recording_settings_response import SfvbRecordingSettingsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_server_log import SfvbServerLog

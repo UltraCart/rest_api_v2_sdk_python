@@ -1075,6 +1075,9 @@ docs/SfvbRecordingEventsResponse.md
 docs/SfvbRecordingPageView.md
 docs/SfvbRecordingParameter.md
 docs/SfvbRecordingResponse.md
+docs/SfvbRecordingSettings.md
+docs/SfvbRecordingSettingsRequest.md
+docs/SfvbRecordingSettingsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbServerLog.md
@@ -2311,6 +2314,9 @@ ultracart/model/sfvb_recording_events_response.py
 ultracart/model/sfvb_recording_page_view.py
 ultracart/model/sfvb_recording_parameter.py
 ultracart/model/sfvb_recording_response.py
+ultracart/model/sfvb_recording_settings.py
+ultracart/model/sfvb_recording_settings_request.py
+ultracart/model/sfvb_recording_settings_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
 ultracart/model/sfvb_server_log.py
