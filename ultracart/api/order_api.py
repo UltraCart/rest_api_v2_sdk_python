@@ -29,7 +29,9 @@ from ultracart.model.base_response import BaseResponse
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.order import Order
 from ultracart.model.order_add_items_and_release_request import OrderAddItemsAndReleaseRequest
+from ultracart.model.order_assign_rma_request import OrderAssignRmaRequest
 from ultracart.model.order_assign_to_affiliate_request import OrderAssignToAffiliateRequest
+from ultracart.model.order_auto_order_update_billing_url_response import OrderAutoOrderUpdateBillingUrlResponse
 from ultracart.model.order_by_token_query import OrderByTokenQuery
 from ultracart.model.order_customer_activity_response import OrderCustomerActivityResponse
 from ultracart.model.order_edi_documents_response import OrderEdiDocumentsResponse
@@ -132,6 +134,70 @@ class OrderApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.assign_rma_endpoint = _Endpoint(
+            settings={
+                'response_type': (OrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/order/orders/{order_id}/rma',
+                'operation_id': 'assign_rma',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'order_id',
+                    'assign_rma_request',
+                    'expand',
+                ],
+                'required': [
+                    'order_id',
+                    'assign_rma_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'order_id':
+                        (str,),
+                    'assign_rma_request':
+                        (OrderAssignRmaRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'order_id': 'order_id',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'order_id': 'path',
+                    'assign_rma_request': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -1620,6 +1686,115 @@ class OrderApi(object):
             },
             api_client=api_client
         )
+        self.get_orders_by_rma_endpoint = _Endpoint(
+            settings={
+                'response_type': (OrdersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/order/orders/rma/{rma}',
+                'operation_id': 'get_orders_by_rma',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'rma',
+                    'expand',
+                ],
+                'required': [
+                    'rma',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'rma':
+                        (str,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'rma': 'rma',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'rma': 'path',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_update_billing_url_endpoint = _Endpoint(
+            settings={
+                'response_type': (OrderAutoOrderUpdateBillingUrlResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/order/orders/{order_id}/auto_order_update_billing_url',
+                'operation_id': 'get_update_billing_url',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'order_id',
+                ],
+                'required': [
+                    'order_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'order_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'order_id': 'order_id',
+                },
+                'location_map': {
+                    'order_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.held_order_add_items_and_release_endpoint = _Endpoint(
             settings={
                 'response_type': (OrderResponse,),
@@ -2545,6 +2720,94 @@ class OrderApi(object):
         kwargs['desired_total'] = \
             desired_total
         return self.adjust_order_total_endpoint.call_with_http_info(**kwargs)
+
+    def assign_rma(
+        self,
+        order_id,
+        assign_rma_request,
+        **kwargs
+    ):
+        """Associates an RMA with an order  # noqa: E501
+
+        Associates an RMA number with an order.  Any existing RMA on the order is replaced.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.assign_rma(order_id, assign_rma_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            order_id (str): The order id to associate the RMA with.
+            assign_rma_request (OrderAssignRmaRequest): Assign RMA request
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            OrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['order_id'] = \
+            order_id
+        kwargs['assign_rma_request'] = \
+            assign_rma_request
+        return self.assign_rma_endpoint.call_with_http_info(**kwargs)
 
     def assign_to_affiliate(
         self,
@@ -4580,6 +4843,173 @@ class OrderApi(object):
         kwargs['order_query'] = \
             order_query
         return self.get_orders_by_query_endpoint.call_with_http_info(**kwargs)
+
+    def get_orders_by_rma(
+        self,
+        rma,
+        **kwargs
+    ):
+        """Retrieve orders by RMA  # noqa: E501
+
+        Retrieves the orders associated with the specified RMA number.  The RMA must be an exact value; wildcards are not permitted.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_orders_by_rma(rma, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            rma (str): The RMA number to search for.
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            OrdersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['rma'] = \
+            rma
+        return self.get_orders_by_rma_endpoint.call_with_http_info(**kwargs)
+
+    def get_update_billing_url(
+        self,
+        order_id,
+        **kwargs
+    ):
+        """Generate an auto order update billing url  # noqa: E501
+
+        Generates the url a customer can use to update the billing information on the auto order associated with this order.  This is the same url sent in the auto order update billing email.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_update_billing_url(order_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            order_id (str): The order id to generate the update billing url for.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            OrderAutoOrderUpdateBillingUrlResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['order_id'] = \
+            order_id
+        return self.get_update_billing_url_endpoint.call_with_http_info(**kwargs)
 
     def held_order_add_items_and_release(
         self,
