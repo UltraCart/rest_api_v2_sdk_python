@@ -82,7 +82,7 @@ class SfvbLibraryParameter(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'default': (str,),  # noqa: E501
+            'default_value': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'required': (bool,),  # noqa: E501
@@ -95,7 +95,7 @@ class SfvbLibraryParameter(ModelNormal):
 
 
     attribute_map = {
-        'default': 'default',  # noqa: E501
+        'default_value': 'default_value',  # noqa: E501
         'description': 'description',  # noqa: E501
         'name': 'name',  # noqa: E501
         'required': 'required',  # noqa: E501
@@ -143,7 +143,7 @@ class SfvbLibraryParameter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (str): The value used when none is supplied.. [optional]  # noqa: E501
+            default_value (str): The value used when none is supplied.. [optional]  # noqa: E501
             description (str): What the value is used for.. [optional]  # noqa: E501
             name (str): Parameter name, letters, digits, hyphens and underscores.. [optional]  # noqa: E501
             required (bool): True when the fragment cannot be used without it.. [optional]  # noqa: E501
@@ -233,7 +233,7 @@ class SfvbLibraryParameter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (str): The value used when none is supplied.. [optional]  # noqa: E501
+            default_value (str): The value used when none is supplied.. [optional]  # noqa: E501
             description (str): What the value is used for.. [optional]  # noqa: E501
             name (str): Parameter name, letters, digits, hyphens and underscores.. [optional]  # noqa: E501
             required (bool): True when the fragment cannot be used without it.. [optional]  # noqa: E501
