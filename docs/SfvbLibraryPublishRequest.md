@@ -1,12 +1,11 @@
-# SfvbLibraryFacet
+# SfvbLibraryPublishRequest
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** | Human readable facet name. | [optional] 
-**name** | **str** | Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option. | [optional] 
-**options** | **[str]** | Values present in the results.  A facet with only one value is left out unless it is selected. | [optional] 
+**release_notes** | **str** | What changed in this revision, at most 4000 characters.  Publish only. | [optional] 
+**visibility** | **str** | On publish, shared or public.  On unpublish, shared or private.  Public needs the library publisher property on the account. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

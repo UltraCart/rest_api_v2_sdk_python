@@ -153,8 +153,53 @@ Associates an RMA number with an order.  Any existing RMA on the order is replac
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+"""
+OrderApi.assign_rma() associates an RMA (return merchandise authorization) number with an order.
 
-(No example for this operation).
+The rma value is required, may be at most 30 characters, and is trimmed by the server.
+Any existing RMA on the order is replaced, and a merchant note is added to the order recording the change.
+The optional expand parameter controls how much of the order is returned in the response.
+
+Requires the order_write scope.
+"""
+from ultracart.model.order_assign_rma_request import OrderAssignRmaRequest
+
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
+
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
+
+    order_id = 'DEMO-0009104390'
+    expand = 'item,summary'
+
+    req = OrderAssignRmaRequest()
+    req['rma'] = 'RMA-12345'
+
+    api_response = order_api.assign_rma(order_id, req, expand=expand)
+
+    # Check for errors
+    if hasattr(api_response, 'error') and api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('RMA could not be assigned. See Python error log.')
+        exit()
+
+    order = api_response.order
+    print(f"RMA {order.rma} was assigned to order {order.order_id}.")
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('RMA could not be assigned due to an API error.')
+```
 
 
 
@@ -2276,8 +2321,52 @@ Retrieves the orders associated with the specified RMA number.  The RMA must be 
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+"""
+OrderApi.get_orders_by_rma() retrieves the orders associated with an RMA number.
 
-(No example for this operation).
+The RMA must be an exact value; wildcards such as * are not permitted and will return a 400 error.
+More than one order can share the same RMA, so the response contains a list of orders.
+This lookup is backed by a search index, so an RMA that was just assigned may take a short time to appear.
+
+Requires the order_read scope.
+"""
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
+
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
+
+    # See www.ultracart.com/api/ for all the expansion fields available.
+    expand = 'item,summary,billing,shipping'
+
+    rma = 'RMA-12345'
+
+    api_response = order_api.get_orders_by_rma(rma, expand=expand)
+
+    # Check for errors
+    if hasattr(api_response, 'error') and api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('Orders could not be retrieved. See Python error log.')
+        exit()
+
+    orders = api_response.orders
+    print(f"Found {len(orders)} order(s) with RMA {rma}.")
+    for order in orders:
+        print(order.order_id)
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Orders could not be retrieved due to an API error.')
+```
 
 
 
@@ -2327,8 +2416,50 @@ Generates the url a customer can use to update the billing information on the au
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+"""
+OrderApi.get_update_billing_url() generates the url a customer can use to update the billing
+information on the auto order associated with an order.  This is the same url sent in the
+auto order update billing email.
 
-(No example for this operation).
+The order must belong to an auto order or a 400 error is returned.  Either the original order
+or any rebill order of the auto order may be used.
+
+Requires the order_write scope because the url carries a customer access token.
+"""
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
+
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
+
+    order_id = 'DEMO-0009104390'
+
+    api_response = order_api.get_update_billing_url(order_id)
+
+    # Check for errors
+    if hasattr(api_response, 'error') and api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('Update billing url could not be generated. See Python error log.')
+        exit()
+
+    # WARNING: this url grants access to the customer's billing information.
+    # In production, do not log it or expose it publicly; only deliver it to the customer.
+    if api_response.success:
+        print(api_response.update_billing_url)
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Update billing url could not be generated due to an API error.')
+```
 
 
 

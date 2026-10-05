@@ -140,8 +140,8 @@ class SfvbLibraryFacet(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): Human readable facet name.. [optional]  # noqa: E501
-            name (str): Facet key.  Pass a chosen option back as facet_{name}={option}.. [optional]  # noqa: E501
-            options ([str]): Available values for this facet.. [optional]  # noqa: E501
+            name (str): Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.. [optional]  # noqa: E501
+            options ([str]): Values present in the results.  A facet with only one value is left out unless it is selected.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class SfvbLibraryFacet(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): Human readable facet name.. [optional]  # noqa: E501
-            name (str): Facet key.  Pass a chosen option back as facet_{name}={option}.. [optional]  # noqa: E501
-            options ([str]): Available values for this facet.. [optional]  # noqa: E501
+            name (str): Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.. [optional]  # noqa: E501
+            options ([str]): Values present in the results.  A facet with only one value is left out unless it is selected.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

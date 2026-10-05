@@ -1,12 +1,12 @@
-# SfvbLibraryFacet
+# SfvbLibraryUnshareResult
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** | Human readable facet name. | [optional] 
-**name** | **str** | Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option. | [optional] 
-**options** | **[str]** | Values present in the results.  A facet with only one value is left out unless it is selected. | [optional] 
+**existing_installs** | [**[SfvbLibraryInstallRecord]**](SfvbLibraryInstallRecord.md) | That account&#39;s installs, which keep their copies.  Unsharing never reaches into a storefront. | [optional] 
+**library_oid** | **int** | The entry. | [optional] 
+**merchant_id** | **str** | The account the entry is no longer shared with. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
