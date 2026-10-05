@@ -61,15 +61,15 @@ from ultracart.model.sfvb_item_seo_request import SfvbItemSeoRequest
 from ultracart.model.sfvb_library_delete_result import SfvbLibraryDeleteResult
 from ultracart.model.sfvb_library_entry import SfvbLibraryEntry
 from ultracart.model.sfvb_library_entry_request import SfvbLibraryEntryRequest
-from ultracart.model.sfvb_library_history_entry import SfvbLibraryHistoryEntry
+from ultracart.model.sfvb_library_history_response import SfvbLibraryHistoryResponse
 from ultracart.model.sfvb_library_install_receipt import SfvbLibraryInstallReceipt
-from ultracart.model.sfvb_library_install_record import SfvbLibraryInstallRecord
 from ultracart.model.sfvb_library_install_request import SfvbLibraryInstallRequest
+from ultracart.model.sfvb_library_installs_response import SfvbLibraryInstallsResponse
 from ultracart.model.sfvb_library_publish_request import SfvbLibraryPublishRequest
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
 from ultracart.model.sfvb_library_screenshot_request import SfvbLibraryScreenshotRequest
 from ultracart.model.sfvb_library_share_request import SfvbLibraryShareRequest
-from ultracart.model.sfvb_library_share_target import SfvbLibraryShareTarget
+from ultracart.model.sfvb_library_share_targets_response import SfvbLibraryShareTargetsResponse
 from ultracart.model.sfvb_library_taxonomy_catalog import SfvbLibraryTaxonomyCatalog
 from ultracart.model.sfvb_library_unshare_result import SfvbLibraryUnshareResult
 from ultracart.model.sfvb_menu import SfvbMenu
@@ -2476,7 +2476,7 @@ class SfvbApi(object):
         )
         self.get_sfvb_library_history_endpoint = _Endpoint(
             settings={
-                'response_type': (SfvbLibraryHistoryEntry,),
+                'response_type': (SfvbLibraryHistoryResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -2534,7 +2534,7 @@ class SfvbApi(object):
         )
         self.get_sfvb_library_share_targets_endpoint = _Endpoint(
             settings={
-                'response_type': (SfvbLibraryShareTarget,),
+                'response_type': (SfvbLibraryShareTargetsResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -4504,7 +4504,7 @@ class SfvbApi(object):
         )
         self.list_sfvb_library_installs_endpoint = _Endpoint(
             settings={
-                'response_type': (SfvbLibraryInstallRecord,),
+                'response_type': (SfvbLibraryInstallsResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -11150,7 +11150,7 @@ class SfvbApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SfvbLibraryHistoryEntry
+            SfvbLibraryHistoryResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -11235,7 +11235,7 @@ class SfvbApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SfvbLibraryShareTarget
+            SfvbLibraryShareTargetsResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -14068,7 +14068,7 @@ class SfvbApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SfvbLibraryInstallRecord
+            SfvbLibraryInstallsResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

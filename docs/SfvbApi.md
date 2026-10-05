@@ -2086,7 +2086,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sfvb_library_history**
-> SfvbLibraryHistoryEntry get_sfvb_library_history(storefront_oid, library_oid)
+> SfvbLibraryHistoryResponse get_sfvb_library_history(storefront_oid, library_oid)
 
 List a library entry's published revisions
 
@@ -2111,7 +2111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryHistoryEntry**](SfvbLibraryHistoryEntry.md)
+[**SfvbLibraryHistoryResponse**](SfvbLibraryHistoryResponse.md)
 
 ### Authorization
 
@@ -2137,7 +2137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sfvb_library_share_targets**
-> SfvbLibraryShareTarget get_sfvb_library_share_targets(storefront_oid)
+> SfvbLibraryShareTargetsResponse get_sfvb_library_share_targets(storefront_oid)
 
 List the accounts a library entry can be shared with
 
@@ -2161,7 +2161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryShareTarget**](SfvbLibraryShareTarget.md)
+[**SfvbLibraryShareTargetsResponse**](SfvbLibraryShareTargetsResponse.md)
 
 ### Authorization
 
@@ -3803,7 +3803,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sfvb_library_installs**
-> SfvbLibraryInstallRecord list_sfvb_library_installs(storefront_oid)
+> SfvbLibraryInstallsResponse list_sfvb_library_installs(storefront_oid)
 
 List the library entries installed on a storefront
 
@@ -3827,7 +3827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SfvbLibraryInstallRecord**](SfvbLibraryInstallRecord.md)
+[**SfvbLibraryInstallsResponse**](SfvbLibraryInstallsResponse.md)
 
 ### Authorization
 
