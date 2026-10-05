@@ -1037,6 +1037,7 @@ from ultracart.model.sfvb_library_install_receipt import SfvbLibraryInstallRecei
 from ultracart.model.sfvb_library_install_record import SfvbLibraryInstallRecord
 from ultracart.model.sfvb_library_install_request import SfvbLibraryInstallRequest
 from ultracart.model.sfvb_library_installs_response import SfvbLibraryInstallsResponse
+from ultracart.model.sfvb_library_manifest_finding import SfvbLibraryManifestFinding
 from ultracart.model.sfvb_library_parameter import SfvbLibraryParameter
 from ultracart.model.sfvb_library_publish_request import SfvbLibraryPublishRequest
 from ultracart.model.sfvb_library_response import SfvbLibraryResponse
@@ -1046,6 +1047,8 @@ from ultracart.model.sfvb_library_share_target import SfvbLibraryShareTarget
 from ultracart.model.sfvb_library_share_targets_response import SfvbLibraryShareTargetsResponse
 from ultracart.model.sfvb_library_taxonomy import SfvbLibraryTaxonomy
 from ultracart.model.sfvb_library_taxonomy_catalog import SfvbLibraryTaxonomyCatalog
+from ultracart.model.sfvb_library_taxonomy_dimension import SfvbLibraryTaxonomyDimension
+from ultracart.model.sfvb_library_taxonomy_tag import SfvbLibraryTaxonomyTag
 from ultracart.model.sfvb_library_unshare_result import SfvbLibraryUnshareResult
 from ultracart.model.sfvb_menu import SfvbMenu
 from ultracart.model.sfvb_menu_item import SfvbMenuItem

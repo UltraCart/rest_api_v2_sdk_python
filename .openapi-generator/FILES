@@ -1048,6 +1048,7 @@ docs/SfvbLibraryInstallReceipt.md
 docs/SfvbLibraryInstallRecord.md
 docs/SfvbLibraryInstallRequest.md
 docs/SfvbLibraryInstallsResponse.md
+docs/SfvbLibraryManifestFinding.md
 docs/SfvbLibraryParameter.md
 docs/SfvbLibraryPublishRequest.md
 docs/SfvbLibraryResponse.md
@@ -1057,6 +1058,8 @@ docs/SfvbLibraryShareTarget.md
 docs/SfvbLibraryShareTargetsResponse.md
 docs/SfvbLibraryTaxonomy.md
 docs/SfvbLibraryTaxonomyCatalog.md
+docs/SfvbLibraryTaxonomyDimension.md
+docs/SfvbLibraryTaxonomyTag.md
 docs/SfvbLibraryUnshareResult.md
 docs/SfvbMenu.md
 docs/SfvbMenuItem.md
@@ -2307,6 +2310,7 @@ ultracart/model/sfvb_library_install_receipt.py
 ultracart/model/sfvb_library_install_record.py
 ultracart/model/sfvb_library_install_request.py
 ultracart/model/sfvb_library_installs_response.py
+ultracart/model/sfvb_library_manifest_finding.py
 ultracart/model/sfvb_library_parameter.py
 ultracart/model/sfvb_library_publish_request.py
 ultracart/model/sfvb_library_response.py
@@ -2316,6 +2320,8 @@ ultracart/model/sfvb_library_share_target.py
 ultracart/model/sfvb_library_share_targets_response.py
 ultracart/model/sfvb_library_taxonomy.py
 ultracart/model/sfvb_library_taxonomy_catalog.py
+ultracart/model/sfvb_library_taxonomy_dimension.py
+ultracart/model/sfvb_library_taxonomy_tag.py
 ultracart/model/sfvb_library_unshare_result.py
 ultracart/model/sfvb_menu.py
 ultracart/model/sfvb_menu_item.py

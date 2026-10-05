@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**findings** | **bool, date, datetime, dict, float, int, list, str, none_type** | What the reviewers found.  detail is the category followed by the quoted evidence. | [optional] 
+**findings** | [**[SfvbLibraryManifestFinding]**](SfvbLibraryManifestFinding.md) | What the reviewers found.  detail is the category followed by the quoted evidence. | [optional] 
 **prompt_version** | **str** | Version of the review policy that produced this verdict. | [optional] 
 **reviewed_dts** | **str** | When the review ran, ISO 8601. | [optional] 
 **screenshot_sha256** | **str** | The screenshot the review looked at, or absent when there was none. | [optional] 
