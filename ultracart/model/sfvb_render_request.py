@@ -170,7 +170,7 @@ class SfvbRenderRequest(ModelNormal):
             context_page_number (str): Page number for paginated elements.  Defaults to 1.. [optional]  # noqa: E501
             context_upsell_offer_oid (int): Upsell offer oid for the rendering context.. [optional]  # noqa: E501
             edit_mode (bool): True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.. [optional]  # noqa: E501
-            language_iso_code (str): Language ISO code.  Defaults to ENG.. [optional]  # noqa: E501
+            language_iso_code (str): UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.. [optional]  # noqa: E501
             uri (str): Storefront URI the node would appear on.  Affects rendering of anything page relative.. [optional]  # noqa: E501
         """
 
@@ -268,7 +268,7 @@ class SfvbRenderRequest(ModelNormal):
             context_page_number (str): Page number for paginated elements.  Defaults to 1.. [optional]  # noqa: E501
             context_upsell_offer_oid (int): Upsell offer oid for the rendering context.. [optional]  # noqa: E501
             edit_mode (bool): True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.. [optional]  # noqa: E501
-            language_iso_code (str): Language ISO code.  Defaults to ENG.. [optional]  # noqa: E501
+            language_iso_code (str): UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.. [optional]  # noqa: E501
             uri (str): Storefront URI the node would appear on.  Affects rendering of anything page relative.. [optional]  # noqa: E501
         """
 
