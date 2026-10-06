@@ -84,6 +84,10 @@ from ultracart.model.sfvb_library_unshare_result import SfvbLibraryUnshareResult
 from ultracart.model.sfvb_menu import SfvbMenu
 from ultracart.model.sfvb_menu_write_request import SfvbMenuWriteRequest
 from ultracart.model.sfvb_menus_response import SfvbMenusResponse
+from ultracart.model.sfvb_not_found_entry import SfvbNotFoundEntry
+from ultracart.model.sfvb_not_found_entry_response import SfvbNotFoundEntryResponse
+from ultracart.model.sfvb_not_found_page import SfvbNotFoundPage
+from ultracart.model.sfvb_not_found_response import SfvbNotFoundResponse
 from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttributeUpdateRequest
 from ultracart.model.sfvb_page_blog_posts_request import SfvbPageBlogPostsRequest
 from ultracart.model.sfvb_page_blog_posts_response import SfvbPageBlogPostsResponse
@@ -108,6 +112,14 @@ from ultracart.model.sfvb_recording_events_response import SfvbRecordingEventsRe
 from ultracart.model.sfvb_recording_response import SfvbRecordingResponse
 from ultracart.model.sfvb_recording_settings_request import SfvbRecordingSettingsRequest
 from ultracart.model.sfvb_recording_settings_response import SfvbRecordingSettingsResponse
+from ultracart.model.sfvb_redirect import SfvbRedirect
+from ultracart.model.sfvb_redirect_check_response import SfvbRedirectCheckResponse
+from ultracart.model.sfvb_redirect_import_request import SfvbRedirectImportRequest
+from ultracart.model.sfvb_redirect_import_response import SfvbRedirectImportResponse
+from ultracart.model.sfvb_redirect_request import SfvbRedirectRequest
+from ultracart.model.sfvb_redirect_resolve_response import SfvbRedirectResolveResponse
+from ultracart.model.sfvb_redirect_response import SfvbRedirectResponse
+from ultracart.model.sfvb_redirects_response import SfvbRedirectsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
@@ -398,6 +410,65 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'blog_post_oid': 'path',
                     'blog_post_image_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.check_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectCheckResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/check',
+                'operation_id': 'check_sfvb_redirect',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_request':
+                        (SfvbRedirectRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1149,6 +1220,70 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.delete_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/{redirect_id}',
+                'operation_id': 'delete_sfvb_redirect',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_id',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_id',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_id':
+                        (int,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'redirect_id': 'redirect_id',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_id': 'path',
+                    'if_match': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.detach_sfvb_blog_post_image_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbBlogPostDetail,),
@@ -1448,6 +1583,65 @@ class SfvbApi(object):
                     'application/octet-stream'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.dry_run_sfvb_redirect_import_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectImportResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/import/dry_run',
+                'operation_id': 'dry_run_sfvb_redirect_import',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_import_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_import_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_import_request':
+                        (SfvbRedirectImportRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_import_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
             },
             api_client=api_client
         )
@@ -3187,6 +3381,203 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_not_found_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbNotFoundResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/not_found',
+                'operation_id': 'get_sfvb_not_found',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'since',
+                    'sort',
+                    'include_bots',
+                    'include_tokens',
+                    'q',
+                    'limit',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'since':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'include_bots':
+                        (bool,),
+                    'include_tokens':
+                        (bool,),
+                    'q':
+                        (str,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'since': 'since',
+                    'sort': 'sort',
+                    'include_bots': 'include_bots',
+                    'include_tokens': 'include_tokens',
+                    'q': 'q',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'since': 'query',
+                    'sort': 'query',
+                    'include_bots': 'query',
+                    'include_tokens': 'query',
+                    'q': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_not_found_entry_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbNotFoundEntryResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}',
+                'operation_id': 'get_sfvb_not_found_entry',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'not_found_id',
+                    'include_tokens',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'not_found_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'not_found_id':
+                        (str,),
+                    'include_tokens':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'not_found_id': 'not_found_id',
+                    'include_tokens': 'include_tokens',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'not_found_id': 'path',
+                    'include_tokens': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_not_found_page_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbNotFoundPage,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/not_found_page',
+                'operation_id': 'get_sfvb_not_found_page',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_page_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbPageResponse,),
@@ -3644,6 +4035,131 @@ class SfvbApi(object):
                 },
                 'location_map': {
                     'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirect,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/{redirect_id}',
+                'operation_id': 'get_sfvb_redirect',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'redirect_id': 'redirect_id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_redirects_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects',
+                'operation_id': 'get_sfvb_redirects',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'q',
+                    'type',
+                    'status',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'q':
+                        (str,),
+                    'type':
+                        (str,),
+                    'status':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'q': 'q',
+                    'type': 'type',
+                    'status': 'status',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'q': 'query',
+                    'type': 'query',
+                    'status': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -4191,6 +4707,123 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.ignore_sfvb_not_found_entry_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbNotFoundEntry,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore',
+                'operation_id': 'ignore_sfvb_not_found_entry',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'not_found_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'not_found_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'not_found_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'not_found_id': 'not_found_id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'not_found_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.import_sfvb_redirects_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectImportResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/import',
+                'operation_id': 'import_sfvb_redirects',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_import_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_import_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_import_request':
+                        (SfvbRedirectImportRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_import_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.insert_sfvb_blog_post_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbBlogPostDetail,),
@@ -4295,6 +4928,65 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'page_create_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects',
+                'operation_id': 'insert_sfvb_redirect',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_request':
+                        (SfvbRedirectRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -7267,6 +7959,63 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.resolve_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectResolveResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/resolve',
+                'operation_id': 'resolve_sfvb_redirect',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.resolve_sfvb_template_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbTemplateResolveResponse,),
@@ -7919,6 +8668,64 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.unignore_sfvb_not_found_entry_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbNotFoundEntry,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore',
+                'operation_id': 'unignore_sfvb_not_found_entry',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'not_found_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'not_found_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'not_found_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'not_found_id': 'not_found_id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'not_found_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.unpublish_sfvb_library_entry_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbLibraryEntry,),
@@ -8170,6 +8977,77 @@ class SfvbApi(object):
                     'library_oid': 'path',
                     'if_match': 'header',
                     'library_entry': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_redirect_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/{redirect_id}',
+                'operation_id': 'update_sfvb_redirect',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_id',
+                    'if_match',
+                    'redirect_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_id',
+                    'if_match',
+                    'redirect_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_id':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'redirect_request':
+                        (SfvbRedirectRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'redirect_id': 'redirect_id',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_id': 'path',
+                    'if_match': 'header',
+                    'redirect_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -8868,6 +9746,93 @@ class SfvbApi(object):
         kwargs['blog_post_image_request'] = \
             blog_post_image_request
         return self.attach_sfvb_blog_post_image_endpoint.call_with_http_info(**kwargs)
+
+    def check_sfvb_redirect(
+        self,
+        storefront_oid,
+        redirect_request,
+        **kwargs
+    ):
+        """Check a redirect rule without creating it  # noqa: E501
+
+        Runs every check a create runs (loops, chains, duplicates, missing or external targets, system paths, live pages, the rule limit) and returns the findings.  Writes nothing.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.check_sfvb_redirect(storefront_oid, redirect_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_request (SfvbRedirectRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectCheckResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_request'] = \
+            redirect_request
+        return self.check_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
 
     def clear_sfvb_library_screenshot(
         self,
@@ -9915,6 +10880,97 @@ class SfvbApi(object):
             preview_session_id
         return self.delete_sfvb_preview_session_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sfvb_redirect(
+        self,
+        storefront_oid,
+        redirect_id,
+        if_match,
+        **kwargs
+    ):
+        """Delete a redirect rule  # noqa: E501
+
+        Deletes one rule.  The source path answers again as it would without the rule.  Send the hash_sha256 you read as If-Match.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_redirect(storefront_oid, redirect_id, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_id (int):
+            if_match (str): hash_sha256 from the last read.  428 when absent, 412 when stale.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_id'] = \
+            redirect_id
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
+
     def detach_sfvb_blog_post_image(
         self,
         storefront_oid,
@@ -10354,6 +11410,93 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.download_sfvb_file_endpoint.call_with_http_info(**kwargs)
+
+    def dry_run_sfvb_redirect_import(
+        self,
+        storefront_oid,
+        redirect_import_request,
+        **kwargs
+    ):
+        """Check a redirect import without writing it  # noqa: E501
+
+        Checks up to 5,000 rows against the existing rules and each other, and returns the findings per row with a plan_hash.  Writes nothing.  Rows are merged with the existing rules; nothing is ever deleted.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.dry_run_sfvb_redirect_import(storefront_oid, redirect_import_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_import_request (SfvbRedirectImportRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectImportResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_import_request'] = \
+            redirect_import_request
+        return self.dry_run_sfvb_redirect_import_endpoint.call_with_http_info(**kwargs)
 
     def duplicate_sfvb_library_entry(
         self,
@@ -12867,6 +14010,266 @@ class SfvbApi(object):
             storefront_oid
         return self.get_sfvb_menus_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_not_found(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the paths that answered 404  # noqa: E501
+
+        The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_not_found(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            since (str): [optional]
+            sort (str): [optional]
+            include_bots (bool): [optional]
+            include_tokens (bool): [optional]
+            q (str): [optional]
+            limit (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbNotFoundResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_not_found_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_not_found_entry(
+        self,
+        storefront_oid,
+        not_found_id,
+        **kwargs
+    ):
+        """Read one 404 path with its recent hits  # noqa: E501
+
+        One entry with up to 100 recent hits, each with its time, the linking host, the user agent and whether it was a bot.  Client IP addresses are never returned.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_not_found_entry(storefront_oid, not_found_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            not_found_id (str):
+
+        Keyword Args:
+            include_tokens (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbNotFoundEntryResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['not_found_id'] = \
+            not_found_id
+        return self.get_sfvb_not_found_entry_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_not_found_page(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """What renders the storefront's 404 page  # noqa: E501
+
+        The site_404.vm the active theme renders for a 404, found the way the storefront finds it, and whether it exists.  Without it the storefront serves a plain fallback.  Edit it with the file endpoints.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_not_found_page(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbNotFoundPage
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_not_found_page_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_page(
         self,
         storefront_oid,
@@ -13563,6 +14966,179 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.get_sfvb_recording_settings_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_redirect(
+        self,
+        storefront_oid,
+        redirect_id,
+        **kwargs
+    ):
+        """Read one redirect rule  # noqa: E501
+
+        One rule, with the hash_sha256 to send as If-Match when updating or deleting it.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_redirect(storefront_oid, redirect_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirect
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_id'] = \
+            redirect_id
+        return self.get_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_redirects(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the storefront's redirect rules  # noqa: E501
+
+        Every redirect rule, exact and pattern.  Filter with q (searches source, target and note), type (exact or pattern) and status (301, 302 or rewrite).  count and limit say how close the storefront is to its rule limit.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_redirects(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            q (str): [optional]
+            type (str): [optional]
+            status (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_server_log(
         self,
@@ -14333,6 +15909,180 @@ class SfvbApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_sfvb_whoami_endpoint.call_with_http_info(**kwargs)
 
+    def ignore_sfvb_not_found_entry(
+        self,
+        storefront_oid,
+        not_found_id,
+        **kwargs
+    ):
+        """Ignore a 404 path  # noqa: E501
+
+        Hides one path from the list and stops counting its hits, for example scanner noise.  Reversible.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ignore_sfvb_not_found_entry(storefront_oid, not_found_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            not_found_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbNotFoundEntry
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['not_found_id'] = \
+            not_found_id
+        return self.ignore_sfvb_not_found_entry_endpoint.call_with_http_info(**kwargs)
+
+    def import_sfvb_redirects(
+        self,
+        storefront_oid,
+        redirect_import_request,
+        **kwargs
+    ):
+        """Apply a reviewed redirect import  # noqa: E501
+
+        Applies exactly the rows of a dry run, given its plan_hash, in one transaction.  Refused with 412 when the rows or the storefront's rules changed since the dry run, and refused when any row has a blocking finding.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.import_sfvb_redirects(storefront_oid, redirect_import_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_import_request (SfvbRedirectImportRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectImportResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_import_request'] = \
+            redirect_import_request
+        return self.import_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
+
     def insert_sfvb_blog_post(
         self,
         storefront_oid,
@@ -14506,6 +16256,93 @@ class SfvbApi(object):
         kwargs['page_create_request'] = \
             page_create_request
         return self.insert_sfvb_page_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_redirect(
+        self,
+        storefront_oid,
+        redirect_request,
+        **kwargs
+    ):
+        """Create a 301 redirect rule  # noqa: E501
+
+        Creates one permanent (301) redirect, live for shoppers at once.  Refused for a loop, a chain longer than the storefront follows, a duplicate source, a target that is missing or on another site, a system path, a live page (unless over_live_page) and a full storefront.  A chain is allowed with a warning naming the final target.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_redirect(storefront_oid, redirect_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_request (SfvbRedirectRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_request'] = \
+            redirect_request
+        return self.insert_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_upsell_offer(
         self,
@@ -18492,6 +20329,90 @@ class SfvbApi(object):
             if_match
         return self.reset_sfvb_i18n_message_endpoint.call_with_http_info(**kwargs)
 
+    def resolve_sfvb_redirect(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """What a shopper gets for a path  # noqa: E501
+
+        Follows the redirect rules for a path exactly as the storefront does and reports each step, the final path, its status and what it lands on (a live page, a hidden page, an item, a 404 or something else).  Read only.  Use it to check every change.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.resolve_sfvb_redirect(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            path (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectResolveResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.resolve_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
+
     def resolve_sfvb_template(
         self,
         storefront_oid,
@@ -19392,6 +21313,93 @@ class SfvbApi(object):
             library_oid
         return self.unfavorite_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
 
+    def unignore_sfvb_not_found_entry(
+        self,
+        storefront_oid,
+        not_found_id,
+        **kwargs
+    ):
+        """Stop ignoring a 404 path  # noqa: E501
+
+        The path lists and counts hits again.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unignore_sfvb_not_found_entry(storefront_oid, not_found_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            not_found_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbNotFoundEntry
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['not_found_id'] = \
+            not_found_id
+        return self.unignore_sfvb_not_found_entry_endpoint.call_with_http_info(**kwargs)
+
     def unpublish_sfvb_library_entry(
         self,
         storefront_oid,
@@ -19759,6 +21767,101 @@ class SfvbApi(object):
         kwargs['library_entry'] = \
             library_entry
         return self.update_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_redirect(
+        self,
+        storefront_oid,
+        redirect_id,
+        if_match,
+        redirect_request,
+        **kwargs
+    ):
+        """Change a redirect rule  # noqa: E501
+
+        Changes the source, target or note, and can turn an admin rule into a 301.  Fields left out keep their value.  A changed source or target is checked like a new rule.  Send the hash_sha256 you read as If-Match.  Always needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_redirect(storefront_oid, redirect_id, if_match, redirect_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_id (int):
+            if_match (str): hash_sha256 from the last read.  428 when absent, 412 when stale.
+            redirect_request (SfvbRedirectRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_id'] = \
+            redirect_id
+        kwargs['if_match'] = \
+            if_match
+        kwargs['redirect_request'] = \
+            redirect_request
+        return self.update_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
 
     def update_sfvb_upsell_offer(
         self,
