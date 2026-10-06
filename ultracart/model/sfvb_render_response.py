@@ -93,6 +93,7 @@ class SfvbRenderResponse(ModelNormal):
             'pending_translation_count': (int,),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'truncated': (bool,),  # noqa: E501
+            'untranslated_count': (int,),  # noqa: E501
             'warnings': ([SfvbErrorDetail],),  # noqa: E501
         }
 
@@ -107,6 +108,7 @@ class SfvbRenderResponse(ModelNormal):
         'pending_translation_count': 'pending_translation_count',  # noqa: E501
         'success': 'success',  # noqa: E501
         'truncated': 'truncated',  # noqa: E501
+        'untranslated_count': 'untranslated_count',  # noqa: E501
         'warnings': 'warnings',  # noqa: E501
     }
 
@@ -156,6 +158,7 @@ class SfvbRenderResponse(ModelNormal):
             pending_translation_count (int): Number of strings still awaiting translation in the requested language.. [optional]  # noqa: E501
             success (bool): True when HTML was produced.. [optional]  # noqa: E501
             truncated (bool): True when the HTML was cut short.. [optional]  # noqa: E501
+            untranslated_count (int): Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.. [optional]  # noqa: E501
             warnings ([SfvbErrorDetail]): Quality warnings about the rendered node.. [optional]  # noqa: E501
         """
 
@@ -247,6 +250,7 @@ class SfvbRenderResponse(ModelNormal):
             pending_translation_count (int): Number of strings still awaiting translation in the requested language.. [optional]  # noqa: E501
             success (bool): True when HTML was produced.. [optional]  # noqa: E501
             truncated (bool): True when the HTML was cut short.. [optional]  # noqa: E501
+            untranslated_count (int): Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.. [optional]  # noqa: E501
             warnings ([SfvbErrorDetail]): Quality warnings about the rendered node.. [optional]  # noqa: E501
         """
 
