@@ -89,7 +89,6 @@ class SfvbTestOrdersResponse(ModelNormal):
         lazy_import()
         return {
             'hint': (str,),  # noqa: E501
-            'searched_days': (int,),  # noqa: E501
             'test_orders': ([SfvbTestOrder],),  # noqa: E501
         }
 
@@ -100,7 +99,6 @@ class SfvbTestOrdersResponse(ModelNormal):
 
     attribute_map = {
         'hint': 'hint',  # noqa: E501
-        'searched_days': 'searched_days',  # noqa: E501
         'test_orders': 'test_orders',  # noqa: E501
     }
 
@@ -145,8 +143,7 @@ class SfvbTestOrdersResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            hint (str): Present when nothing matched.  Says how to place a test order.. [optional]  # noqa: E501
-            searched_days (int): How many days back were searched, 7, 30 or 90, widening until enough test orders were found.. [optional]  # noqa: E501
+            hint (str): Present when nothing matched.. [optional]  # noqa: E501
             test_orders ([SfvbTestOrder]): Test orders, newest first.  Only orders marked as test orders are ever listed.. [optional]  # noqa: E501
         """
 
@@ -233,8 +230,7 @@ class SfvbTestOrdersResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            hint (str): Present when nothing matched.  Says how to place a test order.. [optional]  # noqa: E501
-            searched_days (int): How many days back were searched, 7, 30 or 90, widening until enough test orders were found.. [optional]  # noqa: E501
+            hint (str): Present when nothing matched.. [optional]  # noqa: E501
             test_orders ([SfvbTestOrder]): Test orders, newest first.  Only orders marked as test orders are ever listed.. [optional]  # noqa: E501
         """
 
