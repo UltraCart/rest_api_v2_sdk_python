@@ -4320,7 +4320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_sfvb_approval**
-> insert_sfvb_approval(approval_request)
+> SfvbApproval insert_sfvb_approval(approval_request)
 
 Request a human approval
 
@@ -4345,7 +4345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**SfvbApproval**](SfvbApproval.md)
 
 ### Authorization
 
@@ -4361,7 +4361,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | Successful response |  -  |
 **201** |  |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |

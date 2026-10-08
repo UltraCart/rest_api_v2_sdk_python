@@ -5056,7 +5056,7 @@ class SfvbApi(object):
         )
         self.insert_sfvb_approval_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (SfvbApproval,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -16754,7 +16754,7 @@ class SfvbApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            SfvbApproval
                 If the method is called asynchronously, returns the request
                 thread.
         """
