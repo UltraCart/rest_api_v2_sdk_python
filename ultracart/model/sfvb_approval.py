@@ -32,7 +32,9 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+    from ultracart.model.sfvb_approval_review import SfvbApprovalReview
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
+    globals()['SfvbApprovalReview'] = SfvbApprovalReview
 
 
 class SfvbApproval(ModelNormal):
@@ -65,12 +67,14 @@ class SfvbApproval(ModelNormal):
             'FAILED': "failed",
         },
         ('status',): {
+            'REVIEWING': "reviewing",
             'PENDING': "pending",
             'APPROVED': "approved",
             'DENIED': "denied",
             'CANCELLED': "cancelled",
             'EXPIRED': "expired",
             'USED': "used",
+            'REFUSED': "refused",
         },
     }
 
@@ -114,6 +118,7 @@ class SfvbApproval(ModelNormal):
             'outcome_http_status': (int,),  # noqa: E501
             'params': (SfvbApprovalParams,),  # noqa: E501
             'reason': (str,),  # noqa: E501
+            'review': (SfvbApprovalReview,),  # noqa: E501
             'scope': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
@@ -141,6 +146,7 @@ class SfvbApproval(ModelNormal):
         'outcome_http_status': 'outcome_http_status',  # noqa: E501
         'params': 'params',  # noqa: E501
         'reason': 'reason',  # noqa: E501
+        'review': 'review',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'status': 'status',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
@@ -203,8 +209,9 @@ class SfvbApproval(ModelNormal):
             outcome_http_status (int): The HTTP status the gated call answered with.. [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): The reason the agent sent, as stored and shown (cleaned and capped).. [optional]  # noqa: E501
+            review (SfvbApprovalReview): [optional]  # noqa: E501
             scope (str): Where the action applies.  The storefront host name, or account for account-wide actions.. [optional]  # noqa: E501
-            status (str): pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.. [optional]  # noqa: E501
+            status (str): reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.. [optional]  # noqa: E501
             storefront_oid (int): The storefront the action runs on.  Absent for account-wide actions.. [optional]  # noqa: E501
             used_at (str): When the gated call used this approval, ISO 8601 UTC.. [optional]  # noqa: E501
             user_code (str): Short matching code.  Print it next to approval_url so the person can check the page shows the same code.. [optional]  # noqa: E501
@@ -307,8 +314,9 @@ class SfvbApproval(ModelNormal):
             outcome_http_status (int): The HTTP status the gated call answered with.. [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): The reason the agent sent, as stored and shown (cleaned and capped).. [optional]  # noqa: E501
+            review (SfvbApprovalReview): [optional]  # noqa: E501
             scope (str): Where the action applies.  The storefront host name, or account for account-wide actions.. [optional]  # noqa: E501
-            status (str): pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.. [optional]  # noqa: E501
+            status (str): reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.. [optional]  # noqa: E501
             storefront_oid (int): The storefront the action runs on.  Absent for account-wide actions.. [optional]  # noqa: E501
             used_at (str): When the gated call used this approval, ISO 8601 UTC.. [optional]  # noqa: E501
             user_code (str): Short matching code.  Print it next to approval_url so the person can check the page shows the same code.. [optional]  # noqa: E501

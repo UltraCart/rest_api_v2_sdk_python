@@ -990,6 +990,8 @@ docs/SfvbApi.md
 docs/SfvbApproval.md
 docs/SfvbApprovalCreateRequest.md
 docs/SfvbApprovalParams.md
+docs/SfvbApprovalReview.md
+docs/SfvbApprovalReviewFinding.md
 docs/SfvbApprovalsResponse.md
 docs/SfvbBlogPost.md
 docs/SfvbBlogPostDetail.md
@@ -1124,6 +1126,10 @@ docs/SfvbRecordingSettingsRequest.md
 docs/SfvbRecordingSettingsResponse.md
 docs/SfvbRedirect.md
 docs/SfvbRedirectCheckResponse.md
+docs/SfvbRedirectDeleteRequest.md
+docs/SfvbRedirectDeleteResponse.md
+docs/SfvbRedirectDeleteRow.md
+docs/SfvbRedirectDeleteRowResult.md
 docs/SfvbRedirectImportRequest.md
 docs/SfvbRedirectImportResponse.md
 docs/SfvbRedirectImportRow.md
@@ -2286,6 +2292,8 @@ ultracart/model/self_config.py
 ultracart/model/sfvb_approval.py
 ultracart/model/sfvb_approval_create_request.py
 ultracart/model/sfvb_approval_params.py
+ultracart/model/sfvb_approval_review.py
+ultracart/model/sfvb_approval_review_finding.py
 ultracart/model/sfvb_approvals_response.py
 ultracart/model/sfvb_blog_post.py
 ultracart/model/sfvb_blog_post_detail.py
@@ -2420,6 +2428,10 @@ ultracart/model/sfvb_recording_settings_request.py
 ultracart/model/sfvb_recording_settings_response.py
 ultracart/model/sfvb_redirect.py
 ultracart/model/sfvb_redirect_check_response.py
+ultracart/model/sfvb_redirect_delete_request.py
+ultracart/model/sfvb_redirect_delete_response.py
+ultracart/model/sfvb_redirect_delete_row.py
+ultracart/model/sfvb_redirect_delete_row_result.py
 ultracart/model/sfvb_redirect_import_request.py
 ultracart/model/sfvb_redirect_import_response.py
 ultracart/model/sfvb_redirect_import_row.py

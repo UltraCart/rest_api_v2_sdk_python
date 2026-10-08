@@ -117,6 +117,8 @@ from ultracart.model.sfvb_recording_settings_request import SfvbRecordingSetting
 from ultracart.model.sfvb_recording_settings_response import SfvbRecordingSettingsResponse
 from ultracart.model.sfvb_redirect import SfvbRedirect
 from ultracart.model.sfvb_redirect_check_response import SfvbRedirectCheckResponse
+from ultracart.model.sfvb_redirect_delete_request import SfvbRedirectDeleteRequest
+from ultracart.model.sfvb_redirect_delete_response import SfvbRedirectDeleteResponse
 from ultracart.model.sfvb_redirect_import_request import SfvbRedirectImportRequest
 from ultracart.model.sfvb_redirect_import_response import SfvbRedirectImportResponse
 from ultracart.model.sfvb_redirect_request import SfvbRedirectRequest
@@ -1350,6 +1352,70 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.delete_sfvb_redirects_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectDeleteResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/delete',
+                'operation_id': 'delete_sfvb_redirects',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_delete_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_delete_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_delete_request':
+                        (SfvbRedirectDeleteRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_delete_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.detach_sfvb_blog_post_image_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbBlogPostDetail,),
@@ -1649,6 +1715,65 @@ class SfvbApi(object):
                     'application/octet-stream'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.dry_run_sfvb_redirect_delete_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbRedirectDeleteResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run',
+                'operation_id': 'dry_run_sfvb_redirect_delete',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'redirect_delete_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'redirect_delete_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'redirect_delete_request':
+                        (SfvbRedirectDeleteRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'redirect_delete_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
             },
             api_client=api_client
         )
@@ -6816,6 +6941,7 @@ class SfvbApi(object):
                     'if_match',
                     'file_write_request',
                     'path',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -6843,17 +6969,21 @@ class SfvbApi(object):
                         (SfvbFileWriteRequest,),
                     'path':
                         (str,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'if_match': 'If-Match',
                     'path': 'path',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'if_match': 'header',
                     'file_write_request': 'body',
                     'path': 'query',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -8466,6 +8596,7 @@ class SfvbApi(object):
                     'storefront_oid',
                     'if_match',
                     'file_revert_request',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -8491,15 +8622,19 @@ class SfvbApi(object):
                         (str,),
                     'file_revert_request':
                         (SfvbFileRevertRequest,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'if_match': 'header',
                     'file_revert_request': 'body',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -11344,6 +11479,94 @@ class SfvbApi(object):
             if_match
         return self.delete_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sfvb_redirects(
+        self,
+        storefront_oid,
+        redirect_delete_request,
+        **kwargs
+    ):
+        """Delete up to 5,000 redirect rules in one call  # noqa: E501
+
+        Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_redirects(storefront_oid, redirect_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_delete_request (SfvbRedirectDeleteRequest): The request
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectDeleteResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_delete_request'] = \
+            redirect_delete_request
+        return self.delete_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
+
     def detach_sfvb_blog_post_image(
         self,
         storefront_oid,
@@ -11783,6 +12006,93 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.download_sfvb_file_endpoint.call_with_http_info(**kwargs)
+
+    def dry_run_sfvb_redirect_delete(
+        self,
+        storefront_oid,
+        redirect_delete_request,
+        **kwargs
+    ):
+        """Check a batch delete of redirect rules without writing it  # noqa: E501
+
+        Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.dry_run_sfvb_redirect_delete(storefront_oid, redirect_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            redirect_delete_request (SfvbRedirectDeleteRequest): The request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbRedirectDeleteResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['redirect_delete_request'] = \
+            redirect_delete_request
+        return self.dry_run_sfvb_redirect_delete_endpoint.call_with_http_info(**kwargs)
 
     def dry_run_sfvb_redirect_import(
         self,
@@ -16710,7 +17020,7 @@ class SfvbApi(object):
     ):
         """Request a human approval  # noqa: E501
 
-        Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.   # noqa: E501
+        Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19075,6 +19385,7 @@ class SfvbApi(object):
 
         Keyword Args:
             path (str): [optional]
+            approval_id (str): For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -21327,6 +21638,7 @@ class SfvbApi(object):
             file_revert_request (SfvbFileRevertRequest): Version to revert the file to
 
         Keyword Args:
+            approval_id (str): For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

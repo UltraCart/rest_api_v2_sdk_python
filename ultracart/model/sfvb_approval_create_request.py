@@ -32,7 +32,9 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+    from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
+    globals()['SfvbRedirectDeleteRow'] = SfvbRedirectDeleteRow
 
 
 class SfvbApprovalCreateRequest(ModelNormal):
@@ -63,6 +65,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
         ('action',): {
             'FILE.DELETE': "file.delete",
             'BLOG_POST.DELETE': "blog_post.delete",
+            'FILE.PUT_SCRIPT': "file.put_script",
+            'REDIRECT.DELETE_BATCH': "redirect.delete_batch",
         },
     }
 
@@ -93,8 +97,10 @@ class SfvbApprovalCreateRequest(ModelNormal):
         lazy_import()
         return {
             'action': (str,),  # noqa: E501
+            'content': (str,),  # noqa: E501
             'params': (SfvbApprovalParams,),  # noqa: E501
             'reason': (str,),  # noqa: E501
+            'redirect_rows': ([SfvbRedirectDeleteRow],),  # noqa: E501
         }
 
     @cached_property
@@ -104,8 +110,10 @@ class SfvbApprovalCreateRequest(ModelNormal):
 
     attribute_map = {
         'action': 'action',  # noqa: E501
+        'content': 'content',  # noqa: E501
         'params': 'params',  # noqa: E501
         'reason': 'reason',  # noqa: E501
+        'redirect_rows': 'redirect_rows',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,8 +158,10 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
+            redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,8 +248,10 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
+            redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

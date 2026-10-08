@@ -979,6 +979,8 @@ from ultracart.model.self_config import SelfConfig
 from ultracart.model.sfvb_approval import SfvbApproval
 from ultracart.model.sfvb_approval_create_request import SfvbApprovalCreateRequest
 from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+from ultracart.model.sfvb_approval_review import SfvbApprovalReview
+from ultracart.model.sfvb_approval_review_finding import SfvbApprovalReviewFinding
 from ultracart.model.sfvb_approvals_response import SfvbApprovalsResponse
 from ultracart.model.sfvb_blog_post import SfvbBlogPost
 from ultracart.model.sfvb_blog_post_detail import SfvbBlogPostDetail
@@ -1113,6 +1115,10 @@ from ultracart.model.sfvb_recording_settings_request import SfvbRecordingSetting
 from ultracart.model.sfvb_recording_settings_response import SfvbRecordingSettingsResponse
 from ultracart.model.sfvb_redirect import SfvbRedirect
 from ultracart.model.sfvb_redirect_check_response import SfvbRedirectCheckResponse
+from ultracart.model.sfvb_redirect_delete_request import SfvbRedirectDeleteRequest
+from ultracart.model.sfvb_redirect_delete_response import SfvbRedirectDeleteResponse
+from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
+from ultracart.model.sfvb_redirect_delete_row_result import SfvbRedirectDeleteRowResult
 from ultracart.model.sfvb_redirect_import_request import SfvbRedirectImportRequest
 from ultracart.model.sfvb_redirect_import_response import SfvbRedirectImportResponse
 from ultracart.model.sfvb_redirect_import_row import SfvbRedirectImportRow
