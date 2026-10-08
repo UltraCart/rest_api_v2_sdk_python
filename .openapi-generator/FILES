@@ -987,6 +987,10 @@ docs/ScreenRecordingUserProperty.md
 docs/ScreenshotsResponse.md
 docs/SelfConfig.md
 docs/SfvbApi.md
+docs/SfvbApproval.md
+docs/SfvbApprovalCreateRequest.md
+docs/SfvbApprovalParams.md
+docs/SfvbApprovalsResponse.md
 docs/SfvbBlogPost.md
 docs/SfvbBlogPostDetail.md
 docs/SfvbBlogPostImage.md
@@ -2279,6 +2283,10 @@ ultracart/model/screen_recording_user_agent_os.py
 ultracart/model/screen_recording_user_property.py
 ultracart/model/screenshots_response.py
 ultracart/model/self_config.py
+ultracart/model/sfvb_approval.py
+ultracart/model/sfvb_approval_create_request.py
+ultracart/model/sfvb_approval_params.py
+ultracart/model/sfvb_approvals_response.py
 ultracart/model/sfvb_blog_post.py
 ultracart/model/sfvb_blog_post_detail.py
 ultracart/model/sfvb_blog_post_image.py

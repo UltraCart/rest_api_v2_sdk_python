@@ -976,6 +976,10 @@ from ultracart.model.screen_recording_user_agent_os import ScreenRecordingUserAg
 from ultracart.model.screen_recording_user_property import ScreenRecordingUserProperty
 from ultracart.model.screenshots_response import ScreenshotsResponse
 from ultracart.model.self_config import SelfConfig
+from ultracart.model.sfvb_approval import SfvbApproval
+from ultracart.model.sfvb_approval_create_request import SfvbApprovalCreateRequest
+from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+from ultracart.model.sfvb_approvals_response import SfvbApprovalsResponse
 from ultracart.model.sfvb_blog_post import SfvbBlogPost
 from ultracart.model.sfvb_blog_post_detail import SfvbBlogPostDetail
 from ultracart.model.sfvb_blog_post_image import SfvbBlogPostImage

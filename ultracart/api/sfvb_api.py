@@ -23,6 +23,9 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.error_response import ErrorResponse
+from ultracart.model.sfvb_approval import SfvbApproval
+from ultracart.model.sfvb_approval_create_request import SfvbApprovalCreateRequest
+from ultracart.model.sfvb_approvals_response import SfvbApprovalsResponse
 from ultracart.model.sfvb_blog_post_detail import SfvbBlogPostDetail
 from ultracart.model.sfvb_blog_post_image_request import SfvbBlogPostImageRequest
 from ultracart.model.sfvb_blog_post_request import SfvbBlogPostRequest
@@ -770,6 +773,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.delete_sfvb_approval_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/approvals/{approval_id}',
+                'operation_id': 'delete_sfvb_approval',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'approval_id',
+                ],
+                'required': [
+                    'approval_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'approval_id': 'approval_id',
+                },
+                'location_map': {
+                    'approval_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_sfvb_blog_post_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -786,6 +841,7 @@ class SfvbApi(object):
                 'all': [
                     'storefront_oid',
                     'blog_post_oid',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -808,14 +864,18 @@ class SfvbApi(object):
                         (int,),
                     'blog_post_oid':
                         (int,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'blog_post_oid': 'blog_post_oid',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'blog_post_oid': 'path',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -845,6 +905,7 @@ class SfvbApi(object):
                     'storefront_oid',
                     'if_match',
                     'path',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -869,16 +930,20 @@ class SfvbApi(object):
                         (str,),
                     'path':
                         (str,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'if_match': 'If-Match',
                     'path': 'path',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'if_match': 'header',
                     'path': 'query',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -2136,6 +2201,103 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'library_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_approval_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbApproval,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/approvals/{approval_id}',
+                'operation_id': 'get_sfvb_approval',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'approval_id',
+                ],
+                'required': [
+                    'approval_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'approval_id': 'approval_id',
+                },
+                'location_map': {
+                    'approval_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_approvals_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbApprovalsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/approvals',
+                'operation_id': 'get_sfvb_approvals',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -4878,6 +5040,64 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'redirect_import_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_approval_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/approvals',
+                'operation_id': 'insert_sfvb_approval',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'approval_request',
+                    'storefront_oid',
+                ],
+                'required': [
+                    'approval_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'approval_request':
+                        (SfvbApprovalCreateRequest,),
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'approval_request': 'body',
+                    'storefront_oid': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -10330,6 +10550,89 @@ class SfvbApi(object):
             storefront_oid
         return self.create_sfvb_preview_session_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sfvb_approval(
+        self,
+        approval_id,
+        **kwargs
+    ):
+        """Cancel a pending approval request  # noqa: E501
+
+        Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_approval(approval_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            approval_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['approval_id'] = \
+            approval_id
+        return self.delete_sfvb_approval_endpoint.call_with_http_info(**kwargs)
+
     def delete_sfvb_blog_post(
         self,
         storefront_oid,
@@ -10350,6 +10653,7 @@ class SfvbApi(object):
             blog_post_oid (int):
 
         Keyword Args:
+            approval_id (str): The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -10438,6 +10742,7 @@ class SfvbApi(object):
 
         Keyword Args:
             path (str): [optional]
+            approval_id (str): The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -12276,6 +12581,167 @@ class SfvbApi(object):
         kwargs['library_oid'] = \
             library_oid
         return self.favorite_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_approval(
+        self,
+        approval_id,
+        **kwargs
+    ):
+        """Read one approval request  # noqa: E501
+
+        Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_approval(approval_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            approval_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbApproval
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['approval_id'] = \
+            approval_id
+        return self.get_sfvb_approval_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_approvals(
+        self,
+        **kwargs
+    ):
+        """List this sign-in's approval requests  # noqa: E501
+
+        Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_approvals(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbApprovalsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_sfvb_approvals_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_blog_post(
         self,
@@ -16236,6 +16702,90 @@ class SfvbApi(object):
         kwargs['redirect_import_request'] = \
             redirect_import_request
         return self.import_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_approval(
+        self,
+        approval_request,
+        **kwargs
+    ):
+        """Request a human approval  # noqa: E501
+
+        Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_approval(approval_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            approval_request (SfvbApprovalCreateRequest): The request
+
+        Keyword Args:
+            storefront_oid (int): The storefront the action runs on.  Required for storefront actions, left out for account-wide ones.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['approval_request'] = \
+            approval_request
+        return self.insert_sfvb_approval_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_blog_post(
         self,
