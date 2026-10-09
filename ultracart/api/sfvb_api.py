@@ -64,10 +64,16 @@ from ultracart.model.sfvb_i18n_message import SfvbI18nMessage
 from ultracart.model.sfvb_i18n_message_write_request import SfvbI18nMessageWriteRequest
 from ultracart.model.sfvb_i18n_messages_response import SfvbI18nMessagesResponse
 from ultracart.model.sfvb_i18n_reset_response import SfvbI18nResetResponse
+from ultracart.model.sfvb_item_attribute_batch_request import SfvbItemAttributeBatchRequest
+from ultracart.model.sfvb_item_attribute_batch_response import SfvbItemAttributeBatchResponse
 from ultracart.model.sfvb_item_attribute_update_request import SfvbItemAttributeUpdateRequest
 from ultracart.model.sfvb_item_containers_response import SfvbItemContainersResponse
 from ultracart.model.sfvb_item_content_request import SfvbItemContentRequest
 from ultracart.model.sfvb_item_multimedia_request import SfvbItemMultimediaRequest
+from ultracart.model.sfvb_item_pricing import SfvbItemPricing
+from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
+from ultracart.model.sfvb_item_related import SfvbItemRelated
+from ultracart.model.sfvb_item_related_request import SfvbItemRelatedRequest
 from ultracart.model.sfvb_item_response import SfvbItemResponse
 from ultracart.model.sfvb_item_seo_request import SfvbItemSeoRequest
 from ultracart.model.sfvb_library_delete_result import SfvbLibraryDeleteResult
@@ -1718,6 +1724,65 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.dry_run_sfvb_item_attribute_batch_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemAttributeBatchResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/attributes/batch/dry_run',
+                'operation_id': 'dry_run_sfvb_item_attribute_batch',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'item_attribute_batch_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'item_attribute_batch_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'item_attribute_batch_request':
+                        (SfvbItemAttributeBatchRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'item_attribute_batch_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.dry_run_sfvb_redirect_delete_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbRedirectDeleteResponse,),
@@ -2216,6 +2281,132 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.enable_sfvb_upsell_offer_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUpsellOffer,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable',
+                'operation_id': 'enable_sfvb_upsell_offer',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'upsell_offer_oid',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'upsell_offer_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'upsell_offer_oid':
+                        (int,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'upsell_offer_oid': 'upsell_offer_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'upsell_offer_oid': 'path',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.enable_sfvb_upsell_path_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUpsellPath,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable',
+                'operation_id': 'enable_sfvb_upsell_path',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'upsell_path_oid',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'upsell_path_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'upsell_path_oid':
+                        (int,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'upsell_path_oid': 'upsell_path_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'upsell_path_oid': 'path',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.end_sfvb_experiment_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbExperiment,),
@@ -2232,6 +2423,7 @@ class SfvbApi(object):
                 'all': [
                     'storefront_oid',
                     'experiment_oid',
+                    'approval_id',
                     'experiment_end_request',
                 ],
                 'required': [
@@ -2255,16 +2447,20 @@ class SfvbApi(object):
                         (int,),
                     'experiment_oid':
                         (int,),
+                    'approval_id':
+                        (str,),
                     'experiment_end_request':
                         (SfvbExperimentEndRequest,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'experiment_oid': 'experiment_oid',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'experiment_oid': 'path',
+                    'approval_id': 'header',
                     'experiment_end_request': 'body',
                 },
                 'collection_format_map': {
@@ -3281,6 +3477,130 @@ class SfvbApi(object):
                 ],
                 'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items',
                 'operation_id': 'get_sfvb_item',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'merchant_item_id',
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'merchant_item_id':
+                        (str,),
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'merchant_item_id': 'merchant_item_id',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'merchant_item_id': 'query',
+                    'merchant_item_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_item_pricing_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemPricing,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/pricing',
+                'operation_id': 'get_sfvb_item_pricing',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'merchant_item_id',
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'merchant_item_id':
+                        (str,),
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'merchant_item_id': 'merchant_item_id',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'merchant_item_id': 'query',
+                    'merchant_item_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_item_related_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemRelated,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/related',
+                'operation_id': 'get_sfvb_item_related',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -7345,6 +7665,161 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.put_sfvb_item_pricing_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemPricing,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/pricing',
+                'operation_id': 'put_sfvb_item_pricing',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'item_pricing_request',
+                    'merchant_item_id',
+                    'merchant_item_oid',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                    'item_pricing_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'item_pricing_request':
+                        (SfvbItemPricingRequest,),
+                    'merchant_item_id':
+                        (str,),
+                    'merchant_item_oid':
+                        (int,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                    'merchant_item_id': 'merchant_item_id',
+                    'merchant_item_oid': 'merchant_item_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'item_pricing_request': 'body',
+                    'merchant_item_id': 'query',
+                    'merchant_item_oid': 'query',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.put_sfvb_item_related_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemRelated,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/related',
+                'operation_id': 'put_sfvb_item_related',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'item_related_request',
+                    'merchant_item_id',
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                    'item_related_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'item_related_request':
+                        (SfvbItemRelatedRequest,),
+                    'merchant_item_id':
+                        (str,),
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                    'merchant_item_id': 'merchant_item_id',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'item_related_request': 'body',
+                    'merchant_item_id': 'query',
+                    'merchant_item_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.put_sfvb_item_seo_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbItemResponse,),
@@ -8932,6 +9407,7 @@ class SfvbApi(object):
                 'all': [
                     'storefront_oid',
                     'experiment_start_request',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -8954,13 +9430,17 @@ class SfvbApi(object):
                         (int,),
                     'experiment_start_request':
                         (SfvbExperimentStartRequest,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'experiment_start_request': 'body',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -9329,6 +9809,70 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'blog_post_oid': 'path',
                     'blog_post_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_item_attribute_batch_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbItemAttributeBatchResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/items/attributes/batch',
+                'operation_id': 'update_sfvb_item_attribute_batch',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'item_attribute_batch_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'item_attribute_batch_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'item_attribute_batch_request':
+                        (SfvbItemAttributeBatchRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'item_attribute_batch_request': 'body',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -12007,6 +12551,93 @@ class SfvbApi(object):
             storefront_oid
         return self.download_sfvb_file_endpoint.call_with_http_info(**kwargs)
 
+    def dry_run_sfvb_item_attribute_batch(
+        self,
+        storefront_oid,
+        item_attribute_batch_request,
+        **kwargs
+    ):
+        """Check attribute changes across many items without writing them  # noqa: E501
+
+        Checks up to 2,000 rows on up to 200 items, each with the single attribute update's checks, and answers every row as change, unchanged, stale (expected_value differs from the current value), not_found or invalid, with the current value and its current_sha256, plus a plan_hash over the change rows.  Writes nothing.  SEO attributes are refused; a batch never touches them or any attribute it does not name.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.dry_run_sfvb_item_attribute_batch(storefront_oid, item_attribute_batch_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            item_attribute_batch_request (SfvbItemAttributeBatchRequest): The rows
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemAttributeBatchResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['item_attribute_batch_request'] = \
+            item_attribute_batch_request
+        return self.dry_run_sfvb_item_attribute_batch_endpoint.call_with_http_info(**kwargs)
+
     def dry_run_sfvb_redirect_delete(
         self,
         storefront_oid,
@@ -12717,6 +13348,182 @@ class SfvbApi(object):
             language_enable_request
         return self.enable_sfvb_i18n_language_endpoint.call_with_http_info(**kwargs)
 
+    def enable_sfvb_upsell_offer(
+        self,
+        storefront_oid,
+        upsell_offer_oid,
+        **kwargs
+    ):
+        """Enable an upsell offer  # noqa: E501
+
+        Switches the offer on.  The only way to switch one on - create and update refuse active true on an offer that is off.  Needs sfvb_publish and the approval of the person who signed in the CLI, an approved upsell.enable request for this offer (see POST /sfvb/approvals).  An offer that is already on is returned unchanged, and no approval is used.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.enable_sfvb_upsell_offer(storefront_oid, upsell_offer_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            upsell_offer_oid (int):
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved upsell.enable request for this offer.  Required when the offer is off.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUpsellOffer
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['upsell_offer_oid'] = \
+            upsell_offer_oid
+        return self.enable_sfvb_upsell_offer_endpoint.call_with_http_info(**kwargs)
+
+    def enable_sfvb_upsell_path(
+        self,
+        storefront_oid,
+        upsell_path_oid,
+        **kwargs
+    ):
+        """Enable an upsell path  # noqa: E501
+
+        Switches the path on, so it starts running.  The only way to switch one on - create, update and unarchive refuse to.  An archived path is refused; unarchive it first.  Needs sfvb_publish and the approval of the person who signed in the CLI, an approved upsell.enable request for this path (see POST /sfvb/approvals).  A path that is already on is returned unchanged, and no approval is used.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.enable_sfvb_upsell_path(storefront_oid, upsell_path_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            upsell_path_oid (int):
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved upsell.enable request for this path.  Required when the path is off.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUpsellPath
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['upsell_path_oid'] = \
+            upsell_path_oid
+        return self.enable_sfvb_upsell_path_endpoint.call_with_http_info(**kwargs)
+
     def end_sfvb_experiment(
         self,
         storefront_oid,
@@ -12725,7 +13532,7 @@ class SfvbApi(object):
     ):
         """End an experiment  # noqa: E501
 
-        Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish.   # noqa: E501
+        Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -12737,6 +13544,7 @@ class SfvbApi(object):
             experiment_oid (int):
 
         Keyword Args:
+            approval_id (str): The approval_id of an approved experiment.end request for this experiment and winner.  Required.  See POST /sfvb/approvals.. [optional]
             experiment_end_request (SfvbExperimentEndRequest): The winner, if any. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -14265,7 +15073,7 @@ class SfvbApi(object):
     ):
         """Read an item's storefront facing content  # noqa: E501
 
-        The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid.   # noqa: E501
+        The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing and related items have their own calls, items/pricing and items/related.  Shipping, inventory, tax, variants and kit structure stay with the item API.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14342,6 +15150,176 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.get_sfvb_item_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_item_pricing(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Read what an item charges  # noqa: E501
+
+        Price, sale (with whether it applies now), MSRP and retail volume pricing - what itemprice, itemsale, itemmsrp, itemsavings and itemvolumediscounts render - with a hash_sha256 to send as If-Match when changing it.  Wholesale pricing tiers are not shown.  Address by merchant_item_id or merchant_item_oid.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_item_pricing(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            merchant_item_id (str): [optional]
+            merchant_item_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemPricing
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_item_pricing_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_item_related(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Read an item's related items  # noqa: E501
+
+        What itemrelateditemslist lists - the merchant's own related items (user, addon, complementary) and the ones UltraCart calculates (system), with a hash_sha256 to send as If-Match when changing them.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_item_related(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            merchant_item_id (str): [optional]
+            merchant_item_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemRelated
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_item_related_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_library_entry(
         self,
@@ -17366,7 +18344,7 @@ class SfvbApi(object):
     ):
         """Create an upsell offer  # noqa: E501
 
-        Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell.   # noqa: E501
+        Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  It must be created with active false, and switched on with the enable call, which needs approval.  upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -17453,7 +18431,7 @@ class SfvbApi(object):
     ):
         """Create an upsell path  # noqa: E501
 
-        Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope.   # noqa: E501
+        Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  It must be created with active false, and switched on with the enable call, which needs approval.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19906,6 +20884,193 @@ class SfvbApi(object):
             item_multimedia_request
         return self.put_sfvb_item_multimedia_endpoint.call_with_http_info(**kwargs)
 
+    def put_sfvb_item_pricing(
+        self,
+        storefront_oid,
+        if_match,
+        item_pricing_request,
+        **kwargs
+    ):
+        """Change what an item charges  # noqa: E501
+
+        Partial - a field left out is untouched.  A sale needs sale_cost, sale_start and sale_end together, the end after the start; clear_sale removes it.  msrp must be more than 0 (0 only when the price is 0); clear_msrp removes it.  volume_discounts replaces the retail quantity breaks.  Shoppers pay the new price at once, so this needs sfvb_publish, If-Match with the pricing hash_sha256, and the approval of the person who signed in the CLI - an approved item.pricing request for this item and exactly this change.  A change that sets every field to what it already is returns the pricing unchanged and uses no approval.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.put_sfvb_item_pricing(storefront_oid, if_match, item_pricing_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): hash_sha256 from the pricing read.  Required; 428 when absent, 412 when stale.
+            item_pricing_request (SfvbItemPricingRequest): The change
+
+        Keyword Args:
+            merchant_item_id (str): [optional]
+            merchant_item_oid (int): [optional]
+            approval_id (str): The approval_id of an approved item.pricing request for this item and change.  Required.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemPricing
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['item_pricing_request'] = \
+            item_pricing_request
+        return self.put_sfvb_item_pricing_endpoint.call_with_http_info(**kwargs)
+
+    def put_sfvb_item_related(
+        self,
+        storefront_oid,
+        if_match,
+        item_related_request,
+        **kwargs
+    ):
+        """Replace an item's related items  # noqa: E501
+
+        Replaces the merchant's own related items, in order, and keeps the ones UltraCart calculates.  Each must be an item of this account and not the item itself, named once, up to 50.  No link back is added to the other items.  Needs sfvb_publish and If-Match with the related hash_sha256.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.put_sfvb_item_related(storefront_oid, if_match, item_related_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): hash_sha256 from the related read.  Required; 428 when absent, 412 when stale.
+            item_related_request (SfvbItemRelatedRequest): The related items
+
+        Keyword Args:
+            merchant_item_id (str): [optional]
+            merchant_item_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemRelated
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['item_related_request'] = \
+            item_related_request
+        return self.put_sfvb_item_related_endpoint.call_with_http_info(**kwargs)
+
     def put_sfvb_item_seo(
         self,
         storefront_oid,
@@ -22076,7 +23241,7 @@ class SfvbApi(object):
     ):
         """Start an experiment  # noqa: E501
 
-        type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts.   # noqa: E501
+        type page starts an experiment element already saved in a page body - send path, slot and widget_id, and its name, objective, duration and variations are read from the element with the builder's rules (2 to 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or none adding up to 100).  The new id is written into the element and the body is saved, so pull it again before the next edit.  type url splits visitors between existing pages at router_url, and always ends by itself after duration_days.  Always needs sfvb_publish, because visitors are split as soon as it starts, and the approval of the person who signed in the CLI - an approved experiment.start request for exactly this start (see POST /sfvb/approvals).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22088,6 +23253,7 @@ class SfvbApi(object):
             experiment_start_request (SfvbExperimentStartRequest): The experiment to start
 
         Keyword Args:
+            approval_id (str): The approval_id of an approved experiment.start request for exactly this start.  Required.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -22163,7 +23329,7 @@ class SfvbApi(object):
     ):
         """Unarchive an upsell path  # noqa: E501
 
-        Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish.   # noqa: E501
+        Brings the path back into the default list.  A path that is switched on is refused, because unarchiving it would start it without approval - disable it, unarchive it, then enable it.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22689,6 +23855,94 @@ class SfvbApi(object):
             blog_post_request
         return self.update_sfvb_blog_post_endpoint.call_with_http_info(**kwargs)
 
+    def update_sfvb_item_attribute_batch(
+        self,
+        storefront_oid,
+        item_attribute_batch_request,
+        **kwargs
+    ):
+        """Change attributes across many items in one call  # noqa: E501
+
+        Applies exactly the change rows of a dry run, given its plan_hash, each with its merchant_item_oid and current_sha256.  Each item is saved once with all of its rows; a row whose value changed since the dry run is skipped as stale and never overwritten, and an item that cannot be saved does not stop the others.  Only the named attributes change.  Needs sfvb_publish and the approval of the person who signed in the CLI, an approved item.attribute_batch request for exactly these rows in the Approval-Id header.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_item_attribute_batch(storefront_oid, item_attribute_batch_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            item_attribute_batch_request (SfvbItemAttributeBatchRequest): The dry run's change rows and plan_hash
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved item.attribute_batch request for exactly these rows.  Required.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbItemAttributeBatchResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['item_attribute_batch_request'] = \
+            item_attribute_batch_request
+        return self.update_sfvb_item_attribute_batch_endpoint.call_with_http_info(**kwargs)
+
     def update_sfvb_library_entry(
         self,
         storefront_oid,
@@ -22889,7 +24143,7 @@ class SfvbApi(object):
     ):
         """Update an upsell offer  # noqa: E501
 
-        A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer's screenshots, are kept.   # noqa: E501
+        A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, or changing upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  An update cannot switch an offer on; that is the enable call, which needs approval.  Settings the API does not show, such as the offer's screenshots, are kept.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -22984,7 +24238,7 @@ class SfvbApi(object):
     ):
         """Update an upsell path  # noqa: E501
 
-        A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish.   # noqa: E501
+        A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path needs sfvb_publish.  An update cannot switch a path on; that is the enable call, which needs approval.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
