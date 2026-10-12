@@ -1010,6 +1010,10 @@ docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
 docs/SfvbErrorDetail.md
+docs/SfvbEvent.md
+docs/SfvbEventsAuthRequest.md
+docs/SfvbEventsAuthResponse.md
+docs/SfvbEventsResponse.md
 docs/SfvbExperiment.md
 docs/SfvbExperimentEndRequest.md
 docs/SfvbExperimentObjective.md
@@ -2322,6 +2326,10 @@ ultracart/model/sfvb_element.py
 ultracart/model/sfvb_element_schema_response.py
 ultracart/model/sfvb_elements_response.py
 ultracart/model/sfvb_error_detail.py
+ultracart/model/sfvb_event.py
+ultracart/model/sfvb_events_auth_request.py
+ultracart/model/sfvb_events_auth_response.py
+ultracart/model/sfvb_events_response.py
 ultracart/model/sfvb_experiment.py
 ultracart/model/sfvb_experiment_end_request.py
 ultracart/model/sfvb_experiment_objective.py

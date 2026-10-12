@@ -39,6 +39,9 @@ from ultracart.model.sfvb_container_versions_response import SfvbContainerVersio
 from ultracart.model.sfvb_container_write_request import SfvbContainerWriteRequest
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse
+from ultracart.model.sfvb_events_auth_request import SfvbEventsAuthRequest
+from ultracart.model.sfvb_events_auth_response import SfvbEventsAuthResponse
+from ultracart.model.sfvb_events_response import SfvbEventsResponse
 from ultracart.model.sfvb_experiment import SfvbExperiment
 from ultracart.model.sfvb_experiment_end_request import SfvbExperimentEndRequest
 from ultracart.model.sfvb_experiment_objectives_response import SfvbExperimentObjectivesResponse
@@ -2936,6 +2939,117 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_events_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbEventsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/events',
+                'operation_id': 'get_sfvb_events',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'after',
+                    'storefront_oid',
+                    'limit',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'after':
+                        (str,),
+                    'storefront_oid':
+                        (int,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'after': 'after',
+                    'storefront_oid': 'storefront_oid',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'after': 'query',
+                    'storefront_oid': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_events_authorization_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbEventsAuthResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/events/auth',
+                'operation_id': 'get_sfvb_events_authorization',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'events_auth_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'events_auth_request':
+                        (SfvbEventsAuthRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'events_auth_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.get_sfvb_experiment_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbExperiment,),
@@ -4010,6 +4124,7 @@ class SfvbApi(object):
                     'include_tokens',
                     'q',
                     'limit',
+                    'redirected',
                 ],
                 'required': [
                     'storefront_oid',
@@ -4041,6 +4156,8 @@ class SfvbApi(object):
                         (str,),
                     'limit':
                         (int,),
+                    'redirected':
+                        (bool,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
@@ -4050,6 +4167,7 @@ class SfvbApi(object):
                     'include_tokens': 'include_tokens',
                     'q': 'q',
                     'limit': 'limit',
+                    'redirected': 'redirected',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
@@ -4059,6 +4177,7 @@ class SfvbApi(object):
                     'include_tokens': 'query',
                     'q': 'query',
                     'limit': 'query',
+                    'redirected': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -13532,7 +13651,7 @@ class SfvbApi(object):
     ):
         """End an experiment  # noqa: E501
 
-        Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals).   # noqa: E501
+        Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment's winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment's id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person's approval session (see POST /sfvb/approvals).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -14294,6 +14413,166 @@ class SfvbApi(object):
         kwargs['element_type'] = \
             element_type
         return self.get_sfvb_element_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_events(
+        self,
+        **kwargs
+    ):
+        """Replay events  # noqa: E501
+
+        The signed-in person's events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in's requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_events(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            after (str): Return events after this event_id.  Leave it out for every event kept.. [optional]
+            storefront_oid (int): Only events about this storefront, plus merchant-level ones.. [optional]
+            limit (int): At most this many events, 1 to 500.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbEventsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_sfvb_events_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_events_authorization(
+        self,
+        **kwargs
+    ):
+        """Open the event stream  # noqa: E501
+
+        Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person's event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_events_authorization(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            events_auth_request (SfvbEventsAuthRequest): Optional storefront filter. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbEventsAuthResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_sfvb_events_authorization_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_experiment(
         self,
@@ -15839,7 +16118,7 @@ class SfvbApi(object):
     ):
         """List the paths that answered 404  # noqa: E501
 
-        The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50.   # noqa: E501
+        The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected=false lists only paths no rule catches yet, and redirected=true only those one does.  limit is 1 to 100, default 50.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -15856,6 +16135,7 @@ class SfvbApi(object):
             include_tokens (bool): [optional]
             q (str): [optional]
             limit (int): [optional]
+            redirected (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -20531,7 +20811,7 @@ class SfvbApi(object):
     ):
         """Change one built-in message  # noqa: E501
 
-        Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish.   # noqa: E501
+        Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language's translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

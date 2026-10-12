@@ -172,7 +172,7 @@ class SfvbContainerVersion(ModelNormal):
             comment (str): Comment recorded with the write that replaced this version.. [optional]  # noqa: E501
             container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.. [optional]  # noqa: E501
             container_name (str): Container name, where the owner has more than one container.. [optional]  # noqa: E501
-            created_dts (str): When this snapshot was taken.. [optional]  # noqa: E501
+            created_dts (str): When this snapshot was taken, ISO 8601 UTC.. [optional]  # noqa: E501
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
             edited_by (str): Login of whoever caused this snapshot.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's CJSON.. [optional]  # noqa: E501
@@ -269,7 +269,7 @@ class SfvbContainerVersion(ModelNormal):
             comment (str): Comment recorded with the write that replaced this version.. [optional]  # noqa: E501
             container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.. [optional]  # noqa: E501
             container_name (str): Container name, where the owner has more than one container.. [optional]  # noqa: E501
-            created_dts (str): When this snapshot was taken.. [optional]  # noqa: E501
+            created_dts (str): When this snapshot was taken, ISO 8601 UTC.. [optional]  # noqa: E501
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
             edited_by (str): Login of whoever caused this snapshot.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's CJSON.. [optional]  # noqa: E501

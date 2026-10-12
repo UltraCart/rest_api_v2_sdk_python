@@ -138,7 +138,7 @@ class SfvbI18nMessageValue(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             language (str): The language code.  ENG changes the English source, which clears its machine translations.. [optional]  # noqa: E501
-            text (str): The new text.  Empty text is refused; reset the message instead.. [optional]  # noqa: E501
+            text (str): The new text.  Empty text removes this language's translation, so it goes back to machine translation.  Empty English text is refused.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +225,7 @@ class SfvbI18nMessageValue(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             language (str): The language code.  ENG changes the English source, which clears its machine translations.. [optional]  # noqa: E501
-            text (str): The new text.  Empty text is refused; reset the message instead.. [optional]  # noqa: E501
+            text (str): The new text.  Empty text removes this language's translation, so it goes back to machine translation.  Empty English text is refused.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

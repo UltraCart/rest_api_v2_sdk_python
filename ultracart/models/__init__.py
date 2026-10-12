@@ -999,6 +999,10 @@ from ultracart.model.sfvb_element import SfvbElement
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse
 from ultracart.model.sfvb_error_detail import SfvbErrorDetail
+from ultracart.model.sfvb_event import SfvbEvent
+from ultracart.model.sfvb_events_auth_request import SfvbEventsAuthRequest
+from ultracart.model.sfvb_events_auth_response import SfvbEventsAuthResponse
+from ultracart.model.sfvb_events_response import SfvbEventsResponse
 from ultracart.model.sfvb_experiment import SfvbExperiment
 from ultracart.model.sfvb_experiment_end_request import SfvbExperimentEndRequest
 from ultracart.model.sfvb_experiment_objective import SfvbExperimentObjective

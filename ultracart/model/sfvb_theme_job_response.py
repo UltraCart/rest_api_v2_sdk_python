@@ -167,13 +167,13 @@ class SfvbThemeJobResponse(ModelNormal):
             complete (bool): True once the job has stopped, whether it succeeded or failed.. [optional]  # noqa: E501
             description (str): Human readable description of the job.. [optional]  # noqa: E501
             error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
-            finished_dts (str): When the job stopped.  Null until it does.. [optional]  # noqa: E501
+            finished_dts (str): When the job stopped, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501
             progress_description (str): What the job is doing right now, for example 'Duplicating locale text'.. [optional]  # noqa: E501
-            started_dts (str): When the job started running.  Null until it does.. [optional]  # noqa: E501
+            started_dts (str): When the job started running, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             status (str): Raw job status.. [optional]  # noqa: E501
-            submitted_dts (str): When the job was queued.. [optional]  # noqa: E501
+            submitted_dts (str): When the job was queued, ISO 8601 UTC.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
             target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
         """
@@ -264,13 +264,13 @@ class SfvbThemeJobResponse(ModelNormal):
             complete (bool): True once the job has stopped, whether it succeeded or failed.. [optional]  # noqa: E501
             description (str): Human readable description of the job.. [optional]  # noqa: E501
             error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
-            finished_dts (str): When the job stopped.  Null until it does.. [optional]  # noqa: E501
+            finished_dts (str): When the job stopped, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501
             progress_description (str): What the job is doing right now, for example 'Duplicating locale text'.. [optional]  # noqa: E501
-            started_dts (str): When the job started running.  Null until it does.. [optional]  # noqa: E501
+            started_dts (str): When the job started running, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             status (str): Raw job status.. [optional]  # noqa: E501
-            submitted_dts (str): When the job was queued.. [optional]  # noqa: E501
+            submitted_dts (str): When the job was queued, ISO 8601 UTC.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
             target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
         """
