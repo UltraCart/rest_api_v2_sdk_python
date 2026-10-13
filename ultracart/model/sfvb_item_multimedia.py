@@ -56,6 +56,11 @@ class SfvbItemMultimedia(ModelNormal):
     """
 
     allowed_values = {
+        ('description_source',): {
+            'MERCHANT': "merchant",
+            'REKOGNITION': "rekognition",
+            'NONE': "none",
+        },
         ('type',): {
             'IMAGE': "Image",
             'VIDEO': "Video",
@@ -93,9 +98,13 @@ class SfvbItemMultimedia(ModelNormal):
             'declared': (bool,),  # noqa: E501
             'default': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'description_sha256': (str,),  # noqa: E501
+            'description_source': (str,),  # noqa: E501
             'dimensions': (str,),  # noqa: E501
             'exclude_from_gallery': (bool,),  # noqa: E501
             'filename': (str,),  # noqa: E501
+            'merchant_item_multimedia_oid': (int,),  # noqa: E501
+            'rekognition_description': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'view_url': (str,),  # noqa: E501
         }
@@ -110,9 +119,13 @@ class SfvbItemMultimedia(ModelNormal):
         'declared': 'declared',  # noqa: E501
         'default': 'default',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'description_sha256': 'description_sha256',  # noqa: E501
+        'description_source': 'description_source',  # noqa: E501
         'dimensions': 'dimensions',  # noqa: E501
         'exclude_from_gallery': 'exclude_from_gallery',  # noqa: E501
         'filename': 'filename',  # noqa: E501
+        'merchant_item_multimedia_oid': 'merchant_item_multimedia_oid',  # noqa: E501
+        'rekognition_description': 'rekognition_description',  # noqa: E501
         'type': 'type',  # noqa: E501
         'view_url': 'view_url',  # noqa: E501
     }
@@ -161,10 +174,14 @@ class SfvbItemMultimedia(ModelNormal):
             code (str): The image code, which is what an itemimage element's itemImageCode refers to.  Empty for the default image.. [optional]  # noqa: E501
             declared (bool): True when a template declares this code.  A slot that is attached but not declared is an image nothing on the page is asking for.. [optional]  # noqa: E501
             default (bool): True for the image an itemimage element with no code renders.  Default is per media type, so an item may have one default image and one default PDF at the same time.. [optional]  # noqa: E501
-            description (str): Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item's own description, so an empty value here is not an empty alt attribute.. [optional]  # noqa: E501
+            description (str): The merchant's description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item's title, depending on the element, so an empty value here is not an empty alt attribute.. [optional]  # noqa: E501
+            description_sha256 (str): SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.. [optional]  # noqa: E501
+            description_source (str): Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.. [optional]  # noqa: E501
             dimensions (str): Width x height in pixels, when the storage measured the file.. [optional]  # noqa: E501
             exclude_from_gallery (bool): True when the storage marks this image as kept out of the item gallery.. [optional]  # noqa: E501
             filename (str): The stored file's name.  Empty when the slot is declared and nothing is attached.. [optional]  # noqa: E501
+            merchant_item_multimedia_oid (int): The stored image's id.  Name it to change this image's description when it has no code.. [optional]  # noqa: E501
+            rekognition_description (str): The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.. [optional]  # noqa: E501
             type (str): The media type the storage recorded.. [optional]  # noqa: E501
             view_url (str): Where the stored image is served.  Absent when nothing is attached to the slot.. [optional]  # noqa: E501
         """
@@ -255,10 +272,14 @@ class SfvbItemMultimedia(ModelNormal):
             code (str): The image code, which is what an itemimage element's itemImageCode refers to.  Empty for the default image.. [optional]  # noqa: E501
             declared (bool): True when a template declares this code.  A slot that is attached but not declared is an image nothing on the page is asking for.. [optional]  # noqa: E501
             default (bool): True for the image an itemimage element with no code renders.  Default is per media type, so an item may have one default image and one default PDF at the same time.. [optional]  # noqa: E501
-            description (str): Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item's own description, so an empty value here is not an empty alt attribute.. [optional]  # noqa: E501
+            description (str): The merchant's description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item's title, depending on the element, so an empty value here is not an empty alt attribute.. [optional]  # noqa: E501
+            description_sha256 (str): SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.. [optional]  # noqa: E501
+            description_source (str): Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.. [optional]  # noqa: E501
             dimensions (str): Width x height in pixels, when the storage measured the file.. [optional]  # noqa: E501
             exclude_from_gallery (bool): True when the storage marks this image as kept out of the item gallery.. [optional]  # noqa: E501
             filename (str): The stored file's name.  Empty when the slot is declared and nothing is attached.. [optional]  # noqa: E501
+            merchant_item_multimedia_oid (int): The stored image's id.  Name it to change this image's description when it has no code.. [optional]  # noqa: E501
+            rekognition_description (str): The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.. [optional]  # noqa: E501
             type (str): The media type the storage recorded.. [optional]  # noqa: E501
             view_url (str): Where the stored image is served.  Absent when nothing is attached to the slot.. [optional]  # noqa: E501
         """

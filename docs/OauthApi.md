@@ -276,7 +276,7 @@ message = api_response.message
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **client_id** | **str**| The OAuth application client_id. |
- **token** | **str**| The OAuth access token that is to be revoked.. |
+ **token** | **str**| The OAuth access token or refresh token that is to be revoked. |
 
 ### Return type
 

@@ -1057,6 +1057,7 @@ docs/SfvbItemContainer.md
 docs/SfvbItemContainersResponse.md
 docs/SfvbItemContentRequest.md
 docs/SfvbItemMultimedia.md
+docs/SfvbItemMultimediaDescriptionRequest.md
 docs/SfvbItemMultimediaRequest.md
 docs/SfvbItemPricing.md
 docs/SfvbItemPricingRequest.md
@@ -2373,6 +2374,7 @@ ultracart/model/sfvb_item_container.py
 ultracart/model/sfvb_item_containers_response.py
 ultracart/model/sfvb_item_content_request.py
 ultracart/model/sfvb_item_multimedia.py
+ultracart/model/sfvb_item_multimedia_description_request.py
 ultracart/model/sfvb_item_multimedia_request.py
 ultracart/model/sfvb_item_pricing.py
 ultracart/model/sfvb_item_pricing_request.py

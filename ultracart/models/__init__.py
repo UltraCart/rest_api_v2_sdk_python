@@ -1046,6 +1046,7 @@ from ultracart.model.sfvb_item_container import SfvbItemContainer
 from ultracart.model.sfvb_item_containers_response import SfvbItemContainersResponse
 from ultracart.model.sfvb_item_content_request import SfvbItemContentRequest
 from ultracart.model.sfvb_item_multimedia import SfvbItemMultimedia
+from ultracart.model.sfvb_item_multimedia_description_request import SfvbItemMultimediaDescriptionRequest
 from ultracart.model.sfvb_item_multimedia_request import SfvbItemMultimediaRequest
 from ultracart.model.sfvb_item_pricing import SfvbItemPricing
 from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
