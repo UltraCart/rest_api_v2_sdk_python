@@ -89,6 +89,8 @@ class SfvbApprovalParams(ModelNormal):
             'attribute_names': ([str],),  # noqa: E501
             'blog_post_oid': (int,),  # noqa: E501
             'content_sha256': (str,),  # noqa: E501
+            'domain': (str,),  # noqa: E501
+            'esp_twilio_uuid': (str,),  # noqa: E501
             'experiment_oid': (int,),  # noqa: E501
             'item_count': (int,),  # noqa: E501
             'merchant_item_oid': (int,),  # noqa: E501
@@ -113,6 +115,8 @@ class SfvbApprovalParams(ModelNormal):
         'attribute_names': 'attribute_names',  # noqa: E501
         'blog_post_oid': 'blog_post_oid',  # noqa: E501
         'content_sha256': 'content_sha256',  # noqa: E501
+        'domain': 'domain',  # noqa: E501
+        'esp_twilio_uuid': 'esp_twilio_uuid',  # noqa: E501
         'experiment_oid': 'experiment_oid',  # noqa: E501
         'item_count': 'item_count',  # noqa: E501
         'merchant_item_oid': 'merchant_item_oid',  # noqa: E501
@@ -172,6 +176,8 @@ class SfvbApprovalParams(ModelNormal):
             attribute_names ([str]): For item.attribute_batch, the attributes the batch would change.  Set by the server.. [optional]  # noqa: E501
             blog_post_oid (int): The blog post, for blog_post.delete.. [optional]  # noqa: E501
             content_sha256 (str): For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
+            domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
+            esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
@@ -273,6 +279,8 @@ class SfvbApprovalParams(ModelNormal):
             attribute_names ([str]): For item.attribute_batch, the attributes the batch would change.  Set by the server.. [optional]  # noqa: E501
             blog_post_oid (int): The blog post, for blog_post.delete.. [optional]  # noqa: E501
             content_sha256 (str): For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
+            domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
+            esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
