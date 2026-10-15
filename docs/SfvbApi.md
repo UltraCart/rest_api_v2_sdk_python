@@ -97,6 +97,7 @@ Method | HTTP request | Description
 [**get_sfvb_theme**](SfvbApi.md#get_sfvb_theme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**get_sfvb_theme_attributes**](SfvbApi.md#get_sfvb_theme_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 [**get_sfvb_theme_job**](SfvbApi.md#get_sfvb_theme_job) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+[**get_sfvb_transactional_emails**](SfvbApi.md#get_sfvb_transactional_emails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 [**get_sfvb_upsell_offer**](SfvbApi.md#get_sfvb_upsell_offer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 [**get_sfvb_upsell_path**](SfvbApi.md#get_sfvb_upsell_path) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
 [**get_sfvb_version**](SfvbApi.md#get_sfvb_version) | **GET** /sfvb/version | Compiler version for this merchant
@@ -156,6 +157,8 @@ Method | HTTP request | Description
 [**refresh_sfvb_page**](SfvbApi.md#refresh_sfvb_page) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 [**remove_sfvb_page_blog_posts**](SfvbApi.md#remove_sfvb_page_blog_posts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 [**remove_sfvb_page_items**](SfvbApi.md#remove_sfvb_page_items) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
+[**render_sfvb_email**](SfvbApi.md#render_sfvb_email) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+[**render_sfvb_transactional_email**](SfvbApi.md#render_sfvb_transactional_email) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 [**render_sfvb_widgets**](SfvbApi.md#render_sfvb_widgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 [**reserve_sfvb_widget_ids**](SfvbApi.md#reserve_sfvb_widget_ids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 [**reset_sfvb_i18n_message**](SfvbApi.md#reset_sfvb_i18n_message) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
@@ -4973,6 +4976,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sfvb_transactional_emails**
+> SfvbTransactionalEmailsResponse get_sfvb_transactional_emails(storefront_oid)
+
+List the transactional emails a storefront sends
+
+The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**SfvbTransactionalEmailsResponse**](SfvbTransactionalEmailsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_sfvb_upsell_offer**
 > SfvbUpsellOffer get_sfvb_upsell_offer(storefront_oid, upsell_offer_oid)
 
@@ -8058,6 +8111,110 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **render_sfvb_email**
+> SfvbEmailRenderResponse render_sfvb_email(storefront_oid, email_uuid, email_render_request)
+
+Render a flow or campaign email without sending it
+
+Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **str**|  |
+ **email_render_request** | [**SfvbEmailRenderRequest**](SfvbEmailRenderRequest.md)| What to render the email with |
+
+### Return type
+
+[**SfvbEmailRenderResponse**](SfvbEmailRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **render_sfvb_transactional_email**
+> SfvbEmailRenderResponse render_sfvb_transactional_email(storefront_oid, file_name, email_render_request)
+
+Render a transactional email without sending it
+
+Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **file_name** | **str**|  |
+ **email_render_request** | [**SfvbEmailRenderRequest**](SfvbEmailRenderRequest.md)| What to render the email with |
+
+### Return type
+
+[**SfvbEmailRenderResponse**](SfvbEmailRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

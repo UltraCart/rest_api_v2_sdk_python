@@ -1014,6 +1014,8 @@ docs/SfvbContainerWriteRequest.md
 docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
+docs/SfvbEmailRenderRequest.md
+docs/SfvbEmailRenderResponse.md
 docs/SfvbErrorDetail.md
 docs/SfvbEvent.md
 docs/SfvbEventsAuthRequest.md
@@ -1195,6 +1197,8 @@ docs/SfvbThemeFont.md
 docs/SfvbThemeFontFamily.md
 docs/SfvbThemeJobResponse.md
 docs/SfvbThemesResponse.md
+docs/SfvbTransactionalEmail.md
+docs/SfvbTransactionalEmailsResponse.md
 docs/SfvbUpsellItemLogic.md
 docs/SfvbUpsellItemLogicItem.md
 docs/SfvbUpsellOffer.md
@@ -2343,6 +2347,8 @@ ultracart/model/sfvb_container_write_request.py
 ultracart/model/sfvb_element.py
 ultracart/model/sfvb_element_schema_response.py
 ultracart/model/sfvb_elements_response.py
+ultracart/model/sfvb_email_render_request.py
+ultracart/model/sfvb_email_render_response.py
 ultracart/model/sfvb_error_detail.py
 ultracart/model/sfvb_event.py
 ultracart/model/sfvb_events_auth_request.py
@@ -2524,6 +2530,8 @@ ultracart/model/sfvb_theme_font.py
 ultracart/model/sfvb_theme_font_family.py
 ultracart/model/sfvb_theme_job_response.py
 ultracart/model/sfvb_themes_response.py
+ultracart/model/sfvb_transactional_email.py
+ultracart/model/sfvb_transactional_emails_response.py
 ultracart/model/sfvb_upsell_item_logic.py
 ultracart/model/sfvb_upsell_item_logic_item.py
 ultracart/model/sfvb_upsell_offer.py

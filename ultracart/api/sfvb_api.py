@@ -43,6 +43,8 @@ from ultracart.model.sfvb_container_versions_response import SfvbContainerVersio
 from ultracart.model.sfvb_container_write_request import SfvbContainerWriteRequest
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse
+from ultracart.model.sfvb_email_render_request import SfvbEmailRenderRequest
+from ultracart.model.sfvb_email_render_response import SfvbEmailRenderResponse
 from ultracart.model.sfvb_events_auth_request import SfvbEventsAuthRequest
 from ultracart.model.sfvb_events_auth_response import SfvbEventsAuthResponse
 from ultracart.model.sfvb_events_response import SfvbEventsResponse
@@ -159,6 +161,7 @@ from ultracart.model.sfvb_theme_attributes_response import SfvbThemeAttributesRe
 from ultracart.model.sfvb_theme_duplicate_request import SfvbThemeDuplicateRequest
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
+from ultracart.model.sfvb_transactional_emails_response import SfvbTransactionalEmailsResponse
 from ultracart.model.sfvb_upsell_offer import SfvbUpsellOffer
 from ultracart.model.sfvb_upsell_offers_response import SfvbUpsellOffersResponse
 from ultracart.model.sfvb_upsell_path import SfvbUpsellPath
@@ -5707,6 +5710,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_transactional_emails_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTransactionalEmailsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/transactional_emails',
+                'operation_id': 'get_sfvb_transactional_emails',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_upsell_offer_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbUpsellOffer,),
@@ -9508,6 +9563,136 @@ class SfvbApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.render_sfvb_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbEmailRenderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render',
+                'operation_id': 'render_sfvb_email',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'email_uuid',
+                    'email_render_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'email_uuid',
+                    'email_render_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'email_uuid':
+                        (str,),
+                    'email_render_request':
+                        (SfvbEmailRenderRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'email_uuid': 'email_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'email_uuid': 'path',
+                    'email_render_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.render_sfvb_transactional_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbEmailRenderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render',
+                'operation_id': 'render_sfvb_transactional_email',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'file_name',
+                    'email_render_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'file_name',
+                    'email_render_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'file_name':
+                        (str,),
+                    'email_render_request':
+                        (SfvbEmailRenderRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'file_name': 'file_name',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'file_name': 'path',
+                    'email_render_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -19379,6 +19564,89 @@ class SfvbApi(object):
             job_id
         return self.get_sfvb_theme_job_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_transactional_emails(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the transactional emails a storefront sends  # noqa: E501
+
+        The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_transactional_emails(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTransactionalEmailsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_transactional_emails_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_upsell_offer(
         self,
         storefront_oid,
@@ -24562,6 +24830,188 @@ class SfvbApi(object):
         kwargs['page_items_remove_request'] = \
             page_items_remove_request
         return self.remove_sfvb_page_items_endpoint.call_with_http_info(**kwargs)
+
+    def render_sfvb_email(
+        self,
+        storefront_oid,
+        email_uuid,
+        email_render_request,
+        **kwargs
+    ):
+        """Render a flow or campaign email without sending it  # noqa: E501
+
+        Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.render_sfvb_email(storefront_oid, email_uuid, email_render_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            email_uuid (str):
+            email_render_request (SfvbEmailRenderRequest): What to render the email with
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbEmailRenderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['email_uuid'] = \
+            email_uuid
+        kwargs['email_render_request'] = \
+            email_render_request
+        return self.render_sfvb_email_endpoint.call_with_http_info(**kwargs)
+
+    def render_sfvb_transactional_email(
+        self,
+        storefront_oid,
+        file_name,
+        email_render_request,
+        **kwargs
+    ):
+        """Render a transactional email without sending it  # noqa: E501
+
+        Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.render_sfvb_transactional_email(storefront_oid, file_name, email_render_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            file_name (str):
+            email_render_request (SfvbEmailRenderRequest): What to render the email with
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbEmailRenderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['file_name'] = \
+            file_name
+        kwargs['email_render_request'] = \
+            email_render_request
+        return self.render_sfvb_transactional_email_endpoint.call_with_http_info(**kwargs)
 
     def render_sfvb_widgets(
         self,

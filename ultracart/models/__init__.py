@@ -1003,6 +1003,8 @@ from ultracart.model.sfvb_container_write_request import SfvbContainerWriteReque
 from ultracart.model.sfvb_element import SfvbElement
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse
+from ultracart.model.sfvb_email_render_request import SfvbEmailRenderRequest
+from ultracart.model.sfvb_email_render_response import SfvbEmailRenderResponse
 from ultracart.model.sfvb_error_detail import SfvbErrorDetail
 from ultracart.model.sfvb_event import SfvbEvent
 from ultracart.model.sfvb_events_auth_request import SfvbEventsAuthRequest
@@ -1184,6 +1186,8 @@ from ultracart.model.sfvb_theme_font import SfvbThemeFont
 from ultracart.model.sfvb_theme_font_family import SfvbThemeFontFamily
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
+from ultracart.model.sfvb_transactional_email import SfvbTransactionalEmail
+from ultracart.model.sfvb_transactional_emails_response import SfvbTransactionalEmailsResponse
 from ultracart.model.sfvb_upsell_item_logic import SfvbUpsellItemLogic
 from ultracart.model.sfvb_upsell_item_logic_item import SfvbUpsellItemLogicItem
 from ultracart.model.sfvb_upsell_offer import SfvbUpsellOffer
