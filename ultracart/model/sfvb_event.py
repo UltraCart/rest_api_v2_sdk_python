@@ -148,9 +148,9 @@ class SfvbEvent(ModelNormal):
             event_dts (str): When it happened, ISO 8601.. [optional]  # noqa: E501
             event_id (str): Time-ordered id.  Pass the last one seen as after to replay what came since.. [optional]  # noqa: E501
             object_id (str): The id of what changed, such as the approval_id.. [optional]  # noqa: E501
-            object_type (str): What changed, such as approval.. [optional]  # noqa: E501
+            object_type (str): What changed, such as approval or secret_sink.. [optional]  # noqa: E501
             storefront_oid (int): The storefront it concerns.  Empty for merchant-level objects.. [optional]  # noqa: E501
-            type (str): approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).. [optional]  # noqa: E501
+            type (str): approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,9 +239,9 @@ class SfvbEvent(ModelNormal):
             event_dts (str): When it happened, ISO 8601.. [optional]  # noqa: E501
             event_id (str): Time-ordered id.  Pass the last one seen as after to replay what came since.. [optional]  # noqa: E501
             object_id (str): The id of what changed, such as the approval_id.. [optional]  # noqa: E501
-            object_type (str): What changed, such as approval.. [optional]  # noqa: E501
+            object_type (str): What changed, such as approval or secret_sink.. [optional]  # noqa: E501
             storefront_oid (int): The storefront it concerns.  Empty for merchant-level objects.. [optional]  # noqa: E501
-            type (str): approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).. [optional]  # noqa: E501
+            type (str): approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

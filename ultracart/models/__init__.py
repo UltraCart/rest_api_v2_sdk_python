@@ -1145,6 +1145,13 @@ from ultracart.model.sfvb_redirect_response import SfvbRedirectResponse
 from ultracart.model.sfvb_redirects_response import SfvbRedirectsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
+from ultracart.model.sfvb_secret_handle import SfvbSecretHandle
+from ultracart.model.sfvb_secret_kind import SfvbSecretKind
+from ultracart.model.sfvb_secret_kinds_response import SfvbSecretKindsResponse
+from ultracart.model.sfvb_secret_request import SfvbSecretRequest
+from ultracart.model.sfvb_secret_request_create import SfvbSecretRequestCreate
+from ultracart.model.sfvb_secret_requests_response import SfvbSecretRequestsResponse
+from ultracart.model.sfvb_secret_sink import SfvbSecretSink
 from ultracart.model.sfvb_server_log import SfvbServerLog
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
 from ultracart.model.sfvb_server_log_entry import SfvbServerLogEntry

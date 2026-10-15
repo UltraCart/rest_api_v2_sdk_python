@@ -1156,6 +1156,13 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbSecretHandle.md
+docs/SfvbSecretKind.md
+docs/SfvbSecretKindsResponse.md
+docs/SfvbSecretRequest.md
+docs/SfvbSecretRequestCreate.md
+docs/SfvbSecretRequestsResponse.md
+docs/SfvbSecretSink.md
 docs/SfvbServerLog.md
 docs/SfvbServerLogDetail.md
 docs/SfvbServerLogEntry.md
@@ -2473,6 +2480,13 @@ ultracart/model/sfvb_redirect_response.py
 ultracart/model/sfvb_redirects_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
+ultracart/model/sfvb_secret_handle.py
+ultracart/model/sfvb_secret_kind.py
+ultracart/model/sfvb_secret_kinds_response.py
+ultracart/model/sfvb_secret_request.py
+ultracart/model/sfvb_secret_request_create.py
+ultracart/model/sfvb_secret_requests_response.py
+ultracart/model/sfvb_secret_sink.py
 ultracart/model/sfvb_server_log.py
 ultracart/model/sfvb_server_log_detail.py
 ultracart/model/sfvb_server_log_entry.py
