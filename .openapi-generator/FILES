@@ -999,7 +999,11 @@ docs/SfvbBlogPostImage.md
 docs/SfvbBlogPostImageRequest.md
 docs/SfvbBlogPostRequest.md
 docs/SfvbBlogPostsResponse.md
+docs/SfvbCampaign.md
+docs/SfvbCampaignsResponse.md
 docs/SfvbCommsDnsRecord.md
+docs/SfvbCommsEmail.md
+docs/SfvbCommsPostcard.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
 docs/SfvbCommsTwilioAccount.md
@@ -1041,6 +1045,8 @@ docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
+docs/SfvbFlow.md
+docs/SfvbFlowsResponse.md
 docs/SfvbI18nGlossary.md
 docs/SfvbI18nGlossaryRequest.md
 docs/SfvbI18nLanguage.md
@@ -2332,7 +2338,11 @@ ultracart/model/sfvb_blog_post_image.py
 ultracart/model/sfvb_blog_post_image_request.py
 ultracart/model/sfvb_blog_post_request.py
 ultracart/model/sfvb_blog_posts_response.py
+ultracart/model/sfvb_campaign.py
+ultracart/model/sfvb_campaigns_response.py
 ultracart/model/sfvb_comms_dns_record.py
+ultracart/model/sfvb_comms_email.py
+ultracart/model/sfvb_comms_postcard.py
 ultracart/model/sfvb_comms_sending_domain.py
 ultracart/model/sfvb_comms_sending_domains_response.py
 ultracart/model/sfvb_comms_twilio_account.py
@@ -2374,6 +2384,8 @@ ultracart/model/sfvb_file_versions_response.py
 ultracart/model/sfvb_file_write_request.py
 ultracart/model/sfvb_file_write_response.py
 ultracart/model/sfvb_files_response.py
+ultracart/model/sfvb_flow.py
+ultracart/model/sfvb_flows_response.py
 ultracart/model/sfvb_i18n_glossary.py
 ultracart/model/sfvb_i18n_glossary_request.py
 ultracart/model/sfvb_i18n_language.py

@@ -48,6 +48,7 @@ Method | HTTP request | Description
 [**get_sfvb_approval**](SfvbApi.md#get_sfvb_approval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
 [**get_sfvb_approvals**](SfvbApi.md#get_sfvb_approvals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 [**get_sfvb_blog_post**](SfvbApi.md#get_sfvb_blog_post) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
+[**get_sfvb_campaign**](SfvbApi.md#get_sfvb_campaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 [**get_sfvb_cjson_used_elements**](SfvbApi.md#get_sfvb_cjson_used_elements) | **POST** /sfvb/cjson/elements | Element types used by a container
 [**get_sfvb_comms_sending_domain**](SfvbApi.md#get_sfvb_comms_sending_domain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 [**get_sfvb_comms_sending_domains**](SfvbApi.md#get_sfvb_comms_sending_domains) | **GET** /sfvb/comms/sending_domains | List the sending domains
@@ -61,6 +62,7 @@ Method | HTTP request | Description
 [**get_sfvb_experiment_objectives**](SfvbApi.md#get_sfvb_experiment_objectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 [**get_sfvb_file_content**](SfvbApi.md#get_sfvb_file_content) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 [**get_sfvb_file_upload_url**](SfvbApi.md#get_sfvb_file_upload_url) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+[**get_sfvb_flow**](SfvbApi.md#get_sfvb_flow) | **GET** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Get a flow
 [**get_sfvb_i18n_glossary**](SfvbApi.md#get_sfvb_i18n_glossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
 [**get_sfvb_i18n_languages**](SfvbApi.md#get_sfvb_i18n_languages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/languages | List a storefront&#39;s languages
 [**get_sfvb_i18n_machine_translations**](SfvbApi.md#get_sfvb_i18n_machine_translations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/machine_translations | Read where a widget setting&#39;s translations come from
@@ -115,11 +117,13 @@ Method | HTTP request | Description
 [**insert_sfvb_upsell_path**](SfvbApi.md#insert_sfvb_upsell_path) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 [**install_sfvb_library_entry**](SfvbApi.md#install_sfvb_library_entry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 [**list_sfvb_blog_posts**](SfvbApi.md#list_sfvb_blog_posts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
+[**list_sfvb_campaigns**](SfvbApi.md#list_sfvb_campaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
 [**list_sfvb_container_versions**](SfvbApi.md#list_sfvb_container_versions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
 [**list_sfvb_elements**](SfvbApi.md#list_sfvb_elements) | **GET** /sfvb/elements | List every SFVB element type
 [**list_sfvb_experiments**](SfvbApi.md#list_sfvb_experiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 [**list_sfvb_file_versions**](SfvbApi.md#list_sfvb_file_versions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 [**list_sfvb_files**](SfvbApi.md#list_sfvb_files) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+[**list_sfvb_flows**](SfvbApi.md#list_sfvb_flows) | **GET** /sfvb/storefronts/{storefront_oid}/flows | List the storefront&#39;s flows
 [**list_sfvb_i18n_messages**](SfvbApi.md#list_sfvb_i18n_messages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages | List built-in messages
 [**list_sfvb_item_containers**](SfvbApi.md#list_sfvb_item_containers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 [**list_sfvb_library_installs**](SfvbApi.md#list_sfvb_library_installs) | **GET** /sfvb/storefronts/{storefront_oid}/library/installs | List the library entries installed on a storefront
@@ -2500,6 +2504,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sfvb_campaign**
+> SfvbCampaign get_sfvb_campaign(storefront_oid, campaign_uuid)
+
+Get a campaign
+
+One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **campaign_uuid** | **str**|  |
+
+### Return type
+
+[**SfvbCampaign**](SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_sfvb_cjson_used_elements**
 > SfvbElementsResponse get_sfvb_cjson_used_elements(compile_request)
 
@@ -3147,6 +3201,56 @@ Name | Type | Description  | Notes
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_flow**
+> SfvbFlow get_sfvb_flow(storefront_oid, flow_uuid)
+
+Get a flow
+
+One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_uuid** | **str**|  |
+
+### Return type
+
+[**SfvbFlow**](SfvbFlow.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
@@ -5905,6 +6009,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_sfvb_campaigns**
+> SfvbCampaignsResponse list_sfvb_campaigns(storefront_oid)
+
+List the storefront's campaigns
+
+One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **search** | **str**| Text to search for in the name | [optional]
+ **page** | **int**| Page number, starting at 1 | [optional]
+ **page_size** | **int**| Campaigns per page, 1 to 100, default 50 | [optional]
+ **include_deleted** | **bool**| Include deleted campaigns | [optional]
+
+### Return type
+
+[**SfvbCampaignsResponse**](SfvbCampaignsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_sfvb_container_versions**
 > SfvbContainerVersionsResponse list_sfvb_container_versions(storefront_oid)
 
@@ -6153,6 +6310,59 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_sfvb_flows**
+> SfvbFlowsResponse list_sfvb_flows(storefront_oid)
+
+List the storefront's flows
+
+One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **search** | **str**| Text to search for in the name | [optional]
+ **page** | **int**| Page number, starting at 1 | [optional]
+ **page_size** | **int**| Flows per page, 1 to 100, default 50 | [optional]
+ **include_deleted** | **bool**| Include deleted flows | [optional]
+
+### Return type
+
+[**SfvbFlowsResponse**](SfvbFlowsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

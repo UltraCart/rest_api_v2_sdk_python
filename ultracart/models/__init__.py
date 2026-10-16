@@ -988,7 +988,11 @@ from ultracart.model.sfvb_blog_post_image import SfvbBlogPostImage
 from ultracart.model.sfvb_blog_post_image_request import SfvbBlogPostImageRequest
 from ultracart.model.sfvb_blog_post_request import SfvbBlogPostRequest
 from ultracart.model.sfvb_blog_posts_response import SfvbBlogPostsResponse
+from ultracart.model.sfvb_campaign import SfvbCampaign
+from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
 from ultracart.model.sfvb_comms_dns_record import SfvbCommsDnsRecord
+from ultracart.model.sfvb_comms_email import SfvbCommsEmail
+from ultracart.model.sfvb_comms_postcard import SfvbCommsPostcard
 from ultracart.model.sfvb_comms_sending_domain import SfvbCommsSendingDomain
 from ultracart.model.sfvb_comms_sending_domains_response import SfvbCommsSendingDomainsResponse
 from ultracart.model.sfvb_comms_twilio_account import SfvbCommsTwilioAccount
@@ -1030,6 +1034,8 @@ from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
+from ultracart.model.sfvb_flow import SfvbFlow
+from ultracart.model.sfvb_flows_response import SfvbFlowsResponse
 from ultracart.model.sfvb_i18n_glossary import SfvbI18nGlossary
 from ultracart.model.sfvb_i18n_glossary_request import SfvbI18nGlossaryRequest
 from ultracart.model.sfvb_i18n_language import SfvbI18nLanguage
