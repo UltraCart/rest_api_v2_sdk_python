@@ -83,6 +83,7 @@ class SfvbTransactionalEmail(ModelNormal):
         """
         return {
             'body_file_name': (str,),  # noqa: E501
+            'body_path': (str,),  # noqa: E501
             'file_name': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'text_file_name': (str,),  # noqa: E501
@@ -95,6 +96,7 @@ class SfvbTransactionalEmail(ModelNormal):
 
     attribute_map = {
         'body_file_name': 'body_file_name',  # noqa: E501
+        'body_path': 'body_path',  # noqa: E501
         'file_name': 'file_name',  # noqa: E501
         'name': 'name',  # noqa: E501
         'text_file_name': 'text_file_name',  # noqa: E501
@@ -141,7 +143,8 @@ class SfvbTransactionalEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            body_file_name (str): The body container a draft replaces, such as receipt_body.cjson.. [optional]  # noqa: E501
+            body_file_name (str): The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.. [optional]  # noqa: E501
+            body_path (str): The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.. [optional]  # noqa: E501
             file_name (str): The HTML template file, such as receipt_html.vm.. [optional]  # noqa: E501
             name (str): The display name, such as Order - Receipt.. [optional]  # noqa: E501
             text_file_name (str): The plain text template file, when the email has one.. [optional]  # noqa: E501
@@ -230,7 +233,8 @@ class SfvbTransactionalEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            body_file_name (str): The body container a draft replaces, such as receipt_body.cjson.. [optional]  # noqa: E501
+            body_file_name (str): The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.. [optional]  # noqa: E501
+            body_path (str): The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.. [optional]  # noqa: E501
             file_name (str): The HTML template file, such as receipt_html.vm.. [optional]  # noqa: E501
             name (str): The display name, such as Order - Receipt.. [optional]  # noqa: E501
             text_file_name (str): The plain text template file, when the email has one.. [optional]  # noqa: E501
