@@ -1018,8 +1018,10 @@ docs/SfvbContainerWriteRequest.md
 docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
+docs/SfvbEmail.md
 docs/SfvbEmailRenderRequest.md
 docs/SfvbEmailRenderResponse.md
+docs/SfvbEmailUpdateRequest.md
 docs/SfvbErrorDetail.md
 docs/SfvbEvent.md
 docs/SfvbEventsAuthRequest.md
@@ -2357,8 +2359,10 @@ ultracart/model/sfvb_container_write_request.py
 ultracart/model/sfvb_element.py
 ultracart/model/sfvb_element_schema_response.py
 ultracart/model/sfvb_elements_response.py
+ultracart/model/sfvb_email.py
 ultracart/model/sfvb_email_render_request.py
 ultracart/model/sfvb_email_render_response.py
+ultracart/model/sfvb_email_update_request.py
 ultracart/model/sfvb_error_detail.py
 ultracart/model/sfvb_event.py
 ultracart/model/sfvb_events_auth_request.py

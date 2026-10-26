@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**get_sfvb_container**](SfvbApi.md#get_sfvb_container) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 [**get_sfvb_container_version**](SfvbApi.md#get_sfvb_container_version) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 [**get_sfvb_element**](SfvbApi.md#get_sfvb_element) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+[**get_sfvb_email**](SfvbApi.md#get_sfvb_email) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 [**get_sfvb_events**](SfvbApi.md#get_sfvb_events) | **GET** /sfvb/events | Replay events
 [**get_sfvb_events_authorization**](SfvbApi.md#get_sfvb_events_authorization) | **PUT** /sfvb/events/auth | Open the event stream
 [**get_sfvb_experiment**](SfvbApi.md#get_sfvb_experiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
@@ -184,6 +185,7 @@ Method | HTTP request | Description
 [**update_sfvb_blog_post**](SfvbApi.md#update_sfvb_blog_post) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 [**update_sfvb_comms_sending_domain**](SfvbApi.md#update_sfvb_comms_sending_domain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 [**update_sfvb_comms_twilio_account**](SfvbApi.md#update_sfvb_comms_twilio_account) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
+[**update_sfvb_email**](SfvbApi.md#update_sfvb_email) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 [**update_sfvb_item_attribute_batch**](SfvbApi.md#update_sfvb_item_attribute_batch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 [**update_sfvb_library_entry**](SfvbApi.md#update_sfvb_library_entry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**update_sfvb_redirect**](SfvbApi.md#update_sfvb_redirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -2876,6 +2878,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SfvbElementSchemaResponse**](SfvbElementSchemaResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_email**
+> SfvbEmail get_sfvb_email(storefront_oid, email_uuid)
+
+Get a flow or campaign email's subject and preview text
+
+The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **str**|  |
+
+### Return type
+
+[**SfvbEmail**](SfvbEmail.md)
 
 ### Authorization
 
@@ -9538,6 +9590,62 @@ Name | Type | Description  | Notes
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **502** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_sfvb_email**
+> SfvbEmail update_sfvb_email(storefront_oid, email_uuid, if_match, email_update_request)
+
+Change a flow or campaign email's subject or preview text
+
+A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **str**|  |
+ **if_match** | **str**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **email_update_request** | [**SfvbEmailUpdateRequest**](SfvbEmailUpdateRequest.md)| The subject or preview text to change |
+
+### Return type
+
+[**SfvbEmail**](SfvbEmail.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**412** |  |  -  |
+**428** |  |  -  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

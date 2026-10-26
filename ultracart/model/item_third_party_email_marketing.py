@@ -65,8 +65,6 @@ class ItemThirdPartyEmailMarketing(ModelNormal):
             'GETRESPONSE': "GetResponse",
             'ICONTACT': "iContact",
             'KLAVIYO': "Klaviyo",
-            'LYRIS': "Lyris",
-            'LYRISHQ': "LyrisHQ",
             'MAILCHIMP': "MailChimp",
         },
     }
