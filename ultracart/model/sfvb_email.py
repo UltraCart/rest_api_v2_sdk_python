@@ -86,6 +86,7 @@ class SfvbEmail(ModelNormal):
             'email_uuid': (str,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
             'live': (bool,),  # noqa: E501
+            'notes': ([str],),  # noqa: E501
             'pending_review': (bool,),  # noqa: E501
             'preview_text': (str,),  # noqa: E501
             'rejected': (bool,),  # noqa: E501
@@ -106,6 +107,7 @@ class SfvbEmail(ModelNormal):
         'email_uuid': 'email_uuid',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
         'live': 'live',  # noqa: E501
+        'notes': 'notes',  # noqa: E501
         'pending_review': 'pending_review',  # noqa: E501
         'preview_text': 'preview_text',  # noqa: E501
         'rejected': 'rejected',  # noqa: E501
@@ -161,6 +163,7 @@ class SfvbEmail(ModelNormal):
             email_uuid (str): The email uuid.  The same uuid the email container (owner type email) and the email render take.. [optional]  # noqa: E501
             hash_sha256 (str): Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it.. [optional]  # noqa: E501
             live (bool): True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.. [optional]  # noqa: E501
             pending_review (bool): True while a change waits for review.  An edit puts it back to needing review.. [optional]  # noqa: E501
             preview_text (str): The preview text an inbox shows after the subject.. [optional]  # noqa: E501
             rejected (bool): True when review rejected the email.  An edit puts it back to needing review.. [optional]  # noqa: E501
@@ -258,6 +261,7 @@ class SfvbEmail(ModelNormal):
             email_uuid (str): The email uuid.  The same uuid the email container (owner type email) and the email render take.. [optional]  # noqa: E501
             hash_sha256 (str): Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it.. [optional]  # noqa: E501
             live (bool): True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.. [optional]  # noqa: E501
             pending_review (bool): True while a change waits for review.  An edit puts it back to needing review.. [optional]  # noqa: E501
             preview_text (str): The preview text an inbox shows after the subject.. [optional]  # noqa: E501
             rejected (bool): True when review rejected the email.  An edit puts it back to needing review.. [optional]  # noqa: E501

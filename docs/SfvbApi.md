@@ -179,6 +179,7 @@ Method | HTTP request | Description
 [**resolve_sfvb_template**](SfvbApi.md#resolve_sfvb_template) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 [**revert_sfvb_container**](SfvbApi.md#revert_sfvb_container) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 [**revert_sfvb_file**](SfvbApi.md#revert_sfvb_file) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
+[**review_sfvb_email**](SfvbApi.md#review_sfvb_email) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review | Request a content review of a flow or campaign email
 [**revoke_sfvb_secret_request**](SfvbApi.md#revoke_sfvb_secret_request) | **POST** /sfvb/secrets/{request_id}/revoke | Revoke a fulfilled request&#39;s unused handles
 [**search_sfvb_files**](SfvbApi.md#search_sfvb_files) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 [**search_sfvb_library**](SfvbApi.md#search_sfvb_library) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
@@ -9287,6 +9288,59 @@ Name | Type | Description  | Notes
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **412** |  |  -  |
 **428** |  |  -  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **review_sfvb_email**
+> SfvbEmail review_sfvb_email(storefront_oid, email_uuid, email_review_request)
+
+Request a content review of a flow or campaign email
+
+Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **str**|  |
+ **email_review_request** | [**SfvbEmailReviewRequest**](SfvbEmailReviewRequest.md)| The test order, for an email in an order-triggered flow |
+
+### Return type
+
+[**SfvbEmail**](SfvbEmail.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

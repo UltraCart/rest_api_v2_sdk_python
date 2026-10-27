@@ -52,6 +52,7 @@ from ultracart.model.sfvb_elements_response import SfvbElementsResponse
 from ultracart.model.sfvb_email import SfvbEmail
 from ultracart.model.sfvb_email_render_request import SfvbEmailRenderRequest
 from ultracart.model.sfvb_email_render_response import SfvbEmailRenderResponse
+from ultracart.model.sfvb_email_review_request import SfvbEmailReviewRequest
 from ultracart.model.sfvb_email_update_request import SfvbEmailUpdateRequest
 from ultracart.model.sfvb_events_auth_request import SfvbEventsAuthRequest
 from ultracart.model.sfvb_events_auth_response import SfvbEventsAuthResponse
@@ -10956,6 +10957,71 @@ class SfvbApi(object):
                     'if_match': 'header',
                     'file_revert_request': 'body',
                     'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.review_sfvb_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbEmail,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review',
+                'operation_id': 'review_sfvb_email',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'email_uuid',
+                    'email_review_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'email_uuid',
+                    'email_review_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'email_uuid':
+                        (str,),
+                    'email_review_request':
+                        (SfvbEmailReviewRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'email_uuid': 'email_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'email_uuid': 'path',
+                    'email_review_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -27876,6 +27942,97 @@ class SfvbApi(object):
         kwargs['file_revert_request'] = \
             file_revert_request
         return self.revert_sfvb_file_endpoint.call_with_http_info(**kwargs)
+
+    def review_sfvb_email(
+        self,
+        storefront_oid,
+        email_uuid,
+        email_review_request,
+        **kwargs
+    ):
+        """Request a content review of a flow or campaign email  # noqa: E501
+
+        Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.review_sfvb_email(storefront_oid, email_uuid, email_review_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            email_uuid (str):
+            email_review_request (SfvbEmailReviewRequest): The test order, for an email in an order-triggered flow
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbEmail
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['email_uuid'] = \
+            email_uuid
+        kwargs['email_review_request'] = \
+            email_review_request
+        return self.review_sfvb_email_endpoint.call_with_http_info(**kwargs)
 
     def revoke_sfvb_secret_request(
         self,

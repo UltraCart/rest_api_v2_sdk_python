@@ -1017,6 +1017,7 @@ from ultracart.model.sfvb_elements_response import SfvbElementsResponse
 from ultracart.model.sfvb_email import SfvbEmail
 from ultracart.model.sfvb_email_render_request import SfvbEmailRenderRequest
 from ultracart.model.sfvb_email_render_response import SfvbEmailRenderResponse
+from ultracart.model.sfvb_email_review_request import SfvbEmailReviewRequest
 from ultracart.model.sfvb_email_update_request import SfvbEmailUpdateRequest
 from ultracart.model.sfvb_error_detail import SfvbErrorDetail
 from ultracart.model.sfvb_event import SfvbEvent
