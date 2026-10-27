@@ -61,6 +61,10 @@ class ConversationPbxAgent(ModelNormal):
             'HARDWARE_PHONE': "hardware_phone",
             'CELLPHONE': "cellphone",
         },
+        ('startup_activity',): {
+            'AVAILABLE': "available",
+            'UNAVAILABLE': "unavailable",
+        },
         ('unavailable_say_voice',): {
             'MAN': "man",
             'WOMAN': "woman",
@@ -130,6 +134,7 @@ class ConversationPbxAgent(ModelNormal):
             'preferred_hardware_phone_uuid': (str,),  # noqa: E501
             'record_outgoing_automatically': (bool,),  # noqa: E501
             'shared_conversation_pbx_voicemail_mailbox_uuid': (str,),  # noqa: E501
+            'startup_activity': (str,),  # noqa: E501
             'twilio_taskrouter_worker_id': (str,),  # noqa: E501
             'unavailable_play_audio_uuid': (str,),  # noqa: E501
             'unavailable_say': (str,),  # noqa: E501
@@ -161,6 +166,7 @@ class ConversationPbxAgent(ModelNormal):
         'preferred_hardware_phone_uuid': 'preferred_hardware_phone_uuid',  # noqa: E501
         'record_outgoing_automatically': 'record_outgoing_automatically',  # noqa: E501
         'shared_conversation_pbx_voicemail_mailbox_uuid': 'shared_conversation_pbx_voicemail_mailbox_uuid',  # noqa: E501
+        'startup_activity': 'startup_activity',  # noqa: E501
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',  # noqa: E501
         'unavailable_play_audio_uuid': 'unavailable_play_audio_uuid',  # noqa: E501
         'unavailable_say': 'unavailable_say',  # noqa: E501
@@ -227,6 +233,7 @@ class ConversationPbxAgent(ModelNormal):
             preferred_hardware_phone_uuid (str): The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             shared_conversation_pbx_voicemail_mailbox_uuid (str): Shared Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            startup_activity (str): Status the agent starts in when the CRM loads. Missing means available.. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501
             unavailable_play_audio_uuid (str): Unavailable play audio UUID. [optional]  # noqa: E501
             unavailable_say (str): Unavailable say. [optional]  # noqa: E501
@@ -335,6 +342,7 @@ class ConversationPbxAgent(ModelNormal):
             preferred_hardware_phone_uuid (str): The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             shared_conversation_pbx_voicemail_mailbox_uuid (str): Shared Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            startup_activity (str): Status the agent starts in when the CRM loads. Missing means available.. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501
             unavailable_play_audio_uuid (str): Unavailable play audio UUID. [optional]  # noqa: E501
             unavailable_say (str): Unavailable say. [optional]  # noqa: E501

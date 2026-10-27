@@ -62,6 +62,10 @@ class ConversationAgentAuth(ModelNormal):
     """
 
     allowed_values = {
+        ('pbx_startup_activity',): {
+            'AVAILABLE': "available",
+            'UNAVAILABLE': "unavailable",
+        },
     }
 
     validations = {
@@ -103,6 +107,7 @@ class ConversationAgentAuth(ModelNormal):
             'parent_merchant_id': (str,),  # noqa: E501
             'pbx_admin': (bool,),  # noqa: E501
             'pbx_jwt': (str,),  # noqa: E501
+            'pbx_startup_activity': (str,),  # noqa: E501
             'pbx_supervisor': (bool,),  # noqa: E501
             'pbx_user': (bool,),  # noqa: E501
             'pbx_voice_identity': (str,),  # noqa: E501
@@ -133,6 +138,7 @@ class ConversationAgentAuth(ModelNormal):
         'parent_merchant_id': 'parent_merchant_id',  # noqa: E501
         'pbx_admin': 'pbx_admin',  # noqa: E501
         'pbx_jwt': 'pbx_jwt',  # noqa: E501
+        'pbx_startup_activity': 'pbx_startup_activity',  # noqa: E501
         'pbx_supervisor': 'pbx_supervisor',  # noqa: E501
         'pbx_user': 'pbx_user',  # noqa: E501
         'pbx_voice_identity': 'pbx_voice_identity',  # noqa: E501
@@ -198,6 +204,7 @@ class ConversationAgentAuth(ModelNormal):
             parent_merchant_id (str): The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.. [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
             pbx_jwt (str): [optional]  # noqa: E501
+            pbx_startup_activity (str): Status the agent starts in when the CRM loads. [optional]  # noqa: E501
             pbx_supervisor (bool): [optional]  # noqa: E501
             pbx_user (bool): [optional]  # noqa: E501
             pbx_voice_identity (str): [optional]  # noqa: E501
@@ -305,6 +312,7 @@ class ConversationAgentAuth(ModelNormal):
             parent_merchant_id (str): The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.. [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
             pbx_jwt (str): [optional]  # noqa: E501
+            pbx_startup_activity (str): Status the agent starts in when the CRM loads. [optional]  # noqa: E501
             pbx_supervisor (bool): [optional]  # noqa: E501
             pbx_user (bool): [optional]  # noqa: E501
             pbx_voice_identity (str): [optional]  # noqa: E501
