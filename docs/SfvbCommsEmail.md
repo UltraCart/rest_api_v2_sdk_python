@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **step_uuid** | **str** | The step that sends this email. | [optional] 
 **subject** | **str** | The subject line. | [optional] 
 **transactional** | **bool** | True for a transactional email, which skips the marketing footer rules. | [optional] 
+**variant_name** | **str** | For an email in an experiment step, the variant name.  Absent otherwise. | [optional] 
+**variant_percentage** | **float** | For an email in an experiment step, the share of customers it is sent to. | [optional] 
+**variant_winner** | **bool** | For an email in an experiment step, true when the experiment chose it as the winner. | [optional] 
 **version** | **int** | The email version. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

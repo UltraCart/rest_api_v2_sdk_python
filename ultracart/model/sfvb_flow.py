@@ -90,16 +90,27 @@ class SfvbFlow(ModelNormal):
         """
         lazy_import()
         return {
+            'allow_multiple_concurrent_enrollments': (bool,),  # noqa: E501
             'communication_sequence_uuid': (str,),  # noqa: E501
             'created_dts': (str,),  # noqa: E501
             'deleted': (bool,),  # noqa: E501
             'emails': ([SfvbCommsEmail],),  # noqa: E501
+            'end_once_customer_purchases': (bool,),  # noqa: E501
+            'end_once_customer_purchases_anywhere': (bool,),  # noqa: E501
             'flow_uuid': (str,),  # noqa: E501
+            'hash_sha256': (str,),  # noqa: E501
             'live': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'notes': ([str],),  # noqa: E501
             'postcards': ([SfvbCommsPostcard],),  # noqa: E501
+            'reentry_delay_days': (int,),  # noqa: E501
+            'reentry_policy': (str,),  # noqa: E501
+            'sending_domain_uuid': (str,),  # noqa: E501
+            'sending_name': (str,),  # noqa: E501
+            'sending_user': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'status_dts': (str,),  # noqa: E501
+            'trigger_parameter': (str,),  # noqa: E501
             'trigger_parameter_name': (str,),  # noqa: E501
             'trigger_type': (str,),  # noqa: E501
         }
@@ -110,16 +121,27 @@ class SfvbFlow(ModelNormal):
 
 
     attribute_map = {
+        'allow_multiple_concurrent_enrollments': 'allow_multiple_concurrent_enrollments',  # noqa: E501
         'communication_sequence_uuid': 'communication_sequence_uuid',  # noqa: E501
         'created_dts': 'created_dts',  # noqa: E501
         'deleted': 'deleted',  # noqa: E501
         'emails': 'emails',  # noqa: E501
+        'end_once_customer_purchases': 'end_once_customer_purchases',  # noqa: E501
+        'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',  # noqa: E501
         'flow_uuid': 'flow_uuid',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
         'live': 'live',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'notes': 'notes',  # noqa: E501
         'postcards': 'postcards',  # noqa: E501
+        'reentry_delay_days': 'reentry_delay_days',  # noqa: E501
+        'reentry_policy': 'reentry_policy',  # noqa: E501
+        'sending_domain_uuid': 'sending_domain_uuid',  # noqa: E501
+        'sending_name': 'sending_name',  # noqa: E501
+        'sending_user': 'sending_user',  # noqa: E501
         'status': 'status',  # noqa: E501
         'status_dts': 'status_dts',  # noqa: E501
+        'trigger_parameter': 'trigger_parameter',  # noqa: E501
         'trigger_parameter_name': 'trigger_parameter_name',  # noqa: E501
         'trigger_type': 'trigger_type',  # noqa: E501
     }
@@ -165,16 +187,27 @@ class SfvbFlow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            allow_multiple_concurrent_enrollments (bool): True when a customer may be in this flow more than once at a time.. [optional]  # noqa: E501
             communication_sequence_uuid (str): The communication sequence the steps belong to.. [optional]  # noqa: E501
             created_dts (str): When the flow was created (ISO 8601, UTC).. [optional]  # noqa: E501
             deleted (bool): True when the flow was deleted.. [optional]  # noqa: E501
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
+            end_once_customer_purchases (bool): True when a customer leaves the flow once they buy from one of its emails.. [optional]  # noqa: E501
+            end_once_customer_purchases_anywhere (bool): True when a customer leaves the flow once they buy from any source.. [optional]  # noqa: E501
             flow_uuid (str): The flow uuid.. [optional]  # noqa: E501
+            hash_sha256 (str): Send this as If-Match when changing, archiving or turning the flow on or off.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
             name (str): The flow name.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.. [optional]  # noqa: E501
             postcards ([SfvbCommsPostcard]): Its postcards, in step order.. [optional]  # noqa: E501
+            reentry_delay_days (int): Days before a customer may enter again, with after_days.. [optional]  # noqa: E501
+            reentry_policy (str): Whether a customer may enter again, anytime, after_days or never.. [optional]  # noqa: E501
+            sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
+            sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             status (str): The status, such as draft, active, paused, draining or inactive.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
+            trigger_parameter (str): The list or segment uuid, or other value, the trigger is limited to.. [optional]  # noqa: E501
             trigger_parameter_name (str): The name of the trigger parameter, when the trigger takes one.. [optional]  # noqa: E501
             trigger_type (str): What starts the flow, such as cart abandon or an order.. [optional]  # noqa: E501
         """
@@ -262,16 +295,27 @@ class SfvbFlow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            allow_multiple_concurrent_enrollments (bool): True when a customer may be in this flow more than once at a time.. [optional]  # noqa: E501
             communication_sequence_uuid (str): The communication sequence the steps belong to.. [optional]  # noqa: E501
             created_dts (str): When the flow was created (ISO 8601, UTC).. [optional]  # noqa: E501
             deleted (bool): True when the flow was deleted.. [optional]  # noqa: E501
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
+            end_once_customer_purchases (bool): True when a customer leaves the flow once they buy from one of its emails.. [optional]  # noqa: E501
+            end_once_customer_purchases_anywhere (bool): True when a customer leaves the flow once they buy from any source.. [optional]  # noqa: E501
             flow_uuid (str): The flow uuid.. [optional]  # noqa: E501
+            hash_sha256 (str): Send this as If-Match when changing, archiving or turning the flow on or off.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
             name (str): The flow name.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.. [optional]  # noqa: E501
             postcards ([SfvbCommsPostcard]): Its postcards, in step order.. [optional]  # noqa: E501
+            reentry_delay_days (int): Days before a customer may enter again, with after_days.. [optional]  # noqa: E501
+            reentry_policy (str): Whether a customer may enter again, anytime, after_days or never.. [optional]  # noqa: E501
+            sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
+            sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             status (str): The status, such as draft, active, paused, draining or inactive.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
+            trigger_parameter (str): The list or segment uuid, or other value, the trigger is limited to.. [optional]  # noqa: E501
             trigger_parameter_name (str): The name of the trigger parameter, when the trigger takes one.. [optional]  # noqa: E501
             trigger_type (str): What starts the flow, such as cart abandon or an order.. [optional]  # noqa: E501
         """

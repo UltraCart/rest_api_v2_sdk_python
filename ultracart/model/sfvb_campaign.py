@@ -31,8 +31,10 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.sfvb_campaign_membership import SfvbCampaignMembership
     from ultracart.model.sfvb_comms_email import SfvbCommsEmail
     from ultracart.model.sfvb_comms_postcard import SfvbCommsPostcard
+    globals()['SfvbCampaignMembership'] = SfvbCampaignMembership
     globals()['SfvbCommsEmail'] = SfvbCommsEmail
     globals()['SfvbCommsPostcard'] = SfvbCommsPostcard
 
@@ -95,10 +97,18 @@ class SfvbCampaign(ModelNormal):
             'created_dts': (str,),  # noqa: E501
             'deleted': (bool,),  # noqa: E501
             'emails': ([SfvbCommsEmail],),  # noqa: E501
+            'end_once_customer_purchases': (bool,),  # noqa: E501
+            'end_once_customer_purchases_anywhere': (bool,),  # noqa: E501
+            'hash_sha256': (str,),  # noqa: E501
             'live': (bool,),  # noqa: E501
+            'memberships': ([SfvbCampaignMembership],),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'notes': ([str],),  # noqa: E501
             'postcards': ([SfvbCommsPostcard],),  # noqa: E501
             'scheduled_dts': (str,),  # noqa: E501
+            'sending_domain_uuid': (str,),  # noqa: E501
+            'sending_name': (str,),  # noqa: E501
+            'sending_user': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'status_dts': (str,),  # noqa: E501
         }
@@ -114,10 +124,18 @@ class SfvbCampaign(ModelNormal):
         'created_dts': 'created_dts',  # noqa: E501
         'deleted': 'deleted',  # noqa: E501
         'emails': 'emails',  # noqa: E501
+        'end_once_customer_purchases': 'end_once_customer_purchases',  # noqa: E501
+        'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
         'live': 'live',  # noqa: E501
+        'memberships': 'memberships',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'notes': 'notes',  # noqa: E501
         'postcards': 'postcards',  # noqa: E501
         'scheduled_dts': 'scheduled_dts',  # noqa: E501
+        'sending_domain_uuid': 'sending_domain_uuid',  # noqa: E501
+        'sending_name': 'sending_name',  # noqa: E501
+        'sending_user': 'sending_user',  # noqa: E501
         'status': 'status',  # noqa: E501
         'status_dts': 'status_dts',  # noqa: E501
     }
@@ -168,10 +186,18 @@ class SfvbCampaign(ModelNormal):
             created_dts (str): When the campaign was created (ISO 8601, UTC).. [optional]  # noqa: E501
             deleted (bool): True when the campaign was deleted.. [optional]  # noqa: E501
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
+            end_once_customer_purchases (bool): True when a customer leaves the campaign once they buy from one of its emails.. [optional]  # noqa: E501
+            end_once_customer_purchases_anywhere (bool): True when a customer leaves the campaign once they buy from any source.. [optional]  # noqa: E501
+            hash_sha256 (str): Send this as If-Match when changing or archiving the campaign.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
+            memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.. [optional]  # noqa: E501
             name (str): The campaign name.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.. [optional]  # noqa: E501
             postcards ([SfvbCommsPostcard]): Its postcards, in step order.. [optional]  # noqa: E501
             scheduled_dts (str): When the campaign is scheduled to send (ISO 8601, UTC), when it is.. [optional]  # noqa: E501
+            sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
+            sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             status (str): The status, such as draft, scheduled, sending, sent or archived.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
         """
@@ -264,10 +290,18 @@ class SfvbCampaign(ModelNormal):
             created_dts (str): When the campaign was created (ISO 8601, UTC).. [optional]  # noqa: E501
             deleted (bool): True when the campaign was deleted.. [optional]  # noqa: E501
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
+            end_once_customer_purchases (bool): True when a customer leaves the campaign once they buy from one of its emails.. [optional]  # noqa: E501
+            end_once_customer_purchases_anywhere (bool): True when a customer leaves the campaign once they buy from any source.. [optional]  # noqa: E501
+            hash_sha256 (str): Send this as If-Match when changing or archiving the campaign.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
+            memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.. [optional]  # noqa: E501
             name (str): The campaign name.. [optional]  # noqa: E501
+            notes ([str]): What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.. [optional]  # noqa: E501
             postcards ([SfvbCommsPostcard]): Its postcards, in step order.. [optional]  # noqa: E501
             scheduled_dts (str): When the campaign is scheduled to send (ISO 8601, UTC), when it is.. [optional]  # noqa: E501
+            sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
+            sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             status (str): The status, such as draft, scheduled, sending, sent or archived.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
         """

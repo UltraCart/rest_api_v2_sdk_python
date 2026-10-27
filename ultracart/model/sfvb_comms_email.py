@@ -92,6 +92,9 @@ class SfvbCommsEmail(ModelNormal):
             'step_uuid': (str,),  # noqa: E501
             'subject': (str,),  # noqa: E501
             'transactional': (bool,),  # noqa: E501
+            'variant_name': (str,),  # noqa: E501
+            'variant_percentage': (float,),  # noqa: E501
+            'variant_winner': (bool,),  # noqa: E501
             'version': (int,),  # noqa: E501
         }
 
@@ -111,6 +114,9 @@ class SfvbCommsEmail(ModelNormal):
         'step_uuid': 'step_uuid',  # noqa: E501
         'subject': 'subject',  # noqa: E501
         'transactional': 'transactional',  # noqa: E501
+        'variant_name': 'variant_name',  # noqa: E501
+        'variant_percentage': 'variant_percentage',  # noqa: E501
+        'variant_winner': 'variant_winner',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
 
@@ -165,6 +171,9 @@ class SfvbCommsEmail(ModelNormal):
             step_uuid (str): The step that sends this email.. [optional]  # noqa: E501
             subject (str): The subject line.. [optional]  # noqa: E501
             transactional (bool): True for a transactional email, which skips the marketing footer rules.. [optional]  # noqa: E501
+            variant_name (str): For an email in an experiment step, the variant name.  Absent otherwise.. [optional]  # noqa: E501
+            variant_percentage (float): For an email in an experiment step, the share of customers it is sent to.. [optional]  # noqa: E501
+            variant_winner (bool): For an email in an experiment step, true when the experiment chose it as the winner.. [optional]  # noqa: E501
             version (int): The email version.. [optional]  # noqa: E501
         """
 
@@ -261,6 +270,9 @@ class SfvbCommsEmail(ModelNormal):
             step_uuid (str): The step that sends this email.. [optional]  # noqa: E501
             subject (str): The subject line.. [optional]  # noqa: E501
             transactional (bool): True for a transactional email, which skips the marketing footer rules.. [optional]  # noqa: E501
+            variant_name (str): For an email in an experiment step, the variant name.  Absent otherwise.. [optional]  # noqa: E501
+            variant_percentage (float): For an email in an experiment step, the share of customers it is sent to.. [optional]  # noqa: E501
+            variant_winner (bool): For an email in an experiment step, true when the experiment chose it as the winner.. [optional]  # noqa: E501
             version (int): The email version.. [optional]  # noqa: E501
         """
 

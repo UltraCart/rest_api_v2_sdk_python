@@ -982,6 +982,7 @@ from ultracart.model.sfvb_approval_params import SfvbApprovalParams
 from ultracart.model.sfvb_approval_review import SfvbApprovalReview
 from ultracart.model.sfvb_approval_review_finding import SfvbApprovalReviewFinding
 from ultracart.model.sfvb_approvals_response import SfvbApprovalsResponse
+from ultracart.model.sfvb_archive_request import SfvbArchiveRequest
 from ultracart.model.sfvb_blog_post import SfvbBlogPost
 from ultracart.model.sfvb_blog_post_detail import SfvbBlogPostDetail
 from ultracart.model.sfvb_blog_post_image import SfvbBlogPostImage
@@ -989,10 +990,16 @@ from ultracart.model.sfvb_blog_post_image_request import SfvbBlogPostImageReques
 from ultracart.model.sfvb_blog_post_request import SfvbBlogPostRequest
 from ultracart.model.sfvb_blog_posts_response import SfvbBlogPostsResponse
 from ultracart.model.sfvb_campaign import SfvbCampaign
+from ultracart.model.sfvb_campaign_membership import SfvbCampaignMembership
+from ultracart.model.sfvb_campaign_write_request import SfvbCampaignWriteRequest
 from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
 from ultracart.model.sfvb_comms_dns_record import SfvbCommsDnsRecord
 from ultracart.model.sfvb_comms_email import SfvbCommsEmail
+from ultracart.model.sfvb_comms_list import SfvbCommsList
+from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
 from ultracart.model.sfvb_comms_postcard import SfvbCommsPostcard
+from ultracart.model.sfvb_comms_segment import SfvbCommsSegment
+from ultracart.model.sfvb_comms_segments_response import SfvbCommsSegmentsResponse
 from ultracart.model.sfvb_comms_sending_domain import SfvbCommsSendingDomain
 from ultracart.model.sfvb_comms_sending_domains_response import SfvbCommsSendingDomainsResponse
 from ultracart.model.sfvb_comms_twilio_account import SfvbCommsTwilioAccount
@@ -1037,6 +1044,8 @@ from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_flow import SfvbFlow
+from ultracart.model.sfvb_flow_status_request import SfvbFlowStatusRequest
+from ultracart.model.sfvb_flow_write_request import SfvbFlowWriteRequest
 from ultracart.model.sfvb_flows_response import SfvbFlowsResponse
 from ultracart.model.sfvb_i18n_glossary import SfvbI18nGlossary
 from ultracart.model.sfvb_i18n_glossary_request import SfvbI18nGlossaryRequest
