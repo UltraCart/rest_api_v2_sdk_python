@@ -1188,6 +1188,9 @@ docs/SfvbSecretRequest.md
 docs/SfvbSecretRequestCreate.md
 docs/SfvbSecretRequestsResponse.md
 docs/SfvbSecretSink.md
+docs/SfvbSequence.md
+docs/SfvbSequenceBranch.md
+docs/SfvbSequenceStep.md
 docs/SfvbServerLog.md
 docs/SfvbServerLogDetail.md
 docs/SfvbServerLogEntry.md
@@ -2539,6 +2542,9 @@ ultracart/model/sfvb_secret_request.py
 ultracart/model/sfvb_secret_request_create.py
 ultracart/model/sfvb_secret_requests_response.py
 ultracart/model/sfvb_secret_sink.py
+ultracart/model/sfvb_sequence.py
+ultracart/model/sfvb_sequence_branch.py
+ultracart/model/sfvb_sequence_step.py
 ultracart/model/sfvb_server_log.py
 ultracart/model/sfvb_server_log_detail.py
 ultracart/model/sfvb_server_log_entry.py
