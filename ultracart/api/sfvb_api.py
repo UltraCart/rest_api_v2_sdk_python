@@ -161,6 +161,8 @@ from ultracart.model.sfvb_secret_request import SfvbSecretRequest
 from ultracart.model.sfvb_secret_request_create import SfvbSecretRequestCreate
 from ultracart.model.sfvb_secret_requests_response import SfvbSecretRequestsResponse
 from ultracart.model.sfvb_sequence import SfvbSequence
+from ultracart.model.sfvb_sequence_step_update_request import SfvbSequenceStepUpdateRequest
+from ultracart.model.sfvb_sequence_step_update_response import SfvbSequenceStepUpdateResponse
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
 from ultracart.model.sfvb_server_logs_response import SfvbServerLogsResponse
 from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
@@ -12453,6 +12455,83 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.update_sfvb_sequence_step_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSequenceStepUpdateResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}',
+                'operation_id': 'update_sfvb_sequence_step',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                    'if_match',
+                    'sequence_step_update_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                    'if_match',
+                    'sequence_step_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'sequence_uuid':
+                        (str,),
+                    'step_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'sequence_step_update_request':
+                        (SfvbSequenceStepUpdateRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'sequence_uuid': 'sequence_uuid',
+                    'step_uuid': 'step_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'sequence_uuid': 'path',
+                    'step_uuid': 'path',
+                    'if_match': 'header',
+                    'sequence_step_update_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_sfvb_upsell_offer_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbUpsellOffer,),
@@ -21078,7 +21157,7 @@ class SfvbApi(object):
     ):
         """Get a campaign's or flow's steps as a tree  # noqa: E501
 
-        The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only.   # noqa: E501
+        The communication sequence named by a campaign's or flow's communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin's label, its settings (a webhook's header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30078,6 +30157,105 @@ class SfvbApi(object):
         kwargs['redirect_request'] = \
             redirect_request
         return self.update_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_sequence_step(
+        self,
+        storefront_oid,
+        sequence_uuid,
+        step_uuid,
+        if_match,
+        sequence_step_update_request,
+        **kwargs
+    ):
+        """Change one step's settings or audience filter  # noqa: E501
+
+        Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_sequence_step(storefront_oid, sequence_uuid, step_uuid, if_match, sequence_step_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            sequence_uuid (str):
+            step_uuid (str):
+            if_match (str): The step's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+            sequence_step_update_request (SfvbSequenceStepUpdateRequest): The settings, the filter, or both
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSequenceStepUpdateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['sequence_uuid'] = \
+            sequence_uuid
+        kwargs['step_uuid'] = \
+            step_uuid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['sequence_step_update_request'] = \
+            sequence_step_update_request
+        return self.update_sfvb_sequence_step_endpoint.call_with_http_info(**kwargs)
 
     def update_sfvb_upsell_offer(
         self,

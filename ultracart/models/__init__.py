@@ -1180,6 +1180,8 @@ from ultracart.model.sfvb_secret_sink import SfvbSecretSink
 from ultracart.model.sfvb_sequence import SfvbSequence
 from ultracart.model.sfvb_sequence_branch import SfvbSequenceBranch
 from ultracart.model.sfvb_sequence_step import SfvbSequenceStep
+from ultracart.model.sfvb_sequence_step_update_request import SfvbSequenceStepUpdateRequest
+from ultracart.model.sfvb_sequence_step_update_response import SfvbSequenceStepUpdateResponse
 from ultracart.model.sfvb_server_log import SfvbServerLog
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
 from ultracart.model.sfvb_server_log_entry import SfvbServerLogEntry

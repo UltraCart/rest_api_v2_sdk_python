@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **disabled** | **bool** | True when the step is switched off in its settings. | [optional] 
 **email_uuids** | **[str]** | The emails it sends.  One for an email step, one per variant for an experiment. | [optional] 
 **filter_profile_equation_json** | **str** | The step&#39;s audience filter as stored, when it has one. | [optional] 
+**hash_sha256** | **str** | The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step. | [optional] 
 **item_ids** | **[str]** | The items it names, for a cart or rate limiter step. | [optional] 
 **label** | **str** | The type as the admin names it, such as Time Delay.  The type itself for one it doesn&#39;t know. | [optional] 
 **list_uuids** | **[str]** | The lists it subscribes or unsubscribes, for a list step. | [optional] 
