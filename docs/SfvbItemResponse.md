@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **merchant_item_oid** | **int** | The item&#39;s internal oid, which appears nowhere on a rendered storefront. | [optional] 
 **multimedia** | [**[SfvbItemMultimedia]**](SfvbItemMultimedia.md) | Every image slot a template declares plus every image attached to the item. | [optional] 
 **seo** | [**SfvbItemSeo**](SfvbItemSeo.md) |  | [optional] 
+**tags** | [**SfvbItemTags**](SfvbItemTags.md) |  | [optional] 
 **title** | **str** | What an itemtitle element renders.  This is the item&#39;s short description in the catalog, not a storefront only field, so changing it changes the item everywhere. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

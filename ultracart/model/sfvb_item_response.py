@@ -34,9 +34,11 @@ def lazy_import():
     from ultracart.model.sfvb_item_attribute import SfvbItemAttribute
     from ultracart.model.sfvb_item_multimedia import SfvbItemMultimedia
     from ultracart.model.sfvb_item_seo import SfvbItemSeo
+    from ultracart.model.sfvb_item_tags import SfvbItemTags
     globals()['SfvbItemAttribute'] = SfvbItemAttribute
     globals()['SfvbItemMultimedia'] = SfvbItemMultimedia
     globals()['SfvbItemSeo'] = SfvbItemSeo
+    globals()['SfvbItemTags'] = SfvbItemTags
 
 
 class SfvbItemResponse(ModelNormal):
@@ -99,6 +101,7 @@ class SfvbItemResponse(ModelNormal):
             'merchant_item_oid': (int,),  # noqa: E501
             'multimedia': ([SfvbItemMultimedia],),  # noqa: E501
             'seo': (SfvbItemSeo,),  # noqa: E501
+            'tags': (SfvbItemTags,),  # noqa: E501
             'title': (str,),  # noqa: E501
         }
 
@@ -115,6 +118,7 @@ class SfvbItemResponse(ModelNormal):
         'merchant_item_oid': 'merchant_item_oid',  # noqa: E501
         'multimedia': 'multimedia',  # noqa: E501
         'seo': 'seo',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'title': 'title',  # noqa: E501
     }
 
@@ -166,6 +170,7 @@ class SfvbItemResponse(ModelNormal):
             merchant_item_oid (int): The item's internal oid, which appears nowhere on a rendered storefront.. [optional]  # noqa: E501
             multimedia ([SfvbItemMultimedia]): Every image slot a template declares plus every image attached to the item.. [optional]  # noqa: E501
             seo (SfvbItemSeo): [optional]  # noqa: E501
+            tags (SfvbItemTags): [optional]  # noqa: E501
             title (str): What an itemtitle element renders.  This is the item's short description in the catalog, not a storefront only field, so changing it changes the item everywhere.. [optional]  # noqa: E501
         """
 
@@ -259,6 +264,7 @@ class SfvbItemResponse(ModelNormal):
             merchant_item_oid (int): The item's internal oid, which appears nowhere on a rendered storefront.. [optional]  # noqa: E501
             multimedia ([SfvbItemMultimedia]): Every image slot a template declares plus every image attached to the item.. [optional]  # noqa: E501
             seo (SfvbItemSeo): [optional]  # noqa: E501
+            tags (SfvbItemTags): [optional]  # noqa: E501
             title (str): What an itemtitle element renders.  This is the item's short description in the catalog, not a storefront only field, so changing it changes the item everywhere.. [optional]  # noqa: E501
         """
 

@@ -1081,6 +1081,7 @@ from ultracart.model.sfvb_item_related_request import SfvbItemRelatedRequest
 from ultracart.model.sfvb_item_response import SfvbItemResponse
 from ultracart.model.sfvb_item_seo import SfvbItemSeo
 from ultracart.model.sfvb_item_seo_request import SfvbItemSeoRequest
+from ultracart.model.sfvb_item_tags import SfvbItemTags
 from ultracart.model.sfvb_item_volume_discount import SfvbItemVolumeDiscount
 from ultracart.model.sfvb_library_ai_review import SfvbLibraryAiReview
 from ultracart.model.sfvb_library_content_manifest import SfvbLibraryContentManifest
