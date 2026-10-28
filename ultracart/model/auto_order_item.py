@@ -233,9 +233,9 @@ class AutoOrderItem(ModelNormal):
             add_ons ([AutoOrderAddonItem]): Array of addon objects instructing which items to add to auto order and how many times they should be added.. [optional]  # noqa: E501
             arbitrary_item_id (str): Arbitrary item id that should be rebilled instead of the normal schedule. [optional]  # noqa: E501
             arbitrary_percentage_discount (float): An arbitrary percentage discount to provide on future rebills. [optional]  # noqa: E501
-            arbitrary_quantity (float): Arbitrary quantity to rebill. [optional]  # noqa: E501
+            arbitrary_quantity (float): Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.. [optional]  # noqa: E501
             arbitrary_schedule_days (int): The number of days to rebill if the frequency is set to an arbitrary number of days. [optional]  # noqa: E501
-            arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
+            arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
             calculated_next_shipment_dts (str): Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item. [optional]  # noqa: E501
@@ -253,7 +253,7 @@ class AutoOrderItem(ModelNormal):
             number_of_rebills (int): The number of times this item has rebilled. [optional]  # noqa: E501
             options ([AutoOrderItemOption]): Options associated with this item. [optional]  # noqa: E501
             original_item_id (str): The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.. [optional]  # noqa: E501
-            original_quantity (float): The original quantity purchased. [optional]  # noqa: E501
+            original_quantity (float): The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.. [optional]  # noqa: E501
             paused (bool): True if paused.  This field is an object instead of a primitive for backwards compatibility.. [optional]  # noqa: E501
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
@@ -350,9 +350,9 @@ class AutoOrderItem(ModelNormal):
             add_ons ([AutoOrderAddonItem]): Array of addon objects instructing which items to add to auto order and how many times they should be added.. [optional]  # noqa: E501
             arbitrary_item_id (str): Arbitrary item id that should be rebilled instead of the normal schedule. [optional]  # noqa: E501
             arbitrary_percentage_discount (float): An arbitrary percentage discount to provide on future rebills. [optional]  # noqa: E501
-            arbitrary_quantity (float): Arbitrary quantity to rebill. [optional]  # noqa: E501
+            arbitrary_quantity (float): Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.. [optional]  # noqa: E501
             arbitrary_schedule_days (int): The number of days to rebill if the frequency is set to an arbitrary number of days. [optional]  # noqa: E501
-            arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
+            arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
             calculated_next_shipment_dts (str): Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item. [optional]  # noqa: E501
@@ -370,7 +370,7 @@ class AutoOrderItem(ModelNormal):
             number_of_rebills (int): The number of times this item has rebilled. [optional]  # noqa: E501
             options ([AutoOrderItemOption]): Options associated with this item. [optional]  # noqa: E501
             original_item_id (str): The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.. [optional]  # noqa: E501
-            original_quantity (float): The original quantity purchased. [optional]  # noqa: E501
+            original_quantity (float): The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.. [optional]  # noqa: E501
             paused (bool): True if paused.  This field is an object instead of a primitive for backwards compatibility.. [optional]  # noqa: E501
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
