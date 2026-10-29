@@ -103,6 +103,7 @@ class OrderPayment(ModelNormal):
             'WALMART': "Walmart",
             'SHOP.COM': "Shop.com",
             'SEZZLE': "Sezzle",
+            'TRUEMED': "Truemed",
             'VENMO': "Venmo",
             'APPLE_PAY': "Apple Pay",
             'GOOGLE_PAY': "Google Pay",

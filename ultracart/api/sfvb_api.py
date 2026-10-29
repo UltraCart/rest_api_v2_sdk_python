@@ -161,6 +161,8 @@ from ultracart.model.sfvb_secret_request import SfvbSecretRequest
 from ultracart.model.sfvb_secret_request_create import SfvbSecretRequestCreate
 from ultracart.model.sfvb_secret_requests_response import SfvbSecretRequestsResponse
 from ultracart.model.sfvb_sequence import SfvbSequence
+from ultracart.model.sfvb_sequence_step_create_request import SfvbSequenceStepCreateRequest
+from ultracart.model.sfvb_sequence_step_create_response import SfvbSequenceStepCreateResponse
 from ultracart.model.sfvb_sequence_step_update_request import SfvbSequenceStepUpdateRequest
 from ultracart.model.sfvb_sequence_step_update_response import SfvbSequenceStepUpdateResponse
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
@@ -7144,6 +7146,77 @@ class SfvbApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_sequence_step_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSequenceStepCreateResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps',
+                'operation_id': 'insert_sfvb_sequence_step',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'if_match',
+                    'sequence_step_create_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'if_match',
+                    'sequence_step_create_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'sequence_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'sequence_step_create_request':
+                        (SfvbSequenceStepCreateRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'sequence_uuid': 'sequence_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'sequence_uuid': 'path',
+                    'if_match': 'header',
+                    'sequence_step_create_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -22942,6 +23015,101 @@ class SfvbApi(object):
         kwargs['secret_request'] = \
             secret_request
         return self.insert_sfvb_secret_request_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_sequence_step(
+        self,
+        storefront_oid,
+        sequence_uuid,
+        if_match,
+        sequence_step_create_request,
+        **kwargs
+    ):
+        """Add an email step, with its new email  # noqa: E501
+
+        Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_sequence_step(storefront_oid, sequence_uuid, if_match, sequence_step_create_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            sequence_uuid (str):
+            if_match (str): The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale.
+            sequence_step_create_request (SfvbSequenceStepCreateRequest): Where the step goes, and the new email's subject and preview text
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSequenceStepCreateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['sequence_uuid'] = \
+            sequence_uuid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['sequence_step_create_request'] = \
+            sequence_step_create_request
+        return self.insert_sfvb_sequence_step_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_upsell_offer(
         self,
