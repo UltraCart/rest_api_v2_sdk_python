@@ -1194,6 +1194,7 @@ docs/SfvbSequenceBranch.md
 docs/SfvbSequenceStep.md
 docs/SfvbSequenceStepCreateRequest.md
 docs/SfvbSequenceStepCreateResponse.md
+docs/SfvbSequenceStepDeleteResponse.md
 docs/SfvbSequenceStepUpdateRequest.md
 docs/SfvbSequenceStepUpdateResponse.md
 docs/SfvbServerLog.md
@@ -2553,6 +2554,7 @@ ultracart/model/sfvb_sequence_branch.py
 ultracart/model/sfvb_sequence_step.py
 ultracart/model/sfvb_sequence_step_create_request.py
 ultracart/model/sfvb_sequence_step_create_response.py
+ultracart/model/sfvb_sequence_step_delete_response.py
 ultracart/model/sfvb_sequence_step_update_request.py
 ultracart/model/sfvb_sequence_step_update_response.py
 ultracart/model/sfvb_server_log.py

@@ -78,6 +78,9 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'UPSELL.ENABLE': "upsell.enable",
             'ITEM.ATTRIBUTE_BATCH': "item.attribute_batch",
             'ITEM.PRICING': "item.pricing",
+            'TWILIO_ACCOUNT.DELETE': "twilio_account.delete",
+            'SENDING_DOMAIN.DELETE': "sending_domain.delete",
+            'SEQUENCE_STEP.DELETE': "sequence_step.delete",
         },
     }
 

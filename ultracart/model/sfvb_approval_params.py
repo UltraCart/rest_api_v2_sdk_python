@@ -98,7 +98,9 @@ class SfvbApprovalParams(ModelNormal):
             'request_sha256': (str,),  # noqa: E501
             'rows_sha256': (str,),  # noqa: E501
             'rule_count': (int,),  # noqa: E501
+            'sequence_uuid': (str,),  # noqa: E501
             'slot': (str,),  # noqa: E501
+            'step_uuid': (str,),  # noqa: E501
             'upsell_kind': (str,),  # noqa: E501
             'upsell_oid': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
@@ -124,7 +126,9 @@ class SfvbApprovalParams(ModelNormal):
         'request_sha256': 'request_sha256',  # noqa: E501
         'rows_sha256': 'rows_sha256',  # noqa: E501
         'rule_count': 'rule_count',  # noqa: E501
+        'sequence_uuid': 'sequence_uuid',  # noqa: E501
         'slot': 'slot',  # noqa: E501
+        'step_uuid': 'step_uuid',  # noqa: E501
         'upsell_kind': 'upsell_kind',  # noqa: E501
         'upsell_oid': 'upsell_oid',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -185,7 +189,9 @@ class SfvbApprovalParams(ModelNormal):
             request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
+            sequence_uuid (str): The communication sequence, for sequence_step.delete.. [optional]  # noqa: E501
             slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
+            step_uuid (str): The step to remove, for sequence_step.delete.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501
@@ -288,7 +294,9 @@ class SfvbApprovalParams(ModelNormal):
             request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
+            sequence_uuid (str): The communication sequence, for sequence_step.delete.. [optional]  # noqa: E501
             slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
+            step_uuid (str): The step to remove, for sequence_step.delete.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501
