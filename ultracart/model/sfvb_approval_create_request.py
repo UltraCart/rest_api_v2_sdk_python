@@ -32,11 +32,13 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+    from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
     from ultracart.model.sfvb_experiment_start_request import SfvbExperimentStartRequest
     from ultracart.model.sfvb_item_attribute_batch_row import SfvbItemAttributeBatchRow
     from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
     from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
+    globals()['SfvbCommsSegmentWriteRequest'] = SfvbCommsSegmentWriteRequest
     globals()['SfvbExperimentStartRequest'] = SfvbExperimentStartRequest
     globals()['SfvbItemAttributeBatchRow'] = SfvbItemAttributeBatchRow
     globals()['SfvbItemPricingRequest'] = SfvbItemPricingRequest
@@ -81,6 +83,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'TWILIO_ACCOUNT.DELETE': "twilio_account.delete",
             'SENDING_DOMAIN.DELETE': "sending_domain.delete",
             'SEQUENCE_STEP.DELETE': "sequence_step.delete",
+            'SEGMENT.UPDATE': "segment.update",
         },
     }
 
@@ -118,6 +121,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'params': (SfvbApprovalParams,),  # noqa: E501
             'reason': (str,),  # noqa: E501
             'redirect_rows': ([SfvbRedirectDeleteRow],),  # noqa: E501
+            'segment_update': (SfvbCommsSegmentWriteRequest,),  # noqa: E501
         }
 
     @cached_property
@@ -134,6 +138,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'params': 'params',  # noqa: E501
         'reason': 'reason',  # noqa: E501
         'redirect_rows': 'redirect_rows',  # noqa: E501
+        'segment_update': 'segment_update',  # noqa: E501
     }
 
     read_only_vars = {
@@ -185,6 +190,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
+            segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,6 +284,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             params (SfvbApprovalParams): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
+            segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

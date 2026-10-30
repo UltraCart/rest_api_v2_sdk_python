@@ -999,6 +999,10 @@ from ultracart.model.sfvb_comms_list import SfvbCommsList
 from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
 from ultracart.model.sfvb_comms_postcard import SfvbCommsPostcard
 from ultracart.model.sfvb_comms_segment import SfvbCommsSegment
+from ultracart.model.sfvb_comms_segment_detail import SfvbCommsSegmentDetail
+from ultracart.model.sfvb_comms_segment_response import SfvbCommsSegmentResponse
+from ultracart.model.sfvb_comms_segment_used_by import SfvbCommsSegmentUsedBy
+from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
 from ultracart.model.sfvb_comms_segments_response import SfvbCommsSegmentsResponse
 from ultracart.model.sfvb_comms_sending_domain import SfvbCommsSendingDomain
 from ultracart.model.sfvb_comms_sending_domains_response import SfvbCommsSendingDomainsResponse

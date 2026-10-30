@@ -1010,6 +1010,10 @@ docs/SfvbCommsList.md
 docs/SfvbCommsListsResponse.md
 docs/SfvbCommsPostcard.md
 docs/SfvbCommsSegment.md
+docs/SfvbCommsSegmentDetail.md
+docs/SfvbCommsSegmentResponse.md
+docs/SfvbCommsSegmentUsedBy.md
+docs/SfvbCommsSegmentWriteRequest.md
 docs/SfvbCommsSegmentsResponse.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
@@ -2370,6 +2374,10 @@ ultracart/model/sfvb_comms_list.py
 ultracart/model/sfvb_comms_lists_response.py
 ultracart/model/sfvb_comms_postcard.py
 ultracart/model/sfvb_comms_segment.py
+ultracart/model/sfvb_comms_segment_detail.py
+ultracart/model/sfvb_comms_segment_response.py
+ultracart/model/sfvb_comms_segment_used_by.py
+ultracart/model/sfvb_comms_segment_write_request.py
 ultracart/model/sfvb_comms_segments_response.py
 ultracart/model/sfvb_comms_sending_domain.py
 ultracart/model/sfvb_comms_sending_domains_response.py
