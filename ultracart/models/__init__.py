@@ -993,6 +993,8 @@ from ultracart.model.sfvb_campaign import SfvbCampaign
 from ultracart.model.sfvb_campaign_membership import SfvbCampaignMembership
 from ultracart.model.sfvb_campaign_write_request import SfvbCampaignWriteRequest
 from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
+from ultracart.model.sfvb_code_library_email import SfvbCodeLibraryEmail
+from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
 from ultracart.model.sfvb_comms_dns_record import SfvbCommsDnsRecord
 from ultracart.model.sfvb_comms_email import SfvbCommsEmail
 from ultracart.model.sfvb_comms_list import SfvbCommsList
@@ -1188,6 +1190,8 @@ from ultracart.model.sfvb_sequence_step import SfvbSequenceStep
 from ultracart.model.sfvb_sequence_step_create_request import SfvbSequenceStepCreateRequest
 from ultracart.model.sfvb_sequence_step_create_response import SfvbSequenceStepCreateResponse
 from ultracart.model.sfvb_sequence_step_delete_response import SfvbSequenceStepDeleteResponse
+from ultracart.model.sfvb_sequence_step_move_request import SfvbSequenceStepMoveRequest
+from ultracart.model.sfvb_sequence_step_move_response import SfvbSequenceStepMoveResponse
 from ultracart.model.sfvb_sequence_step_update_request import SfvbSequenceStepUpdateRequest
 from ultracart.model.sfvb_sequence_step_update_response import SfvbSequenceStepUpdateResponse
 from ultracart.model.sfvb_server_log import SfvbServerLog

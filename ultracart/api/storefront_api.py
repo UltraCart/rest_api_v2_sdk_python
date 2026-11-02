@@ -14744,6 +14744,7 @@ class StorefrontApi(object):
     ):
         """Get email campaigns with stats  # noqa: E501
 
+        Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn't listed; getEmailCampaigns lists every campaign.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

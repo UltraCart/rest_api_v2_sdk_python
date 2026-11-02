@@ -34,6 +34,7 @@ from ultracart.model.sfvb_blog_posts_response import SfvbBlogPostsResponse
 from ultracart.model.sfvb_campaign import SfvbCampaign
 from ultracart.model.sfvb_campaign_write_request import SfvbCampaignWriteRequest
 from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
+from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
 from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
 from ultracart.model.sfvb_comms_segment_response import SfvbCommsSegmentResponse
 from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
@@ -166,6 +167,8 @@ from ultracart.model.sfvb_sequence import SfvbSequence
 from ultracart.model.sfvb_sequence_step_create_request import SfvbSequenceStepCreateRequest
 from ultracart.model.sfvb_sequence_step_create_response import SfvbSequenceStepCreateResponse
 from ultracart.model.sfvb_sequence_step_delete_response import SfvbSequenceStepDeleteResponse
+from ultracart.model.sfvb_sequence_step_move_request import SfvbSequenceStepMoveRequest
+from ultracart.model.sfvb_sequence_step_move_response import SfvbSequenceStepMoveResponse
 from ultracart.model.sfvb_sequence_step_update_request import SfvbSequenceStepUpdateRequest
 from ultracart.model.sfvb_sequence_step_update_response import SfvbSequenceStepUpdateResponse
 from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
@@ -7737,6 +7740,63 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.list_sfvb_code_library_emails_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCodeLibraryEmailsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/code_library/emails',
+                'operation_id': 'list_sfvb_code_library_emails',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'search',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'search':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'search': 'search',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'search': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.list_sfvb_comms_lists_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbCommsListsResponse,),
@@ -8881,6 +8941,88 @@ class SfvbApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.move_sfvb_sequence_step_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSequenceStepMoveResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move',
+                'operation_id': 'move_sfvb_sequence_step',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                    'if_match',
+                    'sequence_step_move_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                    'if_match',
+                    'sequence_step_move_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'sequence_uuid':
+                        (str,),
+                    'step_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'sequence_step_move_request':
+                        (SfvbSequenceStepMoveRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'sequence_uuid': 'sequence_uuid',
+                    'step_uuid': 'step_uuid',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'sequence_uuid': 'path',
+                    'step_uuid': 'path',
+                    'if_match': 'header',
+                    'sequence_step_move_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -12818,6 +12960,7 @@ class SfvbApi(object):
                     'step_uuid',
                     'if_match',
                     'sequence_step_update_request',
+                    'approval_id',
                 ],
                 'required': [
                     'storefront_oid',
@@ -12849,12 +12992,15 @@ class SfvbApi(object):
                         (str,),
                     'sequence_step_update_request':
                         (SfvbSequenceStepUpdateRequest,),
+                    'approval_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'sequence_uuid': 'sequence_uuid',
                     'step_uuid': 'step_uuid',
                     'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
@@ -12862,6 +13008,7 @@ class SfvbApi(object):
                     'step_uuid': 'path',
                     'if_match': 'header',
                     'sequence_step_update_request': 'body',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -23565,9 +23712,9 @@ class SfvbApi(object):
         sequence_step_create_request,
         **kwargs
     ):
-        """Add an email step, with its new email  # noqa: E501
+        """Add an email step, with its new email, a wait step, or a postcard step, with its new postcard  # noqa: E501
 
-        Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.   # noqa: E501
+        type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -23578,7 +23725,7 @@ class SfvbApi(object):
             storefront_oid (int):
             sequence_uuid (str):
             if_match (str): The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale.
-            sequence_step_create_request (SfvbSequenceStepCreateRequest): Where the step goes, and the new email's subject and preview text
+            sequence_step_create_request (SfvbSequenceStepCreateRequest): Where the step goes, and the new email's subject and preview text or code library item, the wait's config_json, or the postcard step's name
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -24086,6 +24233,90 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.list_sfvb_campaigns_endpoint.call_with_http_info(**kwargs)
+
+    def list_sfvb_code_library_emails(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Email items from the code library that can start a new email step  # noqa: E501
+
+        The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_sfvb_code_library_emails(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            search (str): Part of the title to match, with case.  Up to 100 characters.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCodeLibraryEmailsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.list_sfvb_code_library_emails_endpoint.call_with_http_info(**kwargs)
 
     def list_sfvb_comms_lists(
         self,
@@ -25614,6 +25845,106 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.list_sfvb_upsell_paths_endpoint.call_with_http_info(**kwargs)
+
+    def move_sfvb_sequence_step(
+        self,
+        storefront_oid,
+        sequence_uuid,
+        step_uuid,
+        if_match,
+        sequence_step_move_request,
+        **kwargs
+    ):
+        """Move one step  # noqa: E501
+
+        Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.move_sfvb_sequence_step(storefront_oid, sequence_uuid, step_uuid, if_match, sequence_step_move_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            sequence_uuid (str):
+            step_uuid (str):
+            if_match (str): The moved step's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+            sequence_step_move_request (SfvbSequenceStepMoveRequest): Where the step moves, and the hash of the step it goes next to
+
+        Keyword Args:
+            approval_id (str): When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSequenceStepMoveResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['sequence_uuid'] = \
+            sequence_uuid
+        kwargs['step_uuid'] = \
+            step_uuid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['sequence_step_move_request'] = \
+            sequence_step_move_request
+        return self.move_sfvb_sequence_step_endpoint.call_with_http_info(**kwargs)
 
     def move_sfvb_upsell_path(
         self,
@@ -30974,7 +31305,7 @@ class SfvbApi(object):
     ):
         """Change one step's settings or audience filter  # noqa: E501
 
-        Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish.   # noqa: E501
+        Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30989,6 +31320,7 @@ class SfvbApi(object):
             sequence_step_update_request (SfvbSequenceStepUpdateRequest): The settings, the filter, or both
 
         Keyword Args:
+            approval_id (str): When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -88,8 +88,15 @@ class SfvbSequenceStepCreateResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'back_container_uuid': (str,),  # noqa: E501
             'email_uuid': (str,),  # noqa: E501
+            'front_container_uuid': (str,),  # noqa: E501
+            'library_files_kept': ([str],),  # noqa: E501
+            'library_files_skipped': ([str],),  # noqa: E501
+            'library_files_written': ([str],),  # noqa: E501
+            'library_item_oid': (int,),  # noqa: E501
             'notes': ([str],),  # noqa: E501
+            'postcard_uuid': (str,),  # noqa: E501
             'requires_review': (bool,),  # noqa: E501
             'step': (SfvbSequenceStep,),  # noqa: E501
         }
@@ -100,8 +107,15 @@ class SfvbSequenceStepCreateResponse(ModelNormal):
 
 
     attribute_map = {
+        'back_container_uuid': 'back_container_uuid',  # noqa: E501
         'email_uuid': 'email_uuid',  # noqa: E501
+        'front_container_uuid': 'front_container_uuid',  # noqa: E501
+        'library_files_kept': 'library_files_kept',  # noqa: E501
+        'library_files_skipped': 'library_files_skipped',  # noqa: E501
+        'library_files_written': 'library_files_written',  # noqa: E501
+        'library_item_oid': 'library_item_oid',  # noqa: E501
         'notes': 'notes',  # noqa: E501
+        'postcard_uuid': 'postcard_uuid',  # noqa: E501
         'requires_review': 'requires_review',  # noqa: E501
         'step': 'step',  # noqa: E501
     }
@@ -147,8 +161,15 @@ class SfvbSequenceStepCreateResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            back_container_uuid (str): A post_card step's back, the container with owner type postcardback and this owner id.. [optional]  # noqa: E501
             email_uuid (str): The new email's uuid.  Its body is the email container with this owner id.. [optional]  # noqa: E501
+            front_container_uuid (str): A post_card step's front, the container with owner type postcardfront and this owner id.. [optional]  # noqa: E501
+            library_files_kept ([str]): The library item's files whose path already held a file, which was kept, not replaced.. [optional]  # noqa: E501
+            library_files_skipped ([str]): The library item's files that weren't written because they aren't a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.. [optional]  # noqa: E501
+            library_files_written ([str]): Storefront file paths the library item's files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.. [optional]  # noqa: E501
+            library_item_oid (int): The code library email item the new email started from (#1589), when one was given.. [optional]  # noqa: E501
             notes ([str]): What to do next, such as writing the body, and customers already waiting on the step before it.. [optional]  # noqa: E501
+            postcard_uuid (str): A post_card step's new postcard (#1644).. [optional]  # noqa: E501
             requires_review (bool): True when the new email must pass content review before it sends.. [optional]  # noqa: E501
             step (SfvbSequenceStep): [optional]  # noqa: E501
         """
@@ -236,8 +257,15 @@ class SfvbSequenceStepCreateResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            back_container_uuid (str): A post_card step's back, the container with owner type postcardback and this owner id.. [optional]  # noqa: E501
             email_uuid (str): The new email's uuid.  Its body is the email container with this owner id.. [optional]  # noqa: E501
+            front_container_uuid (str): A post_card step's front, the container with owner type postcardfront and this owner id.. [optional]  # noqa: E501
+            library_files_kept ([str]): The library item's files whose path already held a file, which was kept, not replaced.. [optional]  # noqa: E501
+            library_files_skipped ([str]): The library item's files that weren't written because they aren't a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.. [optional]  # noqa: E501
+            library_files_written ([str]): Storefront file paths the library item's files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.. [optional]  # noqa: E501
+            library_item_oid (int): The code library email item the new email started from (#1589), when one was given.. [optional]  # noqa: E501
             notes ([str]): What to do next, such as writing the body, and customers already waiting on the step before it.. [optional]  # noqa: E501
+            postcard_uuid (str): A post_card step's new postcard (#1644).. [optional]  # noqa: E501
             requires_review (bool): True when the new email must pass content review before it sends.. [optional]  # noqa: E501
             step (SfvbSequenceStep): [optional]  # noqa: E501
         """
