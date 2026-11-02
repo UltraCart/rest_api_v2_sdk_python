@@ -1157,6 +1157,8 @@ docs/SfvbPageResponse.md
 docs/SfvbPageSelectors.md
 docs/SfvbPageSettingsRequest.md
 docs/SfvbPageSummary.md
+docs/SfvbPostcardProofRequest.md
+docs/SfvbPostcardProofResponse.md
 docs/SfvbPreviewAccessRequest.md
 docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
@@ -2525,6 +2527,8 @@ ultracart/model/sfvb_page_response.py
 ultracart/model/sfvb_page_selectors.py
 ultracart/model/sfvb_page_settings_request.py
 ultracart/model/sfvb_page_summary.py
+ultracart/model/sfvb_postcard_proof_request.py
+ultracart/model/sfvb_postcard_proof_response.py
 ultracart/model/sfvb_preview_access_request.py
 ultracart/model/sfvb_preview_access_response.py
 ultracart/model/sfvb_preview_session_request.py

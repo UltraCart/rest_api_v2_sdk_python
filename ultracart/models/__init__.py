@@ -1146,6 +1146,8 @@ from ultracart.model.sfvb_page_response import SfvbPageResponse
 from ultracart.model.sfvb_page_selectors import SfvbPageSelectors
 from ultracart.model.sfvb_page_settings_request import SfvbPageSettingsRequest
 from ultracart.model.sfvb_page_summary import SfvbPageSummary
+from ultracart.model.sfvb_postcard_proof_request import SfvbPostcardProofRequest
+from ultracart.model.sfvb_postcard_proof_response import SfvbPostcardProofResponse
 from ultracart.model.sfvb_preview_access_request import SfvbPreviewAccessRequest
 from ultracart.model.sfvb_preview_access_response import SfvbPreviewAccessResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
