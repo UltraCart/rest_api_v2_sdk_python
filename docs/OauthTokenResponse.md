@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **expires_in** | **str** | The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token | [optional] 
 **merchant_id** | **str** | The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name. | [optional] 
 **refresh_token** | **str** | The refresh token that should be used to fetch a new access token when the expiration occurs | [optional] 
+**refresh_token_expires_in** | **str** | Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh. | [optional] 
 **scope** | **str** | The scope of permissions associated with teh access token | [optional] 
 **token_type** | **str** | Type of token | [optional]  if omitted the server will use the default value of "bearer"
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
