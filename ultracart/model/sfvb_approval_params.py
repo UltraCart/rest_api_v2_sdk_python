@@ -200,10 +200,10 @@ class SfvbApprovalParams(ModelNormal):
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
             segment_uuid (str): The segment whose rule changes, for segment.update.. [optional]  # noqa: E501
-            sequence_uuid (str): The communication sequence, for sequence_step.delete and sequence_step.move.. [optional]  # noqa: E501
+            sequence_uuid (str): The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.. [optional]  # noqa: E501
             side (str): For sequence_step.move with branch_step_uuid, the side's label from the sequence read.. [optional]  # noqa: E501
             slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
-            step_uuid (str): The step to remove, for sequence_step.delete, or to move, for sequence_step.move.. [optional]  # noqa: E501
+            step_uuid (str): The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501
@@ -309,10 +309,10 @@ class SfvbApprovalParams(ModelNormal):
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
             segment_uuid (str): The segment whose rule changes, for segment.update.. [optional]  # noqa: E501
-            sequence_uuid (str): The communication sequence, for sequence_step.delete and sequence_step.move.. [optional]  # noqa: E501
+            sequence_uuid (str): The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.. [optional]  # noqa: E501
             side (str): For sequence_step.move with branch_step_uuid, the side's label from the sequence read.. [optional]  # noqa: E501
             slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
-            step_uuid (str): The step to remove, for sequence_step.delete, or to move, for sequence_step.move.. [optional]  # noqa: E501
+            step_uuid (str): The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501

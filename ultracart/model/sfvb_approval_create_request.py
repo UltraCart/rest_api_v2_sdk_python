@@ -83,6 +83,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'TWILIO_ACCOUNT.DELETE': "twilio_account.delete",
             'SENDING_DOMAIN.DELETE': "sending_domain.delete",
             'SEQUENCE_STEP.DELETE': "sequence_step.delete",
+            'SEQUENCE_STEP.MOVE': "sequence_step.move",
+            'SEQUENCE_STEP.ENABLE_POSTCARD': "sequence_step.enable_postcard",
             'SEGMENT.UPDATE': "segment.update",
         },
     }
