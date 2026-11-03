@@ -86,6 +86,7 @@ class SfvbApprovalParams(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'affiliate_network_oid': (int,),  # noqa: E501
             'after_step_uuid': (str,),  # noqa: E501
             'attribute_names': ([str],),  # noqa: E501
             'blog_post_oid': (int,),  # noqa: E501
@@ -105,6 +106,7 @@ class SfvbApprovalParams(ModelNormal):
             'side': (str,),  # noqa: E501
             'slot': (str,),  # noqa: E501
             'step_uuid': (str,),  # noqa: E501
+            'tracking_provider': (str,),  # noqa: E501
             'upsell_kind': (str,),  # noqa: E501
             'upsell_oid': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
@@ -118,6 +120,7 @@ class SfvbApprovalParams(ModelNormal):
 
 
     attribute_map = {
+        'affiliate_network_oid': 'affiliate_network_oid',  # noqa: E501
         'after_step_uuid': 'after_step_uuid',  # noqa: E501
         'attribute_names': 'attribute_names',  # noqa: E501
         'blog_post_oid': 'blog_post_oid',  # noqa: E501
@@ -137,6 +140,7 @@ class SfvbApprovalParams(ModelNormal):
         'side': 'side',  # noqa: E501
         'slot': 'slot',  # noqa: E501
         'step_uuid': 'step_uuid',  # noqa: E501
+        'tracking_provider': 'tracking_provider',  # noqa: E501
         'upsell_kind': 'upsell_kind',  # noqa: E501
         'upsell_oid': 'upsell_oid',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -185,25 +189,27 @@ class SfvbApprovalParams(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            affiliate_network_oid (int): The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.. [optional]  # noqa: E501
             after_step_uuid (str): For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.. [optional]  # noqa: E501
             attribute_names ([str]): For item.attribute_batch, the attributes the batch would change.  Set by the server.. [optional]  # noqa: E501
             blog_post_oid (int): The blog post, for blog_post.delete.. [optional]  # noqa: E501
             branch_step_uuid (str): For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of.. [optional]  # noqa: E501
-            content_sha256 (str): For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
+            content_sha256 (str): For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
             domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
             esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
             path (str): The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.. [optional]  # noqa: E501
-            request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
+            request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
             segment_uuid (str): The segment whose rule changes, for segment.update.. [optional]  # noqa: E501
             sequence_uuid (str): The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.. [optional]  # noqa: E501
             side (str): For sequence_step.move with branch_step_uuid, the side's label from the sequence read.. [optional]  # noqa: E501
-            slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
+            slot (str): For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.. [optional]  # noqa: E501
             step_uuid (str): The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.. [optional]  # noqa: E501
+            tracking_provider (str): The tracking provider key, for tracking_provider.change.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501
@@ -294,25 +300,27 @@ class SfvbApprovalParams(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            affiliate_network_oid (int): The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.. [optional]  # noqa: E501
             after_step_uuid (str): For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.. [optional]  # noqa: E501
             attribute_names ([str]): For item.attribute_batch, the attributes the batch would change.  Set by the server.. [optional]  # noqa: E501
             blog_post_oid (int): The blog post, for blog_post.delete.. [optional]  # noqa: E501
             branch_step_uuid (str): For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of.. [optional]  # noqa: E501
-            content_sha256 (str): For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
+            content_sha256 (str): For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.. [optional]  # noqa: E501
             domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
             esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
             path (str): The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.. [optional]  # noqa: E501
-            request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
+            request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
             segment_uuid (str): The segment whose rule changes, for segment.update.. [optional]  # noqa: E501
             sequence_uuid (str): The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.. [optional]  # noqa: E501
             side (str): For sequence_step.move with branch_step_uuid, the side's label from the sequence read.. [optional]  # noqa: E501
-            slot (str): For experiment.start of a page experiment, the page body name.  Defaults to body.. [optional]  # noqa: E501
+            slot (str): For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.. [optional]  # noqa: E501
             step_uuid (str): The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.. [optional]  # noqa: E501
+            tracking_provider (str): The tracking provider key, for tracking_provider.change.. [optional]  # noqa: E501
             upsell_kind (str): For upsell.enable, what to switch on.. [optional]  # noqa: E501
             upsell_oid (int): For upsell.enable, the oid of the offer or path to switch on.. [optional]  # noqa: E501
             version (int): For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.. [optional]  # noqa: E501

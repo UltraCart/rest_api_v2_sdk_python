@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **merchant_item_id** | **str** | The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on. | [optional] 
 **owner_object_id** | **str** | Identifier of the owning object within its store. | [optional] 
 **owner_type** | **str** | Where this container lives. | [optional] 
+**warnings** | [**[SfvbErrorDetail]**](SfvbErrorDetail.md) | Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

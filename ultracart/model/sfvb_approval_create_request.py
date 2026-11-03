@@ -31,18 +31,24 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.sfvb_affiliate_network_request import SfvbAffiliateNetworkRequest
     from ultracart.model.sfvb_approval_params import SfvbApprovalParams
     from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
     from ultracart.model.sfvb_experiment_start_request import SfvbExperimentStartRequest
     from ultracart.model.sfvb_item_attribute_batch_row import SfvbItemAttributeBatchRow
     from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
     from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
+    from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
+    from ultracart.model.sfvb_tracking_provider_request import SfvbTrackingProviderRequest
+    globals()['SfvbAffiliateNetworkRequest'] = SfvbAffiliateNetworkRequest
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
     globals()['SfvbCommsSegmentWriteRequest'] = SfvbCommsSegmentWriteRequest
     globals()['SfvbExperimentStartRequest'] = SfvbExperimentStartRequest
     globals()['SfvbItemAttributeBatchRow'] = SfvbItemAttributeBatchRow
     globals()['SfvbItemPricingRequest'] = SfvbItemPricingRequest
     globals()['SfvbRedirectDeleteRow'] = SfvbRedirectDeleteRow
+    globals()['SfvbSmartAttributionRequest'] = SfvbSmartAttributionRequest
+    globals()['SfvbTrackingProviderRequest'] = SfvbTrackingProviderRequest
 
 
 class SfvbApprovalCreateRequest(ModelNormal):
@@ -86,6 +92,12 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'SEQUENCE_STEP.MOVE': "sequence_step.move",
             'SEQUENCE_STEP.ENABLE_POSTCARD': "sequence_step.enable_postcard",
             'SEGMENT.UPDATE': "segment.update",
+            'SMART_ATTRIBUTION.CHANGE': "smart_attribution.change",
+            'SMART_ATTRIBUTION.DELETE': "smart_attribution.delete",
+            'TRACKING_PROVIDER.CHANGE': "tracking_provider.change",
+            'TRACKING_HTML.PUT': "tracking_html.put",
+            'AFFILIATE_NETWORK.CHANGE': "affiliate_network.change",
+            'AFFILIATE_NETWORK.DELETE': "affiliate_network.delete",
         },
     }
 
@@ -116,6 +128,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
         lazy_import()
         return {
             'action': (str,),  # noqa: E501
+            'affiliate_network': (SfvbAffiliateNetworkRequest,),  # noqa: E501
             'content': (str,),  # noqa: E501
             'experiment_start': (SfvbExperimentStartRequest,),  # noqa: E501
             'item_attribute_rows': ([SfvbItemAttributeBatchRow],),  # noqa: E501
@@ -124,6 +137,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'reason': (str,),  # noqa: E501
             'redirect_rows': ([SfvbRedirectDeleteRow],),  # noqa: E501
             'segment_update': (SfvbCommsSegmentWriteRequest,),  # noqa: E501
+            'smart_attribution': (SfvbSmartAttributionRequest,),  # noqa: E501
+            'tracking_provider': (SfvbTrackingProviderRequest,),  # noqa: E501
         }
 
     @cached_property
@@ -133,6 +148,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
 
     attribute_map = {
         'action': 'action',  # noqa: E501
+        'affiliate_network': 'affiliate_network',  # noqa: E501
         'content': 'content',  # noqa: E501
         'experiment_start': 'experiment_start',  # noqa: E501
         'item_attribute_rows': 'item_attribute_rows',  # noqa: E501
@@ -141,6 +157,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'reason': 'reason',  # noqa: E501
         'redirect_rows': 'redirect_rows',  # noqa: E501
         'segment_update': 'segment_update',  # noqa: E501
+        'smart_attribution': 'smart_attribution',  # noqa: E501
+        'tracking_provider': 'tracking_provider',  # noqa: E501
     }
 
     read_only_vars = {
@@ -185,7 +203,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
-            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
@@ -193,6 +212,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
+            smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
+            tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -279,7 +300,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
-            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
@@ -287,6 +309,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
+            smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
+            tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

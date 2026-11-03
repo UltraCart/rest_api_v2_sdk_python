@@ -23,6 +23,9 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.error_response import ErrorResponse
+from ultracart.model.sfvb_affiliate_network import SfvbAffiliateNetwork
+from ultracart.model.sfvb_affiliate_network_request import SfvbAffiliateNetworkRequest
+from ultracart.model.sfvb_affiliate_networks_response import SfvbAffiliateNetworksResponse
 from ultracart.model.sfvb_approval import SfvbApproval
 from ultracart.model.sfvb_approval_create_request import SfvbApprovalCreateRequest
 from ultracart.model.sfvb_approvals_response import SfvbApprovalsResponse
@@ -177,6 +180,8 @@ from ultracart.model.sfvb_server_log_detail import SfvbServerLogDetail
 from ultracart.model.sfvb_server_logs_response import SfvbServerLogsResponse
 from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
 from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResponse
+from ultracart.model.sfvb_smart_attribution import SfvbSmartAttribution
+from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_template_resolve_response import SfvbTemplateResolveResponse
 from ultracart.model.sfvb_templates_response import SfvbTemplatesResponse
@@ -187,6 +192,15 @@ from ultracart.model.sfvb_theme_attributes_response import SfvbThemeAttributesRe
 from ultracart.model.sfvb_theme_duplicate_request import SfvbThemeDuplicateRequest
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
+from ultracart.model.sfvb_tracking_advanced_request import SfvbTrackingAdvancedRequest
+from ultracart.model.sfvb_tracking_html import SfvbTrackingHtml
+from ultracart.model.sfvb_tracking_html_request import SfvbTrackingHtmlRequest
+from ultracart.model.sfvb_tracking_html_response import SfvbTrackingHtmlResponse
+from ultracart.model.sfvb_tracking_privacy_request import SfvbTrackingPrivacyRequest
+from ultracart.model.sfvb_tracking_provider import SfvbTrackingProvider
+from ultracart.model.sfvb_tracking_provider_request import SfvbTrackingProviderRequest
+from ultracart.model.sfvb_tracking_providers_response import SfvbTrackingProvidersResponse
+from ultracart.model.sfvb_tracking_settings_response import SfvbTrackingSettingsResponse
 from ultracart.model.sfvb_transactional_emails_response import SfvbTransactionalEmailsResponse
 from ultracart.model.sfvb_upsell_offer import SfvbUpsellOffer
 from ultracart.model.sfvb_upsell_offers_response import SfvbUpsellOffersResponse
@@ -194,6 +208,9 @@ from ultracart.model.sfvb_upsell_path import SfvbUpsellPath
 from ultracart.model.sfvb_upsell_path_duplicate_request import SfvbUpsellPathDuplicateRequest
 from ultracart.model.sfvb_upsell_path_move_request import SfvbUpsellPathMoveRequest
 from ultracart.model.sfvb_upsell_paths_response import SfvbUpsellPathsResponse
+from ultracart.model.sfvb_utm_shortcode import SfvbUtmShortcode
+from ultracart.model.sfvb_utm_shortcode_request import SfvbUtmShortcodeRequest
+from ultracart.model.sfvb_utm_shortcodes_response import SfvbUtmShortcodesResponse
 from ultracart.model.sfvb_validate_request import SfvbValidateRequest
 from ultracart.model.sfvb_validation_response import SfvbValidationResponse
 from ultracart.model.sfvb_velocity_validate_request import SfvbVelocityValidateRequest
@@ -1198,6 +1215,76 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.delete_sfvb_affiliate_network_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}',
+                'operation_id': 'delete_sfvb_affiliate_network',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                    'if_match',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                    'if_match',
+                    'approval_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'affiliate_network_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'affiliate_network_oid': 'affiliate_network_oid',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'affiliate_network_oid': 'path',
+                    'if_match': 'header',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_sfvb_approval_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -2073,6 +2160,197 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.delete_sfvb_smart_attribution_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/smart_attribution',
+                'operation_id': 'delete_sfvb_smart_attribution',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_sfvb_tracking_provider_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingProvider,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}',
+                'operation_id': 'delete_sfvb_tracking_provider',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'provider',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'provider',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'provider':
+                        (str,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'provider': 'provider',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'provider': 'path',
+                    'if_match': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_sfvb_utm_shortcode_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}',
+                'operation_id': 'delete_sfvb_utm_shortcode',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'shortcode_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'shortcode_oid': 'shortcode_oid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'shortcode_oid': 'path',
+                    'if_match': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.detach_sfvb_blog_post_image_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbBlogPostDetail,),
@@ -2932,6 +3210,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.enable_sfvb_smart_attribution_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSmartAttribution,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/smart_attribution/enable',
+                'operation_id': 'enable_sfvb_smart_attribution',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.enable_sfvb_upsell_offer_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbUpsellOffer,),
@@ -3173,6 +3503,116 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'library_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_affiliate_network_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbAffiliateNetwork,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}',
+                'operation_id': 'get_sfvb_affiliate_network',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'affiliate_network_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'affiliate_network_oid': 'affiliate_network_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'affiliate_network_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_affiliate_networks_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbAffiliateNetworksResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks',
+                'operation_id': 'get_sfvb_affiliate_networks',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -6241,6 +6681,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_smart_attribution_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSmartAttribution,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/smart_attribution',
+                'operation_id': 'get_sfvb_smart_attribution',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_test_orders_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbTestOrdersResponse,),
@@ -6482,6 +6974,283 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_tracking_html_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingHtml,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}',
+                'operation_id': 'get_sfvb_tracking_html',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'slot',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'slot',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'slot':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'slot': 'slot',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'slot': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_tracking_html_slots_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingHtmlResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/html',
+                'operation_id': 'get_sfvb_tracking_html_slots',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_tracking_provider_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingProvider,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}',
+                'operation_id': 'get_sfvb_tracking_provider',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'provider',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'provider',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'provider':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'provider': 'provider',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'provider': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_tracking_providers_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingProvidersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/providers',
+                'operation_id': 'get_sfvb_tracking_providers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'configured',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'configured':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'configured': 'configured',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'configured': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_tracking_settings_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingSettingsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking',
+                'operation_id': 'get_sfvb_tracking_settings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_transactional_emails_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbTransactionalEmailsResponse,),
@@ -6690,6 +7459,121 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_utm_shortcode_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUtmShortcode,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}',
+                'operation_id': 'get_sfvb_utm_shortcode',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'shortcode_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'shortcode_oid': 'shortcode_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'shortcode_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_utm_shortcodes_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUtmShortcodesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/utm_shortcodes',
+                'operation_id': 'get_sfvb_utm_shortcodes',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'q',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'q':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'q': 'q',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'q': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_version_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbVersionResponse,),
@@ -6883,6 +7767,70 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'redirect_import_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_affiliate_network_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbAffiliateNetwork,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks',
+                'operation_id': 'insert_sfvb_affiliate_network',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'affiliate_network_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'affiliate_network_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'affiliate_network_request':
+                        (SfvbAffiliateNetworkRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'affiliate_network_request': 'body',
+                    'approval_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -7525,6 +8473,65 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'upsell_path': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_utm_shortcode_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUtmShortcode,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/utm_shortcodes',
+                'operation_id': 'insert_sfvb_utm_shortcode',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'utm_shortcode_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'utm_shortcode_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'utm_shortcode_request':
+                        (SfvbUtmShortcodeRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'utm_shortcode_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -12271,6 +13278,82 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.update_sfvb_affiliate_network_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbAffiliateNetwork,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}',
+                'operation_id': 'update_sfvb_affiliate_network',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                    'if_match',
+                    'affiliate_network_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'affiliate_network_oid',
+                    'if_match',
+                    'affiliate_network_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'affiliate_network_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'affiliate_network_request':
+                        (SfvbAffiliateNetworkRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'affiliate_network_oid': 'affiliate_network_oid',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'affiliate_network_oid': 'path',
+                    'if_match': 'header',
+                    'affiliate_network_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_sfvb_blog_post_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbBlogPostDetail,),
@@ -13096,6 +14179,358 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.update_sfvb_smart_attribution_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSmartAttribution,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/smart_attribution',
+                'operation_id': 'update_sfvb_smart_attribution',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'smart_attribution_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                    'smart_attribution_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'smart_attribution_request':
+                        (SfvbSmartAttributionRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'smart_attribution_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_tracking_advanced_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingSettingsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/advanced',
+                'operation_id': 'update_sfvb_tracking_advanced',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'tracking_advanced_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                    'tracking_advanced_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'tracking_advanced_request':
+                        (SfvbTrackingAdvancedRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'tracking_advanced_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_tracking_html_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingHtml,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}',
+                'operation_id': 'update_sfvb_tracking_html',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'slot',
+                    'if_match',
+                    'tracking_html_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'slot',
+                    'if_match',
+                    'tracking_html_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'slot':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'tracking_html_request':
+                        (SfvbTrackingHtmlRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'slot': 'slot',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'slot': 'path',
+                    'if_match': 'header',
+                    'tracking_html_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_tracking_privacy_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingSettingsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/privacy',
+                'operation_id': 'update_sfvb_tracking_privacy',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'if_match',
+                    'tracking_privacy_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'if_match',
+                    'tracking_privacy_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'tracking_privacy_request':
+                        (SfvbTrackingPrivacyRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'if_match': 'header',
+                    'tracking_privacy_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_tracking_provider_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingProvider,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}',
+                'operation_id': 'update_sfvb_tracking_provider',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'provider',
+                    'if_match',
+                    'tracking_provider_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'provider',
+                    'if_match',
+                    'tracking_provider_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'provider':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'tracking_provider_request':
+                        (SfvbTrackingProviderRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'provider': 'provider',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'provider': 'path',
+                    'if_match': 'header',
+                    'tracking_provider_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_sfvb_upsell_offer_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbUpsellOffer,),
@@ -13224,6 +14659,77 @@ class SfvbApi(object):
                     'upsell_path_oid': 'path',
                     'if_match': 'header',
                     'upsell_path': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_utm_shortcode_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbUtmShortcode,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}',
+                'operation_id': 'update_sfvb_utm_shortcode',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                    'if_match',
+                    'utm_shortcode_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'shortcode_oid',
+                    'if_match',
+                    'utm_shortcode_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'shortcode_oid':
+                        (int,),
+                    'if_match':
+                        (str,),
+                    'utm_shortcode_request':
+                        (SfvbUtmShortcodeRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'shortcode_oid': 'shortcode_oid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'shortcode_oid': 'path',
+                    'if_match': 'header',
+                    'utm_shortcode_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -14834,6 +16340,101 @@ class SfvbApi(object):
             storefront_oid
         return self.create_sfvb_preview_session_endpoint.call_with_http_info(**kwargs)
 
+    def delete_sfvb_affiliate_network(
+        self,
+        storefront_oid,
+        affiliate_network_oid,
+        if_match,
+        approval_id,
+        **kwargs
+    ):
+        """Delete an affiliate network  # noqa: E501
+
+        Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id).   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_affiliate_network(storefront_oid, affiliate_network_oid, if_match, approval_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            affiliate_network_oid (int):
+            if_match (str): The network's hash_sha256 from the last read.  428 when absent, 412 when stale.
+            approval_id (str): The approval_id of an approved affiliate_network.delete request for this network.  See POST /sfvb/approvals.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['affiliate_network_oid'] = \
+            affiliate_network_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['approval_id'] = \
+            approval_id
+        return self.delete_sfvb_affiliate_network_endpoint.call_with_http_info(**kwargs)
+
     def delete_sfvb_approval(
         self,
         approval_id,
@@ -16057,6 +17658,276 @@ class SfvbApi(object):
         kwargs['if_match'] = \
             if_match
         return self.delete_sfvb_sequence_step_endpoint.call_with_http_info(**kwargs)
+
+    def delete_sfvb_smart_attribution(
+        self,
+        storefront_oid,
+        if_match,
+        **kwargs
+    ):
+        """Delete a storefront's Smart Attribution configuration  # noqa: E501
+
+        Every platform goes back to being sent conversions as it was before Smart Attribution, and the settings are gone.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete request (Approval-Id).  An unconfigured storefront is 404.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_smart_attribution(storefront_oid, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved smart_attribution.delete request.  Required.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_smart_attribution_endpoint.call_with_http_info(**kwargs)
+
+    def delete_sfvb_tracking_provider(
+        self,
+        storefront_oid,
+        provider,
+        if_match,
+        **kwargs
+    ):
+        """Clear one tracking provider  # noqa: E501
+
+        Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_tracking_provider(storefront_oid, provider, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            provider (str):
+            if_match (str): The provider's hash_sha256 from the last read.  428 when absent, 412 when stale.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingProvider
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['provider'] = \
+            provider
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_tracking_provider_endpoint.call_with_http_info(**kwargs)
+
+    def delete_sfvb_utm_shortcode(
+        self,
+        storefront_oid,
+        shortcode_oid,
+        if_match,
+        **kwargs
+    ):
+        """Delete a UTM shortcode  # noqa: E501
+
+        The shortcode stops attributing at once.  A link that uses it as a path segment still opens its page, without the UTM values.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_utm_shortcode(storefront_oid, shortcode_oid, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            shortcode_oid (int):
+            if_match (str): The shortcode's hash_sha256 from the last read.  428 when absent, 412 when stale.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['shortcode_oid'] = \
+            shortcode_oid
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_utm_shortcode_endpoint.call_with_http_info(**kwargs)
 
     def detach_sfvb_blog_post_image(
         self,
@@ -17295,6 +19166,89 @@ class SfvbApi(object):
             language_enable_request
         return self.enable_sfvb_i18n_language_endpoint.call_with_http_info(**kwargs)
 
+    def enable_sfvb_smart_attribution(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Turn Smart Attribution on in report_only mode  # noqa: E501
+
+        What the admin's Enable button saves: report_only, position_based, a 40/20/40 split, a 7 day lookback and every detected platform.  report_only records decisions and changes nothing any platform is sent.  A storefront that already has a configuration is 409 sfvb.smart_attribution_configured.  Needs sfvb_publish.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.enable_sfvb_smart_attribution(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSmartAttribution
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.enable_sfvb_smart_attribution_endpoint.call_with_http_info(**kwargs)
+
     def enable_sfvb_upsell_offer(
         self,
         storefront_oid,
@@ -17646,6 +19600,176 @@ class SfvbApi(object):
         kwargs['library_oid'] = \
             library_oid
         return self.favorite_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_affiliate_network(
+        self,
+        storefront_oid,
+        affiliate_network_oid,
+        **kwargs
+    ):
+        """Read one affiliate network  # noqa: E501
+
+        The network with its conversion_pixel, and the hash_sha256 an update or delete sends back as If-Match.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_affiliate_network(storefront_oid, affiliate_network_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            affiliate_network_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbAffiliateNetwork
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['affiliate_network_oid'] = \
+            affiliate_network_oid
+        return self.get_sfvb_affiliate_network_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_affiliate_networks(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List a storefront's affiliate networks  # noqa: E501
+
+        Every affiliate network pixel, by name, with its settings and hash_sha256.  conversion_pixel is left out; its size and hash are shown.  Read one network for it.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_affiliate_networks(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbAffiliateNetworksResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_affiliate_networks_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_approval(
         self,
@@ -22155,6 +24279,89 @@ class SfvbApi(object):
             storefront_oid
         return self.get_sfvb_site_attributes_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_smart_attribution(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Read a storefront's Smart Attribution configuration  # noqa: E501
+
+        The mode, model, global credit split, lookback and platforms, the platforms detected from the tracking integrations that are not configured yet, and the hash_sha256 a change or delete sends back as If-Match.  When configured is false the values are the defaults an enable would save.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_smart_attribution(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSmartAttribution
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_smart_attribution_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_test_orders(
         self,
         storefront_oid,
@@ -22501,6 +24708,430 @@ class SfvbApi(object):
             job_id
         return self.get_sfvb_theme_job_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_tracking_html(
+        self,
+        storefront_oid,
+        slot,
+        **kwargs
+    ):
+        """Read one custom tracking HTML slot  # noqa: E501
+
+        The HTML with its Velocity tokens as stored, and the hash_sha256 a write sends back as If-Match.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_html(storefront_oid, slot, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            slot (str): tracking or conversion
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingHtml
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['slot'] = \
+            slot
+        return self.get_sfvb_tracking_html_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_tracking_html_slots(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List a storefront's custom tracking HTML slots  # noqa: E501
+
+        tracking (every page but the receipt) and conversion (the receipt only), each with its size and hash_sha256.  Read one slot for its content.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_html_slots(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingHtmlResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_tracking_html_slots_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_tracking_provider(
+        self,
+        storefront_oid,
+        provider,
+        **kwargs
+    ):
+        """Read one tracking provider  # noqa: E501
+
+        The provider as the list shows it, with the hash_sha256 a change or clear sends back as If-Match.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_provider(storefront_oid, provider, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            provider (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingProvider
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['provider'] = \
+            provider
+        return self.get_sfvb_tracking_provider_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_tracking_providers(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List a storefront's tracking providers  # noqa: E501
+
+        Every provider on the admin's Google and Other tabs, with each field's type and value, its consent gate, events, OAuth connection state and hash_sha256.  A secret's value is never returned, only whether one is set, its mask and the sink to request a handle for.  configured=true lists only the providers that are on.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_providers(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            configured (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingProvidersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_tracking_providers_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_tracking_settings(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Read a storefront's privacy rules and advanced conversion settings  # noqa: E501
+
+        The five privacy rules (which shoppers each applies to) and the advanced conversion settings, each section with the hash_sha256 a write sends back as If-Match.  The order hash secret key is shared by every storefront on the account and is reported only as set or not.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_settings(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingSettingsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_tracking_settings_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_transactional_emails(
         self,
         storefront_oid,
@@ -22765,6 +25396,177 @@ class SfvbApi(object):
         kwargs['upsell_path_oid'] = \
             upsell_path_oid
         return self.get_sfvb_upsell_path_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_utm_shortcode(
+        self,
+        storefront_oid,
+        shortcode_oid,
+        **kwargs
+    ):
+        """Read one UTM shortcode  # noqa: E501
+
+        The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_utm_shortcode(storefront_oid, shortcode_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            shortcode_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUtmShortcode
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['shortcode_oid'] = \
+            shortcode_oid
+        return self.get_sfvb_utm_shortcode_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_utm_shortcodes(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List a storefront's UTM shortcodes  # noqa: E501
+
+        Every live shortcode, sorted by code, each with its hash_sha256.  q matches the code or the description, ignoring case.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_utm_shortcodes(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            q (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUtmShortcodesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_utm_shortcodes_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_version(
         self,
@@ -23096,6 +25898,94 @@ class SfvbApi(object):
             redirect_import_request
         return self.import_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
 
+    def insert_sfvb_affiliate_network(
+        self,
+        storefront_oid,
+        affiliate_network_request,
+        **kwargs
+    ):
+        """Add an affiliate network  # noqa: E501
+
+        network_name, parameter_name and parameter_value are required; the rest start from the admin's defaults.  Internal affiliate oids must be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel that a custom or server_to_server network will use needs an approved affiliate_network.change request for exactly this create (Approval-Id), which UltraCart reviews first.  dry_run says whether it needs one, without saving.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_affiliate_network(storefront_oid, affiliate_network_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            affiliate_network_request (SfvbAffiliateNetworkRequest): The network
+
+        Keyword Args:
+            approval_id (str): For a network with a conversion pixel it will use, the approval_id of an approved affiliate_network.change request for exactly this create.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbAffiliateNetwork
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['affiliate_network_request'] = \
+            affiliate_network_request
+        return self.insert_sfvb_affiliate_network_endpoint.call_with_http_info(**kwargs)
+
     def insert_sfvb_approval(
         self,
         approval_request,
@@ -23103,7 +25993,7 @@ class SfvbApi(object):
     ):
         """Request a human approval  # noqa: E501
 
-        Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart's scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes.   # noqa: E501
+        Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24045,6 +26935,93 @@ class SfvbApi(object):
         kwargs['upsell_path'] = \
             upsell_path
         return self.insert_sfvb_upsell_path_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_utm_shortcode(
+        self,
+        storefront_oid,
+        utm_shortcode_request,
+        **kwargs
+    ):
+        """Create a UTM shortcode  # noqa: E501
+
+        code is letters, digits, underscore and hyphen, 1 to 50 characters, and at least one UTM or ITM value is required.  A code another live shortcode has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict, because the storefront checks those first and this one would never fire.  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent before it existed changes.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_utm_shortcode(storefront_oid, utm_shortcode_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            utm_shortcode_request (SfvbUtmShortcodeRequest): The shortcode
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUtmShortcode
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['utm_shortcode_request'] = \
+            utm_shortcode_request
+        return self.insert_sfvb_utm_shortcode_endpoint.call_with_http_info(**kwargs)
 
     def install_sfvb_library_entry(
         self,
@@ -30447,6 +33424,102 @@ class SfvbApi(object):
             merchant_id
         return self.unshare_sfvb_library_entry_endpoint.call_with_http_info(**kwargs)
 
+    def update_sfvb_affiliate_network(
+        self,
+        storefront_oid,
+        affiliate_network_oid,
+        if_match,
+        affiliate_network_request,
+        **kwargs
+    ):
+        """Change an affiliate network  # noqa: E501
+
+        A partial update: only the fields sent change.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel, or the conversion_type, of a network whose pixel will be used needs an approved affiliate_network.change request for exactly this change (Approval-Id), which UltraCart reviews first.  Other fields, and emptying the pixel, need none.  dry_run says whether it needs one, without saving.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_affiliate_network(storefront_oid, affiliate_network_oid, if_match, affiliate_network_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            affiliate_network_oid (int):
+            if_match (str): The network's hash_sha256 from the last read.  428 when absent, 412 when stale.
+            affiliate_network_request (SfvbAffiliateNetworkRequest): The change
+
+        Keyword Args:
+            approval_id (str): When the change sets a conversion pixel the network will use, the approval_id of an approved affiliate_network.change request for exactly this change.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbAffiliateNetwork
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['affiliate_network_oid'] = \
+            affiliate_network_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['affiliate_network_request'] = \
+            affiliate_network_request
+        return self.update_sfvb_affiliate_network_endpoint.call_with_http_info(**kwargs)
+
     def update_sfvb_blog_post(
         self,
         storefront_oid,
@@ -31562,6 +34635,472 @@ class SfvbApi(object):
             sequence_step_update_request
         return self.update_sfvb_sequence_step_endpoint.call_with_http_info(**kwargs)
 
+    def update_sfvb_smart_attribution(
+        self,
+        storefront_oid,
+        if_match,
+        smart_attribution_request,
+        **kwargs
+    ):
+        """Change a storefront's Smart Attribution configuration  # noqa: E501
+
+        A partial update of the mode, model, global split and lookback.  platforms, when sent, replaces the whole list.  The global split must total exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it creates the configuration.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, and when the mode is active or the change makes it active, an approved smart_attribution.change request for exactly this change (Approval-Id), because active mode decides which conversions each platform is sent.  A change that stores what is already stored returns the configuration unchanged and uses no approval.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_smart_attribution(storefront_oid, if_match, smart_attribution_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): hash_sha256 from the Smart Attribution read.  428 when absent, 412 when stale.
+            smart_attribution_request (SfvbSmartAttributionRequest): The change
+
+        Keyword Args:
+            approval_id (str): When the mode is or becomes active, the approval_id of an approved smart_attribution.change request for this change.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSmartAttribution
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['smart_attribution_request'] = \
+            smart_attribution_request
+        return self.update_sfvb_smart_attribution_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_tracking_advanced(
+        self,
+        storefront_oid,
+        if_match,
+        tracking_advanced_request,
+        **kwargs
+    ):
+        """Change a storefront's advanced conversion settings  # noqa: E501
+
+        A partial update.  Fields left out keep their value, and a text setting is cleared by naming it in unset.  URLs are a path starting with / or an absolute http or https URL, and one over its limit is refused rather than cut short.  The currency must be one the read lists.  The order hash secret key cannot be changed here.  Every field is checked before any is written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the settings apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_tracking_advanced(storefront_oid, if_match, tracking_advanced_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): The advanced hash_sha256 from the last read.  428 when absent, 412 when stale.
+            tracking_advanced_request (SfvbTrackingAdvancedRequest): The settings to change
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingSettingsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['tracking_advanced_request'] = \
+            tracking_advanced_request
+        return self.update_sfvb_tracking_advanced_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_tracking_html(
+        self,
+        storefront_oid,
+        slot,
+        if_match,
+        tracking_html_request,
+        **kwargs
+    ):
+        """Write one custom tracking HTML slot  # noqa: E501
+
+        Replaces the whole slot, at most 256 KB.  Content the storefront's templates may not use is refused with its lines.  Send the slot's hash_sha256 as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an approved tracking_html.put request for exactly this content (Approval-Id), which UltraCart reviews first.  An empty string empties the slot without one.  dry_run says whether the write needs one, without saving.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_tracking_html(storefront_oid, slot, if_match, tracking_html_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            slot (str): tracking or conversion
+            if_match (str): The slot's hash_sha256 from the last read.  428 when absent, 412 when stale.
+            tracking_html_request (SfvbTrackingHtmlRequest): The content
+
+        Keyword Args:
+            approval_id (str): For any content but an empty string, the approval_id of an approved tracking_html.put request for exactly this content.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingHtml
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['slot'] = \
+            slot
+        kwargs['if_match'] = \
+            if_match
+        kwargs['tracking_html_request'] = \
+            tracking_html_request
+        return self.update_sfvb_tracking_html_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_tracking_privacy(
+        self,
+        storefront_oid,
+        if_match,
+        tracking_privacy_request,
+        **kwargs
+    ):
+        """Change a storefront's privacy rules  # noqa: E501
+
+        A partial update.  Each rule named is set to all, eea, non_us or off, and rules left out keep their value.  Every rule is checked before any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run reports the changes without saving.  Always needs sfvb_publish, because the rules apply to shoppers as soon as they are saved.  The admin saves the whole tab, so a merchant with it open can still overwrite a change made here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_tracking_privacy(storefront_oid, if_match, tracking_privacy_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            if_match (str): The privacy hash_sha256 from the last read.  428 when absent, 412 when stale.
+            tracking_privacy_request (SfvbTrackingPrivacyRequest): The rules to change
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingSettingsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['tracking_privacy_request'] = \
+            tracking_privacy_request
+        return self.update_sfvb_tracking_privacy_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_tracking_provider(
+        self,
+        storefront_oid,
+        provider,
+        if_match,
+        tracking_provider_request,
+        **kwargs
+    ):
+        """Change one tracking provider  # noqa: E501
+
+        A partial update of the provider's fields, secrets (as secret handles), consent gate, events and, for google_analytics, wholesale account numbers.  Every value is checked for its field's type before anything is written.  Send the provider's hash_sha256 as If-Match.  dry_run reports the changes without saving.  Needs sfvb_publish.  Turning the provider on, loosening its consent gate, or turning on Google Tag Gateway (which also needs accept_cost true) needs an approved tracking_provider.change request for exactly this change (Approval-Id).  OAuth connections are made in the admin.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_tracking_provider(storefront_oid, provider, if_match, tracking_provider_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            provider (str):
+            if_match (str): The provider's hash_sha256 from the last read.  428 when absent, 412 when stale.
+            tracking_provider_request (SfvbTrackingProviderRequest): The change
+
+        Keyword Args:
+            approval_id (str): When the change turns the provider on, loosens its consent gate or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change request for this change.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingProvider
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['provider'] = \
+            provider
+        kwargs['if_match'] = \
+            if_match
+        kwargs['tracking_provider_request'] = \
+            tracking_provider_request
+        return self.update_sfvb_tracking_provider_endpoint.call_with_http_info(**kwargs)
+
     def update_sfvb_upsell_offer(
         self,
         storefront_oid,
@@ -31751,6 +35290,101 @@ class SfvbApi(object):
         kwargs['upsell_path'] = \
             upsell_path
         return self.update_sfvb_upsell_path_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_utm_shortcode(
+        self,
+        storefront_oid,
+        shortcode_oid,
+        if_match,
+        utm_shortcode_request,
+        **kwargs
+    ):
+        """Change a UTM shortcode  # noqa: E501
+
+        A partial update.  Fields left out keep their value, and an empty string clears a value.  A changed code is checked like a new one.  The creation date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish, because links already in emails and ads that use the code are attributed differently from now on.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_utm_shortcode(storefront_oid, shortcode_oid, if_match, utm_shortcode_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            shortcode_oid (int):
+            if_match (str): The shortcode's hash_sha256 from the last read.  428 when absent, 412 when stale.
+            utm_shortcode_request (SfvbUtmShortcodeRequest): The change
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbUtmShortcode
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['shortcode_oid'] = \
+            shortcode_oid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['utm_shortcode_request'] = \
+            utm_shortcode_request
+        return self.update_sfvb_utm_shortcode_endpoint.call_with_http_info(**kwargs)
 
     def upload_sfvb_file(
         self,
