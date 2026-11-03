@@ -82,8 +82,8 @@ class SfvbTrackingProviderEvent(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'enabled': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            '_true': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class SfvbTrackingProviderEvent(ModelNormal):
 
 
     attribute_map = {
+        'enabled': 'enabled',  # noqa: E501
         'name': 'name',  # noqa: E501
-        '_true': 'true',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,8 +137,8 @@ class SfvbTrackingProviderEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            enabled (bool): True when the event is sent to the provider.. [optional]  # noqa: E501
             name (str): AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration, InitiateCheckout, Lead, Search or ViewContent.. [optional]  # noqa: E501
-            _true (bool): True when the event is sent to the provider.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class SfvbTrackingProviderEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            enabled (bool): True when the event is sent to the provider.. [optional]  # noqa: E501
             name (str): AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration, InitiateCheckout, Lead, Search or ViewContent.. [optional]  # noqa: E501
-            _true (bool): True when the event is sent to the provider.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

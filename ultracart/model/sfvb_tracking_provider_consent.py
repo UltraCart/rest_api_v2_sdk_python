@@ -82,7 +82,7 @@ class SfvbTrackingProviderConsent(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            '_false': (bool,),  # noqa: E501
+            'disabled': (bool,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
@@ -93,7 +93,7 @@ class SfvbTrackingProviderConsent(ModelNormal):
 
 
     attribute_map = {
-        '_false': 'false',  # noqa: E501
+        'disabled': 'disabled',  # noqa: E501
         'region': 'region',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
@@ -139,7 +139,7 @@ class SfvbTrackingProviderConsent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _false (bool): On a write, true to remove the gate.  Not with type or region.. [optional]  # noqa: E501
+            disabled (bool): On a write, true to remove the gate.  Not with type or region.. [optional]  # noqa: E501
             region (str): Which shoppers the gate applies to.  all, eea or non_us.. [optional]  # noqa: E501
             type (str): Statistics, Preferences or Marketing.. [optional]  # noqa: E501
         """
@@ -227,7 +227,7 @@ class SfvbTrackingProviderConsent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _false (bool): On a write, true to remove the gate.  Not with type or region.. [optional]  # noqa: E501
+            disabled (bool): On a write, true to remove the gate.  Not with type or region.. [optional]  # noqa: E501
             region (str): Which shoppers the gate applies to.  all, eea or non_us.. [optional]  # noqa: E501
             type (str): Statistics, Preferences or Marketing.. [optional]  # noqa: E501
         """
