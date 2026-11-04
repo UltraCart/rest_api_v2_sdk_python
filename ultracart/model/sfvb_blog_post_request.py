@@ -90,6 +90,7 @@ class SfvbBlogPostRequest(ModelNormal):
             'allow_comments': (bool,),  # noqa: E501
             'author': (str,),  # noqa: E501
             'body': (str,),  # noqa: E501
+            'dry_run': (bool,),  # noqa: E501
             'excerpt': (str,),  # noqa: E501
             'publication_dts': (str,),  # noqa: E501
             'seo_description': (str,),  # noqa: E501
@@ -110,6 +111,7 @@ class SfvbBlogPostRequest(ModelNormal):
         'allow_comments': 'allow_comments',  # noqa: E501
         'author': 'author',  # noqa: E501
         'body': 'body',  # noqa: E501
+        'dry_run': 'dry_run',  # noqa: E501
         'excerpt': 'excerpt',  # noqa: E501
         'publication_dts': 'publication_dts',  # noqa: E501
         'seo_description': 'seo_description',  # noqa: E501
@@ -165,6 +167,7 @@ class SfvbBlogPostRequest(ModelNormal):
             allow_comments (bool): Whether shoppers may comment.  Defaults to false on create.. [optional]  # noqa: E501
             author (str): The author's name as plain text, up to 100 characters, with no quotes or angle brackets.. [optional]  # noqa: E501
             body (str): The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post's images report.. [optional]  # noqa: E501
+            dry_run (bool): On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.. [optional]  # noqa: E501
             excerpt (str): The post excerpt as HTML, up to 256 KB.  Held to the same rule as body.. [optional]  # noqa: E501
             publication_dts (str): When the post is published, as an ISO 8601 UTC time in the same form publication_dts reads back.  Refused on a draft.  A post made public without one is published now.. [optional]  # noqa: E501
             seo_description (str): The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site's description.. [optional]  # noqa: E501
@@ -262,6 +265,7 @@ class SfvbBlogPostRequest(ModelNormal):
             allow_comments (bool): Whether shoppers may comment.  Defaults to false on create.. [optional]  # noqa: E501
             author (str): The author's name as plain text, up to 100 characters, with no quotes or angle brackets.. [optional]  # noqa: E501
             body (str): The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post's images report.. [optional]  # noqa: E501
+            dry_run (bool): On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.. [optional]  # noqa: E501
             excerpt (str): The post excerpt as HTML, up to 256 KB.  Held to the same rule as body.. [optional]  # noqa: E501
             publication_dts (str): When the post is published, as an ISO 8601 UTC time in the same form publication_dts reads back.  Refused on a draft.  A post made public without one is published now.. [optional]  # noqa: E501
             seo_description (str): The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site's description.. [optional]  # noqa: E501

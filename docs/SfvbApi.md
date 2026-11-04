@@ -110,6 +110,7 @@ Method | HTTP request | Description
 [**get_sfvb_secret_request**](SfvbApi.md#get_sfvb_secret_request) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 [**get_sfvb_secret_requests**](SfvbApi.md#get_sfvb_secret_requests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
 [**get_sfvb_sequence**](SfvbApi.md#get_sfvb_sequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
+[**get_sfvb_sequence_step_dispatch_logs**](SfvbApi.md#get_sfvb_sequence_step_dispatch_logs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 [**get_sfvb_server_log**](SfvbApi.md#get_sfvb_server_log) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 [**get_sfvb_site_attributes**](SfvbApi.md#get_sfvb_site_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 [**get_sfvb_sitemaps**](SfvbApi.md#get_sfvb_sitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -5713,6 +5714,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SfvbSequence**](SfvbSequence.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_sequence_step_dispatch_logs**
+> SfvbStepDispatchLogsResponse get_sfvb_sequence_step_dispatch_logs(storefront_oid, sequence_uuid, step_uuid)
+
+Read a flow or campaign step's dispatch log and counts
+
+Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **sequence_uuid** | **str**|  |
+ **step_uuid** | **str**|  |
+ **since** | **str**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **offset** | **int**|  | [optional]
+
+### Return type
+
+[**SfvbStepDispatchLogsResponse**](SfvbStepDispatchLogsResponse.md)
 
 ### Authorization
 

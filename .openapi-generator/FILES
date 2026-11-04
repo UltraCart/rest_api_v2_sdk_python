@@ -1225,6 +1225,9 @@ docs/SfvbSitemapsResponse.md
 docs/SfvbSmartAttribution.md
 docs/SfvbSmartAttributionPlatform.md
 docs/SfvbSmartAttributionRequest.md
+docs/SfvbStepCounts.md
+docs/SfvbStepDispatchLog.md
+docs/SfvbStepDispatchLogsResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTemplate.md
@@ -2626,6 +2629,9 @@ ultracart/model/sfvb_sitemaps_response.py
 ultracart/model/sfvb_smart_attribution.py
 ultracart/model/sfvb_smart_attribution_platform.py
 ultracart/model/sfvb_smart_attribution_request.py
+ultracart/model/sfvb_step_counts.py
+ultracart/model/sfvb_step_dispatch_log.py
+ultracart/model/sfvb_step_dispatch_logs_response.py
 ultracart/model/sfvb_storefront.py
 ultracart/model/sfvb_storefronts_response.py
 ultracart/model/sfvb_template.py

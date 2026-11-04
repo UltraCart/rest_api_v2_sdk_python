@@ -1214,6 +1214,9 @@ from ultracart.model.sfvb_sitemaps_response import SfvbSitemapsResponse
 from ultracart.model.sfvb_smart_attribution import SfvbSmartAttribution
 from ultracart.model.sfvb_smart_attribution_platform import SfvbSmartAttributionPlatform
 from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
+from ultracart.model.sfvb_step_counts import SfvbStepCounts
+from ultracart.model.sfvb_step_dispatch_log import SfvbStepDispatchLog
+from ultracart.model.sfvb_step_dispatch_logs_response import SfvbStepDispatchLogsResponse
 from ultracart.model.sfvb_storefront import SfvbStorefront
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_template import SfvbTemplate

@@ -183,6 +183,7 @@ from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResp
 from ultracart.model.sfvb_sitemaps_response import SfvbSitemapsResponse
 from ultracart.model.sfvb_smart_attribution import SfvbSmartAttribution
 from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
+from ultracart.model.sfvb_step_dispatch_logs_response import SfvbStepDispatchLogsResponse
 from ultracart.model.sfvb_storefronts_response import SfvbStorefrontsResponse
 from ultracart.model.sfvb_template_resolve_response import SfvbTemplateResolveResponse
 from ultracart.model.sfvb_templates_response import SfvbTemplatesResponse
@@ -6555,6 +6556,85 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'sequence_uuid': 'path',
                     'waiting': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_sequence_step_dispatch_logs_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbStepDispatchLogsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs',
+                'operation_id': 'get_sfvb_sequence_step_dispatch_logs',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                    'since',
+                    'limit',
+                    'offset',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'sequence_uuid',
+                    'step_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'sequence_uuid':
+                        (str,),
+                    'step_uuid':
+                        (str,),
+                    'since':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'sequence_uuid': 'sequence_uuid',
+                    'step_uuid': 'step_uuid',
+                    'since': 'since',
+                    'limit': 'limit',
+                    'offset': 'offset',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'sequence_uuid': 'path',
+                    'step_uuid': 'path',
+                    'since': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -24160,6 +24240,100 @@ class SfvbApi(object):
         kwargs['sequence_uuid'] = \
             sequence_uuid
         return self.get_sfvb_sequence_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_sequence_step_dispatch_logs(
+        self,
+        storefront_oid,
+        sequence_uuid,
+        step_uuid,
+        **kwargs
+    ):
+        """Read a flow or campaign step's dispatch log and counts  # noqa: E501
+
+        Why customers were sent, skipped or ended at this step, newest first, as the admin's Dispatch Logs screen shows it, with the step's counts.  An email step's counts are its email's; any other step's are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_sequence_step_dispatch_logs(storefront_oid, sequence_uuid, step_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            sequence_uuid (str):
+            step_uuid (str):
+
+        Keyword Args:
+            since (str): [optional]
+            limit (int): [optional]
+            offset (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbStepDispatchLogsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['sequence_uuid'] = \
+            sequence_uuid
+        kwargs['step_uuid'] = \
+            step_uuid
+        return self.get_sfvb_sequence_step_dispatch_logs_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_server_log(
         self,

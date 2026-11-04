@@ -93,6 +93,7 @@ class SfvbBlogPostDetail(ModelNormal):
             'blog_post_oid': (int,),  # noqa: E501
             'body': (str,),  # noqa: E501
             'created_dts': (str,),  # noqa: E501
+            'dry_run': (bool,),  # noqa: E501
             'excerpt': (str,),  # noqa: E501
             'images': ([SfvbBlogPostImage],),  # noqa: E501
             'last_modified_dts': (str,),  # noqa: E501
@@ -119,6 +120,7 @@ class SfvbBlogPostDetail(ModelNormal):
         'blog_post_oid': 'blog_post_oid',  # noqa: E501
         'body': 'body',  # noqa: E501
         'created_dts': 'created_dts',  # noqa: E501
+        'dry_run': 'dry_run',  # noqa: E501
         'excerpt': 'excerpt',  # noqa: E501
         'images': 'images',  # noqa: E501
         'last_modified_dts': 'last_modified_dts',  # noqa: E501
@@ -180,6 +182,7 @@ class SfvbBlogPostDetail(ModelNormal):
             blog_post_oid (int): The blog post's oid.  This is what a page's blog post assignment names.. [optional]  # noqa: E501
             body (str): The post body as HTML, exactly as stored.. [optional]  # noqa: E501
             created_dts (str): When the post was created (ISO 8601, UTC).. [optional]  # noqa: E501
+            dry_run (bool): True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.. [optional]  # noqa: E501
             excerpt (str): The post excerpt as HTML, exactly as stored.. [optional]  # noqa: E501
             images ([SfvbBlogPostImage]): The post's images, the default image first.. [optional]  # noqa: E501
             last_modified_dts (str): When the post was last changed (ISO 8601, UTC), or null if it never was.. [optional]  # noqa: E501
@@ -283,6 +286,7 @@ class SfvbBlogPostDetail(ModelNormal):
             blog_post_oid (int): The blog post's oid.  This is what a page's blog post assignment names.. [optional]  # noqa: E501
             body (str): The post body as HTML, exactly as stored.. [optional]  # noqa: E501
             created_dts (str): When the post was created (ISO 8601, UTC).. [optional]  # noqa: E501
+            dry_run (bool): True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.. [optional]  # noqa: E501
             excerpt (str): The post excerpt as HTML, exactly as stored.. [optional]  # noqa: E501
             images ([SfvbBlogPostImage]): The post's images, the default image first.. [optional]  # noqa: E501
             last_modified_dts (str): When the post was last changed (ISO 8601, UTC), or null if it never was.. [optional]  # noqa: E501
