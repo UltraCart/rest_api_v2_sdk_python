@@ -93,6 +93,7 @@ class SfvbTrackingProviderField(ModelNormal):
             'set': (bool,),  # noqa: E501
             'sink': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'unavailable_reason': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
             'writable': (bool,),  # noqa: E501
         }
@@ -114,6 +115,7 @@ class SfvbTrackingProviderField(ModelNormal):
         'set': 'set',  # noqa: E501
         'sink': 'sink',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'unavailable_reason': 'unavailable_reason',  # noqa: E501
         'value': 'value',  # noqa: E501
         'writable': 'writable',  # noqa: E501
     }
@@ -170,6 +172,7 @@ class SfvbTrackingProviderField(ModelNormal):
             set (bool): For a secret, true when one is stored.. [optional]  # noqa: E501
             sink (str): For a writable secret, the sink a secret request names, with this storefront_oid as its target.. [optional]  # noqa: E501
             type (str): id, id_list, token, url, server_url, host, host_list, bool, select, number, numeric_id or secret.  It decides what a write accepts.. [optional]  # noqa: E501
+            unavailable_reason (str): Present only when this storefront can't turn the field on, and why.  Turning it off still works.. [optional]  # noqa: E501
             value (str): The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret.. [optional]  # noqa: E501
             writable (bool): False for a field the API reports but does not change.. [optional]  # noqa: E501
         """
@@ -268,6 +271,7 @@ class SfvbTrackingProviderField(ModelNormal):
             set (bool): For a secret, true when one is stored.. [optional]  # noqa: E501
             sink (str): For a writable secret, the sink a secret request names, with this storefront_oid as its target.. [optional]  # noqa: E501
             type (str): id, id_list, token, url, server_url, host, host_list, bool, select, number, numeric_id or secret.  It decides what a write accepts.. [optional]  # noqa: E501
+            unavailable_reason (str): Present only when this storefront can't turn the field on, and why.  Turning it off still works.. [optional]  # noqa: E501
             value (str): The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret.. [optional]  # noqa: E501
             writable (bool): False for a field the API reports but does not change.. [optional]  # noqa: E501
         """

@@ -99,6 +99,7 @@ class SfvbTrackingProvider(ModelNormal):
         lazy_import()
         return {
             'admin_path': (str,),  # noqa: E501
+            'approval_needed': (bool,),  # noqa: E501
             'changes': ([SfvbTrackingChange],),  # noqa: E501
             'configured': (bool,),  # noqa: E501
             'consent': (SfvbTrackingProviderConsent,),  # noqa: E501
@@ -123,6 +124,7 @@ class SfvbTrackingProvider(ModelNormal):
 
     attribute_map = {
         'admin_path': 'admin_path',  # noqa: E501
+        'approval_needed': 'approval_needed',  # noqa: E501
         'changes': 'changes',  # noqa: E501
         'configured': 'configured',  # noqa: E501
         'consent': 'consent',  # noqa: E501
@@ -182,6 +184,7 @@ class SfvbTrackingProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             admin_path (str): Where the provider is in the admin.. [optional]  # noqa: E501
+            approval_needed (bool): On a dry run, whether the real write needs an approved tracking_provider.change request.. [optional]  # noqa: E501
             changes ([SfvbTrackingChange]): On a write, each setting it changed, or would change on a dry run.  Secrets read only set or cleared.. [optional]  # noqa: E501
             configured (bool): True when the provider is on, which means one of its identifying fields is set.. [optional]  # noqa: E501
             consent (SfvbTrackingProviderConsent): [optional]  # noqa: E501
@@ -283,6 +286,7 @@ class SfvbTrackingProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             admin_path (str): Where the provider is in the admin.. [optional]  # noqa: E501
+            approval_needed (bool): On a dry run, whether the real write needs an approved tracking_provider.change request.. [optional]  # noqa: E501
             changes ([SfvbTrackingChange]): On a write, each setting it changed, or would change on a dry run.  Secrets read only set or cleared.. [optional]  # noqa: E501
             configured (bool): True when the provider is on, which means one of its identifying fields is set.. [optional]  # noqa: E501
             consent (SfvbTrackingProviderConsent): [optional]  # noqa: E501
