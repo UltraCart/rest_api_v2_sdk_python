@@ -1193,6 +1193,7 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbRobotsTxt.md
 docs/SfvbSecretHandle.md
 docs/SfvbSecretKind.md
 docs/SfvbSecretKindsResponse.md
@@ -1218,6 +1219,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSitemap.md
+docs/SfvbSitemapFile.md
+docs/SfvbSitemapsResponse.md
 docs/SfvbSmartAttribution.md
 docs/SfvbSmartAttributionPlatform.md
 docs/SfvbSmartAttributionRequest.md
@@ -2590,6 +2594,7 @@ ultracart/model/sfvb_redirect_response.py
 ultracart/model/sfvb_redirects_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
+ultracart/model/sfvb_robots_txt.py
 ultracart/model/sfvb_secret_handle.py
 ultracart/model/sfvb_secret_kind.py
 ultracart/model/sfvb_secret_kinds_response.py
@@ -2615,6 +2620,9 @@ ultracart/model/sfvb_site_attribute.py
 ultracart/model/sfvb_site_attribute_update.py
 ultracart/model/sfvb_site_attribute_update_request.py
 ultracart/model/sfvb_site_attributes_response.py
+ultracart/model/sfvb_sitemap.py
+ultracart/model/sfvb_sitemap_file.py
+ultracart/model/sfvb_sitemaps_response.py
 ultracart/model/sfvb_smart_attribution.py
 ultracart/model/sfvb_smart_attribution_platform.py
 ultracart/model/sfvb_smart_attribution_request.py

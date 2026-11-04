@@ -1182,6 +1182,7 @@ from ultracart.model.sfvb_redirect_response import SfvbRedirectResponse
 from ultracart.model.sfvb_redirects_response import SfvbRedirectsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
+from ultracart.model.sfvb_robots_txt import SfvbRobotsTxt
 from ultracart.model.sfvb_secret_handle import SfvbSecretHandle
 from ultracart.model.sfvb_secret_kind import SfvbSecretKind
 from ultracart.model.sfvb_secret_kinds_response import SfvbSecretKindsResponse
@@ -1207,6 +1208,9 @@ from ultracart.model.sfvb_site_attribute import SfvbSiteAttribute
 from ultracart.model.sfvb_site_attribute_update import SfvbSiteAttributeUpdate
 from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
 from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResponse
+from ultracart.model.sfvb_sitemap import SfvbSitemap
+from ultracart.model.sfvb_sitemap_file import SfvbSitemapFile
+from ultracart.model.sfvb_sitemaps_response import SfvbSitemapsResponse
 from ultracart.model.sfvb_smart_attribution import SfvbSmartAttribution
 from ultracart.model.sfvb_smart_attribution_platform import SfvbSmartAttributionPlatform
 from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
