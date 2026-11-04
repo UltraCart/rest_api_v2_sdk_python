@@ -1127,6 +1127,7 @@ from ultracart.model.sfvb_not_found_entry_response import SfvbNotFoundEntryRespo
 from ultracart.model.sfvb_not_found_hit import SfvbNotFoundHit
 from ultracart.model.sfvb_not_found_page import SfvbNotFoundPage
 from ultracart.model.sfvb_not_found_response import SfvbNotFoundResponse
+from ultracart.model.sfvb_not_found_summary import SfvbNotFoundSummary
 from ultracart.model.sfvb_page_attribute import SfvbPageAttribute
 from ultracart.model.sfvb_page_attribute_update import SfvbPageAttributeUpdate
 from ultracart.model.sfvb_page_attribute_update_request import SfvbPageAttributeUpdateRequest
@@ -1176,6 +1177,8 @@ from ultracart.model.sfvb_redirect_import_response import SfvbRedirectImportResp
 from ultracart.model.sfvb_redirect_import_row import SfvbRedirectImportRow
 from ultracart.model.sfvb_redirect_import_row_result import SfvbRedirectImportRowResult
 from ultracart.model.sfvb_redirect_request import SfvbRedirectRequest
+from ultracart.model.sfvb_redirect_resolve_batch_request import SfvbRedirectResolveBatchRequest
+from ultracart.model.sfvb_redirect_resolve_batch_response import SfvbRedirectResolveBatchResponse
 from ultracart.model.sfvb_redirect_resolve_response import SfvbRedirectResolveResponse
 from ultracart.model.sfvb_redirect_resolve_step import SfvbRedirectResolveStep
 from ultracart.model.sfvb_redirect_response import SfvbRedirectResponse
@@ -1208,6 +1211,9 @@ from ultracart.model.sfvb_site_attribute import SfvbSiteAttribute
 from ultracart.model.sfvb_site_attribute_update import SfvbSiteAttributeUpdate
 from ultracart.model.sfvb_site_attribute_update_request import SfvbSiteAttributeUpdateRequest
 from ultracart.model.sfvb_site_attributes_response import SfvbSiteAttributesResponse
+from ultracart.model.sfvb_site_seo import SfvbSiteSeo
+from ultracart.model.sfvb_site_seo_change import SfvbSiteSeoChange
+from ultracart.model.sfvb_site_seo_request import SfvbSiteSeoRequest
 from ultracart.model.sfvb_sitemap import SfvbSitemap
 from ultracart.model.sfvb_sitemap_file import SfvbSitemapFile
 from ultracart.model.sfvb_sitemaps_response import SfvbSitemapsResponse

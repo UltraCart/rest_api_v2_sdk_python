@@ -38,6 +38,7 @@ def lazy_import():
     from ultracart.model.sfvb_item_attribute_batch_row import SfvbItemAttributeBatchRow
     from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
     from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
+    from ultracart.model.sfvb_site_seo_request import SfvbSiteSeoRequest
     from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
     from ultracart.model.sfvb_tracking_provider_request import SfvbTrackingProviderRequest
     globals()['SfvbAffiliateNetworkRequest'] = SfvbAffiliateNetworkRequest
@@ -47,6 +48,7 @@ def lazy_import():
     globals()['SfvbItemAttributeBatchRow'] = SfvbItemAttributeBatchRow
     globals()['SfvbItemPricingRequest'] = SfvbItemPricingRequest
     globals()['SfvbRedirectDeleteRow'] = SfvbRedirectDeleteRow
+    globals()['SfvbSiteSeoRequest'] = SfvbSiteSeoRequest
     globals()['SfvbSmartAttributionRequest'] = SfvbSmartAttributionRequest
     globals()['SfvbTrackingProviderRequest'] = SfvbTrackingProviderRequest
 
@@ -98,6 +100,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'TRACKING_HTML.PUT': "tracking_html.put",
             'AFFILIATE_NETWORK.CHANGE': "affiliate_network.change",
             'AFFILIATE_NETWORK.DELETE': "affiliate_network.delete",
+            'SITE_SEO.CHANGE': "site_seo.change",
         },
     }
 
@@ -137,6 +140,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'reason': (str,),  # noqa: E501
             'redirect_rows': ([SfvbRedirectDeleteRow],),  # noqa: E501
             'segment_update': (SfvbCommsSegmentWriteRequest,),  # noqa: E501
+            'site_seo': (SfvbSiteSeoRequest,),  # noqa: E501
             'smart_attribution': (SfvbSmartAttributionRequest,),  # noqa: E501
             'tracking_provider': (SfvbTrackingProviderRequest,),  # noqa: E501
         }
@@ -157,6 +161,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'reason': 'reason',  # noqa: E501
         'redirect_rows': 'redirect_rows',  # noqa: E501
         'segment_update': 'segment_update',  # noqa: E501
+        'site_seo': 'site_seo',  # noqa: E501
         'smart_attribution': 'smart_attribution',  # noqa: E501
         'tracking_provider': 'tracking_provider',  # noqa: E501
     }
@@ -212,6 +217,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
+            site_seo (SfvbSiteSeoRequest): [optional]  # noqa: E501
             smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
             tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
         """
@@ -309,6 +315,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
+            site_seo (SfvbSiteSeoRequest): [optional]  # noqa: E501
             smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
             tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
         """

@@ -1138,6 +1138,7 @@ docs/SfvbNotFoundEntryResponse.md
 docs/SfvbNotFoundHit.md
 docs/SfvbNotFoundPage.md
 docs/SfvbNotFoundResponse.md
+docs/SfvbNotFoundSummary.md
 docs/SfvbPageAttribute.md
 docs/SfvbPageAttributeUpdate.md
 docs/SfvbPageAttributeUpdateRequest.md
@@ -1187,6 +1188,8 @@ docs/SfvbRedirectImportResponse.md
 docs/SfvbRedirectImportRow.md
 docs/SfvbRedirectImportRowResult.md
 docs/SfvbRedirectRequest.md
+docs/SfvbRedirectResolveBatchRequest.md
+docs/SfvbRedirectResolveBatchResponse.md
 docs/SfvbRedirectResolveResponse.md
 docs/SfvbRedirectResolveStep.md
 docs/SfvbRedirectResponse.md
@@ -1219,6 +1222,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSiteSeo.md
+docs/SfvbSiteSeoChange.md
+docs/SfvbSiteSeoRequest.md
 docs/SfvbSitemap.md
 docs/SfvbSitemapFile.md
 docs/SfvbSitemapsResponse.md
@@ -2542,6 +2548,7 @@ ultracart/model/sfvb_not_found_entry_response.py
 ultracart/model/sfvb_not_found_hit.py
 ultracart/model/sfvb_not_found_page.py
 ultracart/model/sfvb_not_found_response.py
+ultracart/model/sfvb_not_found_summary.py
 ultracart/model/sfvb_page_attribute.py
 ultracart/model/sfvb_page_attribute_update.py
 ultracart/model/sfvb_page_attribute_update_request.py
@@ -2591,6 +2598,8 @@ ultracart/model/sfvb_redirect_import_response.py
 ultracart/model/sfvb_redirect_import_row.py
 ultracart/model/sfvb_redirect_import_row_result.py
 ultracart/model/sfvb_redirect_request.py
+ultracart/model/sfvb_redirect_resolve_batch_request.py
+ultracart/model/sfvb_redirect_resolve_batch_response.py
 ultracart/model/sfvb_redirect_resolve_response.py
 ultracart/model/sfvb_redirect_resolve_step.py
 ultracart/model/sfvb_redirect_response.py
@@ -2623,6 +2632,9 @@ ultracart/model/sfvb_site_attribute.py
 ultracart/model/sfvb_site_attribute_update.py
 ultracart/model/sfvb_site_attribute_update_request.py
 ultracart/model/sfvb_site_attributes_response.py
+ultracart/model/sfvb_site_seo.py
+ultracart/model/sfvb_site_seo_change.py
+ultracart/model/sfvb_site_seo_request.py
 ultracart/model/sfvb_sitemap.py
 ultracart/model/sfvb_sitemap_file.py
 ultracart/model/sfvb_sitemaps_response.py

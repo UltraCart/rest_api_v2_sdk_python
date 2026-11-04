@@ -82,6 +82,7 @@ class SfvbRedirectImportRow(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'exclude_from_sitemap': (bool,),  # noqa: E501
             'note': (str,),  # noqa: E501
             'source': (str,),  # noqa: E501
             'target': (str,),  # noqa: E501
@@ -93,6 +94,7 @@ class SfvbRedirectImportRow(ModelNormal):
 
 
     attribute_map = {
+        'exclude_from_sitemap': 'exclude_from_sitemap',  # noqa: E501
         'note': 'note',  # noqa: E501
         'source': 'source',  # noqa: E501
         'target': 'target',  # noqa: E501
@@ -139,6 +141,7 @@ class SfvbRedirectImportRow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exclude_from_sitemap (bool): True to leave the rule's source out of the generated sitemap.  Left out means false, as in the admin.. [optional]  # noqa: E501
             note (str): Why the rule exists.. [optional]  # noqa: E501
             source (str): The path to catch.. [optional]  # noqa: E501
             target (str): Where to send it.. [optional]  # noqa: E501
@@ -227,6 +230,7 @@ class SfvbRedirectImportRow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exclude_from_sitemap (bool): True to leave the rule's source out of the generated sitemap.  Left out means false, as in the admin.. [optional]  # noqa: E501
             note (str): Why the rule exists.. [optional]  # noqa: E501
             source (str): The path to catch.. [optional]  # noqa: E501
             target (str): Where to send it.. [optional]  # noqa: E501

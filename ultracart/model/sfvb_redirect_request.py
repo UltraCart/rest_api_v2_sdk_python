@@ -82,6 +82,7 @@ class SfvbRedirectRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'exclude_from_sitemap': (bool,),  # noqa: E501
             'note': (str,),  # noqa: E501
             'over_live_page': (bool,),  # noqa: E501
             'source': (str,),  # noqa: E501
@@ -95,6 +96,7 @@ class SfvbRedirectRequest(ModelNormal):
 
 
     attribute_map = {
+        'exclude_from_sitemap': 'exclude_from_sitemap',  # noqa: E501
         'note': 'note',  # noqa: E501
         'over_live_page': 'over_live_page',  # noqa: E501
         'source': 'source',  # noqa: E501
@@ -143,6 +145,7 @@ class SfvbRedirectRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exclude_from_sitemap (bool): True to leave the rule's source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule's value.. [optional]  # noqa: E501
             note (str): Why the rule exists, up to 500 characters.. [optional]  # noqa: E501
             over_live_page (bool): Allow a source that is a live, visible page or item, which the rule then hides.. [optional]  # noqa: E501
             source (str): The path to catch, starting with /.  End it with /* to catch everything below.. [optional]  # noqa: E501
@@ -233,6 +236,7 @@ class SfvbRedirectRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exclude_from_sitemap (bool): True to leave the rule's source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule's value.. [optional]  # noqa: E501
             note (str): Why the rule exists, up to 500 characters.. [optional]  # noqa: E501
             over_live_page (bool): Allow a source that is a live, visible page or item, which the rule then hides.. [optional]  # noqa: E501
             source (str): The path to catch, starting with /.  End it with /* to catch everything below.. [optional]  # noqa: E501

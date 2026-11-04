@@ -86,6 +86,7 @@ class SfvbNotFoundEntry(ModelNormal):
             'bot_share': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'counted_hits': (int,),  # noqa: E501
             'first_seen_dts': (str,),  # noqa: E501
+            'fixed': (bool,),  # noqa: E501
             'hits': (int,),  # noqa: E501
             'ignored': (bool,),  # noqa: E501
             'last_seen_dts': (str,),  # noqa: E501
@@ -105,6 +106,7 @@ class SfvbNotFoundEntry(ModelNormal):
         'bot_share': 'bot_share',  # noqa: E501
         'counted_hits': 'counted_hits',  # noqa: E501
         'first_seen_dts': 'first_seen_dts',  # noqa: E501
+        'fixed': 'fixed',  # noqa: E501
         'hits': 'hits',  # noqa: E501
         'ignored': 'ignored',  # noqa: E501
         'last_seen_dts': 'last_seen_dts',  # noqa: E501
@@ -159,6 +161,7 @@ class SfvbNotFoundEntry(ModelNormal):
             bot_share (bool, date, datetime, dict, float, int, list, str, none_type): bot_hits divided by counted_hits, 0 to 1.  Empty when not yet counted.. [optional]  # noqa: E501
             counted_hits (int): Hits since bot counting began, the base for bot_share.. [optional]  # noqa: E501
             first_seen_dts (str): First hit, ISO 8601.. [optional]  # noqa: E501
+            fixed (bool): True when the entry is marked fixed or mapped.  The next hit on the path clears it.. [optional]  # noqa: E501
             hits (int): Every recorded hit, bots included.. [optional]  # noqa: E501
             ignored (bool): True when the entry is ignored and no longer counts.. [optional]  # noqa: E501
             last_seen_dts (str): Latest hit, ISO 8601.. [optional]  # noqa: E501
@@ -255,6 +258,7 @@ class SfvbNotFoundEntry(ModelNormal):
             bot_share (bool, date, datetime, dict, float, int, list, str, none_type): bot_hits divided by counted_hits, 0 to 1.  Empty when not yet counted.. [optional]  # noqa: E501
             counted_hits (int): Hits since bot counting began, the base for bot_share.. [optional]  # noqa: E501
             first_seen_dts (str): First hit, ISO 8601.. [optional]  # noqa: E501
+            fixed (bool): True when the entry is marked fixed or mapped.  The next hit on the path clears it.. [optional]  # noqa: E501
             hits (int): Every recorded hit, bots included.. [optional]  # noqa: E501
             ignored (bool): True when the entry is ignored and no longer counts.. [optional]  # noqa: E501
             last_seen_dts (str): Latest hit, ISO 8601.. [optional]  # noqa: E501
