@@ -41,6 +41,7 @@ def lazy_import():
     from ultracart.model.sfvb_site_seo_request import SfvbSiteSeoRequest
     from ultracart.model.sfvb_smart_attribution_request import SfvbSmartAttributionRequest
     from ultracart.model.sfvb_tracking_provider_request import SfvbTrackingProviderRequest
+    from ultracart.model.sfvb_transactional_email_update_request import SfvbTransactionalEmailUpdateRequest
     globals()['SfvbAffiliateNetworkRequest'] = SfvbAffiliateNetworkRequest
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
     globals()['SfvbCommsSegmentWriteRequest'] = SfvbCommsSegmentWriteRequest
@@ -51,6 +52,7 @@ def lazy_import():
     globals()['SfvbSiteSeoRequest'] = SfvbSiteSeoRequest
     globals()['SfvbSmartAttributionRequest'] = SfvbSmartAttributionRequest
     globals()['SfvbTrackingProviderRequest'] = SfvbTrackingProviderRequest
+    globals()['SfvbTransactionalEmailUpdateRequest'] = SfvbTransactionalEmailUpdateRequest
 
 
 class SfvbApprovalCreateRequest(ModelNormal):
@@ -101,6 +103,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'AFFILIATE_NETWORK.CHANGE': "affiliate_network.change",
             'AFFILIATE_NETWORK.DELETE': "affiliate_network.delete",
             'SITE_SEO.CHANGE': "site_seo.change",
+            'TRANSACTIONAL_EMAIL.UPDATE': "transactional_email.update",
         },
     }
 
@@ -143,6 +146,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'site_seo': (SfvbSiteSeoRequest,),  # noqa: E501
             'smart_attribution': (SfvbSmartAttributionRequest,),  # noqa: E501
             'tracking_provider': (SfvbTrackingProviderRequest,),  # noqa: E501
+            'transactional_email': (SfvbTransactionalEmailUpdateRequest,),  # noqa: E501
         }
 
     @cached_property
@@ -164,6 +168,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'site_seo': 'site_seo',  # noqa: E501
         'smart_attribution': 'smart_attribution',  # noqa: E501
         'tracking_provider': 'tracking_provider',  # noqa: E501
+        'transactional_email': 'transactional_email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -220,6 +225,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             site_seo (SfvbSiteSeoRequest): [optional]  # noqa: E501
             smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
             tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
+            transactional_email (SfvbTransactionalEmailUpdateRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,6 +324,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             site_seo (SfvbSiteSeoRequest): [optional]  # noqa: E501
             smart_attribution (SfvbSmartAttributionRequest): [optional]  # noqa: E501
             tracking_provider (SfvbTrackingProviderRequest): [optional]  # noqa: E501
+            transactional_email (SfvbTransactionalEmailUpdateRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

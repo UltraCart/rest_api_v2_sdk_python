@@ -108,6 +108,7 @@ class SfvbFlow(ModelNormal):
             'sending_domain_uuid': (str,),  # noqa: E501
             'sending_name': (str,),  # noqa: E501
             'sending_user': (str,),  # noqa: E501
+            'sms_phone_number': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'status_dts': (str,),  # noqa: E501
             'trigger_parameter': (str,),  # noqa: E501
@@ -139,6 +140,7 @@ class SfvbFlow(ModelNormal):
         'sending_domain_uuid': 'sending_domain_uuid',  # noqa: E501
         'sending_name': 'sending_name',  # noqa: E501
         'sending_user': 'sending_user',  # noqa: E501
+        'sms_phone_number': 'sms_phone_number',  # noqa: E501
         'status': 'status',  # noqa: E501
         'status_dts': 'status_dts',  # noqa: E501
         'trigger_parameter': 'trigger_parameter',  # noqa: E501
@@ -205,6 +207,7 @@ class SfvbFlow(ModelNormal):
             sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
             sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sms_phone_number (str): The number this flow's SMS steps send from.  Without one, every SMS step skips every customer, whatever the account's SMS settings say.. [optional]  # noqa: E501
             status (str): The status, such as draft, active, paused, draining or inactive.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
             trigger_parameter (str): The list or segment uuid, or other value, the trigger is limited to.. [optional]  # noqa: E501
@@ -313,6 +316,7 @@ class SfvbFlow(ModelNormal):
             sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
             sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
+            sms_phone_number (str): The number this flow's SMS steps send from.  Without one, every SMS step skips every customer, whatever the account's SMS settings say.. [optional]  # noqa: E501
             status (str): The status, such as draft, active, paused, draining or inactive.. [optional]  # noqa: E501
             status_dts (str): When the status last changed (ISO 8601, UTC).. [optional]  # noqa: E501
             trigger_parameter (str): The list or segment uuid, or other value, the trigger is limited to.. [optional]  # noqa: E501

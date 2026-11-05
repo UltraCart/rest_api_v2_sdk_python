@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **sending_domain_uuid** | **str** | The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain. | [optional] 
 **sending_name** | **str** | The from name.  Defaults to the storefront&#39;s marketing setting. | [optional] 
 **sending_user** | **str** | The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting. | [optional] 
+**sms_phone_number** | **str** | The number this campaign&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say. | [optional] 
 **status** | **str** | The status, such as draft, scheduled, sending, sent or archived. | [optional] 
 **status_dts** | **str** | When the status last changed (ISO 8601, UTC). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

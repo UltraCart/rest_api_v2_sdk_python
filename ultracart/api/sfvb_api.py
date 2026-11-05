@@ -44,6 +44,7 @@ from ultracart.model.sfvb_comms_folders_response import SfvbCommsFoldersResponse
 from ultracart.model.sfvb_comms_list_response import SfvbCommsListResponse
 from ultracart.model.sfvb_comms_list_write_request import SfvbCommsListWriteRequest
 from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
+from ultracart.model.sfvb_comms_members_response import SfvbCommsMembersResponse
 from ultracart.model.sfvb_comms_segment_response import SfvbCommsSegmentResponse
 from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
 from ultracart.model.sfvb_comms_segments_response import SfvbCommsSegmentsResponse
@@ -149,6 +150,7 @@ from ultracart.model.sfvb_page_selectors import SfvbPageSelectors
 from ultracart.model.sfvb_page_settings_request import SfvbPageSettingsRequest
 from ultracart.model.sfvb_postcard_proof_request import SfvbPostcardProofRequest
 from ultracart.model.sfvb_postcard_proof_response import SfvbPostcardProofResponse
+from ultracart.model.sfvb_postcard_tracking_response import SfvbPostcardTrackingResponse
 from ultracart.model.sfvb_preview_access_request import SfvbPreviewAccessRequest
 from ultracart.model.sfvb_preview_access_response import SfvbPreviewAccessResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
@@ -213,6 +215,8 @@ from ultracart.model.sfvb_tracking_provider import SfvbTrackingProvider
 from ultracart.model.sfvb_tracking_provider_request import SfvbTrackingProviderRequest
 from ultracart.model.sfvb_tracking_providers_response import SfvbTrackingProvidersResponse
 from ultracart.model.sfvb_tracking_settings_response import SfvbTrackingSettingsResponse
+from ultracart.model.sfvb_transactional_email_response import SfvbTransactionalEmailResponse
+from ultracart.model.sfvb_transactional_email_update_request import SfvbTransactionalEmailUpdateRequest
 from ultracart.model.sfvb_transactional_emails_response import SfvbTransactionalEmailsResponse
 from ultracart.model.sfvb_upsell_offer import SfvbUpsellOffer
 from ultracart.model.sfvb_upsell_offers_response import SfvbUpsellOffersResponse
@@ -4441,6 +4445,79 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_comms_list_members_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsMembersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members',
+                'operation_id': 'get_sfvb_comms_list_members',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'list_uuid',
+                    'page',
+                    'page_size',
+                    'show_customer_data',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'list_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'list_uuid':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                    'show_customer_data':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'list_uuid': 'list_uuid',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                    'show_customer_data': 'show_customer_data',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'list_uuid': 'path',
+                    'page': 'query',
+                    'page_size': 'query',
+                    'show_customer_data': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_comms_segment_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbCommsSegmentResponse,),
@@ -4487,6 +4564,79 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'segment_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_segment_members_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsMembersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members',
+                'operation_id': 'get_sfvb_comms_segment_members',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'segment_uuid',
+                    'page',
+                    'page_size',
+                    'show_customer_data',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'segment_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'segment_uuid':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                    'show_customer_data':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'segment_uuid': 'segment_uuid',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                    'show_customer_data': 'show_customer_data',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'segment_uuid': 'path',
+                    'page': 'query',
+                    'page_size': 'query',
+                    'show_customer_data': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6601,6 +6751,79 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_postcard_tracking_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPostcardTrackingResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking',
+                'operation_id': 'get_sfvb_postcard_tracking',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'postcard_uuid',
+                    'page',
+                    'page_size',
+                    'show_customer_data',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'postcard_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'postcard_uuid':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                    'show_customer_data':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'postcard_uuid': 'postcard_uuid',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                    'show_customer_data': 'show_customer_data',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'postcard_uuid': 'path',
+                    'page': 'query',
+                    'page_size': 'query',
+                    'show_customer_data': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_preview_url_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbPreviewUrlResponse,),
@@ -8024,6 +8247,64 @@ class SfvbApi(object):
                 },
                 'location_map': {
                     'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_transactional_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTransactionalEmailResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}',
+                'operation_id': 'get_sfvb_transactional_email',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'file_name',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'file_name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'file_name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'file_name': 'file_name',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'file_name': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -15705,6 +15986,82 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.update_sfvb_transactional_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTransactionalEmailResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}',
+                'operation_id': 'update_sfvb_transactional_email',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'file_name',
+                    'if_match',
+                    'transactional_email_update_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'file_name',
+                    'if_match',
+                    'transactional_email_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'file_name':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'transactional_email_update_request':
+                        (SfvbTransactionalEmailUpdateRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'file_name': 'file_name',
+                    'if_match': 'If-Match',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'file_name': 'path',
+                    'if_match': 'header',
+                    'transactional_email_update_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_sfvb_upsell_offer_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbUpsellOffer,),
@@ -22151,6 +22508,96 @@ class SfvbApi(object):
             list_uuid
         return self.get_sfvb_comms_list_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_comms_list_members(
+        self,
+        storefront_oid,
+        list_uuid,
+        **kwargs
+    ):
+        """Read one page of a list's members  # noqa: E501
+
+        Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_list_members(storefront_oid, list_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            list_uuid (str):
+
+        Keyword Args:
+            page (int): The page, from 1. [optional]
+            page_size (int): Members per page, 1 to 100 (default 50). [optional]
+            show_customer_data (bool): True to return the real email addresses instead of masked ones. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsMembersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['list_uuid'] = \
+            list_uuid
+        return self.get_sfvb_comms_list_members_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_comms_segment(
         self,
         storefront_oid,
@@ -22237,6 +22684,96 @@ class SfvbApi(object):
         kwargs['segment_uuid'] = \
             segment_uuid
         return self.get_sfvb_comms_segment_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_segment_members(
+        self,
+        storefront_oid,
+        segment_uuid,
+        **kwargs
+    ):
+        """Read one page of a segment's members  # noqa: E501
+
+        Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_segment_members(storefront_oid, segment_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            segment_uuid (str):
+
+        Keyword Args:
+            page (int): The page, from 1. [optional]
+            page_size (int): Members per page, 1 to 100 (default 50). [optional]
+            show_customer_data (bool): True to return the real email addresses instead of masked ones. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsMembersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['segment_uuid'] = \
+            segment_uuid
+        return self.get_sfvb_comms_segment_members_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_comms_sending_domain(
         self,
@@ -25305,6 +25842,96 @@ class SfvbApi(object):
             path
         return self.get_sfvb_page_selectors_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_postcard_tracking(
+        self,
+        storefront_oid,
+        postcard_uuid,
+        **kwargs
+    ):
+        """Read one page of the cards mailed for a postcard  # noqa: E501
+
+        Every printed card mailed for the postcard, newest first, with its status, cost, dates and the order it converted to.  Recipients are masked (the name an initial, the street lines hidden, city, state and postal code kept) and the vendor's status text is left out, unless show_customer_data is true, which needs the sfvb_publish scope and is logged.  The return address is the merchant's own.  Read only.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_postcard_tracking(storefront_oid, postcard_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            postcard_uuid (str):
+
+        Keyword Args:
+            page (int): The page, from 1. [optional]
+            page_size (int): Cards per page, 1 to 100 (default 50). [optional]
+            show_customer_data (bool): True to return the recipients' real names and street addresses. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPostcardTrackingResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['postcard_uuid'] = \
+            postcard_uuid
+        return self.get_sfvb_postcard_tracking_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_preview_url(
         self,
         storefront_oid,
@@ -27437,6 +28064,93 @@ class SfvbApi(object):
         kwargs['storefront_oid'] = \
             storefront_oid
         return self.get_sfvb_tracking_settings_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_transactional_email(
+        self,
+        storefront_oid,
+        file_name,
+        **kwargs
+    ):
+        """Read a transactional email's subject, delivery options and sender  # noqa: E501
+
+        file_name is the template file from the transactional email list, such as receipt_html.vm, or its display name.  The sender is shared by every storefront on the same screen branding theme (sender_shared_with); a sender that sends through the merchant's own mail server shows smtp true and never its credentials.  hash_sha256 is the If-Match for an update.  The template itself is a theme file.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_transactional_email(storefront_oid, file_name, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            file_name (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTransactionalEmailResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['file_name'] = \
+            file_name
+        return self.get_sfvb_transactional_email_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_transactional_emails(
         self,
@@ -37949,6 +38663,102 @@ class SfvbApi(object):
         kwargs['tracking_provider_request'] = \
             tracking_provider_request
         return self.update_sfvb_tracking_provider_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_transactional_email(
+        self,
+        storefront_oid,
+        file_name,
+        if_match,
+        transactional_email_update_request,
+        **kwargs
+    ):
+        """Change a transactional email's subject, delivery options or sender  # noqa: E501
+
+        A field left out stays as it is.  It goes to every matching order from the moment it is saved, so every change needs sfvb_publish, the email's hash_sha256 as If-Match, and an approved transactional_email.update request for exactly this change (params.path the template file).  dry_run checks and shows the change without writing or using an approval.  Delivery options are named by name.  A sender change reaches every storefront on the same screen branding theme, and is refused for one that sends through the merchant's own mail server.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_transactional_email(storefront_oid, file_name, if_match, transactional_email_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            file_name (str):
+            if_match (str): The email's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+            transactional_email_update_request (SfvbTransactionalEmailUpdateRequest): The fields to change
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTransactionalEmailResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['file_name'] = \
+            file_name
+        kwargs['if_match'] = \
+            if_match
+        kwargs['transactional_email_update_request'] = \
+            transactional_email_update_request
+        return self.update_sfvb_transactional_email_endpoint.call_with_http_info(**kwargs)
 
     def update_sfvb_upsell_offer(
         self,

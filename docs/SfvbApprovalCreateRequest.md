@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **site_seo** | [**SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  | [optional] 
 **smart_attribution** | [**SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  | [optional] 
 **tracking_provider** | [**SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  | [optional] 
+**transactional_email** | [**SfvbTransactionalEmailUpdateRequest**](SfvbTransactionalEmailUpdateRequest.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
