@@ -101,6 +101,9 @@ class ItemAutoOrder(ModelNormal):
             'auto_order_cancel_minimum_rebill_count': (int,),  # noqa: E501
             'auto_order_cancel_minimum_rebill_value': (float,),  # noqa: E501
             'auto_order_downgrade_items': ([str],),  # noqa: E501
+            'auto_order_myaccount_frequency_day_counts': ([int],),  # noqa: E501
+            'auto_order_myaccount_frequency_last_step_only': (bool,),  # noqa: E501
+            'auto_order_myaccount_frequency_schedules': ([str],),  # noqa: E501
             'auto_order_paused': (bool,),  # noqa: E501
             'auto_order_prohibit_expiring_cards': (int,),  # noqa: E501
             'auto_order_schedules': ([str],),  # noqa: E501
@@ -131,6 +134,9 @@ class ItemAutoOrder(ModelNormal):
         'auto_order_cancel_minimum_rebill_count': 'auto_order_cancel_minimum_rebill_count',  # noqa: E501
         'auto_order_cancel_minimum_rebill_value': 'auto_order_cancel_minimum_rebill_value',  # noqa: E501
         'auto_order_downgrade_items': 'auto_order_downgrade_items',  # noqa: E501
+        'auto_order_myaccount_frequency_day_counts': 'auto_order_myaccount_frequency_day_counts',  # noqa: E501
+        'auto_order_myaccount_frequency_last_step_only': 'auto_order_myaccount_frequency_last_step_only',  # noqa: E501
+        'auto_order_myaccount_frequency_schedules': 'auto_order_myaccount_frequency_schedules',  # noqa: E501
         'auto_order_paused': 'auto_order_paused',  # noqa: E501
         'auto_order_prohibit_expiring_cards': 'auto_order_prohibit_expiring_cards',  # noqa: E501
         'auto_order_schedules': 'auto_order_schedules',  # noqa: E501
@@ -196,6 +202,9 @@ class ItemAutoOrder(ModelNormal):
             auto_order_cancel_minimum_rebill_count (int): The minimum rebill count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_rebill_value (float): The minimum rebill value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_downgrade_items ([str]): List of downgrade items presented to customer service representatives. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_day_counts ([int]): Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_last_step_only (bool): True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_schedules ([str]): Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.. [optional]  # noqa: E501
             auto_order_paused (bool): True if the rebill processing of this item is paused. [optional]  # noqa: E501
             auto_order_prohibit_expiring_cards (int): Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.. [optional]  # noqa: E501
             auto_order_schedules ([str]): The user selectable schedules that are available. [optional]  # noqa: E501
@@ -303,6 +312,9 @@ class ItemAutoOrder(ModelNormal):
             auto_order_cancel_minimum_rebill_count (int): The minimum rebill count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_rebill_value (float): The minimum rebill value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_downgrade_items ([str]): List of downgrade items presented to customer service representatives. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_day_counts ([int]): Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_last_step_only (bool): True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.. [optional]  # noqa: E501
+            auto_order_myaccount_frequency_schedules ([str]): Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.. [optional]  # noqa: E501
             auto_order_paused (bool): True if the rebill processing of this item is paused. [optional]  # noqa: E501
             auto_order_prohibit_expiring_cards (int): Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.. [optional]  # noqa: E501
             auto_order_schedules ([str]): The user selectable schedules that are available. [optional]  # noqa: E501

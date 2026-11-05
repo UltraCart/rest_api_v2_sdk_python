@@ -182,7 +182,7 @@ class SfvbSequenceStep(ModelNormal):
             disabled (bool): True when the step is switched off in its settings.. [optional]  # noqa: E501
             email_uuids ([str]): The emails it sends.  One for an email step, one per variant for an experiment.. [optional]  # noqa: E501
             filter_profile_equation_json (str): The step's audience filter as stored, when it has one.. [optional]  # noqa: E501
-            hash_sha256 (str): The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.. [optional]  # noqa: E501
+            hash_sha256 (str): The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step's resend mappings, a rate limiter's inventory refresh time, an experiment's winner) doesn't count.  An email step's smartSending and magicLink are the email's own settings, so the email's hash_sha256 guards them, not this one.. [optional]  # noqa: E501
             item_ids ([str]): The items it names, for a cart or rate limiter step.. [optional]  # noqa: E501
             label (str): The type as the admin names it, such as Time Delay.  The type itself for one it doesn't know.. [optional]  # noqa: E501
             list_uuids ([str]): The lists it subscribes or unsubscribes, for a list step.. [optional]  # noqa: E501
@@ -285,7 +285,7 @@ class SfvbSequenceStep(ModelNormal):
             disabled (bool): True when the step is switched off in its settings.. [optional]  # noqa: E501
             email_uuids ([str]): The emails it sends.  One for an email step, one per variant for an experiment.. [optional]  # noqa: E501
             filter_profile_equation_json (str): The step's audience filter as stored, when it has one.. [optional]  # noqa: E501
-            hash_sha256 (str): The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.. [optional]  # noqa: E501
+            hash_sha256 (str): The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step's resend mappings, a rate limiter's inventory refresh time, an experiment's winner) doesn't count.  An email step's smartSending and magicLink are the email's own settings, so the email's hash_sha256 guards them, not this one.. [optional]  # noqa: E501
             item_ids ([str]): The items it names, for a cart or rate limiter step.. [optional]  # noqa: E501
             label (str): The type as the admin names it, such as Time Delay.  The type itself for one it doesn't know.. [optional]  # noqa: E501
             list_uuids ([str]): The lists it subscribes or unsubscribes, for a list step.. [optional]  # noqa: E501

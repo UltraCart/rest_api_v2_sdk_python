@@ -157,7 +157,7 @@ class SfvbStepCounts(ModelNormal):
             opened (int): Emails opened.. [optional]  # noqa: E501
             sent (int): Messages sent.. [optional]  # noqa: E501
             skipped (int): Customers who reached the step and were not sent anything.  The dispatch log says why.. [optional]  # noqa: E501
-            source (str): email (the step's email, all time) or step (this step, the last 90 days).. [optional]  # noqa: E501
+            source (str): email (the step's email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).. [optional]  # noqa: E501
             spam (int): Spam complaints.. [optional]  # noqa: E501
             unsubscribed (int): Unsubscribes from these messages.. [optional]  # noqa: E501
         """
@@ -251,7 +251,7 @@ class SfvbStepCounts(ModelNormal):
             opened (int): Emails opened.. [optional]  # noqa: E501
             sent (int): Messages sent.. [optional]  # noqa: E501
             skipped (int): Customers who reached the step and were not sent anything.  The dispatch log says why.. [optional]  # noqa: E501
-            source (str): email (the step's email, all time) or step (this step, the last 90 days).. [optional]  # noqa: E501
+            source (str): email (the step's email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).. [optional]  # noqa: E501
             spam (int): Spam complaints.. [optional]  # noqa: E501
             unsubscribed (int): Unsubscribes from these messages.. [optional]  # noqa: E501
         """

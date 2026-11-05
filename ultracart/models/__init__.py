@@ -1000,7 +1000,15 @@ from ultracart.model.sfvb_code_library_email import SfvbCodeLibraryEmail
 from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
 from ultracart.model.sfvb_comms_dns_record import SfvbCommsDnsRecord
 from ultracart.model.sfvb_comms_email import SfvbCommsEmail
+from ultracart.model.sfvb_comms_folder import SfvbCommsFolder
+from ultracart.model.sfvb_comms_folder_item import SfvbCommsFolderItem
+from ultracart.model.sfvb_comms_folder_response import SfvbCommsFolderResponse
+from ultracart.model.sfvb_comms_folder_write_request import SfvbCommsFolderWriteRequest
+from ultracart.model.sfvb_comms_folders_response import SfvbCommsFoldersResponse
 from ultracart.model.sfvb_comms_list import SfvbCommsList
+from ultracart.model.sfvb_comms_list_detail import SfvbCommsListDetail
+from ultracart.model.sfvb_comms_list_response import SfvbCommsListResponse
+from ultracart.model.sfvb_comms_list_write_request import SfvbCommsListWriteRequest
 from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
 from ultracart.model.sfvb_comms_postcard import SfvbCommsPostcard
 from ultracart.model.sfvb_comms_segment import SfvbCommsSegment

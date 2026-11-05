@@ -169,8 +169,8 @@ class SfvbFlowWriteRequest(ModelNormal):
             sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
             sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
-            trigger_parameter (str): The list or segment uuid for a list or segment trigger.  Create only.. [optional]  # noqa: E501
-            trigger_type (str): What enrolls a customer, such as cart abandoned.  Create only.. [optional]  # noqa: E501
+            trigger_parameter (str): The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.. [optional]  # noqa: E501
+            trigger_type (str): What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,8 +265,8 @@ class SfvbFlowWriteRequest(ModelNormal):
             sending_domain_uuid (str): The sending domain uuid.  Defaults to the storefront's marketing sending domain.. [optional]  # noqa: E501
             sending_name (str): The from name.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
             sending_user (str): The part of the from address before the at sign.  Defaults to the storefront's marketing setting.. [optional]  # noqa: E501
-            trigger_parameter (str): The list or segment uuid for a list or segment trigger.  Create only.. [optional]  # noqa: E501
-            trigger_type (str): What enrolls a customer, such as cart abandoned.  Create only.. [optional]  # noqa: E501
+            trigger_parameter (str): The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.. [optional]  # noqa: E501
+            trigger_type (str): What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
