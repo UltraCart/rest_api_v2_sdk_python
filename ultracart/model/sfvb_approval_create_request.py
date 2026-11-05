@@ -33,7 +33,10 @@ from ultracart.exceptions import ApiAttributeError
 def lazy_import():
     from ultracart.model.sfvb_affiliate_network_request import SfvbAffiliateNetworkRequest
     from ultracart.model.sfvb_approval_params import SfvbApprovalParams
+    from ultracart.model.sfvb_comms_provider_import_request import SfvbCommsProviderImportRequest
     from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
+    from ultracart.model.sfvb_comms_settings_update_request import SfvbCommsSettingsUpdateRequest
+    from ultracart.model.sfvb_comms_test_postcard_request import SfvbCommsTestPostcardRequest
     from ultracart.model.sfvb_experiment_start_request import SfvbExperimentStartRequest
     from ultracart.model.sfvb_item_attribute_batch_row import SfvbItemAttributeBatchRow
     from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
@@ -44,7 +47,10 @@ def lazy_import():
     from ultracart.model.sfvb_transactional_email_update_request import SfvbTransactionalEmailUpdateRequest
     globals()['SfvbAffiliateNetworkRequest'] = SfvbAffiliateNetworkRequest
     globals()['SfvbApprovalParams'] = SfvbApprovalParams
+    globals()['SfvbCommsProviderImportRequest'] = SfvbCommsProviderImportRequest
     globals()['SfvbCommsSegmentWriteRequest'] = SfvbCommsSegmentWriteRequest
+    globals()['SfvbCommsSettingsUpdateRequest'] = SfvbCommsSettingsUpdateRequest
+    globals()['SfvbCommsTestPostcardRequest'] = SfvbCommsTestPostcardRequest
     globals()['SfvbExperimentStartRequest'] = SfvbExperimentStartRequest
     globals()['SfvbItemAttributeBatchRow'] = SfvbItemAttributeBatchRow
     globals()['SfvbItemPricingRequest'] = SfvbItemPricingRequest
@@ -104,6 +110,9 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'AFFILIATE_NETWORK.DELETE': "affiliate_network.delete",
             'SITE_SEO.CHANGE': "site_seo.change",
             'TRANSACTIONAL_EMAIL.UPDATE': "transactional_email.update",
+            'COMMS_SETTINGS.UPDATE': "comms_settings.update",
+            'COMMS_LIST.IMPORT': "comms_list.import",
+            'POSTCARD.TEST_MAIL': "postcard.test_mail",
         },
     }
 
@@ -135,11 +144,14 @@ class SfvbApprovalCreateRequest(ModelNormal):
         return {
             'action': (str,),  # noqa: E501
             'affiliate_network': (SfvbAffiliateNetworkRequest,),  # noqa: E501
+            'comms_list_import': (SfvbCommsProviderImportRequest,),  # noqa: E501
+            'comms_settings': (SfvbCommsSettingsUpdateRequest,),  # noqa: E501
             'content': (str,),  # noqa: E501
             'experiment_start': (SfvbExperimentStartRequest,),  # noqa: E501
             'item_attribute_rows': ([SfvbItemAttributeBatchRow],),  # noqa: E501
             'item_pricing': (SfvbItemPricingRequest,),  # noqa: E501
             'params': (SfvbApprovalParams,),  # noqa: E501
+            'postcard_test_mail': (SfvbCommsTestPostcardRequest,),  # noqa: E501
             'reason': (str,),  # noqa: E501
             'redirect_rows': ([SfvbRedirectDeleteRow],),  # noqa: E501
             'segment_update': (SfvbCommsSegmentWriteRequest,),  # noqa: E501
@@ -157,11 +169,14 @@ class SfvbApprovalCreateRequest(ModelNormal):
     attribute_map = {
         'action': 'action',  # noqa: E501
         'affiliate_network': 'affiliate_network',  # noqa: E501
+        'comms_list_import': 'comms_list_import',  # noqa: E501
+        'comms_settings': 'comms_settings',  # noqa: E501
         'content': 'content',  # noqa: E501
         'experiment_start': 'experiment_start',  # noqa: E501
         'item_attribute_rows': 'item_attribute_rows',  # noqa: E501
         'item_pricing': 'item_pricing',  # noqa: E501
         'params': 'params',  # noqa: E501
+        'postcard_test_mail': 'postcard_test_mail',  # noqa: E501
         'reason': 'reason',  # noqa: E501
         'redirect_rows': 'redirect_rows',  # noqa: E501
         'segment_update': 'segment_update',  # noqa: E501
@@ -214,11 +229,14 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
             affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
+            comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
+            comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
             content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
+            postcard_test_mail (SfvbCommsTestPostcardRequest): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501
@@ -313,11 +331,14 @@ class SfvbApprovalCreateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): The gated action to approve.. [optional]  # noqa: E501
             affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
+            comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
+            comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
             content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
+            postcard_test_mail (SfvbCommsTestPostcardRequest): [optional]  # noqa: E501
             reason (str): Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters.. [optional]  # noqa: E501
             redirect_rows ([SfvbRedirectDeleteRow]): For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
             segment_update (SfvbCommsSegmentWriteRequest): [optional]  # noqa: E501

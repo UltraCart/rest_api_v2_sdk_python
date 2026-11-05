@@ -104,6 +104,7 @@ class ItemContentMultimedia(ModelNormal):
         """
         lazy_import()
         return {
+            'ai_alt_text': (str,),  # noqa: E501
             'cloud_url': (str,),  # noqa: E501
             'cloud_url_expiration': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
@@ -128,6 +129,7 @@ class ItemContentMultimedia(ModelNormal):
 
 
     attribute_map = {
+        'ai_alt_text': 'ai_alt_text',  # noqa: E501
         'cloud_url': 'cloud_url',  # noqa: E501
         'cloud_url_expiration': 'cloud_url_expiration',  # noqa: E501
         'code': 'code',  # noqa: E501
@@ -187,6 +189,7 @@ class ItemContentMultimedia(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai_alt_text (str): AI generated alt text for the image.  StoreFront uses this when description is empty.. [optional]  # noqa: E501
             cloud_url (str): URL where the image can be downloaded from the cloud. [optional]  # noqa: E501
             cloud_url_expiration (str): Expiration date of the cloud URL. [optional]  # noqa: E501
             code (str): Code assigned to the file. [optional]  # noqa: E501
@@ -288,6 +291,7 @@ class ItemContentMultimedia(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai_alt_text (str): AI generated alt text for the image.  StoreFront uses this when description is empty.. [optional]  # noqa: E501
             cloud_url (str): URL where the image can be downloaded from the cloud. [optional]  # noqa: E501
             cloud_url_expiration (str): Expiration date of the cloud URL. [optional]  # noqa: E501
             code (str): Code assigned to the file. [optional]  # noqa: E501
