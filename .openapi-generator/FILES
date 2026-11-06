@@ -1028,6 +1028,8 @@ docs/SfvbCommsListDetail.md
 docs/SfvbCommsListResponse.md
 docs/SfvbCommsListWriteRequest.md
 docs/SfvbCommsListsResponse.md
+docs/SfvbCommsLookupOwner.md
+docs/SfvbCommsLookupResponse.md
 docs/SfvbCommsMember.md
 docs/SfvbCommsMembersResponse.md
 docs/SfvbCommsPlan.md
@@ -1038,6 +1040,8 @@ docs/SfvbCommsProviderImportRequest.md
 docs/SfvbCommsProviderImportResponse.md
 docs/SfvbCommsProviderList.md
 docs/SfvbCommsProvidersResponse.md
+docs/SfvbCommsRulerValidateRequest.md
+docs/SfvbCommsRulerValidateResponse.md
 docs/SfvbCommsSegment.md
 docs/SfvbCommsSegmentDetail.md
 docs/SfvbCommsSegmentResponse.md
@@ -1048,6 +1052,9 @@ docs/SfvbCommsSender.md
 docs/SfvbCommsSenderUpdate.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
+docs/SfvbCommsSequenceFolder.md
+docs/SfvbCommsSequenceFolderResponse.md
+docs/SfvbCommsSequenceFoldersResponse.md
 docs/SfvbCommsSequenceStatsResponse.md
 docs/SfvbCommsSettings.md
 docs/SfvbCommsSettingsResponse.md
@@ -1063,6 +1070,9 @@ docs/SfvbCommsTestSendResponse.md
 docs/SfvbCommsTestSmsRequest.md
 docs/SfvbCommsTwilioAccount.md
 docs/SfvbCommsTwilioAccountResponse.md
+docs/SfvbCommsUnreferencedEmail.md
+docs/SfvbCommsUnreferencedPostcard.md
+docs/SfvbCommsUnreferencedResponse.md
 docs/SfvbCompileRequest.md
 docs/SfvbCompileResponse.md
 docs/SfvbContainerResponse.md
@@ -1104,6 +1114,8 @@ docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
+docs/SfvbFlowBackfillRequest.md
+docs/SfvbFlowBackfillResponse.md
 docs/SfvbFlowStatusRequest.md
 docs/SfvbFlowWriteRequest.md
 docs/SfvbFlowsResponse.md
@@ -2486,6 +2498,8 @@ ultracart/model/sfvb_comms_list_detail.py
 ultracart/model/sfvb_comms_list_response.py
 ultracart/model/sfvb_comms_list_write_request.py
 ultracart/model/sfvb_comms_lists_response.py
+ultracart/model/sfvb_comms_lookup_owner.py
+ultracart/model/sfvb_comms_lookup_response.py
 ultracart/model/sfvb_comms_member.py
 ultracart/model/sfvb_comms_members_response.py
 ultracart/model/sfvb_comms_plan.py
@@ -2496,6 +2510,8 @@ ultracart/model/sfvb_comms_provider_import_request.py
 ultracart/model/sfvb_comms_provider_import_response.py
 ultracart/model/sfvb_comms_provider_list.py
 ultracart/model/sfvb_comms_providers_response.py
+ultracart/model/sfvb_comms_ruler_validate_request.py
+ultracart/model/sfvb_comms_ruler_validate_response.py
 ultracart/model/sfvb_comms_segment.py
 ultracart/model/sfvb_comms_segment_detail.py
 ultracart/model/sfvb_comms_segment_response.py
@@ -2506,6 +2522,9 @@ ultracart/model/sfvb_comms_sender.py
 ultracart/model/sfvb_comms_sender_update.py
 ultracart/model/sfvb_comms_sending_domain.py
 ultracart/model/sfvb_comms_sending_domains_response.py
+ultracart/model/sfvb_comms_sequence_folder.py
+ultracart/model/sfvb_comms_sequence_folder_response.py
+ultracart/model/sfvb_comms_sequence_folders_response.py
 ultracart/model/sfvb_comms_sequence_stats_response.py
 ultracart/model/sfvb_comms_settings.py
 ultracart/model/sfvb_comms_settings_response.py
@@ -2521,6 +2540,9 @@ ultracart/model/sfvb_comms_test_send_response.py
 ultracart/model/sfvb_comms_test_sms_request.py
 ultracart/model/sfvb_comms_twilio_account.py
 ultracart/model/sfvb_comms_twilio_account_response.py
+ultracart/model/sfvb_comms_unreferenced_email.py
+ultracart/model/sfvb_comms_unreferenced_postcard.py
+ultracart/model/sfvb_comms_unreferenced_response.py
 ultracart/model/sfvb_compile_request.py
 ultracart/model/sfvb_compile_response.py
 ultracart/model/sfvb_container_response.py
@@ -2562,6 +2584,8 @@ ultracart/model/sfvb_file_write_request.py
 ultracart/model/sfvb_file_write_response.py
 ultracart/model/sfvb_files_response.py
 ultracart/model/sfvb_flow.py
+ultracart/model/sfvb_flow_backfill_request.py
+ultracart/model/sfvb_flow_backfill_response.py
 ultracart/model/sfvb_flow_status_request.py
 ultracart/model/sfvb_flow_write_request.py
 ultracart/model/sfvb_flows_response.py

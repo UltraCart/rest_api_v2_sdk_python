@@ -99,6 +99,8 @@ class SfvbCampaign(ModelNormal):
             'emails': ([SfvbCommsEmail],),  # noqa: E501
             'end_once_customer_purchases': (bool,),  # noqa: E501
             'end_once_customer_purchases_anywhere': (bool,),  # noqa: E501
+            'folder_name': (str,),  # noqa: E501
+            'folder_uuid': (str,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
             'live': (bool,),  # noqa: E501
             'memberships': ([SfvbCampaignMembership],),  # noqa: E501
@@ -127,6 +129,8 @@ class SfvbCampaign(ModelNormal):
         'emails': 'emails',  # noqa: E501
         'end_once_customer_purchases': 'end_once_customer_purchases',  # noqa: E501
         'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',  # noqa: E501
+        'folder_name': 'folder_name',  # noqa: E501
+        'folder_uuid': 'folder_uuid',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
         'live': 'live',  # noqa: E501
         'memberships': 'memberships',  # noqa: E501
@@ -190,6 +194,8 @@ class SfvbCampaign(ModelNormal):
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
             end_once_customer_purchases (bool): True when a customer leaves the campaign once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True when a customer leaves the campaign once they buy from any source.. [optional]  # noqa: E501
+            folder_name (str): That folder's name.. [optional]  # noqa: E501
+            folder_uuid (str): The campaign folder it is filed in, or none.. [optional]  # noqa: E501
             hash_sha256 (str): Send this as If-Match when changing or archiving the campaign.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
             memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.. [optional]  # noqa: E501
@@ -295,6 +301,8 @@ class SfvbCampaign(ModelNormal):
             emails ([SfvbCommsEmail]): Its emails, in step order.. [optional]  # noqa: E501
             end_once_customer_purchases (bool): True when a customer leaves the campaign once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True when a customer leaves the campaign once they buy from any source.. [optional]  # noqa: E501
+            folder_name (str): That folder's name.. [optional]  # noqa: E501
+            folder_uuid (str): The campaign folder it is filed in, or none.. [optional]  # noqa: E501
             hash_sha256 (str): Send this as If-Match when changing or archiving the campaign.. [optional]  # noqa: E501
             live (bool): True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing.. [optional]  # noqa: E501
             memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.. [optional]  # noqa: E501

@@ -83,6 +83,7 @@ class SfvbEmail(ModelNormal):
         """
         return {
             'container_last_modified_dts': (str,),  # noqa: E501
+            'email_template_vm_path': (str,),  # noqa: E501
             'email_uuid': (str,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
             'live': (bool,),  # noqa: E501
@@ -93,6 +94,9 @@ class SfvbEmail(ModelNormal):
             'requires_review': (bool,),  # noqa: E501
             'subject': (str,),  # noqa: E501
             'suspended_for_spam': (bool,),  # noqa: E501
+            'template_exists': (bool,),  # noqa: E501
+            'template_note': (str,),  # noqa: E501
+            'template_path': (str,),  # noqa: E501
             'transactional': (bool,),  # noqa: E501
             'version': (int,),  # noqa: E501
         }
@@ -104,6 +108,7 @@ class SfvbEmail(ModelNormal):
 
     attribute_map = {
         'container_last_modified_dts': 'container_last_modified_dts',  # noqa: E501
+        'email_template_vm_path': 'email_template_vm_path',  # noqa: E501
         'email_uuid': 'email_uuid',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
         'live': 'live',  # noqa: E501
@@ -114,6 +119,9 @@ class SfvbEmail(ModelNormal):
         'requires_review': 'requires_review',  # noqa: E501
         'subject': 'subject',  # noqa: E501
         'suspended_for_spam': 'suspended_for_spam',  # noqa: E501
+        'template_exists': 'template_exists',  # noqa: E501
+        'template_note': 'template_note',  # noqa: E501
+        'template_path': 'template_path',  # noqa: E501
         'transactional': 'transactional',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
@@ -160,6 +168,7 @@ class SfvbEmail(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             container_last_modified_dts (str): When the email container was last changed (ISO 8601, UTC).. [optional]  # noqa: E501
+            email_template_vm_path (str): The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront's active theme.. [optional]  # noqa: E501
             email_uuid (str): The email uuid.  The same uuid the email container (owner type email) and the email render take.. [optional]  # noqa: E501
             hash_sha256 (str): Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it.. [optional]  # noqa: E501
             live (bool): True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live.. [optional]  # noqa: E501
@@ -170,6 +179,9 @@ class SfvbEmail(ModelNormal):
             requires_review (bool): True when a change to this email must be reviewed before it sends.. [optional]  # noqa: E501
             subject (str): The subject line.  Merge tokens such as firstName are filled in at send.. [optional]  # noqa: E501
             suspended_for_spam (bool): True when UltraCart suspended the email for spam.  Edits are refused until the merchant resolves it with UltraCart support.. [optional]  # noqa: E501
+            template_exists (bool): True when the file at template_path exists.  False means the email can't render.. [optional]  # noqa: E501
+            template_note (str): Why there is no template file, or null when there is one.. [optional]  # noqa: E501
+            template_path (str): The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.. [optional]  # noqa: E501
             transactional (bool): True for a transactional email, which skips the marketing footer rules.. [optional]  # noqa: E501
             version (int): The email version.  Every save adds one.. [optional]  # noqa: E501
         """
@@ -258,6 +270,7 @@ class SfvbEmail(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             container_last_modified_dts (str): When the email container was last changed (ISO 8601, UTC).. [optional]  # noqa: E501
+            email_template_vm_path (str): The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront's active theme.. [optional]  # noqa: E501
             email_uuid (str): The email uuid.  The same uuid the email container (owner type email) and the email render take.. [optional]  # noqa: E501
             hash_sha256 (str): Hash of the subject and preview text.  Send it as If-Match when updating.  A change to the email body does not change it.. [optional]  # noqa: E501
             live (bool): True when the email is in a flow or campaign that is sending, so a change reaches customers and needs sfvb_publish.  An email in neither is reported live.. [optional]  # noqa: E501
@@ -268,6 +281,9 @@ class SfvbEmail(ModelNormal):
             requires_review (bool): True when a change to this email must be reviewed before it sends.. [optional]  # noqa: E501
             subject (str): The subject line.  Merge tokens such as firstName are filled in at send.. [optional]  # noqa: E501
             suspended_for_spam (bool): True when UltraCart suspended the email for spam.  Edits are refused until the merchant resolves it with UltraCart support.. [optional]  # noqa: E501
+            template_exists (bool): True when the file at template_path exists.  False means the email can't render.. [optional]  # noqa: E501
+            template_note (str): Why there is no template file, or null when there is one.. [optional]  # noqa: E501
+            template_path (str): The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.. [optional]  # noqa: E501
             transactional (bool): True for a transactional email, which skips the marketing footer rules.. [optional]  # noqa: E501
             version (int): The email version.  Every save adds one.. [optional]  # noqa: E501
         """

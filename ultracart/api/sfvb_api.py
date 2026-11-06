@@ -46,16 +46,21 @@ from ultracart.model.sfvb_comms_folders_response import SfvbCommsFoldersResponse
 from ultracart.model.sfvb_comms_list_response import SfvbCommsListResponse
 from ultracart.model.sfvb_comms_list_write_request import SfvbCommsListWriteRequest
 from ultracart.model.sfvb_comms_lists_response import SfvbCommsListsResponse
+from ultracart.model.sfvb_comms_lookup_response import SfvbCommsLookupResponse
 from ultracart.model.sfvb_comms_members_response import SfvbCommsMembersResponse
 from ultracart.model.sfvb_comms_plan_response import SfvbCommsPlanResponse
 from ultracart.model.sfvb_comms_provider_import_request import SfvbCommsProviderImportRequest
 from ultracart.model.sfvb_comms_provider_import_response import SfvbCommsProviderImportResponse
 from ultracart.model.sfvb_comms_providers_response import SfvbCommsProvidersResponse
+from ultracart.model.sfvb_comms_ruler_validate_request import SfvbCommsRulerValidateRequest
+from ultracart.model.sfvb_comms_ruler_validate_response import SfvbCommsRulerValidateResponse
 from ultracart.model.sfvb_comms_segment_response import SfvbCommsSegmentResponse
 from ultracart.model.sfvb_comms_segment_write_request import SfvbCommsSegmentWriteRequest
 from ultracart.model.sfvb_comms_segments_response import SfvbCommsSegmentsResponse
 from ultracart.model.sfvb_comms_sending_domain import SfvbCommsSendingDomain
 from ultracart.model.sfvb_comms_sending_domains_response import SfvbCommsSendingDomainsResponse
+from ultracart.model.sfvb_comms_sequence_folder_response import SfvbCommsSequenceFolderResponse
+from ultracart.model.sfvb_comms_sequence_folders_response import SfvbCommsSequenceFoldersResponse
 from ultracart.model.sfvb_comms_sequence_stats_response import SfvbCommsSequenceStatsResponse
 from ultracart.model.sfvb_comms_settings_response import SfvbCommsSettingsResponse
 from ultracart.model.sfvb_comms_settings_update_request import SfvbCommsSettingsUpdateRequest
@@ -67,6 +72,7 @@ from ultracart.model.sfvb_comms_test_send_response import SfvbCommsTestSendRespo
 from ultracart.model.sfvb_comms_test_sms_request import SfvbCommsTestSmsRequest
 from ultracart.model.sfvb_comms_twilio_account import SfvbCommsTwilioAccount
 from ultracart.model.sfvb_comms_twilio_account_response import SfvbCommsTwilioAccountResponse
+from ultracart.model.sfvb_comms_unreferenced_response import SfvbCommsUnreferencedResponse
 from ultracart.model.sfvb_compile_request import SfvbCompileRequest
 from ultracart.model.sfvb_compile_response import SfvbCompileResponse
 from ultracart.model.sfvb_container_response import SfvbContainerResponse
@@ -101,6 +107,8 @@ from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_flow import SfvbFlow
+from ultracart.model.sfvb_flow_backfill_request import SfvbFlowBackfillRequest
+from ultracart.model.sfvb_flow_backfill_response import SfvbFlowBackfillResponse
 from ultracart.model.sfvb_flow_status_request import SfvbFlowStatusRequest
 from ultracart.model.sfvb_flow_write_request import SfvbFlowWriteRequest
 from ultracart.model.sfvb_flows_response import SfvbFlowsResponse
@@ -791,6 +799,76 @@ class SfvbApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.backfill_sfvb_comms_flow_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbFlowBackfillResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/comms/flows/{flow_uuid}/backfill',
+                'operation_id': 'backfill_sfvb_comms_flow',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'flow_uuid',
+                    'flow_backfill_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'flow_uuid',
+                    'flow_backfill_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'flow_uuid':
+                        (str,),
+                    'flow_backfill_request':
+                        (SfvbFlowBackfillRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'flow_uuid': 'flow_uuid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'flow_uuid': 'path',
+                    'flow_backfill_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -1547,6 +1625,134 @@ class SfvbApi(object):
                     'storefront_oid': 'path',
                     'blog_post_oid': 'path',
                     'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_sfvb_comms_campaign_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid}',
+                'operation_id': 'delete_sfvb_comms_campaign_folder',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                    'if_match': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_sfvb_comms_flow_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/flow_folders/{folder_uuid}',
+                'operation_id': 'delete_sfvb_comms_flow_folder',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                    'if_match': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -4292,6 +4498,116 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_comms_campaign_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid}',
+                'operation_id': 'get_sfvb_comms_campaign_folder',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_campaign_folders_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFoldersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/campaign_folders',
+                'operation_id': 'get_sfvb_comms_campaign_folders',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_comms_dashboard_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbCommsDashboardResponse,),
@@ -4406,6 +4722,116 @@ class SfvbApi(object):
                     'commseq_uuid': 'path',
                     'email_uuid': 'path',
                     'days': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_flow_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/flow_folders/{folder_uuid}',
+                'operation_id': 'get_sfvb_comms_flow_folder',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_flow_folders_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFoldersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/flow_folders',
+                'operation_id': 'get_sfvb_comms_flow_folders',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -4647,6 +5073,58 @@ class SfvbApi(object):
                     'page': 'query',
                     'page_size': 'query',
                     'show_customer_data': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_lookup_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsLookupResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/comms/lookup',
+                'operation_id': 'get_sfvb_comms_lookup',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'uuid',
+                ],
+                'required': [
+                    'uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'uuid': 'uuid',
+                },
+                'location_map': {
+                    'uuid': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5249,6 +5727,58 @@ class SfvbApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_comms_unreferenced_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsUnreferencedResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/comms/unreferenced',
+                'operation_id': 'get_sfvb_comms_unreferenced',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -9558,6 +10088,124 @@ class SfvbApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_comms_campaign_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/campaign_folders',
+                'operation_id': 'insert_sfvb_comms_campaign_folder',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_write_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_write_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_write_request':
+                        (SfvbCommsFolderWriteRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_write_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_comms_flow_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/flow_folders',
+                'operation_id': 'insert_sfvb_comms_flow_folder',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_write_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_write_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_write_request':
+                        (SfvbCommsFolderWriteRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_write_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -15485,6 +16133,148 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.update_sfvb_comms_campaign_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid}',
+                'operation_id': 'update_sfvb_comms_campaign_folder',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                    'folder_write_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                    'folder_write_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'folder_write_request':
+                        (SfvbCommsFolderWriteRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                    'if_match': 'header',
+                    'folder_write_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_comms_flow_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsSequenceFolderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/flow_folders/{folder_uuid}',
+                'operation_id': 'update_sfvb_comms_flow_folder',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                    'folder_write_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'folder_uuid',
+                    'if_match',
+                    'folder_write_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'folder_uuid':
+                        (str,),
+                    'if_match':
+                        (str,),
+                    'folder_write_request':
+                        (SfvbCommsFolderWriteRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'folder_uuid': 'folder_uuid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'folder_uuid': 'path',
+                    'if_match': 'header',
+                    'folder_write_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_sfvb_comms_folder_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbCommsFolderResponse,),
@@ -17214,6 +18004,65 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.validate_sfvb_comms_ruler_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCommsRulerValidateResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/comms/ruler/validate',
+                'operation_id': 'validate_sfvb_comms_ruler',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'ruler_validate_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'ruler_validate_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'ruler_validate_request':
+                        (SfvbCommsRulerValidateRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'ruler_validate_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.validate_sfvb_velocity_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbValidationResponse,),
@@ -18011,6 +18860,98 @@ class SfvbApi(object):
         kwargs['blog_post_image_request'] = \
             blog_post_image_request
         return self.attach_sfvb_blog_post_image_endpoint.call_with_http_info(**kwargs)
+
+    def backfill_sfvb_comms_flow(
+        self,
+        storefront_oid,
+        flow_uuid,
+        flow_backfill_request,
+        **kwargs
+    ):
+        """Back populate a live flow, or count who it would enroll  # noqa: E501
+
+        Enrolls customers who would have met the flow's trigger before it existed: a segment trigger's members, or the orders of the last order_days_old days (1 to 90, default 5, every storefront on the account) for an order trigger, up to the plan's customer limit.  The flow must be on.  dry_run counts them and enrolls nobody.  A real backfill needs sfvb_publish, the sign-in of a person, and an approved flow.backfill request for exactly this flow and window; it runs in the background and mails each customer through the flow.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.backfill_sfvb_comms_flow(storefront_oid, flow_uuid, flow_backfill_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            flow_uuid (str):
+            flow_backfill_request (SfvbFlowBackfillRequest): The window and dry_run
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved flow.backfill request for exactly this flow and window.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbFlowBackfillResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['flow_uuid'] = \
+            flow_uuid
+        kwargs['flow_backfill_request'] = \
+            flow_backfill_request
+        return self.backfill_sfvb_comms_flow_endpoint.call_with_http_info(**kwargs)
 
     def check_sfvb_redirect(
         self,
@@ -19140,6 +20081,188 @@ class SfvbApi(object):
         kwargs['blog_post_oid'] = \
             blog_post_oid
         return self.delete_sfvb_blog_post_endpoint.call_with_http_info(**kwargs)
+
+    def delete_sfvb_comms_campaign_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        if_match,
+        **kwargs
+    ):
+        """Delete a campaign folder  # noqa: E501
+
+        Its campaigns are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_comms_campaign_folder(storefront_oid, folder_uuid, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+            if_match (str): The folder's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_comms_campaign_folder_endpoint.call_with_http_info(**kwargs)
+
+    def delete_sfvb_comms_flow_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        if_match,
+        **kwargs
+    ):
+        """Delete a flow folder  # noqa: E501
+
+        Its flows are kept and filed under no folder, as the admin does; items names each one.  Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be deleted here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sfvb_comms_flow_folder(storefront_oid, folder_uuid, if_match, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+            if_match (str): The folder's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        kwargs['if_match'] = \
+            if_match
+        return self.delete_sfvb_comms_flow_folder_endpoint.call_with_http_info(**kwargs)
 
     def delete_sfvb_comms_folder(
         self,
@@ -23073,6 +24196,176 @@ class SfvbApi(object):
             compile_request
         return self.get_sfvb_cjson_used_elements_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_comms_campaign_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        **kwargs
+    ):
+        """Read one campaign folder  # noqa: E501
+
+        The folder, with the name and uuid of each campaign filed in it.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_campaign_folder(storefront_oid, folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        return self.get_sfvb_comms_campaign_folder_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_campaign_folders(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the campaign folders  # noqa: E501
+
+        Each campaign folder with how many campaigns are filed in it, whether the admin made it, and its hash_sha256.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_campaign_folders(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFoldersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_comms_campaign_folders_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_comms_dashboard_stats(
         self,
         storefront_oid,
@@ -23248,6 +24541,176 @@ class SfvbApi(object):
         kwargs['email_uuid'] = \
             email_uuid
         return self.get_sfvb_comms_email_clicks_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_flow_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        **kwargs
+    ):
+        """Read one flow folder  # noqa: E501
+
+        The folder, with the name and uuid of each flow filed in it.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_flow_folder(storefront_oid, folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        return self.get_sfvb_comms_flow_folder_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_flow_folders(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the flow folders  # noqa: E501
+
+        Each flow folder with how many flows are filed in it, whether the admin made it, and its hash_sha256.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_flow_folders(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFoldersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_comms_flow_folders_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_comms_folder(
         self,
@@ -23595,6 +25058,89 @@ class SfvbApi(object):
         kwargs['list_uuid'] = \
             list_uuid
         return self.get_sfvb_comms_list_members_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_lookup(
+        self,
+        uuid,
+        **kwargs
+    ):
+        """Find which storefront a communications uuid lives on  # noqa: E501
+
+        Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_lookup(uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            uuid (str): The uuid to find.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsLookupResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['uuid'] = \
+            uuid
+        return self.get_sfvb_comms_lookup_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_comms_plan(
         self,
@@ -24279,7 +25825,7 @@ class SfvbApi(object):
     ):
         """Read one saved email template's body  # noqa: E501
 
-        A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only.   # noqa: E501
+        A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is the theme file at template_path; read it with the files endpoints.  Read only.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -24518,6 +26064,89 @@ class SfvbApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_sfvb_comms_twilio_account_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_comms_unreferenced(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """List the emails and postcards on a storefront that no step names  # noqa: E501
+
+        An email or postcard no step of any sequence on this storefront names, an off or archived flow's included, so nothing sends it.  The admin's add can leave one when its second call fails.  Most recently changed first.  Read only, nothing is deleted.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_comms_unreferenced(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsUnreferencedResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_comms_unreferenced_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_container(
         self,
@@ -24792,7 +26421,7 @@ class SfvbApi(object):
     ):
         """Get a flow or campaign email's subject and preview text  # noqa: E501
 
-        The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows.   # noqa: E501
+        The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  The Velocity template it renders inside is the theme file at template_path; read it with the files endpoints, whose read reports valid and velocity_errors.  Find the uuid in the storefront's campaigns and flows.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -30769,6 +32398,180 @@ class SfvbApi(object):
         kwargs['blog_post_request'] = \
             blog_post_request
         return self.insert_sfvb_blog_post_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_comms_campaign_folder(
+        self,
+        storefront_oid,
+        folder_write_request,
+        **kwargs
+    ):
+        """Create a campaign folder  # noqa: E501
+
+        A new, empty folder.  File a campaign in it by setting its folder_uuid.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_comms_campaign_folder(storefront_oid, folder_write_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_write_request (SfvbCommsFolderWriteRequest): The new folder's name
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_write_request'] = \
+            folder_write_request
+        return self.insert_sfvb_comms_campaign_folder_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_comms_flow_folder(
+        self,
+        storefront_oid,
+        folder_write_request,
+        **kwargs
+    ):
+        """Create a flow folder  # noqa: E501
+
+        A new, empty folder.  File a flow in it by setting its folder_uuid.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_comms_flow_folder(storefront_oid, folder_write_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_write_request (SfvbCommsFolderWriteRequest): The new folder's name
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_write_request'] = \
+            folder_write_request
+        return self.insert_sfvb_comms_flow_folder_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_comms_folder(
         self,
@@ -38866,6 +40669,196 @@ class SfvbApi(object):
             campaign_write_request
         return self.update_sfvb_campaign_endpoint.call_with_http_info(**kwargs)
 
+    def update_sfvb_comms_campaign_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        if_match,
+        folder_write_request,
+        **kwargs
+    ):
+        """Rename a campaign folder  # noqa: E501
+
+        Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_comms_campaign_folder(storefront_oid, folder_uuid, if_match, folder_write_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+            if_match (str): The folder's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+            folder_write_request (SfvbCommsFolderWriteRequest): The new name
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['folder_write_request'] = \
+            folder_write_request
+        return self.update_sfvb_comms_campaign_folder_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_comms_flow_folder(
+        self,
+        storefront_oid,
+        folder_uuid,
+        if_match,
+        folder_write_request,
+        **kwargs
+    ):
+        """Rename a flow folder  # noqa: E501
+
+        Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_comms_flow_folder(storefront_oid, folder_uuid, if_match, folder_write_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            folder_uuid (str):
+            if_match (str): The folder's hash_sha256 from the last read.  Required; 428 when absent, 412 when stale.
+            folder_write_request (SfvbCommsFolderWriteRequest): The new name
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsSequenceFolderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['folder_uuid'] = \
+            folder_uuid
+        kwargs['if_match'] = \
+            if_match
+        kwargs['folder_write_request'] = \
+            folder_write_request
+        return self.update_sfvb_comms_flow_folder_endpoint.call_with_http_info(**kwargs)
+
     def update_sfvb_comms_folder(
         self,
         storefront_oid,
@@ -41186,6 +43179,93 @@ class SfvbApi(object):
         kwargs['validate_request'] = \
             validate_request
         return self.validate_sfvb_cjson_endpoint.call_with_http_info(**kwargs)
+
+    def validate_sfvb_comms_ruler(
+        self,
+        storefront_oid,
+        ruler_validate_request,
+        **kwargs
+    ):
+        """Check an Event Ruler pattern for an Is in BigQuery segment rule  # noqa: E501
+
+        Compiles the pattern the way an Is in BigQuery segment rule's bigquery_ruler is checked, and says whether it is valid and, if not, why.  An invalid pattern is a 200 with valid false.  Nothing is read or saved.  A segment create or update refuses a rule whose pattern doesn't compile, or whose bigquery_table_id isn't project.dataset.table.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.validate_sfvb_comms_ruler(storefront_oid, ruler_validate_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            ruler_validate_request (SfvbCommsRulerValidateRequest): The pattern to check
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCommsRulerValidateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['ruler_validate_request'] = \
+            ruler_validate_request
+        return self.validate_sfvb_comms_ruler_endpoint.call_with_http_info(**kwargs)
 
     def validate_sfvb_velocity(
         self,

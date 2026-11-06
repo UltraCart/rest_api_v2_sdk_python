@@ -172,7 +172,7 @@ class SfvbCommsStat(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bounced (int): Permanent bounces.. [optional]  # noqa: E501
-            channel (str): email, sms, postcard, branch or sequence.. [optional]  # noqa: E501
+            channel (str): email, sms, postcard, branch or sequence, or step for a step type that records no counts of its own, with every count named in not_measured.. [optional]  # noqa: E501
             clicked (int): Clicks (for a postcard, scans of its QR code).. [optional]  # noqa: E501
             conversions (int): Conversions.. [optional]  # noqa: E501
             customers (int): Customers who reached it (a branch side), or started (a whole sequence).. [optional]  # noqa: E501
@@ -276,7 +276,7 @@ class SfvbCommsStat(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bounced (int): Permanent bounces.. [optional]  # noqa: E501
-            channel (str): email, sms, postcard, branch or sequence.. [optional]  # noqa: E501
+            channel (str): email, sms, postcard, branch or sequence, or step for a step type that records no counts of its own, with every count named in not_measured.. [optional]  # noqa: E501
             clicked (int): Clicks (for a postcard, scans of its QR code).. [optional]  # noqa: E501
             conversions (int): Conversions.. [optional]  # noqa: E501
             customers (int): Customers who reached it (a branch side), or started (a whole sequence).. [optional]  # noqa: E501

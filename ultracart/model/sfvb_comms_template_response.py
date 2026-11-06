@@ -92,6 +92,9 @@ class SfvbCommsTemplateResponse(ModelNormal):
             'email_template_vm_path': (str,),  # noqa: E501
             'notes': ([str],),  # noqa: E501
             'template': (SfvbCommsTemplate,),  # noqa: E501
+            'template_exists': (bool,),  # noqa: E501
+            'template_note': (str,),  # noqa: E501
+            'template_path': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +107,9 @@ class SfvbCommsTemplateResponse(ModelNormal):
         'email_template_vm_path': 'email_template_vm_path',  # noqa: E501
         'notes': 'notes',  # noqa: E501
         'template': 'template',  # noqa: E501
+        'template_exists': 'template_exists',  # noqa: E501
+        'template_note': 'template_note',  # noqa: E501
+        'template_path': 'template_path',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,9 +154,12 @@ class SfvbCommsTemplateResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             container_cjson (str): The template's body, as CJSON.. [optional]  # noqa: E501
-            email_template_vm_path (str): The Velocity template it renders inside.  Its content isn't shown here.. [optional]  # noqa: E501
+            email_template_vm_path (str): The Velocity template it renders inside, as stored.  It is looked up in the storefront's active theme.. [optional]  # noqa: E501
             notes ([str]): What isn't shown.. [optional]  # noqa: E501
             template (SfvbCommsTemplate): [optional]  # noqa: E501
+            template_exists (bool): True when the file at template_path exists.. [optional]  # noqa: E501
+            template_note (str): Why there is no template file, or null when there is one.. [optional]  # noqa: E501
+            template_path (str): The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,9 +246,12 @@ class SfvbCommsTemplateResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             container_cjson (str): The template's body, as CJSON.. [optional]  # noqa: E501
-            email_template_vm_path (str): The Velocity template it renders inside.  Its content isn't shown here.. [optional]  # noqa: E501
+            email_template_vm_path (str): The Velocity template it renders inside, as stored.  It is looked up in the storefront's active theme.. [optional]  # noqa: E501
             notes ([str]): What isn't shown.. [optional]  # noqa: E501
             template (SfvbCommsTemplate): [optional]  # noqa: E501
+            template_exists (bool): True when the file at template_path exists.. [optional]  # noqa: E501
+            template_note (str): Why there is no template file, or null when there is one.. [optional]  # noqa: E501
+            template_path (str): The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

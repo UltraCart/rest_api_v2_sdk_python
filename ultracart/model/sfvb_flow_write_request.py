@@ -90,6 +90,7 @@ class SfvbFlowWriteRequest(ModelNormal):
             'allow_multiple_concurrent_enrollments': (bool,),  # noqa: E501
             'end_once_customer_purchases': (bool,),  # noqa: E501
             'end_once_customer_purchases_anywhere': (bool,),  # noqa: E501
+            'folder_uuid': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'reentry_delay_days': (int,),  # noqa: E501
             'reentry_policy': (str,),  # noqa: E501
@@ -109,6 +110,7 @@ class SfvbFlowWriteRequest(ModelNormal):
         'allow_multiple_concurrent_enrollments': 'allow_multiple_concurrent_enrollments',  # noqa: E501
         'end_once_customer_purchases': 'end_once_customer_purchases',  # noqa: E501
         'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',  # noqa: E501
+        'folder_uuid': 'folder_uuid',  # noqa: E501
         'name': 'name',  # noqa: E501
         'reentry_delay_days': 'reentry_delay_days',  # noqa: E501
         'reentry_policy': 'reentry_policy',  # noqa: E501
@@ -163,6 +165,7 @@ class SfvbFlowWriteRequest(ModelNormal):
             allow_multiple_concurrent_enrollments (bool): True when a customer may be in this flow more than once at a time.. [optional]  # noqa: E501
             end_once_customer_purchases (bool): True to end the flow for a customer once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True to end the flow for a customer once they buy from any source.. [optional]  # noqa: E501
+            folder_uuid (str): File it in this flow folder.  An empty value takes it out of its folder.. [optional]  # noqa: E501
             name (str): The flow name, 1 to 250 characters.  Required to create.. [optional]  # noqa: E501
             reentry_delay_days (int): Days before a customer may enter again, 1 to 1095.  Only with after_days.. [optional]  # noqa: E501
             reentry_policy (str): Whether a customer may enter again, anytime, after_days or never.. [optional]  # noqa: E501
@@ -259,6 +262,7 @@ class SfvbFlowWriteRequest(ModelNormal):
             allow_multiple_concurrent_enrollments (bool): True when a customer may be in this flow more than once at a time.. [optional]  # noqa: E501
             end_once_customer_purchases (bool): True to end the flow for a customer once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True to end the flow for a customer once they buy from any source.. [optional]  # noqa: E501
+            folder_uuid (str): File it in this flow folder.  An empty value takes it out of its folder.. [optional]  # noqa: E501
             name (str): The flow name, 1 to 250 characters.  Required to create.. [optional]  # noqa: E501
             reentry_delay_days (int): Days before a customer may enter again, 1 to 1095.  Only with after_days.. [optional]  # noqa: E501
             reentry_policy (str): Whether a customer may enter again, anytime, after_days or never.. [optional]  # noqa: E501

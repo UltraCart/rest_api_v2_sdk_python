@@ -90,6 +90,7 @@ class SfvbCampaignWriteRequest(ModelNormal):
         return {
             'end_once_customer_purchases': (bool,),  # noqa: E501
             'end_once_customer_purchases_anywhere': (bool,),  # noqa: E501
+            'folder_uuid': (str,),  # noqa: E501
             'memberships': ([SfvbCampaignMembership],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'scheduled_dts': (str,),  # noqa: E501
@@ -106,6 +107,7 @@ class SfvbCampaignWriteRequest(ModelNormal):
     attribute_map = {
         'end_once_customer_purchases': 'end_once_customer_purchases',  # noqa: E501
         'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',  # noqa: E501
+        'folder_uuid': 'folder_uuid',  # noqa: E501
         'memberships': 'memberships',  # noqa: E501
         'name': 'name',  # noqa: E501
         'scheduled_dts': 'scheduled_dts',  # noqa: E501
@@ -157,6 +159,7 @@ class SfvbCampaignWriteRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             end_once_customer_purchases (bool): True to end the campaign for a customer once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True to end the campaign for a customer once they buy from any source.. [optional]  # noqa: E501
+            folder_uuid (str): File it in this campaign folder.  An empty value takes it out of its folder.. [optional]  # noqa: E501
             memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.  Replaces the whole set.  An empty array clears it.. [optional]  # noqa: E501
             name (str): The campaign name, 1 to 250 characters.  Required to create.. [optional]  # noqa: E501
             scheduled_dts (str): When to send once started (ISO 8601).  An empty string clears the schedule.. [optional]  # noqa: E501
@@ -250,6 +253,7 @@ class SfvbCampaignWriteRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             end_once_customer_purchases (bool): True to end the campaign for a customer once they buy from one of its emails.. [optional]  # noqa: E501
             end_once_customer_purchases_anywhere (bool): True to end the campaign for a customer once they buy from any source.. [optional]  # noqa: E501
+            folder_uuid (str): File it in this campaign folder.  An empty value takes it out of its folder.. [optional]  # noqa: E501
             memberships ([SfvbCampaignMembership]): The lists and segments it sends to or leaves out.  Replaces the whole set.  An empty array clears it.. [optional]  # noqa: E501
             name (str): The campaign name, 1 to 250 characters.  Required to create.. [optional]  # noqa: E501
             scheduled_dts (str): When to send once started (ISO 8601).  An empty string clears the schedule.. [optional]  # noqa: E501
