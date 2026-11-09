@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **hash_sha256** | **str** | The hash of the stored settings.  A secret counts by its mask and length only.  Send it as If-Match when changing or clearing the provider. | [optional] 
 **key** | **str** | The provider key, such as facebook or google_analytics. | [optional] 
 **name** | **str** | The name the admin shows. | [optional] 
-**notes** | **[str]** | Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin. | [optional] 
+**notes** | **[str]** | Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write. | [optional] 
 **oauth** | [**SfvbTrackingProviderOauth**](SfvbTrackingProviderOauth.md) |  | [optional] 
 **server_side** | **str** | What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side. | [optional] 
 **wholesale_tiers** | [**[SfvbTrackingWholesaleTier]**](SfvbTrackingWholesaleTier.md) | For google_analytics, the account number per wholesale pricing tier. | [optional] 

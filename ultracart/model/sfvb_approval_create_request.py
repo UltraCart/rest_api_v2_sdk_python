@@ -107,6 +107,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'SMART_ATTRIBUTION.CHANGE': "smart_attribution.change",
             'SMART_ATTRIBUTION.DELETE': "smart_attribution.delete",
             'TRACKING_PROVIDER.CHANGE': "tracking_provider.change",
+            'TRACKING_PROVIDER.CLEAR': "tracking_provider.clear",
             'TRACKING_HTML.PUT': "tracking_html.put",
             'AFFILIATE_NETWORK.CHANGE': "affiliate_network.change",
             'AFFILIATE_NETWORK.DELETE': "affiliate_network.delete",

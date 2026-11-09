@@ -199,7 +199,7 @@ class SfvbTrackingProvider(ModelNormal):
             hash_sha256 (str): The hash of the stored settings.  A secret counts by its mask and length only.  Send it as If-Match when changing or clearing the provider.. [optional]  # noqa: E501
             key (str): The provider key, such as facebook or google_analytics.. [optional]  # noqa: E501
             name (str): The name the admin shows.. [optional]  # noqa: E501
-            notes ([str]): Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.. [optional]  # noqa: E501
+            notes ([str]): Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write.. [optional]  # noqa: E501
             oauth (SfvbTrackingProviderOauth): [optional]  # noqa: E501
             server_side (str): What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.. [optional]  # noqa: E501
             wholesale_tiers ([SfvbTrackingWholesaleTier]): For google_analytics, the account number per wholesale pricing tier.. [optional]  # noqa: E501
@@ -302,7 +302,7 @@ class SfvbTrackingProvider(ModelNormal):
             hash_sha256 (str): The hash of the stored settings.  A secret counts by its mask and length only.  Send it as If-Match when changing or clearing the provider.. [optional]  # noqa: E501
             key (str): The provider key, such as facebook or google_analytics.. [optional]  # noqa: E501
             name (str): The name the admin shows.. [optional]  # noqa: E501
-            notes ([str]): Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.. [optional]  # noqa: E501
+            notes ([str]): Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write.. [optional]  # noqa: E501
             oauth (SfvbTrackingProviderOauth): [optional]  # noqa: E501
             server_side (str): What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.. [optional]  # noqa: E501
             wholesale_tiers ([SfvbTrackingWholesaleTier]): For google_analytics, the account number per wholesale pricing tier.. [optional]  # noqa: E501
