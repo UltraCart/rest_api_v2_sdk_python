@@ -231,6 +231,7 @@ from ultracart.model.sfvb_theme_duplicate_request import SfvbThemeDuplicateReque
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
 from ultracart.model.sfvb_tracking_advanced_request import SfvbTrackingAdvancedRequest
+from ultracart.model.sfvb_tracking_check_plan import SfvbTrackingCheckPlan
 from ultracart.model.sfvb_tracking_html import SfvbTrackingHtml
 from ultracart.model.sfvb_tracking_html_render_request import SfvbTrackingHtmlRenderRequest
 from ultracart.model.sfvb_tracking_html_render_response import SfvbTrackingHtmlRenderResponse
@@ -8983,6 +8984,84 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'job_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_tracking_check_plan_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbTrackingCheckPlan,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/tracking/check_plan',
+                'operation_id': 'get_sfvb_tracking_check_plan',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'path',
+                    'event',
+                    'order_id',
+                    'consent',
+                    'region',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'path',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'path':
+                        (str,),
+                    'event':
+                        (str,),
+                    'order_id':
+                        (str,),
+                    'consent':
+                        (str,),
+                    'region':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'path': 'path',
+                    'event': 'event',
+                    'order_id': 'order_id',
+                    'consent': 'consent',
+                    'region': 'region',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'path': 'query',
+                    'event': 'query',
+                    'order_id': 'query',
+                    'consent': 'query',
+                    'region': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -30919,6 +30998,97 @@ class SfvbApi(object):
         kwargs['job_id'] = \
             job_id
         return self.get_sfvb_theme_job_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_tracking_check_plan(
+        self,
+        storefront_oid,
+        path,
+        **kwargs
+    ):
+        """Plan a browser check of a storefront's tracking  # noqa: E501
+
+        What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_tracking_check_plan(storefront_oid, path, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            path (str): A storefront page path, such as / or /checkout/receipt.html, with an optional query
+
+        Keyword Args:
+            event (str): page_view (the default) or purchase. [optional]
+            order_id (str): For purchase, a test order on this account. [optional]
+            consent (str): none, all, or a comma list of statistics, preferences and marketing. [optional]
+            region (str): Where the browser is.  eea, non-us or other. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbTrackingCheckPlan
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['path'] = \
+            path
+        return self.get_sfvb_tracking_check_plan_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_tracking_html(
         self,

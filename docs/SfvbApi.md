@@ -150,6 +150,7 @@ Method | HTTP request | Description
 [**get_sfvb_theme**](SfvbApi.md#get_sfvb_theme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**get_sfvb_theme_attributes**](SfvbApi.md#get_sfvb_theme_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 [**get_sfvb_theme_job**](SfvbApi.md#get_sfvb_theme_job) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+[**get_sfvb_tracking_check_plan**](SfvbApi.md#get_sfvb_tracking_check_plan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 [**get_sfvb_tracking_html**](SfvbApi.md#get_sfvb_tracking_html) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 [**get_sfvb_tracking_html_slots**](SfvbApi.md#get_sfvb_tracking_html_slots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
 [**get_sfvb_tracking_provider**](SfvbApi.md#get_sfvb_tracking_provider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
@@ -7833,6 +7834,61 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_tracking_check_plan**
+> SfvbTrackingCheckPlan get_sfvb_tracking_check_plan(storefront_oid, path)
+
+Plan a browser check of a storefront's tracking
+
+What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **path** | **str**| A storefront page path, such as / or /checkout/receipt.html, with an optional query |
+ **event** | **str**| page_view (the default) or purchase | [optional]
+ **order_id** | **str**| For purchase, a test order on this account | [optional]
+ **consent** | **str**| none, all, or a comma list of statistics, preferences and marketing | [optional]
+ **region** | **str**| Where the browser is.  eea, non-us or other | [optional]
+
+### Return type
+
+[**SfvbTrackingCheckPlan**](SfvbTrackingCheckPlan.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
