@@ -88,6 +88,7 @@ class SfvbCommsLookupResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'archived': (bool,),  # noqa: E501
             'communication_sequence_uuid': (str,),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -105,6 +106,7 @@ class SfvbCommsLookupResponse(ModelNormal):
 
 
     attribute_map = {
+        'archived': 'archived',  # noqa: E501
         'communication_sequence_uuid': 'communication_sequence_uuid',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -157,6 +159,7 @@ class SfvbCommsLookupResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            archived (bool): True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.. [optional]  # noqa: E501
             communication_sequence_uuid (str): The sequence it belongs to, when there is one.. [optional]  # noqa: E501
             kind (str): campaign, flow, sequence, step, email, postcard, list or segment.. [optional]  # noqa: E501
             name (str): The campaign, flow, list or segment name, or the email subject.. [optional]  # noqa: E501
@@ -251,6 +254,7 @@ class SfvbCommsLookupResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            archived (bool): True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.. [optional]  # noqa: E501
             communication_sequence_uuid (str): The sequence it belongs to, when there is one.. [optional]  # noqa: E501
             kind (str): campaign, flow, sequence, step, email, postcard, list or segment.. [optional]  # noqa: E501
             name (str): The campaign, flow, list or segment name, or the email subject.. [optional]  # noqa: E501

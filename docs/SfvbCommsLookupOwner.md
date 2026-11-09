@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**archived** | **bool** | True when the campaign or flow is archived.  It sends nothing, and &#39;sf comms flows list&#39; or &#39;campaigns list&#39; shows it only with --include-deleted. | [optional] 
 **live** | **bool** | True when it is sending now, by the same rule the sequence read uses. | [optional] 
 **name** | **str** | Its name. | [optional] 
 **status** | **str** | Its status as stored. | [optional] 

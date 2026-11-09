@@ -227,6 +227,7 @@ Method | HTTP request | Description
 [**put_sfvb_page_selectors**](SfvbApi.md#put_sfvb_page_selectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
 [**put_sfvb_page_settings**](SfvbApi.md#put_sfvb_page_settings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 [**put_sfvb_preview_session**](SfvbApi.md#put_sfvb_preview_session) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+[**put_sfvb_preview_tracking_html**](SfvbApi.md#put_sfvb_preview_tracking_html) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html | Stage custom tracking HTML in a preview session
 [**put_sfvb_recording_settings**](SfvbApi.md#put_sfvb_recording_settings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 [**put_sfvb_site_attributes**](SfvbApi.md#put_sfvb_site_attributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 [**put_sfvb_theme_attributes**](SfvbApi.md#put_sfvb_theme_attributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
@@ -235,6 +236,7 @@ Method | HTTP request | Description
 [**remove_sfvb_page_blog_posts**](SfvbApi.md#remove_sfvb_page_blog_posts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 [**remove_sfvb_page_items**](SfvbApi.md#remove_sfvb_page_items) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 [**render_sfvb_email**](SfvbApi.md#render_sfvb_email) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+[**render_sfvb_tracking_html**](SfvbApi.md#render_sfvb_tracking_html) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render | Render the Conversion HTML against a test order
 [**render_sfvb_transactional_email**](SfvbApi.md#render_sfvb_transactional_email) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 [**render_sfvb_widgets**](SfvbApi.md#render_sfvb_widgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 [**reserve_sfvb_widget_ids**](SfvbApi.md#reserve_sfvb_widget_ids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
@@ -2391,7 +2393,7 @@ void (empty response body)
 
 Clear one tracking provider
 
-Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
 
 ### Example
 
@@ -2410,6 +2412,8 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **provider** | **str**|  |
  **if_match** | **str**| The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. |
+ **dry_run** | **bool**|  | [optional]
+ **approval_id** | **str**| When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 
@@ -2434,6 +2438,8 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **412** |  |  -  |
 **428** |  |  -  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -4449,7 +4455,7 @@ Name | Type | Description  | Notes
 
 Find which storefront a communications uuid lives on
 
-Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only. 
+Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
 
 ### Example
 
@@ -11851,6 +11857,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **put_sfvb_preview_tracking_html**
+> SfvbTrackingHtmlResponse put_sfvb_preview_tracking_html(storefront_oid, preview_session_id, preview_tracking_html)
+
+Stage custom tracking HTML in a preview session
+
+Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **preview_session_id** | **str**|  |
+ **preview_tracking_html** | [**SfvbPreviewTrackingHtmlRequest**](SfvbPreviewTrackingHtmlRequest.md)| The HTML to stage |
+
+### Return type
+
+[**SfvbTrackingHtmlResponse**](SfvbTrackingHtmlResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**413** |  |  -  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **put_sfvb_recording_settings**
 > SfvbRecordingSettingsResponse put_sfvb_recording_settings(storefront_oid, recording_settings_request)
 
@@ -12261,6 +12320,58 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **render_sfvb_tracking_html**
+> SfvbTrackingHtmlRenderResponse render_sfvb_tracking_html(storefront_oid, slot, tracking_html_render_request)
+
+Render the Conversion HTML against a test order
+
+The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **slot** | **str**| conversion |
+ **tracking_html_render_request** | [**SfvbTrackingHtmlRenderRequest**](SfvbTrackingHtmlRenderRequest.md)| The test order, and optionally a draft |
+
+### Return type
+
+[**SfvbTrackingHtmlRenderResponse**](SfvbTrackingHtmlRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**413** |  |  -  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

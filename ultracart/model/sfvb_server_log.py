@@ -157,7 +157,7 @@ class SfvbServerLog(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             app_error (bool): True when the render itself failed and the page could not be produced.. [optional]  # noqa: E501
             duration_ms (int): How long the render took in milliseconds.. [optional]  # noqa: E501
-            error_count (int): Error lines in the log, including Velocity problems such as a null. [optional]  # noqa: E501
+            error_count (int): Error lines in the log, including Velocity problems such as setting a variable to null.. [optional]  # noqa: E501
             line_count (int): Lines in the full log text.. [optional]  # noqa: E501
             log_id (str): Opaque id of this log.  Pass it to the get endpoint.  Preview pages send the same id in the X-UltraCart-Storefront-Log-Id response header.. [optional]  # noqa: E501
             request_template (str): The template the page rendered with, when known.. [optional]  # noqa: E501
@@ -253,7 +253,7 @@ class SfvbServerLog(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             app_error (bool): True when the render itself failed and the page could not be produced.. [optional]  # noqa: E501
             duration_ms (int): How long the render took in milliseconds.. [optional]  # noqa: E501
-            error_count (int): Error lines in the log, including Velocity problems such as a null. [optional]  # noqa: E501
+            error_count (int): Error lines in the log, including Velocity problems such as setting a variable to null.. [optional]  # noqa: E501
             line_count (int): Lines in the full log text.. [optional]  # noqa: E501
             log_id (str): Opaque id of this log.  Pass it to the get endpoint.  Preview pages send the same id in the X-UltraCart-Storefront-Log-Id response header.. [optional]  # noqa: E501
             request_template (str): The template the page rendered with, when known.. [optional]  # noqa: E501

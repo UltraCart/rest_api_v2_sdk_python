@@ -82,6 +82,7 @@ class SfvbCommsLookupOwner(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'archived': (bool,),  # noqa: E501
             'live': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
@@ -95,6 +96,7 @@ class SfvbCommsLookupOwner(ModelNormal):
 
 
     attribute_map = {
+        'archived': 'archived',  # noqa: E501
         'live': 'live',  # noqa: E501
         'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -143,6 +145,7 @@ class SfvbCommsLookupOwner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            archived (bool): True when the campaign or flow is archived.  It sends nothing, and 'sf comms flows list' or 'campaigns list' shows it only with --include-deleted.. [optional]  # noqa: E501
             live (bool): True when it is sending now, by the same rule the sequence read uses.. [optional]  # noqa: E501
             name (str): Its name.. [optional]  # noqa: E501
             status (str): Its status as stored.. [optional]  # noqa: E501
@@ -233,6 +236,7 @@ class SfvbCommsLookupOwner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            archived (bool): True when the campaign or flow is archived.  It sends nothing, and 'sf comms flows list' or 'campaigns list' shows it only with --include-deleted.. [optional]  # noqa: E501
             live (bool): True when it is sending now, by the same rule the sequence read uses.. [optional]  # noqa: E501
             name (str): Its name.. [optional]  # noqa: E501
             status (str): Its status as stored.. [optional]  # noqa: E501

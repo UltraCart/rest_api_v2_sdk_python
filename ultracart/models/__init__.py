@@ -1210,6 +1210,7 @@ from ultracart.model.sfvb_preview_access_request import SfvbPreviewAccessRequest
 from ultracart.model.sfvb_preview_access_response import SfvbPreviewAccessResponse
 from ultracart.model.sfvb_preview_session_request import SfvbPreviewSessionRequest
 from ultracart.model.sfvb_preview_session_response import SfvbPreviewSessionResponse
+from ultracart.model.sfvb_preview_tracking_html_request import SfvbPreviewTrackingHtmlRequest
 from ultracart.model.sfvb_preview_url_response import SfvbPreviewUrlResponse
 from ultracart.model.sfvb_recording import SfvbRecording
 from ultracart.model.sfvb_recording_event import SfvbRecordingEvent
@@ -1300,6 +1301,8 @@ from ultracart.model.sfvb_tracking_advanced import SfvbTrackingAdvanced
 from ultracart.model.sfvb_tracking_advanced_request import SfvbTrackingAdvancedRequest
 from ultracart.model.sfvb_tracking_change import SfvbTrackingChange
 from ultracart.model.sfvb_tracking_html import SfvbTrackingHtml
+from ultracart.model.sfvb_tracking_html_render_request import SfvbTrackingHtmlRenderRequest
+from ultracart.model.sfvb_tracking_html_render_response import SfvbTrackingHtmlRenderResponse
 from ultracart.model.sfvb_tracking_html_request import SfvbTrackingHtmlRequest
 from ultracart.model.sfvb_tracking_html_response import SfvbTrackingHtmlResponse
 from ultracart.model.sfvb_tracking_privacy import SfvbTrackingPrivacy

@@ -114,6 +114,7 @@ class SfvbTrackingProvider(ModelNormal):
             'name': (str,),  # noqa: E501
             'notes': ([str],),  # noqa: E501
             'oauth': (SfvbTrackingProviderOauth,),  # noqa: E501
+            'server_side': (str,),  # noqa: E501
             'wholesale_tiers': ([SfvbTrackingWholesaleTier],),  # noqa: E501
         }
 
@@ -139,6 +140,7 @@ class SfvbTrackingProvider(ModelNormal):
         'name': 'name',  # noqa: E501
         'notes': 'notes',  # noqa: E501
         'oauth': 'oauth',  # noqa: E501
+        'server_side': 'server_side',  # noqa: E501
         'wholesale_tiers': 'wholesale_tiers',  # noqa: E501
     }
 
@@ -199,6 +201,7 @@ class SfvbTrackingProvider(ModelNormal):
             name (str): The name the admin shows.. [optional]  # noqa: E501
             notes ([str]): Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.. [optional]  # noqa: E501
             oauth (SfvbTrackingProviderOauth): [optional]  # noqa: E501
+            server_side (str): What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.. [optional]  # noqa: E501
             wholesale_tiers ([SfvbTrackingWholesaleTier]): For google_analytics, the account number per wholesale pricing tier.. [optional]  # noqa: E501
         """
 
@@ -301,6 +304,7 @@ class SfvbTrackingProvider(ModelNormal):
             name (str): The name the admin shows.. [optional]  # noqa: E501
             notes ([str]): Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.. [optional]  # noqa: E501
             oauth (SfvbTrackingProviderOauth): [optional]  # noqa: E501
+            server_side (str): What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.. [optional]  # noqa: E501
             wholesale_tiers ([SfvbTrackingWholesaleTier]): For google_analytics, the account number per wholesale pricing tier.. [optional]  # noqa: E501
         """
 
