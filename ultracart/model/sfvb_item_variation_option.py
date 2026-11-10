@@ -82,7 +82,7 @@ class SfvbItemVariationOption(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'default': (bool,),  # noqa: E501
+            'default_option': (bool,),  # noqa: E501
             'multimedia_oid': (int,),  # noqa: E501
             'value': (str,),  # noqa: E501
         }
@@ -93,7 +93,7 @@ class SfvbItemVariationOption(ModelNormal):
 
 
     attribute_map = {
-        'default': 'default',  # noqa: E501
+        'default_option': 'default_option',  # noqa: E501
         'multimedia_oid': 'multimedia_oid',  # noqa: E501
         'value': 'value',  # noqa: E501
     }
@@ -139,7 +139,7 @@ class SfvbItemVariationOption(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (bool): True for the option the item page starts on.  At most one per axis.. [optional]  # noqa: E501
+            default_option (bool): True for the option the item page starts on.  At most one per axis.. [optional]  # noqa: E501
             multimedia_oid (int): An image or swatch of the parent item shown for this option, or null.. [optional]  # noqa: E501
             value (str): The option value, such as 2T.. [optional]  # noqa: E501
         """
@@ -227,7 +227,7 @@ class SfvbItemVariationOption(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (bool): True for the option the item page starts on.  At most one per axis.. [optional]  # noqa: E501
+            default_option (bool): True for the option the item page starts on.  At most one per axis.. [optional]  # noqa: E501
             multimedia_oid (int): An image or swatch of the parent item shown for this option, or null.. [optional]  # noqa: E501
             value (str): The option value, such as 2T.. [optional]  # noqa: E501
         """

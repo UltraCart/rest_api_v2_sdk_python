@@ -93,6 +93,7 @@ class SfvbTrackingCheckPlanGate(ModelNormal):
         """
         return {
             'region': (str,),  # noqa: E501
+            'service': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
 
@@ -103,6 +104,7 @@ class SfvbTrackingCheckPlanGate(ModelNormal):
 
     attribute_map = {
         'region': 'region',  # noqa: E501
+        'service': 'service',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
 
@@ -148,6 +150,7 @@ class SfvbTrackingCheckPlanGate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             region (str): Where the gate applies.  all, eea or non_us.. [optional]  # noqa: E501
+            service (str): The cookie service the consent gate is stored under, for example openai or facebook (#1959).. [optional]  # noqa: E501
             type (str): The consent category that must be granted.  Statistics, Preferences or Marketing.. [optional]  # noqa: E501
         """
 
@@ -235,6 +238,7 @@ class SfvbTrackingCheckPlanGate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             region (str): Where the gate applies.  all, eea or non_us.. [optional]  # noqa: E501
+            service (str): The cookie service the consent gate is stored under, for example openai or facebook (#1959).. [optional]  # noqa: E501
             type (str): The consent category that must be granted.  Statistics, Preferences or Marketing.. [optional]  # noqa: E501
         """
 

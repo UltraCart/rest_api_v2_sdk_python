@@ -91,7 +91,7 @@ class SfvbItemVariationChange(ModelNormal):
             'axis': (str,),  # noqa: E501
             'before': (str,),  # noqa: E501
             'child': (str,),  # noqa: E501
-            'default': (bool,),  # noqa: E501
+            'default_option': (bool,),  # noqa: E501
             'default_text': (str,),  # noqa: E501
             'multimedia_oid': (int,),  # noqa: E501
             'op': (str,),  # noqa: E501
@@ -111,7 +111,7 @@ class SfvbItemVariationChange(ModelNormal):
         'axis': 'axis',  # noqa: E501
         'before': 'before',  # noqa: E501
         'child': 'child',  # noqa: E501
-        'default': 'default',  # noqa: E501
+        'default_option': 'default_option',  # noqa: E501
         'default_text': 'default_text',  # noqa: E501
         'multimedia_oid': 'multimedia_oid',  # noqa: E501
         'op': 'op',  # noqa: E501
@@ -166,7 +166,7 @@ class SfvbItemVariationChange(ModelNormal):
             axis (str): The axis the change is about.. [optional]  # noqa: E501
             before (str): add_option puts the new option before this one.  Otherwise it goes last.. [optional]  # noqa: E501
             child (str): set_combination - the child item id, or null to clear the combination.. [optional]  # noqa: E501
-            default (bool): add_option and add_axis make the option the default.. [optional]  # noqa: E501
+            default_option (bool): add_option and add_axis make the option the default.. [optional]  # noqa: E501
             default_text (str): The prompt, for add_axis and set_default_text.  Null clears it.. [optional]  # noqa: E501
             multimedia_oid (int): An image of the parent item.  For set_option_multimedia null clears it; for set_combination null keeps the current one.. [optional]  # noqa: E501
             op (str): add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia or set_combination.. [optional]  # noqa: E501
@@ -263,7 +263,7 @@ class SfvbItemVariationChange(ModelNormal):
             axis (str): The axis the change is about.. [optional]  # noqa: E501
             before (str): add_option puts the new option before this one.  Otherwise it goes last.. [optional]  # noqa: E501
             child (str): set_combination - the child item id, or null to clear the combination.. [optional]  # noqa: E501
-            default (bool): add_option and add_axis make the option the default.. [optional]  # noqa: E501
+            default_option (bool): add_option and add_axis make the option the default.. [optional]  # noqa: E501
             default_text (str): The prompt, for add_axis and set_default_text.  Null clears it.. [optional]  # noqa: E501
             multimedia_oid (int): An image of the parent item.  For set_option_multimedia null clears it; for set_combination null keeps the current one.. [optional]  # noqa: E501
             op (str): add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia or set_combination.. [optional]  # noqa: E501
