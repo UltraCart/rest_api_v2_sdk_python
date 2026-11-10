@@ -80,6 +80,8 @@ from ultracart.model.sfvb_container_revert_request import SfvbContainerRevertReq
 from ultracart.model.sfvb_container_version import SfvbContainerVersion
 from ultracart.model.sfvb_container_versions_response import SfvbContainerVersionsResponse
 from ultracart.model.sfvb_container_write_request import SfvbContainerWriteRequest
+from ultracart.model.sfvb_docs_gap import SfvbDocsGap
+from ultracart.model.sfvb_docs_gap_report import SfvbDocsGapReport
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse
 from ultracart.model.sfvb_email import SfvbEmail
@@ -5947,6 +5949,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_docs_gap_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbDocsGap,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/docs/gaps/{report_id}',
+                'operation_id': 'get_sfvb_docs_gap',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'report_id',
+                ],
+                'required': [
+                    'report_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'report_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'report_id': 'report_id',
+                },
+                'location_map': {
+                    'report_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_element_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbElementSchemaResponse,),
@@ -10571,6 +10625,64 @@ class SfvbApi(object):
                 },
                 'location_map': {
                     'twilio_account': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_docs_gap_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbDocsGap,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/docs/gaps',
+                'operation_id': 'insert_sfvb_docs_gap',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'docs_gap_report',
+                    'storefront_oid',
+                ],
+                'required': [
+                    'docs_gap_report',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'docs_gap_report':
+                        (SfvbDocsGapReport,),
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'docs_gap_report': 'body',
+                    'storefront_oid': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -26554,6 +26666,89 @@ class SfvbApi(object):
             container_history_oid
         return self.get_sfvb_container_version_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_docs_gap(
+        self,
+        report_id,
+        **kwargs
+    ):
+        """Get a documentation-gap report's status  # noqa: E501
+
+        The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart's internal notes are not returned.  A report from another account answers 404.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_docs_gap(report_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            report_id (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbDocsGap
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['report_id'] = \
+            report_id
+        return self.get_sfvb_docs_gap_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_element(
         self,
         element_type,
@@ -33314,6 +33509,90 @@ class SfvbApi(object):
         kwargs['twilio_account'] = \
             twilio_account
         return self.insert_sfvb_comms_twilio_account_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_docs_gap(
+        self,
+        docs_gap_report,
+        **kwargs
+    ):
+        """Send UltraCart a documentation-gap report  # noqa: E501
+
+        Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_docs_gap(docs_gap_report, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            docs_gap_report (SfvbDocsGapReport): The report
+
+        Keyword Args:
+            storefront_oid (int): The storefront the agent was working on, recorded for context.  Leave it out when none applies.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbDocsGap
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['docs_gap_report'] = \
+            docs_gap_report
+        return self.insert_sfvb_docs_gap_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_page(
         self,

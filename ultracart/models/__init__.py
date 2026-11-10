@@ -1069,6 +1069,9 @@ from ultracart.model.sfvb_container_revert_request import SfvbContainerRevertReq
 from ultracart.model.sfvb_container_version import SfvbContainerVersion
 from ultracart.model.sfvb_container_versions_response import SfvbContainerVersionsResponse
 from ultracart.model.sfvb_container_write_request import SfvbContainerWriteRequest
+from ultracart.model.sfvb_docs_gap import SfvbDocsGap
+from ultracart.model.sfvb_docs_gap_report import SfvbDocsGapReport
+from ultracart.model.sfvb_docs_gap_report_gap import SfvbDocsGapReportGap
 from ultracart.model.sfvb_element import SfvbElement
 from ultracart.model.sfvb_element_schema_response import SfvbElementSchemaResponse
 from ultracart.model.sfvb_elements_response import SfvbElementsResponse

@@ -1080,6 +1080,9 @@ docs/SfvbContainerRevertRequest.md
 docs/SfvbContainerVersion.md
 docs/SfvbContainerVersionsResponse.md
 docs/SfvbContainerWriteRequest.md
+docs/SfvbDocsGap.md
+docs/SfvbDocsGapReport.md
+docs/SfvbDocsGapReportGap.md
 docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
@@ -2560,6 +2563,9 @@ ultracart/model/sfvb_container_revert_request.py
 ultracart/model/sfvb_container_version.py
 ultracart/model/sfvb_container_versions_response.py
 ultracart/model/sfvb_container_write_request.py
+ultracart/model/sfvb_docs_gap.py
+ultracart/model/sfvb_docs_gap_report.py
+ultracart/model/sfvb_docs_gap_report_gap.py
 ultracart/model/sfvb_element.py
 ultracart/model/sfvb_element_schema_response.py
 ultracart/model/sfvb_elements_response.py
