@@ -51,6 +51,7 @@ Method | HTTP request | Description
 [**disable_sfvb_upsell_path**](SfvbApi.md#disable_sfvb_upsell_path) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 [**download_sfvb_file**](SfvbApi.md#download_sfvb_file) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 [**dry_run_sfvb_item_attribute_batch**](SfvbApi.md#dry_run_sfvb_item_attribute_batch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch/dry_run | Check attribute changes across many items without writing them
+[**dry_run_sfvb_item_default_page**](SfvbApi.md#dry_run_sfvb_item_default_page) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page/dry_run | Check moving items&#39; default (canonical) pages
 [**dry_run_sfvb_redirect_delete**](SfvbApi.md#dry_run_sfvb_redirect_delete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 [**dry_run_sfvb_redirect_import**](SfvbApi.md#dry_run_sfvb_redirect_import) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 [**duplicate_sfvb_library_entry**](SfvbApi.md#duplicate_sfvb_library_entry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
@@ -114,10 +115,12 @@ Method | HTTP request | Description
 [**get_sfvb_i18n_message**](SfvbApi.md#get_sfvb_i18n_message) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Read one built-in message
 [**get_sfvb_i18n_message_machine_translations**](SfvbApi.md#get_sfvb_i18n_message_machine_translations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations | Read where a message&#39;s translations come from
 [**get_sfvb_item**](SfvbApi.md#get_sfvb_item) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
+[**get_sfvb_item_pages**](SfvbApi.md#get_sfvb_item_pages) | **GET** /sfvb/storefronts/{storefront_oid}/items/pages | Read the pages an item is on and its default page
 [**get_sfvb_item_preorder**](SfvbApi.md#get_sfvb_item_preorder) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder | Read an item&#39;s pre-order flag and ETA
 [**get_sfvb_item_preorder_children**](SfvbApi.md#get_sfvb_item_preorder_children) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder/children | Read the pre-order flag and ETA of a parent item&#39;s variations
 [**get_sfvb_item_pricing**](SfvbApi.md#get_sfvb_item_pricing) | **GET** /sfvb/storefronts/{storefront_oid}/items/pricing | Read what an item charges
 [**get_sfvb_item_related**](SfvbApi.md#get_sfvb_item_related) | **GET** /sfvb/storefronts/{storefront_oid}/items/related | Read an item&#39;s related items
+[**get_sfvb_item_variations**](SfvbApi.md#get_sfvb_item_variations) | **GET** /sfvb/storefronts/{storefront_oid}/items/variations | Read an item&#39;s variations
 [**get_sfvb_library_entry**](SfvbApi.md#get_sfvb_library_entry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 [**get_sfvb_library_history**](SfvbApi.md#get_sfvb_library_history) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
 [**get_sfvb_library_share_targets**](SfvbApi.md#get_sfvb_library_share_targets) | **GET** /sfvb/storefronts/{storefront_oid}/library/share_targets | List the accounts a library entry can be shared with
@@ -181,6 +184,7 @@ Method | HTTP request | Description
 [**insert_sfvb_comms_sending_domain**](SfvbApi.md#insert_sfvb_comms_sending_domain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 [**insert_sfvb_comms_twilio_account**](SfvbApi.md#insert_sfvb_comms_twilio_account) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 [**insert_sfvb_docs_gap**](SfvbApi.md#insert_sfvb_docs_gap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
+[**insert_sfvb_item_child**](SfvbApi.md#insert_sfvb_item_child) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
 [**insert_sfvb_page**](SfvbApi.md#insert_sfvb_page) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insert_sfvb_redirect**](SfvbApi.md#insert_sfvb_redirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insert_sfvb_secret_request**](SfvbApi.md#insert_sfvb_secret_request) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -228,6 +232,7 @@ Method | HTTP request | Description
 [**put_sfvb_item_pricing**](SfvbApi.md#put_sfvb_item_pricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 [**put_sfvb_item_related**](SfvbApi.md#put_sfvb_item_related) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 [**put_sfvb_item_seo**](SfvbApi.md#put_sfvb_item_seo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
+[**put_sfvb_item_variations**](SfvbApi.md#put_sfvb_item_variations) | **PUT** /sfvb/storefronts/{storefront_oid}/items/variations | Change an item&#39;s variations
 [**put_sfvb_menu**](SfvbApi.md#put_sfvb_menu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 [**put_sfvb_page_attributes**](SfvbApi.md#put_sfvb_page_attributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 [**put_sfvb_page_multimedia**](SfvbApi.md#put_sfvb_page_multimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
@@ -283,6 +288,7 @@ Method | HTTP request | Description
 [**update_sfvb_flow**](SfvbApi.md#update_sfvb_flow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
 [**update_sfvb_flow_status**](SfvbApi.md#update_sfvb_flow_status) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status | Turn a flow on or off
 [**update_sfvb_item_attribute_batch**](SfvbApi.md#update_sfvb_item_attribute_batch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
+[**update_sfvb_item_default_page**](SfvbApi.md#update_sfvb_item_default_page) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page | Move items&#39; default (canonical) pages
 [**update_sfvb_library_entry**](SfvbApi.md#update_sfvb_library_entry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**update_sfvb_redirect**](SfvbApi.md#update_sfvb_redirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 [**update_sfvb_sequence_step**](SfvbApi.md#update_sfvb_sequence_step) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
@@ -2813,6 +2819,59 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**413** |  |  -  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **dry_run_sfvb_item_default_page**
+> SfvbItemDefaultPageResponse dry_run_sfvb_item_default_page(storefront_oid, item_default_page_request)
+
+Check moving items' default (canonical) pages
+
+Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_default_page_request** | [**SfvbItemDefaultPageRequest**](SfvbItemDefaultPageRequest.md)| The rows |
+
+### Return type
+
+[**SfvbItemDefaultPageResponse**](SfvbItemDefaultPageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **413** |  |  -  |
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -6025,6 +6084,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sfvb_item_pages**
+> SfvbItemPages get_sfvb_item_pages(storefront_oid)
+
+Read the pages an item is on and its default page
+
+Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **str**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**SfvbItemPages**](SfvbItemPages.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_sfvb_item_preorder**
 > SfvbItemPreorder get_sfvb_item_preorder(storefront_oid)
 
@@ -6229,6 +6341,59 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_item_variations**
+> SfvbItemVariations get_sfvb_item_variations(storefront_oid)
+
+Read an item's variations
+
+The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **str**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**SfvbItemVariations**](SfvbItemVariations.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -9444,6 +9609,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_sfvb_item_child**
+> SfvbItemChildCreateResponse insert_sfvb_item_child(storefront_oid, item_child_request)
+
+Create a child item for a parent's variations
+
+Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_child_request** | [**SfvbItemChildCreateRequest**](SfvbItemChildCreateRequest.md)| The child to create |
+
+### Return type
+
+[**SfvbItemChildCreateResponse**](SfvbItemChildCreateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_sfvb_page**
 > SfvbPageResponse insert_sfvb_page(storefront_oid, page_create_request)
 
@@ -11930,6 +12148,65 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **put_sfvb_item_variations**
+> SfvbItemVariationsResponse put_sfvb_item_variations(storefront_oid, if_match, item_variations_request)
+
+Change an item's variations
+
+A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **if_match** | **str**| hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale. |
+ **item_variations_request** | [**SfvbItemVariationsRequest**](SfvbItemVariationsRequest.md)| The changes |
+ **merchant_item_id** | **str**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+ **approval_id** | **str**| The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**SfvbItemVariationsResponse**](SfvbItemVariationsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**412** |  |  -  |
+**428** |  |  -  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -14871,6 +15148,63 @@ Name | Type | Description  | Notes
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **412** |  |  -  |
 **413** |  |  -  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_sfvb_item_default_page**
+> SfvbItemDefaultPageResponse update_sfvb_item_default_page(storefront_oid, item_default_page_request)
+
+Move items' default (canonical) pages
+
+Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_default_page_request** | [**SfvbItemDefaultPageRequest**](SfvbItemDefaultPageRequest.md)| The dry run&#39;s ready rows and rows_sha256 |
+ **approval_id** | **str**| The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**SfvbItemDefaultPageResponse**](SfvbItemDefaultPageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**412** |  |  -  |
+**413** |  |  -  |
+**428** |  |  -  |
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
