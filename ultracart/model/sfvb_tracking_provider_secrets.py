@@ -94,6 +94,7 @@ class SfvbTrackingProviderSecrets(ModelNormal):
             'klaviyo_private_api_key': (str,),  # noqa: E501
             'nextdoor_access_token': (str,),  # noqa: E501
             'northbeam_api_key': (str,),  # noqa: E501
+            'openai_conversions_api_key': (str,),  # noqa: E501
             'pinterest_token': (str,),  # noqa: E501
             'referralcandy_secret_key': (str,),  # noqa: E501
             'retention_key': (str,),  # noqa: E501
@@ -117,6 +118,7 @@ class SfvbTrackingProviderSecrets(ModelNormal):
         'klaviyo_private_api_key': 'klaviyo_private_api_key',  # noqa: E501
         'nextdoor_access_token': 'nextdoor_access_token',  # noqa: E501
         'northbeam_api_key': 'northbeam_api_key',  # noqa: E501
+        'openai_conversions_api_key': 'openai_conversions_api_key',  # noqa: E501
         'pinterest_token': 'pinterest_token',  # noqa: E501
         'referralcandy_secret_key': 'referralcandy_secret_key',  # noqa: E501
         'retention_key': 'retention_key',  # noqa: E501
@@ -175,6 +177,7 @@ class SfvbTrackingProviderSecrets(ModelNormal):
             klaviyo_private_api_key (str): Klaviyo API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.klaviyo.private_api_key, or an empty string to clear it.. [optional]  # noqa: E501
             nextdoor_access_token (str): Nextdoor Access Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.nextdoor.access_token, or an empty string to clear it.. [optional]  # noqa: E501
             northbeam_api_key (str): Northbeam API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.northbeam.api_key, or an empty string to clear it.. [optional]  # noqa: E501
+            openai_conversions_api_key (str): OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.. [optional]  # noqa: E501
             pinterest_token (str): Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it.. [optional]  # noqa: E501
             referralcandy_secret_key (str): ReferralCandy Secret Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.referralcandy.secret_key, or an empty string to clear it.. [optional]  # noqa: E501
             retention_key (str): Retention.com Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.retention.api_key, or an empty string to clear it.. [optional]  # noqa: E501
@@ -275,6 +278,7 @@ class SfvbTrackingProviderSecrets(ModelNormal):
             klaviyo_private_api_key (str): Klaviyo API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.klaviyo.private_api_key, or an empty string to clear it.. [optional]  # noqa: E501
             nextdoor_access_token (str): Nextdoor Access Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.nextdoor.access_token, or an empty string to clear it.. [optional]  # noqa: E501
             northbeam_api_key (str): Northbeam API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.northbeam.api_key, or an empty string to clear it.. [optional]  # noqa: E501
+            openai_conversions_api_key (str): OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.. [optional]  # noqa: E501
             pinterest_token (str): Pinterest Conversion Token.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.pinterest.capi_token, or an empty string to clear it.. [optional]  # noqa: E501
             referralcandy_secret_key (str): ReferralCandy Secret Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.referralcandy.secret_key, or an empty string to clear it.. [optional]  # noqa: E501
             retention_key (str): Retention.com Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.retention.api_key, or an empty string to clear it.. [optional]  # noqa: E501
