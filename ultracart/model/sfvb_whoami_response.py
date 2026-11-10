@@ -91,9 +91,11 @@ class SfvbWhoamiResponse(ModelNormal):
             'acting_as_user': (bool,),  # noqa: E501
             'application_name': (str,),  # noqa: E501
             'authentication_type': (str,),  # noqa: E501
+            'can_edit_items': (bool,),  # noqa: E501
             'can_publish': (bool,),  # noqa: E501
             'can_publish_public': (bool,),  # noqa: E501
             'can_read': (bool,),  # noqa: E501
+            'can_read_items': (bool,),  # noqa: E501
             'can_write': (bool,),  # noqa: E501
             'device_scope': (str,),  # noqa: E501
             'login': (str,),  # noqa: E501
@@ -113,9 +115,11 @@ class SfvbWhoamiResponse(ModelNormal):
         'acting_as_user': 'acting_as_user',  # noqa: E501
         'application_name': 'application_name',  # noqa: E501
         'authentication_type': 'authentication_type',  # noqa: E501
+        'can_edit_items': 'can_edit_items',  # noqa: E501
         'can_publish': 'can_publish',  # noqa: E501
         'can_publish_public': 'can_publish_public',  # noqa: E501
         'can_read': 'can_read',  # noqa: E501
+        'can_read_items': 'can_read_items',  # noqa: E501
         'can_write': 'can_write',  # noqa: E501
         'device_scope': 'device_scope',  # noqa: E501
         'login': 'login',  # noqa: E501
@@ -170,9 +174,11 @@ class SfvbWhoamiResponse(ModelNormal):
             acting_as_user (bool): True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.. [optional]  # noqa: E501
             application_name (str): Description of the application this credential belongs to.. [optional]  # noqa: E501
             authentication_type (str): How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.. [optional]  # noqa: E501
+            can_edit_items (bool): True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_publish (bool): True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.. [optional]  # noqa: E501
             can_publish_public (bool): True when this account may publish library entries to the public library.  Set by UltraCart staff only.. [optional]  # noqa: E501
             can_read (bool): True when this token may read.  Do not infer this from the requested scope name.. [optional]  # noqa: E501
+            can_read_items (bool): True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501
@@ -269,9 +275,11 @@ class SfvbWhoamiResponse(ModelNormal):
             acting_as_user (bool): True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.. [optional]  # noqa: E501
             application_name (str): Description of the application this credential belongs to.. [optional]  # noqa: E501
             authentication_type (str): How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.. [optional]  # noqa: E501
+            can_edit_items (bool): True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_publish (bool): True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.. [optional]  # noqa: E501
             can_publish_public (bool): True when this account may publish library entries to the public library.  Set by UltraCart staff only.. [optional]  # noqa: E501
             can_read (bool): True when this token may read.  Do not infer this from the requested scope name.. [optional]  # noqa: E501
+            can_read_items (bool): True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501

@@ -40,6 +40,8 @@ def lazy_import():
     from ultracart.model.sfvb_experiment_start_request import SfvbExperimentStartRequest
     from ultracart.model.sfvb_flow_backfill_request import SfvbFlowBackfillRequest
     from ultracart.model.sfvb_item_attribute_batch_row import SfvbItemAttributeBatchRow
+    from ultracart.model.sfvb_item_preorder_children_request import SfvbItemPreorderChildrenRequest
+    from ultracart.model.sfvb_item_preorder_request import SfvbItemPreorderRequest
     from ultracart.model.sfvb_item_pricing_request import SfvbItemPricingRequest
     from ultracart.model.sfvb_redirect_delete_row import SfvbRedirectDeleteRow
     from ultracart.model.sfvb_site_seo_request import SfvbSiteSeoRequest
@@ -55,6 +57,8 @@ def lazy_import():
     globals()['SfvbExperimentStartRequest'] = SfvbExperimentStartRequest
     globals()['SfvbFlowBackfillRequest'] = SfvbFlowBackfillRequest
     globals()['SfvbItemAttributeBatchRow'] = SfvbItemAttributeBatchRow
+    globals()['SfvbItemPreorderChildrenRequest'] = SfvbItemPreorderChildrenRequest
+    globals()['SfvbItemPreorderRequest'] = SfvbItemPreorderRequest
     globals()['SfvbItemPricingRequest'] = SfvbItemPricingRequest
     globals()['SfvbRedirectDeleteRow'] = SfvbRedirectDeleteRow
     globals()['SfvbSiteSeoRequest'] = SfvbSiteSeoRequest
@@ -98,6 +102,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'UPSELL.ENABLE': "upsell.enable",
             'ITEM.ATTRIBUTE_BATCH': "item.attribute_batch",
             'ITEM.PRICING': "item.pricing",
+            'ITEM.PREORDER': "item.preorder",
             'TWILIO_ACCOUNT.DELETE': "twilio_account.delete",
             'SENDING_DOMAIN.DELETE': "sending_domain.delete",
             'SEQUENCE_STEP.DELETE': "sequence_step.delete",
@@ -154,6 +159,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'experiment_start': (SfvbExperimentStartRequest,),  # noqa: E501
             'flow_backfill': (SfvbFlowBackfillRequest,),  # noqa: E501
             'item_attribute_rows': ([SfvbItemAttributeBatchRow],),  # noqa: E501
+            'item_preorder': (SfvbItemPreorderRequest,),  # noqa: E501
+            'item_preorder_children': (SfvbItemPreorderChildrenRequest,),  # noqa: E501
             'item_pricing': (SfvbItemPricingRequest,),  # noqa: E501
             'params': (SfvbApprovalParams,),  # noqa: E501
             'postcard_test_mail': (SfvbCommsTestPostcardRequest,),  # noqa: E501
@@ -180,6 +187,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'experiment_start': 'experiment_start',  # noqa: E501
         'flow_backfill': 'flow_backfill',  # noqa: E501
         'item_attribute_rows': 'item_attribute_rows',  # noqa: E501
+        'item_preorder': 'item_preorder',  # noqa: E501
+        'item_preorder_children': 'item_preorder_children',  # noqa: E501
         'item_pricing': 'item_pricing',  # noqa: E501
         'params': 'params',  # noqa: E501
         'postcard_test_mail': 'postcard_test_mail',  # noqa: E501
@@ -241,6 +250,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
+            item_preorder (SfvbItemPreorderRequest): [optional]  # noqa: E501
+            item_preorder_children (SfvbItemPreorderChildrenRequest): [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             postcard_test_mail (SfvbCommsTestPostcardRequest): [optional]  # noqa: E501
@@ -344,6 +355,8 @@ class SfvbApprovalCreateRequest(ModelNormal):
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
+            item_preorder (SfvbItemPreorderRequest): [optional]  # noqa: E501
+            item_preorder_children (SfvbItemPreorderChildrenRequest): [optional]  # noqa: E501
             item_pricing (SfvbItemPricingRequest): [optional]  # noqa: E501
             params (SfvbApprovalParams): [optional]  # noqa: E501
             postcard_test_mail (SfvbCommsTestPostcardRequest): [optional]  # noqa: E501
