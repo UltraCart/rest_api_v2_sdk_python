@@ -997,6 +997,7 @@ from ultracart.model.sfvb_campaign_membership import SfvbCampaignMembership
 from ultracart.model.sfvb_campaign_write_request import SfvbCampaignWriteRequest
 from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
 from ultracart.model.sfvb_cli_access import SfvbCliAccess
+from ultracart.model.sfvb_cli_version import SfvbCliVersion
 from ultracart.model.sfvb_code_library_email import SfvbCodeLibraryEmail
 from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
 from ultracart.model.sfvb_comms_branch_stat import SfvbCommsBranchStat

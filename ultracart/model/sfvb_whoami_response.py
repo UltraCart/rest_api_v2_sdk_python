@@ -32,8 +32,10 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.sfvb_cli_access import SfvbCliAccess
+    from ultracart.model.sfvb_cli_version import SfvbCliVersion
     from ultracart.model.sfvb_storefront import SfvbStorefront
     globals()['SfvbCliAccess'] = SfvbCliAccess
+    globals()['SfvbCliVersion'] = SfvbCliVersion
     globals()['SfvbStorefront'] = SfvbStorefront
 
 
@@ -100,6 +102,7 @@ class SfvbWhoamiResponse(ModelNormal):
             'can_read_items': (bool,),  # noqa: E501
             'can_write': (bool,),  # noqa: E501
             'cli_access': (SfvbCliAccess,),  # noqa: E501
+            'cli_version': (SfvbCliVersion,),  # noqa: E501
             'device_scope': (str,),  # noqa: E501
             'login': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -125,6 +128,7 @@ class SfvbWhoamiResponse(ModelNormal):
         'can_read_items': 'can_read_items',  # noqa: E501
         'can_write': 'can_write',  # noqa: E501
         'cli_access': 'cli_access',  # noqa: E501
+        'cli_version': 'cli_version',  # noqa: E501
         'device_scope': 'device_scope',  # noqa: E501
         'login': 'login',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
@@ -185,6 +189,7 @@ class SfvbWhoamiResponse(ModelNormal):
             can_read_items (bool): True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             cli_access (SfvbCliAccess): [optional]  # noqa: E501
+            cli_version (SfvbCliVersion): [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501
             merchant_id (str): Merchant id this token acts against.. [optional]  # noqa: E501
@@ -287,6 +292,7 @@ class SfvbWhoamiResponse(ModelNormal):
             can_read_items (bool): True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.. [optional]  # noqa: E501
             can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             cli_access (SfvbCliAccess): [optional]  # noqa: E501
+            cli_version (SfvbCliVersion): [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501
             merchant_id (str): Merchant id this token acts against.. [optional]  # noqa: E501

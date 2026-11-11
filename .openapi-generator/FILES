@@ -1008,6 +1008,7 @@ docs/SfvbCampaignMembership.md
 docs/SfvbCampaignWriteRequest.md
 docs/SfvbCampaignsResponse.md
 docs/SfvbCliAccess.md
+docs/SfvbCliVersion.md
 docs/SfvbCodeLibraryEmail.md
 docs/SfvbCodeLibraryEmailsResponse.md
 docs/SfvbCommsBranchStat.md
@@ -2519,6 +2520,7 @@ ultracart/model/sfvb_campaign_membership.py
 ultracart/model/sfvb_campaign_write_request.py
 ultracart/model/sfvb_campaigns_response.py
 ultracart/model/sfvb_cli_access.py
+ultracart/model/sfvb_cli_version.py
 ultracart/model/sfvb_code_library_email.py
 ultracart/model/sfvb_code_library_emails_response.py
 ultracart/model/sfvb_comms_branch_stat.py

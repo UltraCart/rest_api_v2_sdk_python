@@ -92,7 +92,9 @@ class OauthTokenResponse(ModelNormal):
             'error_uri': (str,),  # noqa: E501
             'expires_in': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'minimum_version': (str,),  # noqa: E501
             'object_id': (str,),  # noqa: E501
+            'recommended_version': (str,),  # noqa: E501
             'refresh_token': (str,),  # noqa: E501
             'refresh_token_expires_in': (str,),  # noqa: E501
             'scope': (str,),  # noqa: E501
@@ -112,7 +114,9 @@ class OauthTokenResponse(ModelNormal):
         'error_uri': 'error_uri',  # noqa: E501
         'expires_in': 'expires_in',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'minimum_version': 'minimum_version',  # noqa: E501
         'object_id': 'object_id',  # noqa: E501
+        'recommended_version': 'recommended_version',  # noqa: E501
         'refresh_token': 'refresh_token',  # noqa: E501
         'refresh_token_expires_in': 'refresh_token_expires_in',  # noqa: E501
         'scope': 'scope',  # noqa: E501
@@ -167,7 +171,9 @@ class OauthTokenResponse(ModelNormal):
             error_uri (str): [optional]  # noqa: E501
             expires_in (str): The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token. [optional]  # noqa: E501
             merchant_id (str): The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.. [optional]  # noqa: E501
+            minimum_version (str): With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.. [optional]  # noqa: E501
             object_id (str): With error_code sfvb.beta_access_required, the merchant id that was refused.. [optional]  # noqa: E501
+            recommended_version (str): With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.. [optional]  # noqa: E501
             refresh_token (str): The refresh token that should be used to fetch a new access token when the expiration occurs. [optional]  # noqa: E501
             refresh_token_expires_in (str): Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.. [optional]  # noqa: E501
             scope (str): The scope of permissions associated with teh access token. [optional]  # noqa: E501
@@ -264,7 +270,9 @@ class OauthTokenResponse(ModelNormal):
             error_uri (str): [optional]  # noqa: E501
             expires_in (str): The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token. [optional]  # noqa: E501
             merchant_id (str): The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.. [optional]  # noqa: E501
+            minimum_version (str): With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.. [optional]  # noqa: E501
             object_id (str): With error_code sfvb.beta_access_required, the merchant id that was refused.. [optional]  # noqa: E501
+            recommended_version (str): With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.. [optional]  # noqa: E501
             refresh_token (str): The refresh token that should be used to fetch a new access token when the expiration occurs. [optional]  # noqa: E501
             refresh_token_expires_in (str): Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.. [optional]  # noqa: E501
             scope (str): The scope of permissions associated with teh access token. [optional]  # noqa: E501
