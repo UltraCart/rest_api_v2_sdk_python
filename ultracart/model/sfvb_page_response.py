@@ -91,12 +91,19 @@ class SfvbPageResponse(ModelNormal):
         lazy_import()
         return {
             'attributes': ([SfvbPageAttribute],),  # noqa: E501
+            'blog_post_template': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'exclude_from_sitemap': (bool,),  # noqa: E501
             'group_template': (str,),  # noqa: E501
             'item_template': (str,),  # noqa: E501
+            'items_per_page': (int,),  # noqa: E501
             'multimedia': ([SfvbPageMultimedia],),  # noqa: E501
+            'page_type': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'review_template': (str,),  # noqa: E501
+            'sort_order': (int,),  # noqa: E501
+            'sort_order_child_groups': (str,),  # noqa: E501
+            'sort_order_child_items': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'visible': (bool,),  # noqa: E501
             'visible_dts': (str,),  # noqa: E501
@@ -109,12 +116,19 @@ class SfvbPageResponse(ModelNormal):
 
     attribute_map = {
         'attributes': 'attributes',  # noqa: E501
+        'blog_post_template': 'blog_post_template',  # noqa: E501
         'description': 'description',  # noqa: E501
         'exclude_from_sitemap': 'exclude_from_sitemap',  # noqa: E501
         'group_template': 'group_template',  # noqa: E501
         'item_template': 'item_template',  # noqa: E501
+        'items_per_page': 'items_per_page',  # noqa: E501
         'multimedia': 'multimedia',  # noqa: E501
+        'page_type': 'page_type',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'review_template': 'review_template',  # noqa: E501
+        'sort_order': 'sort_order',  # noqa: E501
+        'sort_order_child_groups': 'sort_order_child_groups',  # noqa: E501
+        'sort_order_child_items': 'sort_order_child_items',  # noqa: E501
         'title': 'title',  # noqa: E501
         'visible': 'visible',  # noqa: E501
         'visible_dts': 'visible_dts',  # noqa: E501
@@ -162,12 +176,19 @@ class SfvbPageResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             attributes ([SfvbPageAttribute]): Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.. [optional]  # noqa: E501
+            blog_post_template (str): Template that renders the blog posts under this page.  Omitted when not set.. [optional]  # noqa: E501
             description (str): The page description, the text a page template renders as the page's description.  Omitted when empty.. [optional]  # noqa: E501
             exclude_from_sitemap (bool): True when the page is left out of the sitemap and marked noindex.. [optional]  # noqa: E501
             group_template (str): Template file that renders the page itself, a bare .vm name found anywhere in the active theme.. [optional]  # noqa: E501
             item_template (str): Template file that renders the item pages under this page.. [optional]  # noqa: E501
+            items_per_page (int): Items per page on a template that paginates.  Omitted when the template's default applies.. [optional]  # noqa: E501
             multimedia ([SfvbPageMultimedia]): The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.. [optional]  # noqa: E501
+            page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
             path (str): The page path, normalized to begin and end with a slash.. [optional]  # noqa: E501
+            review_template (str): Template that renders the item review pages under this page.  Omitted when not set.. [optional]  # noqa: E501
+            sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.. [optional]  # noqa: E501
+            sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501
+            sort_order_child_items (str): How the page's items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.. [optional]  # noqa: E501
             title (str): The page title.. [optional]  # noqa: E501
             visible (bool): False when the page is hidden.  A hidden page answers 404 to shoppers.. [optional]  # noqa: E501
             visible_dts (str): When set, the page stays hidden until this time (ISO 8601, UTC).. [optional]  # noqa: E501
@@ -257,12 +278,19 @@ class SfvbPageResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             attributes ([SfvbPageAttribute]): Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.. [optional]  # noqa: E501
+            blog_post_template (str): Template that renders the blog posts under this page.  Omitted when not set.. [optional]  # noqa: E501
             description (str): The page description, the text a page template renders as the page's description.  Omitted when empty.. [optional]  # noqa: E501
             exclude_from_sitemap (bool): True when the page is left out of the sitemap and marked noindex.. [optional]  # noqa: E501
             group_template (str): Template file that renders the page itself, a bare .vm name found anywhere in the active theme.. [optional]  # noqa: E501
             item_template (str): Template file that renders the item pages under this page.. [optional]  # noqa: E501
+            items_per_page (int): Items per page on a template that paginates.  Omitted when the template's default applies.. [optional]  # noqa: E501
             multimedia ([SfvbPageMultimedia]): The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.. [optional]  # noqa: E501
+            page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
             path (str): The page path, normalized to begin and end with a slash.. [optional]  # noqa: E501
+            review_template (str): Template that renders the item review pages under this page.  Omitted when not set.. [optional]  # noqa: E501
+            sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.. [optional]  # noqa: E501
+            sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501
+            sort_order_child_items (str): How the page's items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.. [optional]  # noqa: E501
             title (str): The page title.. [optional]  # noqa: E501
             visible (bool): False when the page is hidden.  A hidden page answers 404 to shoppers.. [optional]  # noqa: E501
             visible_dts (str): When set, the page stays hidden until this time (ISO 8601, UTC).. [optional]  # noqa: E501

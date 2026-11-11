@@ -8173,7 +8173,7 @@ Name | Type | Description  | Notes
 
 Check what upgrading a theme would do
 
-The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable.  Limited to 10 a minute and 100 an hour per account. 
 
 ### Example
 
@@ -8216,6 +8216,7 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **409** |  |  -  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
