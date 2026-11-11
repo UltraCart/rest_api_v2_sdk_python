@@ -94,6 +94,7 @@ class SfvbThemeJobResponse(ModelNormal):
             'error_message': (str,),  # noqa: E501
             'finished_dts': (str,),  # noqa: E501
             'job_id': (int,),  # noqa: E501
+            'merge_conflicts': ([str],),  # noqa: E501
             'progress': (int,),  # noqa: E501
             'progress_description': (str,),  # noqa: E501
             'started_dts': (str,),  # noqa: E501
@@ -101,6 +102,8 @@ class SfvbThemeJobResponse(ModelNormal):
             'submitted_dts': (str,),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'target_path': (str,),  # noqa: E501
+            'theme_oid': (int,),  # noqa: E501
+            'upgrade_to_version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +117,7 @@ class SfvbThemeJobResponse(ModelNormal):
         'error_message': 'error_message',  # noqa: E501
         'finished_dts': 'finished_dts',  # noqa: E501
         'job_id': 'job_id',  # noqa: E501
+        'merge_conflicts': 'merge_conflicts',  # noqa: E501
         'progress': 'progress',  # noqa: E501
         'progress_description': 'progress_description',  # noqa: E501
         'started_dts': 'started_dts',  # noqa: E501
@@ -121,6 +125,8 @@ class SfvbThemeJobResponse(ModelNormal):
         'submitted_dts': 'submitted_dts',  # noqa: E501
         'success': 'success',  # noqa: E501
         'target_path': 'target_path',  # noqa: E501
+        'theme_oid': 'theme_oid',  # noqa: E501
+        'upgrade_to_version': 'upgrade_to_version',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,13 +175,16 @@ class SfvbThemeJobResponse(ModelNormal):
             error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
             finished_dts (str): When the job stopped, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
+            merge_conflicts ([str]): Paths of the copy's files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501
             progress_description (str): What the job is doing right now, for example 'Duplicating locale text'.. [optional]  # noqa: E501
             started_dts (str): When the job started running, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             status (str): Raw job status.. [optional]  # noqa: E501
             submitted_dts (str): When the job was queued, ISO 8601 UTC.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
-            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
+            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
+            theme_oid (int): Oid of the theme the job created, once it is complete and the theme exists.  Null until then.. [optional]  # noqa: E501
+            upgrade_to_version (str): The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,13 +275,16 @@ class SfvbThemeJobResponse(ModelNormal):
             error_message (str): What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.. [optional]  # noqa: E501
             finished_dts (str): When the job stopped, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             job_id (int): Job handle.  Poll getSfvbThemeJob with this.. [optional]  # noqa: E501
+            merge_conflicts ([str]): Paths of the copy's files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.. [optional]  # noqa: E501
             progress (int): Percent complete, 0-100.. [optional]  # noqa: E501
             progress_description (str): What the job is doing right now, for example 'Duplicating locale text'.. [optional]  # noqa: E501
             started_dts (str): When the job started running, ISO 8601 UTC.  Null until it does.. [optional]  # noqa: E501
             status (str): Raw job status.. [optional]  # noqa: E501
             submitted_dts (str): When the job was queued, ISO 8601 UTC.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
-            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
+            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
+            theme_oid (int): Oid of the theme the job created, once it is complete and the theme exists.  Null until then.. [optional]  # noqa: E501
+            upgrade_to_version (str): The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

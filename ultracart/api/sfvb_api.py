@@ -243,6 +243,7 @@ from ultracart.model.sfvb_theme_attribute_update_request import SfvbThemeAttribu
 from ultracart.model.sfvb_theme_attributes_response import SfvbThemeAttributesResponse
 from ultracart.model.sfvb_theme_duplicate_request import SfvbThemeDuplicateRequest
 from ultracart.model.sfvb_theme_job_response import SfvbThemeJobResponse
+from ultracart.model.sfvb_theme_upgrade_check_response import SfvbThemeUpgradeCheckResponse
 from ultracart.model.sfvb_themes_response import SfvbThemesResponse
 from ultracart.model.sfvb_tracking_advanced_request import SfvbTrackingAdvancedRequest
 from ultracart.model.sfvb_tracking_check_plan import SfvbTrackingCheckPlan
@@ -9357,6 +9358,69 @@ class SfvbApi(object):
                 'location_map': {
                     'storefront_oid': 'path',
                     'job_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_theme_upgrade_check_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbThemeUpgradeCheckResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check',
+                'operation_id': 'get_sfvb_theme_upgrade_check',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'theme_oid',
+                    'version',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'theme_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'theme_oid':
+                        (int,),
+                    'version':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'theme_oid': 'theme_oid',
+                    'version': 'version',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'theme_oid': 'path',
+                    'version': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -23749,7 +23813,7 @@ class SfvbApi(object):
     ):
         """Duplicate a theme  # noqa: E501
 
-        Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.   # noqa: E501
+        Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -32218,7 +32282,7 @@ class SfvbApi(object):
     ):
         """Status of an asynchronous theme job  # noqa: E501
 
-        Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you.   # noqa: E501
+        Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -32296,6 +32360,94 @@ class SfvbApi(object):
         kwargs['job_id'] = \
             job_id
         return self.get_sfvb_theme_job_endpoint.call_with_http_info(**kwargs)
+
+    def get_sfvb_theme_upgrade_check(
+        self,
+        storefront_oid,
+        theme_oid,
+        **kwargs
+    ):
+        """Check what upgrading a theme would do  # noqa: E501
+
+        The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_theme_upgrade_check(storefront_oid, theme_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            theme_oid (int):
+
+        Keyword Args:
+            version (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbThemeUpgradeCheckResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['theme_oid'] = \
+            theme_oid
+        return self.get_sfvb_theme_upgrade_check_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_tracking_check_plan(
         self,
@@ -41462,7 +41614,7 @@ class SfvbApi(object):
     ):
         """Search storefront files  # noqa: E501
 
-        Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.   # noqa: E501
+        Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

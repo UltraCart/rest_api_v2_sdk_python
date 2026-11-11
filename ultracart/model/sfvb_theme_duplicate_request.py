@@ -85,6 +85,7 @@ class SfvbThemeDuplicateRequest(ModelNormal):
             'folder': (str,),  # noqa: E501
             'target_storefront_oid': (int,),  # noqa: E501
             'theme_name': (str,),  # noqa: E501
+            'upgrade_to_version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class SfvbThemeDuplicateRequest(ModelNormal):
         'folder': 'folder',  # noqa: E501
         'target_storefront_oid': 'target_storefront_oid',  # noqa: E501
         'theme_name': 'theme_name',  # noqa: E501
+        'upgrade_to_version': 'upgrade_to_version',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,6 +144,7 @@ class SfvbThemeDuplicateRequest(ModelNormal):
             folder (str): Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme's oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.. [optional]  # noqa: E501
             target_storefront_oid (int): Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own.. [optional]  # noqa: E501
             theme_name (str): Name for the new theme.. [optional]  # noqa: E501
+            upgrade_to_version (str): Upgrade the copy to this theme version after copying it, as the admin's Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +233,7 @@ class SfvbThemeDuplicateRequest(ModelNormal):
             folder (str): Directory name for the new theme under /themes/.  Letters and numbers, one path segment.  Used verbatim - anything that is not already a valid directory name is refused rather than adjusted, because this call does not return the new theme's oid and you find your copy by matching the target_path you asked for.  Must not already exist - a collision is refused rather than resolved, because silently creating a differently named theme leaves you unsure what you made.. [optional]  # noqa: E501
             target_storefront_oid (int): Storefront to create the copy on.  Defaults to the storefront in the path.  Supply it only when copying a theme between storefronts you own.. [optional]  # noqa: E501
             theme_name (str): Name for the new theme.. [optional]  # noqa: E501
+            upgrade_to_version (str): Upgrade the copy to this theme version after copying it, as the admin's Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

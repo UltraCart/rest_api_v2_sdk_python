@@ -1331,10 +1331,12 @@ docs/SfvbThemeAttribute.md
 docs/SfvbThemeAttributeUpdate.md
 docs/SfvbThemeAttributeUpdateRequest.md
 docs/SfvbThemeAttributesResponse.md
+docs/SfvbThemeChangeLogEntry.md
 docs/SfvbThemeDuplicateRequest.md
 docs/SfvbThemeFont.md
 docs/SfvbThemeFontFamily.md
 docs/SfvbThemeJobResponse.md
+docs/SfvbThemeUpgradeCheckResponse.md
 docs/SfvbThemesResponse.md
 docs/SfvbTrackingAdvanced.md
 docs/SfvbTrackingAdvancedRequest.md
@@ -2839,10 +2841,12 @@ ultracart/model/sfvb_theme_attribute.py
 ultracart/model/sfvb_theme_attribute_update.py
 ultracart/model/sfvb_theme_attribute_update_request.py
 ultracart/model/sfvb_theme_attributes_response.py
+ultracart/model/sfvb_theme_change_log_entry.py
 ultracart/model/sfvb_theme_duplicate_request.py
 ultracart/model/sfvb_theme_font.py
 ultracart/model/sfvb_theme_font_family.py
 ultracart/model/sfvb_theme_job_response.py
+ultracart/model/sfvb_theme_upgrade_check_response.py
 ultracart/model/sfvb_themes_response.py
 ultracart/model/sfvb_tracking_advanced.py
 ultracart/model/sfvb_tracking_advanced_request.py

@@ -180,7 +180,7 @@ class SfvbFileSearchRequest(ModelNormal):
             size_max (int): Maximum size in bytes.. [optional]  # noqa: E501
             size_min (int): Minimum size in bytes.. [optional]  # noqa: E501
             sub_directories (bool): Recurse below path.  Defaults to true.. [optional]  # noqa: E501
-            text (str): Text to find inside files.  Only text/* files are searched.  This is the expensive filter; narrow with path or file_name where possible.. [optional]  # noqa: E501
+            text (str): Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,7 +281,7 @@ class SfvbFileSearchRequest(ModelNormal):
             size_max (int): Maximum size in bytes.. [optional]  # noqa: E501
             size_min (int): Minimum size in bytes.. [optional]  # noqa: E501
             sub_directories (bool): Recurse below path.  Defaults to true.. [optional]  # noqa: E501
-            text (str): Text to find inside files.  Only text/* files are searched.  This is the expensive filter; narrow with path or file_name where possible.. [optional]  # noqa: E501
+            text (str): Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

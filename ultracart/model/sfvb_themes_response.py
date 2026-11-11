@@ -89,6 +89,8 @@ class SfvbThemesResponse(ModelNormal):
         lazy_import()
         return {
             'active_theme_oid': (int,),  # noqa: E501
+            'theme_count': (int,),  # noqa: E501
+            'theme_limit': (int,),  # noqa: E501
             'themes': ([SfvbTheme],),  # noqa: E501
         }
 
@@ -99,6 +101,8 @@ class SfvbThemesResponse(ModelNormal):
 
     attribute_map = {
         'active_theme_oid': 'active_theme_oid',  # noqa: E501
+        'theme_count': 'theme_count',  # noqa: E501
+        'theme_limit': 'theme_limit',  # noqa: E501
         'themes': 'themes',  # noqa: E501
     }
 
@@ -144,6 +148,8 @@ class SfvbThemesResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             active_theme_oid (int): Oid of the active theme, repeated here so a caller does not have to scan the list.. [optional]  # noqa: E501
+            theme_count (int): How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.. [optional]  # noqa: E501
+            theme_limit (int): Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.. [optional]  # noqa: E501
             themes ([SfvbTheme]): Themes belonging to the storefront.  Exactly one is flagged active.. [optional]  # noqa: E501
         """
 
@@ -231,6 +237,8 @@ class SfvbThemesResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             active_theme_oid (int): Oid of the active theme, repeated here so a caller does not have to scan the list.. [optional]  # noqa: E501
+            theme_count (int): How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.. [optional]  # noqa: E501
+            theme_limit (int): Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.. [optional]  # noqa: E501
             themes ([SfvbTheme]): Themes belonging to the storefront.  Exactly one is flagged active.. [optional]  # noqa: E501
         """
 

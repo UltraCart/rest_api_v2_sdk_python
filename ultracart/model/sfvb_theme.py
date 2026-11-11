@@ -85,6 +85,8 @@ class SfvbTheme(ModelNormal):
             'active': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'fs_directory_oid': (int,),  # noqa: E501
+            'merge_conflict_count': (int,),  # noqa: E501
+            'ok_to_activate': (bool,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
             'theme_name': (str,),  # noqa: E501
@@ -103,6 +105,8 @@ class SfvbTheme(ModelNormal):
         'active': 'active',  # noqa: E501
         'description': 'description',  # noqa: E501
         'fs_directory_oid': 'fs_directory_oid',  # noqa: E501
+        'merge_conflict_count': 'merge_conflict_count',  # noqa: E501
+        'ok_to_activate': 'ok_to_activate',  # noqa: E501
         'path': 'path',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
         'theme_name': 'theme_name',  # noqa: E501
@@ -156,6 +160,8 @@ class SfvbTheme(ModelNormal):
             active (bool): True when this theme is the one serving live traffic.  Writing to an active theme requires the sfvb_publish scope.. [optional]  # noqa: E501
             description (str): What the theme is, where the author supplied a description.. [optional]  # noqa: E501
             fs_directory_oid (int): Oid of the theme root directory in the storefront file system.. [optional]  # noqa: E501
+            merge_conflict_count (int): How many of the theme's files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme's path.. [optional]  # noqa: E501
+            ok_to_activate (bool): False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.. [optional]  # noqa: E501
             path (str): Root path of the theme in the storefront file system, for example /themes/mytheme/. [optional]  # noqa: E501
             storefront_oid (int): StoreFront oid this theme belongs to.. [optional]  # noqa: E501
             theme_name (str): Theme name.. [optional]  # noqa: E501
@@ -251,6 +257,8 @@ class SfvbTheme(ModelNormal):
             active (bool): True when this theme is the one serving live traffic.  Writing to an active theme requires the sfvb_publish scope.. [optional]  # noqa: E501
             description (str): What the theme is, where the author supplied a description.. [optional]  # noqa: E501
             fs_directory_oid (int): Oid of the theme root directory in the storefront file system.. [optional]  # noqa: E501
+            merge_conflict_count (int): How many of the theme's files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme's path.. [optional]  # noqa: E501
+            ok_to_activate (bool): False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.. [optional]  # noqa: E501
             path (str): Root path of the theme in the storefront file system, for example /themes/mytheme/. [optional]  # noqa: E501
             storefront_oid (int): StoreFront oid this theme belongs to.. [optional]  # noqa: E501
             theme_name (str): Theme name.. [optional]  # noqa: E501

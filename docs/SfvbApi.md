@@ -156,6 +156,7 @@ Method | HTTP request | Description
 [**get_sfvb_theme**](SfvbApi.md#get_sfvb_theme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**get_sfvb_theme_attributes**](SfvbApi.md#get_sfvb_theme_attributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 [**get_sfvb_theme_job**](SfvbApi.md#get_sfvb_theme_job) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+[**get_sfvb_theme_upgrade_check**](SfvbApi.md#get_sfvb_theme_upgrade_check) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check | Check what upgrading a theme would do
 [**get_sfvb_tracking_check_plan**](SfvbApi.md#get_sfvb_tracking_check_plan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 [**get_sfvb_tracking_html**](SfvbApi.md#get_sfvb_tracking_html) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 [**get_sfvb_tracking_html_slots**](SfvbApi.md#get_sfvb_tracking_html_slots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
@@ -3095,7 +3096,7 @@ Name | Type | Description  | Notes
 
 Duplicate a theme
 
-Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it. 
+Copies a theme into a new one and returns a job handle to poll.  Asynchronous, because copying a theme copies every file in it.  Needs sfvb_write rather than sfvb_publish, because the job explicitly does not activate what it creates, so the worst outcome of a mistaken call is a spare theme.  This is how you get somewhere safe to work - duplicate, edit the copy with an ordinary write scope, and let a human promote it.  Set upgrade_to_version to also upgrade the copy to a newer theme version, as the admin's Duplicate and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck first to see the available versions and the merge conflicts the upgrade will leave, then resolve those in the copy before anyone activates it.  Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable for a version that can't be used, and sfvb.theme_merge_conflicts while the source theme has unresolved conflicts. 
 
 ### Example
 
@@ -8121,7 +8122,7 @@ Name | Type | Description  | Notes
 
 Status of an asynchronous theme job
 
-Poll until complete is true, then check success.  Note that the new theme's oid is not returned.  The job's product is a plain text report rather than a structured result, so once it completes, list themes and match on the target_path the start call gave you. 
+Poll until complete is true, then check success.  A successful job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version, success also means the copy reached that version, and merge_conflicts lists the copy's files that still need resolving - read fresh on every poll. 
 
 ### Example
 
@@ -8163,6 +8164,58 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_theme_upgrade_check**
+> SfvbThemeUpgradeCheckResponse get_sfvb_theme_upgrade_check(storefront_oid, theme_oid)
+
+Check what upgrading a theme would do
+
+The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **theme_oid** | **int**|  |
+ **version** | **str**|  | [optional]
+
+### Return type
+
+[**SfvbThemeUpgradeCheckResponse**](SfvbThemeUpgradeCheckResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -13629,7 +13682,7 @@ Name | Type | Description  | Notes
 
 Search storefront files
 
-Searches names and, when text is supplied, file contents.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported. 
+Searches names and, when text is supplied, file contents.  Text search covers text files, including .cjson and .json, and skips binaries such as images, fonts and PDFs.  For a CLI with no local copy this is the only way to answer where something is defined without walking the whole tree.  Results are capped and truncation is always reported.  merge_conflicts true with a theme's path lists the files an upgrade left with unresolved conflicts, as the admin file manager's merge conflicts search does. 
 
 ### Example
 

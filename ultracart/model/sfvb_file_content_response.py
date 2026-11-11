@@ -86,6 +86,7 @@ class SfvbFileContentResponse(ModelNormal):
             'content': (str,),  # noqa: E501
             'fs_file_oid': (int,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
+            'merge_conflict': (bool,),  # noqa: E501
             'mime_type': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
@@ -105,6 +106,7 @@ class SfvbFileContentResponse(ModelNormal):
         'content': 'content',  # noqa: E501
         'fs_file_oid': 'fs_file_oid',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
+        'merge_conflict': 'merge_conflict',  # noqa: E501
         'mime_type': 'mime_type',  # noqa: E501
         'path': 'path',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -159,6 +161,7 @@ class SfvbFileContentResponse(ModelNormal):
             content (str): UTF-8 content.  Only text/* files can be read this way.. [optional]  # noqa: E501
             fs_file_oid (int): StoreFront file system file oid.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.. [optional]  # noqa: E501
+            merge_conflict (bool): True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.. [optional]  # noqa: E501
             mime_type (str): Mime type.. [optional]  # noqa: E501
             path (str): Full path of the file.. [optional]  # noqa: E501
             size (int): Size in bytes.. [optional]  # noqa: E501
@@ -255,6 +258,7 @@ class SfvbFileContentResponse(ModelNormal):
             content (str): UTF-8 content.  Only text/* files can be read this way.. [optional]  # noqa: E501
             fs_file_oid (int): StoreFront file system file oid.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.. [optional]  # noqa: E501
+            merge_conflict (bool): True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.. [optional]  # noqa: E501
             mime_type (str): Mime type.. [optional]  # noqa: E501
             path (str): Full path of the file.. [optional]  # noqa: E501
             size (int): Size in bytes.. [optional]  # noqa: E501
