@@ -59,6 +59,7 @@ class SfvbContainerVersion(ModelNormal):
         ('operation',): {
             'CREATE': "create",
             'UPDATE': "update",
+            'DELETE': "delete",
         },
         ('owner_type',): {
             'ITEM': "item",
@@ -182,7 +183,7 @@ class SfvbContainerVersion(ModelNormal):
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
             edited_by (str): Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry's content.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's CJSON.. [optional]  # noqa: E501
-            operation (str): What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.. [optional]  # noqa: E501
+            operation (str): What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.. [optional]  # noqa: E501
             owner_object_id (str): Owner object identifier.. [optional]  # noqa: E501
             owner_type (str): Owner type.. [optional]  # noqa: E501
             size (int): Size of this version's CJSON in bytes.. [optional]  # noqa: E501
@@ -281,7 +282,7 @@ class SfvbContainerVersion(ModelNormal):
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
             edited_by (str): Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry's content.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's CJSON.. [optional]  # noqa: E501
-            operation (str): What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.. [optional]  # noqa: E501
+            operation (str): What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.. [optional]  # noqa: E501
             owner_object_id (str): Owner object identifier.. [optional]  # noqa: E501
             owner_type (str): Owner type.. [optional]  # noqa: E501
             size (int): Size of this version's CJSON in bytes.. [optional]  # noqa: E501
