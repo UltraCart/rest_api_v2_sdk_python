@@ -100,6 +100,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'FILE.DELETE': "file.delete",
             'BLOG_POST.DELETE': "blog_post.delete",
             'FILE.PUT_SCRIPT': "file.put_script",
+            'FILE.PUT_TEMPLATE': "file.put_template",
             'REDIRECT.DELETE_BATCH': "redirect.delete_batch",
             'EXPERIMENT.START': "experiment.start",
             'EXPERIMENT.END': "experiment.end",
@@ -256,7 +257,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
             comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
             comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
-            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
@@ -363,7 +364,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             affiliate_network (SfvbAffiliateNetworkRequest): [optional]  # noqa: E501
             comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
             comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
-            content (str): For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            content (str): For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
