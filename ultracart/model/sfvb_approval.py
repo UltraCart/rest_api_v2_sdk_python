@@ -62,6 +62,10 @@ class SfvbApproval(ModelNormal):
     """
 
     allowed_values = {
+        ('decided_by',): {
+            'REQUESTER': "requester",
+            'DELEGATE': "delegate",
+        },
         ('outcome',): {
             'SUCCEEDED': "succeeded",
             'FAILED': "failed",
@@ -108,6 +112,9 @@ class SfvbApproval(ModelNormal):
             'approval_id': (str,),  # noqa: E501
             'approval_url': (str,),  # noqa: E501
             'created_at': (str,),  # noqa: E501
+            'decided_by': (str,),  # noqa: E501
+            'delegate_name': (str,),  # noqa: E501
+            'delegated': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'expires_at': (str,),  # noqa: E501
             'expires_in_seconds': (int,),  # noqa: E501
@@ -136,6 +143,9 @@ class SfvbApproval(ModelNormal):
         'approval_id': 'approval_id',  # noqa: E501
         'approval_url': 'approval_url',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'decided_by': 'decided_by',  # noqa: E501
+        'delegate_name': 'delegate_name',  # noqa: E501
+        'delegated': 'delegated',  # noqa: E501
         'description': 'description',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'expires_in_seconds': 'expires_in_seconds',  # noqa: E501
@@ -199,6 +209,9 @@ class SfvbApproval(ModelNormal):
             approval_id (str): Send this as the Approval-Id header on the gated call once status is approved.. [optional]  # noqa: E501
             approval_url (str): The page where the person approves or denies.  Show it to them.  Never open or fill it in yourself.. [optional]  # noqa: E501
             created_at (str): When the request was made, ISO 8601 UTC.. [optional]  # noqa: E501
+            decided_by (str): Who decided the request, once decided.. [optional]  # noqa: E501
+            delegate_name (str): The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.. [optional]  # noqa: E501
+            delegated (bool): True when the request was handed to a colleague to decide.. [optional]  # noqa: E501
             description (str): The sentence the person reads before approving.  Written by the server, not the agent.. [optional]  # noqa: E501
             expires_at (str): When this approval stops being usable, ISO 8601 UTC.  For a pending request, when it lapses undecided.  For an approved one, when it must have been used by.. [optional]  # noqa: E501
             expires_in_seconds (int): Seconds until expires_at.  Zero once passed.. [optional]  # noqa: E501
@@ -304,6 +317,9 @@ class SfvbApproval(ModelNormal):
             approval_id (str): Send this as the Approval-Id header on the gated call once status is approved.. [optional]  # noqa: E501
             approval_url (str): The page where the person approves or denies.  Show it to them.  Never open or fill it in yourself.. [optional]  # noqa: E501
             created_at (str): When the request was made, ISO 8601 UTC.. [optional]  # noqa: E501
+            decided_by (str): Who decided the request, once decided.. [optional]  # noqa: E501
+            delegate_name (str): The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.. [optional]  # noqa: E501
+            delegated (bool): True when the request was handed to a colleague to decide.. [optional]  # noqa: E501
             description (str): The sentence the person reads before approving.  Written by the server, not the agent.. [optional]  # noqa: E501
             expires_at (str): When this approval stops being usable, ISO 8601 UTC.  For a pending request, when it lapses undecided.  For an approved one, when it must have been used by.. [optional]  # noqa: E501
             expires_in_seconds (int): Seconds until expires_at.  Zero once passed.. [optional]  # noqa: E501

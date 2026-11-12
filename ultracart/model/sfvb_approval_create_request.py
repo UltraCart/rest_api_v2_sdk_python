@@ -163,6 +163,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'comms_list_import': (SfvbCommsProviderImportRequest,),  # noqa: E501
             'comms_settings': (SfvbCommsSettingsUpdateRequest,),  # noqa: E501
             'content': (str,),  # noqa: E501
+            'delegate_email': (str,),  # noqa: E501
             'experiment_start': (SfvbExperimentStartRequest,),  # noqa: E501
             'flow_backfill': (SfvbFlowBackfillRequest,),  # noqa: E501
             'item_attribute_rows': ([SfvbItemAttributeBatchRow],),  # noqa: E501
@@ -193,6 +194,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
         'comms_list_import': 'comms_list_import',  # noqa: E501
         'comms_settings': 'comms_settings',  # noqa: E501
         'content': 'content',  # noqa: E501
+        'delegate_email': 'delegate_email',  # noqa: E501
         'experiment_start': 'experiment_start',  # noqa: E501
         'flow_backfill': 'flow_backfill',  # noqa: E501
         'item_attribute_rows': 'item_attribute_rows',  # noqa: E501
@@ -258,6 +260,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
             comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
             content (str): For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            delegate_email (str): Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can't be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
@@ -365,6 +368,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             comms_list_import (SfvbCommsProviderImportRequest): [optional]  # noqa: E501
             comms_settings (SfvbCommsSettingsUpdateRequest): [optional]  # noqa: E501
             content (str): For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.. [optional]  # noqa: E501
+            delegate_email (str): Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can't be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.. [optional]  # noqa: E501
             experiment_start (SfvbExperimentStartRequest): [optional]  # noqa: E501
             flow_backfill (SfvbFlowBackfillRequest): [optional]  # noqa: E501
             item_attribute_rows ([SfvbItemAttributeBatchRow]): For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.. [optional]  # noqa: E501
