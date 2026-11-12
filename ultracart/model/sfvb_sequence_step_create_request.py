@@ -86,6 +86,7 @@ class SfvbSequenceStepCreateRequest(ModelNormal):
             'after_step_uuid': (str,),  # noqa: E501
             'branch_step_uuid': (str,),  # noqa: E501
             'config_json': (str,),  # noqa: E501
+            'filter_profile_equation_json': (str,),  # noqa: E501
             'library_item_oid': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'preview_text': (str,),  # noqa: E501
@@ -104,6 +105,7 @@ class SfvbSequenceStepCreateRequest(ModelNormal):
         'after_step_uuid': 'after_step_uuid',  # noqa: E501
         'branch_step_uuid': 'branch_step_uuid',  # noqa: E501
         'config_json': 'config_json',  # noqa: E501
+        'filter_profile_equation_json': 'filter_profile_equation_json',  # noqa: E501
         'library_item_oid': 'library_item_oid',  # noqa: E501
         'name': 'name',  # noqa: E501
         'preview_text': 'preview_text',  # noqa: E501
@@ -156,13 +158,14 @@ class SfvbSequenceStepCreateRequest(ModelNormal):
             acknowledge_executable (bool): With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.. [optional]  # noqa: E501
             after_step_uuid (str): The step the new step follows, in the same list.  Not an end, continue or merge step.. [optional]  # noqa: E501
             branch_step_uuid (str): A condition, split or inboxgeek step.  With side, the new step goes first on that side.. [optional]  # noqa: E501
-            config_json (str): A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.. [optional]  # noqa: E501
+            config_json (str): A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.. [optional]  # noqa: E501
+            filter_profile_equation_json (str): A condition step's rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.. [optional]  # noqa: E501
             library_item_oid (int): An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account's own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.. [optional]  # noqa: E501
             name (str): A post_card step's name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.. [optional]  # noqa: E501
             preview_text (str): The new email's preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.. [optional]  # noqa: E501
             side (str): With branch_step_uuid, the side's label from the sequence read.  yes or no for a condition, left or right for a split or inboxgeek step.. [optional]  # noqa: E501
             subject (str): The new email's subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.. [optional]  # noqa: E501
-            type (str): The kind of step, one of email (the default), wait or post_card.. [optional]  # noqa: E501
+            type (str): The kind of step, one of email (the default), wait, post_card, split or condition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,13 +254,14 @@ class SfvbSequenceStepCreateRequest(ModelNormal):
             acknowledge_executable (bool): With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.. [optional]  # noqa: E501
             after_step_uuid (str): The step the new step follows, in the same list.  Not an end, continue or merge step.. [optional]  # noqa: E501
             branch_step_uuid (str): A condition, split or inboxgeek step.  With side, the new step goes first on that side.. [optional]  # noqa: E501
-            config_json (str): A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.. [optional]  # noqa: E501
+            config_json (str): A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.. [optional]  # noqa: E501
+            filter_profile_equation_json (str): A condition step's rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.. [optional]  # noqa: E501
             library_item_oid (int): An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account's own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.. [optional]  # noqa: E501
             name (str): A post_card step's name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.. [optional]  # noqa: E501
             preview_text (str): The new email's preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.. [optional]  # noqa: E501
             side (str): With branch_step_uuid, the side's label from the sequence read.  yes or no for a condition, left or right for a split or inboxgeek step.. [optional]  # noqa: E501
             subject (str): The new email's subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.. [optional]  # noqa: E501
-            type (str): The kind of step, one of email (the default), wait or post_card.. [optional]  # noqa: E501
+            type (str): The kind of step, one of email (the default), wait, post_card, split or condition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
