@@ -31,10 +31,14 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.sfvb_error_detail import SfvbErrorDetail
     from ultracart.model.sfvb_page_attribute import SfvbPageAttribute
     from ultracart.model.sfvb_page_multimedia import SfvbPageMultimedia
+    from ultracart.model.sfvb_redirect import SfvbRedirect
+    globals()['SfvbErrorDetail'] = SfvbErrorDetail
     globals()['SfvbPageAttribute'] = SfvbPageAttribute
     globals()['SfvbPageMultimedia'] = SfvbPageMultimedia
+    globals()['SfvbRedirect'] = SfvbRedirect
 
 
 class SfvbPageResponse(ModelNormal):
@@ -100,6 +104,8 @@ class SfvbPageResponse(ModelNormal):
             'multimedia': ([SfvbPageMultimedia],),  # noqa: E501
             'page_type': (str,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'redirect': (SfvbRedirect,),  # noqa: E501
+            'redirect_warnings': ([SfvbErrorDetail],),  # noqa: E501
             'review_template': (str,),  # noqa: E501
             'sort_order': (int,),  # noqa: E501
             'sort_order_child_groups': (str,),  # noqa: E501
@@ -125,6 +131,8 @@ class SfvbPageResponse(ModelNormal):
         'multimedia': 'multimedia',  # noqa: E501
         'page_type': 'page_type',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'redirect': 'redirect',  # noqa: E501
+        'redirect_warnings': 'redirect_warnings',  # noqa: E501
         'review_template': 'review_template',  # noqa: E501
         'sort_order': 'sort_order',  # noqa: E501
         'sort_order_child_groups': 'sort_order_child_groups',  # noqa: E501
@@ -185,6 +193,8 @@ class SfvbPageResponse(ModelNormal):
             multimedia ([SfvbPageMultimedia]): The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.. [optional]  # noqa: E501
             page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
             path (str): The page path, normalized to begin and end with a slash.. [optional]  # noqa: E501
+            redirect (SfvbRedirect): [optional]  # noqa: E501
+            redirect_warnings ([SfvbErrorDetail]): Findings on that redirect that did not block it, such as a chain.  Left out when there are none.. [optional]  # noqa: E501
             review_template (str): Template that renders the item review pages under this page.  Omitted when not set.. [optional]  # noqa: E501
             sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.. [optional]  # noqa: E501
             sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501
@@ -287,6 +297,8 @@ class SfvbPageResponse(ModelNormal):
             multimedia ([SfvbPageMultimedia]): The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.. [optional]  # noqa: E501
             page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
             path (str): The page path, normalized to begin and end with a slash.. [optional]  # noqa: E501
+            redirect (SfvbRedirect): [optional]  # noqa: E501
+            redirect_warnings ([SfvbErrorDetail]): Findings on that redirect that did not block it, such as a chain.  Left out when there are none.. [optional]  # noqa: E501
             review_template (str): Template that renders the item review pages under this page.  Omitted when not set.. [optional]  # noqa: E501
             sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.. [optional]  # noqa: E501
             sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501

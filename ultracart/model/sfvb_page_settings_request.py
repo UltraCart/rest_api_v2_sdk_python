@@ -56,6 +56,9 @@ class SfvbPageSettingsRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('redirect_old_url',): {
+            '301': "301",
+        },
     }
 
     validations = {
@@ -89,6 +92,9 @@ class SfvbPageSettingsRequest(ModelNormal):
             'item_template': (str,),  # noqa: E501
             'items_per_page': (int,),  # noqa: E501
             'page_type': (str,),  # noqa: E501
+            'redirect_note': (str,),  # noqa: E501
+            'redirect_old_url': (str,),  # noqa: E501
+            'redirect_target': (str,),  # noqa: E501
             'review_template': (str,),  # noqa: E501
             'sort_order': (int,),  # noqa: E501
             'sort_order_child_groups': (str,),  # noqa: E501
@@ -111,6 +117,9 @@ class SfvbPageSettingsRequest(ModelNormal):
         'item_template': 'item_template',  # noqa: E501
         'items_per_page': 'items_per_page',  # noqa: E501
         'page_type': 'page_type',  # noqa: E501
+        'redirect_note': 'redirect_note',  # noqa: E501
+        'redirect_old_url': 'redirect_old_url',  # noqa: E501
+        'redirect_target': 'redirect_target',  # noqa: E501
         'review_template': 'review_template',  # noqa: E501
         'sort_order': 'sort_order',  # noqa: E501
         'sort_order_child_groups': 'sort_order_child_groups',  # noqa: E501
@@ -168,6 +177,9 @@ class SfvbPageSettingsRequest(ModelNormal):
             item_template (str): Template that renders the item pages under this page.. [optional]  # noqa: E501
             items_per_page (int): Items per page on a template that paginates.  Null returns to the template's default.. [optional]  # noqa: E501
             page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
+            redirect_note (str): The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.. [optional]  # noqa: E501
+            redirect_old_url (str): 301 to redirect the page's address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.. [optional] if omitted the server will use the default value of "301"  # noqa: E501
+            redirect_target (str): Where the hidden page's address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.. [optional]  # noqa: E501
             review_template (str): Template that renders the item review pages under this page.. [optional]  # noqa: E501
             sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Null clears it.. [optional]  # noqa: E501
             sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501
@@ -267,6 +279,9 @@ class SfvbPageSettingsRequest(ModelNormal):
             item_template (str): Template that renders the item pages under this page.. [optional]  # noqa: E501
             items_per_page (int): Items per page on a template that paginates.  Null returns to the template's default.. [optional]  # noqa: E501
             page_type (str): S for a static page, D for a dynamic one.. [optional]  # noqa: E501
+            redirect_note (str): The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.. [optional]  # noqa: E501
+            redirect_old_url (str): 301 to redirect the page's address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.. [optional] if omitted the server will use the default value of "301"  # noqa: E501
+            redirect_target (str): Where the hidden page's address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.. [optional]  # noqa: E501
             review_template (str): Template that renders the item review pages under this page.. [optional]  # noqa: E501
             sort_order (int): Position among its siblings when the parent sorts child pages by a custom order.  Null clears it.. [optional]  # noqa: E501
             sort_order_child_groups (str): How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.. [optional]  # noqa: E501

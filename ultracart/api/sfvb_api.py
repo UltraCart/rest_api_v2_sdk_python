@@ -179,6 +179,8 @@ from ultracart.model.sfvb_page_items_add_request import SfvbPageItemsAddRequest
 from ultracart.model.sfvb_page_items_remove_request import SfvbPageItemsRemoveRequest
 from ultracart.model.sfvb_page_items_response import SfvbPageItemsResponse
 from ultracart.model.sfvb_page_list_response import SfvbPageListResponse
+from ultracart.model.sfvb_page_move_request import SfvbPageMoveRequest
+from ultracart.model.sfvb_page_move_response import SfvbPageMoveResponse
 from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
 from ultracart.model.sfvb_page_refresh_request import SfvbPageRefreshRequest
 from ultracart.model.sfvb_page_refresh_response import SfvbPageRefreshResponse
@@ -212,6 +214,8 @@ from ultracart.model.sfvb_redirect_response import SfvbRedirectResponse
 from ultracart.model.sfvb_redirects_response import SfvbRedirectsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
+from ultracart.model.sfvb_search_facets_request import SfvbSearchFacetsRequest
+from ultracart.model.sfvb_search_facets_response import SfvbSearchFacetsResponse
 from ultracart.model.sfvb_secret_kinds_response import SfvbSecretKindsResponse
 from ultracart.model.sfvb_secret_request import SfvbSecretRequest
 from ultracart.model.sfvb_secret_request_create import SfvbSecretRequestCreate
@@ -8574,6 +8578,58 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_search_facets_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSearchFacetsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/search/facets',
+                'operation_id': 'get_sfvb_search_facets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_sfvb_secret_kinds_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbSecretKindsResponse,),
@@ -12962,6 +13018,70 @@ class SfvbApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.move_sfvb_page_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbPageMoveResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/pages/move',
+                'operation_id': 'move_sfvb_page',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'page_move_request',
+                    'approval_id',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'page_move_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'page_move_request':
+                        (SfvbPageMoveRequest,),
+                    'approval_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'approval_id': 'Approval-Id',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'page_move_request': 'body',
+                    'approval_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
             },
             api_client=api_client
         )
@@ -18154,6 +18274,70 @@ class SfvbApi(object):
                     'redirect_id': 'path',
                     'if_match': 'header',
                     'redirect_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_sfvb_search_facets_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbSearchFacetsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/search/facets',
+                'operation_id': 'update_sfvb_search_facets',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'search_facets_request',
+                    'if_match',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'search_facets_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'search_facets_request':
+                        (SfvbSearchFacetsRequest,),
+                    'if_match':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'if_match': 'If-Match',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'search_facets_request': 'body',
+                    'if_match': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -31174,6 +31358,89 @@ class SfvbApi(object):
             storefront_oid
         return self.get_sfvb_redirects_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_search_facets(
+        self,
+        storefront_oid,
+        **kwargs
+    ):
+        """Read the storefront's faceted search configuration  # noqa: E501
+
+        Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_search_facets(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSearchFacetsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        return self.get_sfvb_search_facets_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_secret_kinds(
         self,
         **kwargs
@@ -37422,6 +37689,94 @@ class SfvbApi(object):
             storefront_oid
         return self.list_sfvb_upsell_paths_endpoint.call_with_http_info(**kwargs)
 
+    def move_sfvb_page(
+        self,
+        storefront_oid,
+        page_move_request,
+        **kwargs
+    ):
+        """Move or rename a page  # noqa: E501
+
+        Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.move_sfvb_page(storefront_oid, page_move_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            page_move_request (SfvbPageMoveRequest): The page and where it goes
+
+        Keyword Args:
+            approval_id (str): The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbPageMoveResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['page_move_request'] = \
+            page_move_request
+        return self.move_sfvb_page_endpoint.call_with_http_info(**kwargs)
+
     def move_sfvb_sequence_step(
         self,
         storefront_oid,
@@ -39559,7 +39914,7 @@ class SfvbApi(object):
     ):
         """Change a page's settings  # noqa: E501
 
-        A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.   # noqa: E501
+        A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -41262,7 +41617,7 @@ class SfvbApi(object):
             storefront_oid (int):
             owner_type (str):
             owner_object_id (str):
-            if_match (str): CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale.
+            if_match (str): CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match.
             container_revert_request (SfvbContainerRevertRequest): Version to revert the container to
 
         Keyword Args:
@@ -44453,6 +44808,94 @@ class SfvbApi(object):
         kwargs['redirect_request'] = \
             redirect_request
         return self.update_sfvb_redirect_endpoint.call_with_http_info(**kwargs)
+
+    def update_sfvb_search_facets(
+        self,
+        storefront_oid,
+        search_facets_request,
+        **kwargs
+    ):
+        """Change the storefront's faceted search configuration  # noqa: E501
+
+        A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_sfvb_search_facets(storefront_oid, search_facets_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            search_facets_request (SfvbSearchFacetsRequest): The facets and price breaks to change
+
+        Keyword Args:
+            if_match (str): hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbSearchFacetsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['search_facets_request'] = \
+            search_facets_request
+        return self.update_sfvb_search_facets_endpoint.call_with_http_info(**kwargs)
 
     def update_sfvb_sequence_step(
         self,

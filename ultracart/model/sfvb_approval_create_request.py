@@ -129,6 +129,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'COMMS_LIST.IMPORT': "comms_list.import",
             'POSTCARD.TEST_MAIL': "postcard.test_mail",
             'FLOW.BACKFILL': "flow.backfill",
+            'PAGE.MOVE': "page.move",
         },
     }
 

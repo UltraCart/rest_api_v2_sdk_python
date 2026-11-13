@@ -97,7 +97,10 @@ class SfvbApprovalParams(ModelNormal):
             'experiment_oid': (int,),  # noqa: E501
             'item_count': (int,),  # noqa: E501
             'merchant_item_oid': (int,),  # noqa: E501
+            'new_path': (str,),  # noqa: E501
+            'pages_moved': (int,),  # noqa: E501
             'path': (str,),  # noqa: E501
+            'redirect_old_url': (str,),  # noqa: E501
             'request_sha256': (str,),  # noqa: E501
             'rows_sha256': (str,),  # noqa: E501
             'rule_count': (int,),  # noqa: E501
@@ -131,7 +134,10 @@ class SfvbApprovalParams(ModelNormal):
         'experiment_oid': 'experiment_oid',  # noqa: E501
         'item_count': 'item_count',  # noqa: E501
         'merchant_item_oid': 'merchant_item_oid',  # noqa: E501
+        'new_path': 'new_path',  # noqa: E501
+        'pages_moved': 'pages_moved',  # noqa: E501
         'path': 'path',  # noqa: E501
+        'redirect_old_url': 'redirect_old_url',  # noqa: E501
         'request_sha256': 'request_sha256',  # noqa: E501
         'rows_sha256': 'rows_sha256',  # noqa: E501
         'rule_count': 'rule_count',  # noqa: E501
@@ -200,7 +206,10 @@ class SfvbApprovalParams(ModelNormal):
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
+            new_path (str): For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.. [optional]  # noqa: E501
+            pages_moved (int): For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.. [optional]  # noqa: E501
             path (str): The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.. [optional]  # noqa: E501
+            redirect_old_url (str): For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.. [optional]  # noqa: E501
             request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501
@@ -311,7 +320,10 @@ class SfvbApprovalParams(ModelNormal):
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
+            new_path (str): For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.. [optional]  # noqa: E501
+            pages_moved (int): For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.. [optional]  # noqa: E501
             path (str): The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.. [optional]  # noqa: E501
+            redirect_old_url (str): For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.. [optional]  # noqa: E501
             request_sha256 (str): For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.. [optional]  # noqa: E501
             rows_sha256 (str): For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.. [optional]  # noqa: E501
             rule_count (int): For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.. [optional]  # noqa: E501

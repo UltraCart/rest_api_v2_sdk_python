@@ -1234,6 +1234,8 @@ docs/SfvbPageItemsAddRequest.md
 docs/SfvbPageItemsRemoveRequest.md
 docs/SfvbPageItemsResponse.md
 docs/SfvbPageListResponse.md
+docs/SfvbPageMoveRequest.md
+docs/SfvbPageMoveResponse.md
 docs/SfvbPageMultimedia.md
 docs/SfvbPageMultimediaRequest.md
 docs/SfvbPageRefreshRequest.md
@@ -1282,6 +1284,10 @@ docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbRobotsTxt.md
+docs/SfvbSearchFacet.md
+docs/SfvbSearchFacetUpdate.md
+docs/SfvbSearchFacetsRequest.md
+docs/SfvbSearchFacetsResponse.md
 docs/SfvbSecretHandle.md
 docs/SfvbSecretKind.md
 docs/SfvbSecretKindsResponse.md
@@ -2746,6 +2752,8 @@ ultracart/model/sfvb_page_items_add_request.py
 ultracart/model/sfvb_page_items_remove_request.py
 ultracart/model/sfvb_page_items_response.py
 ultracart/model/sfvb_page_list_response.py
+ultracart/model/sfvb_page_move_request.py
+ultracart/model/sfvb_page_move_response.py
 ultracart/model/sfvb_page_multimedia.py
 ultracart/model/sfvb_page_multimedia_request.py
 ultracart/model/sfvb_page_refresh_request.py
@@ -2794,6 +2802,10 @@ ultracart/model/sfvb_redirects_response.py
 ultracart/model/sfvb_render_request.py
 ultracart/model/sfvb_render_response.py
 ultracart/model/sfvb_robots_txt.py
+ultracart/model/sfvb_search_facet.py
+ultracart/model/sfvb_search_facet_update.py
+ultracart/model/sfvb_search_facets_request.py
+ultracart/model/sfvb_search_facets_response.py
 ultracart/model/sfvb_secret_handle.py
 ultracart/model/sfvb_secret_kind.py
 ultracart/model/sfvb_secret_kinds_response.py

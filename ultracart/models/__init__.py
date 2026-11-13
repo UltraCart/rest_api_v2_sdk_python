@@ -1223,6 +1223,8 @@ from ultracart.model.sfvb_page_items_add_request import SfvbPageItemsAddRequest
 from ultracart.model.sfvb_page_items_remove_request import SfvbPageItemsRemoveRequest
 from ultracart.model.sfvb_page_items_response import SfvbPageItemsResponse
 from ultracart.model.sfvb_page_list_response import SfvbPageListResponse
+from ultracart.model.sfvb_page_move_request import SfvbPageMoveRequest
+from ultracart.model.sfvb_page_move_response import SfvbPageMoveResponse
 from ultracart.model.sfvb_page_multimedia import SfvbPageMultimedia
 from ultracart.model.sfvb_page_multimedia_request import SfvbPageMultimediaRequest
 from ultracart.model.sfvb_page_refresh_request import SfvbPageRefreshRequest
@@ -1271,6 +1273,10 @@ from ultracart.model.sfvb_redirects_response import SfvbRedirectsResponse
 from ultracart.model.sfvb_render_request import SfvbRenderRequest
 from ultracart.model.sfvb_render_response import SfvbRenderResponse
 from ultracart.model.sfvb_robots_txt import SfvbRobotsTxt
+from ultracart.model.sfvb_search_facet import SfvbSearchFacet
+from ultracart.model.sfvb_search_facet_update import SfvbSearchFacetUpdate
+from ultracart.model.sfvb_search_facets_request import SfvbSearchFacetsRequest
+from ultracart.model.sfvb_search_facets_response import SfvbSearchFacetsResponse
 from ultracart.model.sfvb_secret_handle import SfvbSecretHandle
 from ultracart.model.sfvb_secret_kind import SfvbSecretKind
 from ultracart.model.sfvb_secret_kinds_response import SfvbSecretKindsResponse
