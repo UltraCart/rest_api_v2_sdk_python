@@ -1107,6 +1107,7 @@ docs/SfvbExperimentStartVariation.md
 docs/SfvbExperimentVariationUpdateRequest.md
 docs/SfvbExperimentsResponse.md
 docs/SfvbFileContentResponse.md
+docs/SfvbFileContentResult.md
 docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
@@ -1117,6 +1118,8 @@ docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
+docs/SfvbFilesContentRequest.md
+docs/SfvbFilesContentResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
 docs/SfvbFlowBackfillRequest.md
@@ -2625,6 +2628,7 @@ ultracart/model/sfvb_experiment_start_variation.py
 ultracart/model/sfvb_experiment_variation_update_request.py
 ultracart/model/sfvb_experiments_response.py
 ultracart/model/sfvb_file_content_response.py
+ultracart/model/sfvb_file_content_result.py
 ultracart/model/sfvb_file_entry.py
 ultracart/model/sfvb_file_revert_request.py
 ultracart/model/sfvb_file_search_request.py
@@ -2635,6 +2639,8 @@ ultracart/model/sfvb_file_version.py
 ultracart/model/sfvb_file_versions_response.py
 ultracart/model/sfvb_file_write_request.py
 ultracart/model/sfvb_file_write_response.py
+ultracart/model/sfvb_files_content_request.py
+ultracart/model/sfvb_files_content_response.py
 ultracart/model/sfvb_files_response.py
 ultracart/model/sfvb_flow.py
 ultracart/model/sfvb_flow_backfill_request.py

@@ -88,7 +88,9 @@ class SfvbPageListResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'next_offset': (int,),  # noqa: E501
             'pages': ([SfvbPageSummary],),  # noqa: E501
+            'total': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +99,9 @@ class SfvbPageListResponse(ModelNormal):
 
 
     attribute_map = {
+        'next_offset': 'next_offset',  # noqa: E501
         'pages': 'pages',  # noqa: E501
+        'total': 'total',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +145,9 @@ class SfvbPageListResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            next_offset (int): The offset of the next window, omitted on the last one.  Only with detail=true.. [optional]  # noqa: E501
             pages ([SfvbPageSummary]): Pages sorted by path, the root first.  Hidden pages are included.. [optional]  # noqa: E501
+            total (int): How many pages the whole list has.  Only with detail=true.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +233,9 @@ class SfvbPageListResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            next_offset (int): The offset of the next window, omitted on the last one.  Only with detail=true.. [optional]  # noqa: E501
             pages ([SfvbPageSummary]): Pages sorted by path, the root first.  Hidden pages are included.. [optional]  # noqa: E501
+            total (int): How many pages the whole list has.  Only with detail=true.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

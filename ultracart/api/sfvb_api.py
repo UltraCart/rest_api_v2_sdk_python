@@ -107,6 +107,8 @@ from ultracart.model.sfvb_file_upload_url_response import SfvbFileUploadUrlRespo
 from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
+from ultracart.model.sfvb_files_content_request import SfvbFilesContentRequest
+from ultracart.model.sfvb_files_content_response import SfvbFilesContentResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_flow import SfvbFlow
 from ultracart.model.sfvb_flow_backfill_request import SfvbFlowBackfillRequest
@@ -6475,6 +6477,65 @@ class SfvbApi(object):
             },
             api_client=api_client
         )
+        self.get_sfvb_file_contents_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbFilesContentResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/files/content',
+                'operation_id': 'get_sfvb_file_contents',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'files_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'files_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'files_request':
+                        (SfvbFilesContentRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'files_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.get_sfvb_file_upload_url_endpoint = _Endpoint(
             settings={
                 'response_type': (SfvbFileUploadUrlResponse,),
@@ -7620,6 +7681,7 @@ class SfvbApi(object):
             params_map={
                 'all': [
                     'storefront_oid',
+                    'include_entries',
                 ],
                 'required': [
                     'storefront_oid',
@@ -7639,12 +7701,16 @@ class SfvbApi(object):
                 'openapi_types': {
                     'storefront_oid':
                         (int,),
+                    'include_entries':
+                        (bool,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
+                    'include_entries': 'include_entries',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
+                    'include_entries': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7927,10 +7993,10 @@ class SfvbApi(object):
                 'all': [
                     'storefront_oid',
                     'path',
+                    'catalog_group_oid',
                 ],
                 'required': [
                     'storefront_oid',
-                    'path',
                 ],
                 'nullable': [
                 ],
@@ -7949,14 +8015,18 @@ class SfvbApi(object):
                         (int,),
                     'path':
                         (str,),
+                    'catalog_group_oid':
+                        (int,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'path': 'path',
+                    'catalog_group_oid': 'catalog_group_oid',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'path': 'query',
+                    'catalog_group_oid': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -12585,6 +12655,9 @@ class SfvbApi(object):
                 'all': [
                     'storefront_oid',
                     'under',
+                    'detail',
+                    'offset',
+                    'limit',
                 ],
                 'required': [
                     'storefront_oid',
@@ -12606,14 +12679,26 @@ class SfvbApi(object):
                         (int,),
                     'under':
                         (str,),
+                    'detail':
+                        (bool,),
+                    'offset':
+                        (int,),
+                    'limit':
+                        (int,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
                     'under': 'under',
+                    'detail': 'detail',
+                    'offset': 'offset',
+                    'limit': 'limit',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
                     'under': 'query',
+                    'detail': 'query',
+                    'offset': 'query',
+                    'limit': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -28346,6 +28431,93 @@ class SfvbApi(object):
             storefront_oid
         return self.get_sfvb_file_content_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_file_contents(
+        self,
+        storefront_oid,
+        files_request,
+        **kwargs
+    ):
+        """Read several storefront files  # noqa: E501
+
+        The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_file_contents(storefront_oid, files_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            files_request (SfvbFilesContentRequest): The files to read
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbFilesContentResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['files_request'] = \
+            files_request
+        return self.get_sfvb_file_contents_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_file_upload_url(
         self,
         storefront_oid,
@@ -29978,7 +30150,7 @@ class SfvbApi(object):
     ):
         """List a storefront's store menus  # noqa: E501
 
-        The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled.   # noqa: E501
+        The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -29989,6 +30161,7 @@ class SfvbApi(object):
             storefront_oid (int):
 
         Keyword Args:
+            include_entries (bool): True to include each menu's entries. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -30401,23 +30574,23 @@ class SfvbApi(object):
     def get_sfvb_page(
         self,
         storefront_oid,
-        path,
         **kwargs
     ):
         """Read a page's attributes and images  # noqa: E501
 
-        What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.   # noqa: E501
+        What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_sfvb_page(storefront_oid, path, async_req=True)
+        >>> thread = api.get_sfvb_page(storefront_oid, async_req=True)
         >>> result = thread.get()
 
         Args:
             storefront_oid (int):
-            path (str): Page path, for example /catalog/dispensers/
 
         Keyword Args:
+            path (str): Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given.. [optional]
+            catalog_group_oid (int): The page's id, in place of path. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -30481,8 +30654,6 @@ class SfvbApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['storefront_oid'] = \
             storefront_oid
-        kwargs['path'] = \
-            path
         return self.get_sfvb_page_endpoint.call_with_http_info(**kwargs)
 
     def get_sfvb_page_blog_posts(
@@ -37102,7 +37273,7 @@ class SfvbApi(object):
     ):
         """List the storefront's pages  # noqa: E501
 
-        Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.   # noqa: E501
+        Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -37114,6 +37285,9 @@ class SfvbApi(object):
 
         Keyword Args:
             under (str): Only this page and the pages below it, for example /lp/. [optional]
+            detail (bool): True to include each page's single-page read, a window at a time. [optional]
+            offset (int): Where the window starts, with detail=true.  Default 0.. [optional]
+            limit (int): Pages in the window, 1 to 25, with detail=true.  Default 25.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -44817,7 +44991,7 @@ class SfvbApi(object):
     ):
         """Change the storefront's faceted search configuration  # noqa: E501
 
-        A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.   # noqa: E501
+        A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

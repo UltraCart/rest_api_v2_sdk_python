@@ -1096,6 +1096,7 @@ from ultracart.model.sfvb_experiment_start_variation import SfvbExperimentStartV
 from ultracart.model.sfvb_experiment_variation_update_request import SfvbExperimentVariationUpdateRequest
 from ultracart.model.sfvb_experiments_response import SfvbExperimentsResponse
 from ultracart.model.sfvb_file_content_response import SfvbFileContentResponse
+from ultracart.model.sfvb_file_content_result import SfvbFileContentResult
 from ultracart.model.sfvb_file_entry import SfvbFileEntry
 from ultracart.model.sfvb_file_revert_request import SfvbFileRevertRequest
 from ultracart.model.sfvb_file_search_request import SfvbFileSearchRequest
@@ -1106,6 +1107,8 @@ from ultracart.model.sfvb_file_version import SfvbFileVersion
 from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest
 from ultracart.model.sfvb_file_write_response import SfvbFileWriteResponse
+from ultracart.model.sfvb_files_content_request import SfvbFilesContentRequest
+from ultracart.model.sfvb_files_content_response import SfvbFilesContentResponse
 from ultracart.model.sfvb_files_response import SfvbFilesResponse
 from ultracart.model.sfvb_flow import SfvbFlow
 from ultracart.model.sfvb_flow_backfill_request import SfvbFlowBackfillRequest

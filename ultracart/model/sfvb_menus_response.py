@@ -141,7 +141,7 @@ class SfvbMenusResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            menus ([SfvbMenu]): The storefront's menus, sorted by code.  Entries are omitted here - read a single menu to get its tree.. [optional]  # noqa: E501
+            menus ([SfvbMenu]): The storefront's menus, sorted by code.  Entries are omitted unless include_entries=true was passed, in which case each menu carries the same tree the single-menu read returns.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class SfvbMenusResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            menus ([SfvbMenu]): The storefront's menus, sorted by code.  Entries are omitted here - read a single menu to get its tree.. [optional]  # noqa: E501
+            menus ([SfvbMenu]): The storefront's menus, sorted by code.  Entries are omitted unless include_entries=true was passed, in which case each menu carries the same tree the single-menu read returns.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

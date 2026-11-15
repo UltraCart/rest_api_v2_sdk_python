@@ -107,6 +107,7 @@ Method | HTTP request | Description
 [**get_sfvb_experiment**](SfvbApi.md#get_sfvb_experiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
 [**get_sfvb_experiment_objectives**](SfvbApi.md#get_sfvb_experiment_objectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 [**get_sfvb_file_content**](SfvbApi.md#get_sfvb_file_content) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
+[**get_sfvb_file_contents**](SfvbApi.md#get_sfvb_file_contents) | **POST** /sfvb/storefronts/{storefront_oid}/files/content | Read several storefront files
 [**get_sfvb_file_upload_url**](SfvbApi.md#get_sfvb_file_upload_url) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 [**get_sfvb_flow**](SfvbApi.md#get_sfvb_flow) | **GET** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Get a flow
 [**get_sfvb_i18n_glossary**](SfvbApi.md#get_sfvb_i18n_glossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
@@ -5678,6 +5679,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_sfvb_file_contents**
+> SfvbFilesContentResponse get_sfvb_file_contents(storefront_oid, files_request)
+
+Read several storefront files
+
+The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can't be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **files_request** | [**SfvbFilesContentRequest**](SfvbFilesContentRequest.md)| The files to read |
+
+### Return type
+
+[**SfvbFilesContentResponse**](SfvbFilesContentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_sfvb_file_upload_url**
 > SfvbFileUploadUrlResponse get_sfvb_file_upload_url(storefront_oid, extension)
 
@@ -6658,7 +6710,7 @@ Name | Type | Description  | Notes
 
 List a storefront's store menus
 
-The menus a menu element's menuName can name, sorted by code and without their entries.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+The menus a menu element's menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries=true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme's templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
 
 ### Example
 
@@ -6675,6 +6727,7 @@ The menus a menu element's menuName can name, sorted by code and without their e
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
+ **include_entries** | **bool**| True to include each menu&#39;s entries | [optional]
 
 ### Return type
 
@@ -6913,11 +6966,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sfvb_page**
-> SfvbPageResponse get_sfvb_page(storefront_oid, path)
+> SfvbPageResponse get_sfvb_page(storefront_oid)
 
 Read a page's attributes and images
 
-What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
 
 ### Example
 
@@ -6934,7 +6987,8 @@ What the pageattribute and pageimage elements render for this page.  These are n
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
- **path** | **str**| Page path, for example /catalog/dispensers/ |
+ **path** | **str**| Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. | [optional]
+ **catalog_group_oid** | **int**| The page&#39;s id, in place of path | [optional]
 
 ### Return type
 
@@ -10910,7 +10964,7 @@ Name | Type | Description  | Notes
 
 List the storefront's pages
 
-Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail=true to get each page's single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
 
 ### Example
 
@@ -10928,6 +10982,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
  **under** | **str**| Only this page and the pages below it, for example /lp/ | [optional]
+ **detail** | **bool**| True to include each page&#39;s single-page read, a window at a time | [optional]
+ **offset** | **int**| Where the window starts, with detail&#x3D;true.  Default 0. | [optional]
+ **limit** | **int**| Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. | [optional]
 
 ### Return type
 
@@ -15491,7 +15548,7 @@ Name | Type | Description  | Notes
 
 Change the storefront's faceted search configuration
 
-A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
 
 ### Example
 

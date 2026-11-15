@@ -96,6 +96,7 @@ class SfvbPageResponse(ModelNormal):
         return {
             'attributes': ([SfvbPageAttribute],),  # noqa: E501
             'blog_post_template': (str,),  # noqa: E501
+            'catalog_group_oid': (int,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'exclude_from_sitemap': (bool,),  # noqa: E501
             'group_template': (str,),  # noqa: E501
@@ -123,6 +124,7 @@ class SfvbPageResponse(ModelNormal):
     attribute_map = {
         'attributes': 'attributes',  # noqa: E501
         'blog_post_template': 'blog_post_template',  # noqa: E501
+        'catalog_group_oid': 'catalog_group_oid',  # noqa: E501
         'description': 'description',  # noqa: E501
         'exclude_from_sitemap': 'exclude_from_sitemap',  # noqa: E501
         'group_template': 'group_template',  # noqa: E501
@@ -185,6 +187,7 @@ class SfvbPageResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes ([SfvbPageAttribute]): Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.. [optional]  # noqa: E501
             blog_post_template (str): Template that renders the blog posts under this page.  Omitted when not set.. [optional]  # noqa: E501
+            catalog_group_oid (int): The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not.  The page read accepts it in place of path.. [optional]  # noqa: E501
             description (str): The page description, the text a page template renders as the page's description.  Omitted when empty.. [optional]  # noqa: E501
             exclude_from_sitemap (bool): True when the page is left out of the sitemap and marked noindex.. [optional]  # noqa: E501
             group_template (str): Template file that renders the page itself, a bare .vm name found anywhere in the active theme.. [optional]  # noqa: E501
@@ -289,6 +292,7 @@ class SfvbPageResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes ([SfvbPageAttribute]): Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.. [optional]  # noqa: E501
             blog_post_template (str): Template that renders the blog posts under this page.  Omitted when not set.. [optional]  # noqa: E501
+            catalog_group_oid (int): The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not.  The page read accepts it in place of path.. [optional]  # noqa: E501
             description (str): The page description, the text a page template renders as the page's description.  Omitted when empty.. [optional]  # noqa: E501
             exclude_from_sitemap (bool): True when the page is left out of the sitemap and marked noindex.. [optional]  # noqa: E501
             group_template (str): Template file that renders the page itself, a bare .vm name found anywhere in the active theme.. [optional]  # noqa: E501
