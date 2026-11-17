@@ -95,6 +95,7 @@ class SfvbApprovalParams(ModelNormal):
             'domain': (str,),  # noqa: E501
             'esp_twilio_uuid': (str,),  # noqa: E501
             'experiment_oid': (int,),  # noqa: E501
+            'ip': (str,),  # noqa: E501
             'item_count': (int,),  # noqa: E501
             'merchant_item_oid': (int,),  # noqa: E501
             'new_path': (str,),  # noqa: E501
@@ -132,6 +133,7 @@ class SfvbApprovalParams(ModelNormal):
         'domain': 'domain',  # noqa: E501
         'esp_twilio_uuid': 'esp_twilio_uuid',  # noqa: E501
         'experiment_oid': 'experiment_oid',  # noqa: E501
+        'ip': 'ip',  # noqa: E501
         'item_count': 'item_count',  # noqa: E501
         'merchant_item_oid': 'merchant_item_oid',  # noqa: E501
         'new_path': 'new_path',  # noqa: E501
@@ -204,6 +206,7 @@ class SfvbApprovalParams(ModelNormal):
             domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
             esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
+            ip (str): For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller's own address, never by the caller.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
             new_path (str): For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.. [optional]  # noqa: E501
@@ -318,6 +321,7 @@ class SfvbApprovalParams(ModelNormal):
             domain (str): For sending_domain.delete, the sending domain.. [optional]  # noqa: E501
             esp_twilio_uuid (str): For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.. [optional]  # noqa: E501
             experiment_oid (int): For experiment.end, the experiment to end.. [optional]  # noqa: E501
+            ip (str): For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller's own address, never by the caller.. [optional]  # noqa: E501
             item_count (int): For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.. [optional]  # noqa: E501
             merchant_item_oid (int): For item.pricing, the item whose pricing changes.. [optional]  # noqa: E501
             new_path (str): For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.. [optional]  # noqa: E501

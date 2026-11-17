@@ -188,6 +188,8 @@ Method | HTTP request | Description
 [**insert_sfvb_comms_twilio_account**](SfvbApi.md#insert_sfvb_comms_twilio_account) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 [**insert_sfvb_docs_gap**](SfvbApi.md#insert_sfvb_docs_gap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 [**insert_sfvb_item_child**](SfvbApi.md#insert_sfvb_item_child) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
+[**insert_sfvb_location**](SfvbApi.md#insert_sfvb_location) | **POST** /sfvb/location | Add the caller&#39;s address to this StoreFront CLI sign-in
+[**insert_sfvb_location_approval**](SfvbApi.md#insert_sfvb_location_approval) | **POST** /sfvb/location/approval | Ask to use this StoreFront CLI sign-in from the caller&#39;s address
 [**insert_sfvb_page**](SfvbApi.md#insert_sfvb_page) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insert_sfvb_redirect**](SfvbApi.md#insert_sfvb_redirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insert_sfvb_secret_request**](SfvbApi.md#insert_sfvb_secret_request) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -9818,6 +9820,108 @@ Name | Type | Description  | Notes
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **409** |  |  -  |
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **insert_sfvb_location**
+> insert_sfvb_location()
+
+Add the caller's address to this StoreFront CLI sign-in
+
+Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **str**| The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **insert_sfvb_location_approval**
+> SfvbApproval insert_sfvb_location_approval()
+
+Ask to use this StoreFront CLI sign-in from the caller's address
+
+For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SfvbApproval**](SfvbApproval.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**201** |  |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
