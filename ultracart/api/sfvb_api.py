@@ -37,6 +37,8 @@ from ultracart.model.sfvb_blog_posts_response import SfvbBlogPostsResponse
 from ultracart.model.sfvb_campaign import SfvbCampaign
 from ultracart.model.sfvb_campaign_write_request import SfvbCampaignWriteRequest
 from ultracart.model.sfvb_campaigns_response import SfvbCampaignsResponse
+from ultracart.model.sfvb_code_library_email_create_request import SfvbCodeLibraryEmailCreateRequest
+from ultracart.model.sfvb_code_library_email_response import SfvbCodeLibraryEmailResponse
 from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
 from ultracart.model.sfvb_comms_clicks_response import SfvbCommsClicksResponse
 from ultracart.model.sfvb_comms_dashboard_response import SfvbCommsDashboardResponse
@@ -4589,6 +4591,64 @@ class SfvbApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.get_sfvb_code_library_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCodeLibraryEmailResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid}',
+                'operation_id': 'get_sfvb_code_library_email',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'library_item_oid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'library_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'library_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'library_item_oid': 'library_item_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'library_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -10743,6 +10803,65 @@ class SfvbApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_sfvb_code_library_email_endpoint = _Endpoint(
+            settings={
+                'response_type': (SfvbCodeLibraryEmailResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/sfvb/storefronts/{storefront_oid}/code_library/emails',
+                'operation_id': 'insert_sfvb_code_library_email',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'code_library_email_create_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'code_library_email_create_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'code_library_email_create_request':
+                        (SfvbCodeLibraryEmailCreateRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'code_library_email_create_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -25723,6 +25842,93 @@ class SfvbApi(object):
             compile_request
         return self.get_sfvb_cjson_used_elements_endpoint.call_with_http_info(**kwargs)
 
+    def get_sfvb_code_library_email(
+        self,
+        storefront_oid,
+        library_item_oid,
+        **kwargs
+    ):
+        """One code library email item, with its body and file list  # noqa: E501
+
+        Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126).   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sfvb_code_library_email(storefront_oid, library_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            library_item_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCodeLibraryEmailResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['library_item_oid'] = \
+            library_item_oid
+        return self.get_sfvb_code_library_email_endpoint.call_with_http_info(**kwargs)
+
     def get_sfvb_comms_campaign_folder(
         self,
         storefront_oid,
@@ -34696,6 +34902,93 @@ class SfvbApi(object):
         kwargs['blog_post_request'] = \
             blog_post_request
         return self.insert_sfvb_blog_post_endpoint.call_with_http_info(**kwargs)
+
+    def insert_sfvb_code_library_email(
+        self,
+        storefront_oid,
+        code_library_email_create_request,
+        **kwargs
+    ):
+        """Save a reusable email to this account's code library  # noqa: E501
+
+        Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_sfvb_code_library_email(storefront_oid, code_library_email_create_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            code_library_email_create_request (SfvbCodeLibraryEmailCreateRequest): The email to save, with the uuid that makes a retry safe
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SfvbCodeLibraryEmailResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['code_library_email_create_request'] = \
+            code_library_email_create_request
+        return self.insert_sfvb_code_library_email_endpoint.call_with_http_info(**kwargs)
 
     def insert_sfvb_comms_campaign_folder(
         self,

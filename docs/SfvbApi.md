@@ -74,6 +74,7 @@ Method | HTTP request | Description
 [**get_sfvb_blog_post**](SfvbApi.md#get_sfvb_blog_post) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**get_sfvb_campaign**](SfvbApi.md#get_sfvb_campaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 [**get_sfvb_cjson_used_elements**](SfvbApi.md#get_sfvb_cjson_used_elements) | **POST** /sfvb/cjson/elements | Element types used by a container
+[**get_sfvb_code_library_email**](SfvbApi.md#get_sfvb_code_library_email) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid} | One code library email item, with its body and file list
 [**get_sfvb_comms_campaign_folder**](SfvbApi.md#get_sfvb_comms_campaign_folder) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid} | Read one campaign folder
 [**get_sfvb_comms_campaign_folders**](SfvbApi.md#get_sfvb_comms_campaign_folders) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders | List the campaign folders
 [**get_sfvb_comms_dashboard_stats**](SfvbApi.md#get_sfvb_comms_dashboard_stats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
@@ -179,6 +180,7 @@ Method | HTTP request | Description
 [**insert_sfvb_affiliate_network**](SfvbApi.md#insert_sfvb_affiliate_network) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 [**insert_sfvb_approval**](SfvbApi.md#insert_sfvb_approval) | **POST** /sfvb/approvals | Request a human approval
 [**insert_sfvb_blog_post**](SfvbApi.md#insert_sfvb_blog_post) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+[**insert_sfvb_code_library_email**](SfvbApi.md#insert_sfvb_code_library_email) | **POST** /sfvb/storefronts/{storefront_oid}/code_library/emails | Save a reusable email to this account&#39;s code library
 [**insert_sfvb_comms_campaign_folder**](SfvbApi.md#insert_sfvb_comms_campaign_folder) | **POST** /sfvb/storefronts/{storefront_oid}/campaign_folders | Create a campaign folder
 [**insert_sfvb_comms_flow_folder**](SfvbApi.md#insert_sfvb_comms_flow_folder) | **POST** /sfvb/storefronts/{storefront_oid}/flow_folders | Create a flow folder
 [**insert_sfvb_comms_folder**](SfvbApi.md#insert_sfvb_comms_folder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder
@@ -4016,6 +4018,56 @@ Name | Type | Description  | Notes
 **200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_sfvb_code_library_email**
+> SfvbCodeLibraryEmailResponse get_sfvb_code_library_email(storefront_oid, library_item_oid)
+
+One code library email item, with its body and file list
+
+Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126). 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **library_item_oid** | **int**|  |
+
+### Return type
+
+[**SfvbCodeLibraryEmailResponse**](SfvbCodeLibraryEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -9344,6 +9396,57 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **201** |  |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **insert_sfvb_code_library_email**
+> SfvbCodeLibraryEmailResponse insert_sfvb_code_library_email(storefront_oid, code_library_email_create_request)
+
+Save a reusable email to this account's code library
+
+Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **code_library_email_create_request** | [**SfvbCodeLibraryEmailCreateRequest**](SfvbCodeLibraryEmailCreateRequest.md)| The email to save, with the uuid that makes a retry safe |
+
+### Return type
+
+[**SfvbCodeLibraryEmailResponse**](SfvbCodeLibraryEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |

@@ -1000,7 +1000,12 @@ from ultracart.model.sfvb_cli_access import SfvbCliAccess
 from ultracart.model.sfvb_cli_location import SfvbCliLocation
 from ultracart.model.sfvb_cli_version import SfvbCliVersion
 from ultracart.model.sfvb_code_library_email import SfvbCodeLibraryEmail
+from ultracart.model.sfvb_code_library_email_create_request import SfvbCodeLibraryEmailCreateRequest
+from ultracart.model.sfvb_code_library_email_detail import SfvbCodeLibraryEmailDetail
+from ultracart.model.sfvb_code_library_email_response import SfvbCodeLibraryEmailResponse
 from ultracart.model.sfvb_code_library_emails_response import SfvbCodeLibraryEmailsResponse
+from ultracart.model.sfvb_code_library_file import SfvbCodeLibraryFile
+from ultracart.model.sfvb_code_library_file_skipped import SfvbCodeLibraryFileSkipped
 from ultracart.model.sfvb_comms_branch_stat import SfvbCommsBranchStat
 from ultracart.model.sfvb_comms_change import SfvbCommsChange
 from ultracart.model.sfvb_comms_click import SfvbCommsClick
