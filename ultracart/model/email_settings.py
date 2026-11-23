@@ -82,6 +82,7 @@ class EmailSettings(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'campaign_hourly_divisor': (int,),  # noqa: E501
             'emails_per_day': (int,),  # noqa: E501
             'emails_per_hour': (int,),  # noqa: E501
             'emails_per_month': (int,),  # noqa: E501
@@ -110,6 +111,7 @@ class EmailSettings(ModelNormal):
 
 
     attribute_map = {
+        'campaign_hourly_divisor': 'campaign_hourly_divisor',  # noqa: E501
         'emails_per_day': 'emails_per_day',  # noqa: E501
         'emails_per_hour': 'emails_per_hour',  # noqa: E501
         'emails_per_month': 'emails_per_month',  # noqa: E501
@@ -173,6 +175,7 @@ class EmailSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            campaign_hourly_divisor (int): Campaign hourly send divisor, default 8. [optional]  # noqa: E501
             emails_per_day (int): Emails per day allowed. [optional]  # noqa: E501
             emails_per_hour (int): Emails per hour allowed. [optional]  # noqa: E501
             emails_per_month (int): Emails per month allowed. [optional]  # noqa: E501
@@ -278,6 +281,7 @@ class EmailSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            campaign_hourly_divisor (int): Campaign hourly send divisor, default 8. [optional]  # noqa: E501
             emails_per_day (int): Emails per day allowed. [optional]  # noqa: E501
             emails_per_hour (int): Emails per hour allowed. [optional]  # noqa: E501
             emails_per_month (int): Emails per month allowed. [optional]  # noqa: E501
