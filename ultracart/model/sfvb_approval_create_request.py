@@ -130,6 +130,7 @@ class SfvbApprovalCreateRequest(ModelNormal):
             'POSTCARD.TEST_MAIL': "postcard.test_mail",
             'FLOW.BACKFILL': "flow.backfill",
             'PAGE.MOVE': "page.move",
+            'STOREFRONT_CACHE.FLUSH': "storefront_cache.flush",
             'CLI.LOCATION': "cli.location",
         },
     }

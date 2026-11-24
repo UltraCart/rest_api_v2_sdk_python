@@ -67,6 +67,7 @@ Method | HTTP request | Description
 [**export_sfvb_not_found**](SfvbApi.md#export_sfvb_not_found) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 [**favorite_sfvb_library_entry**](SfvbApi.md#favorite_sfvb_library_entry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 [**fix_sfvb_not_found_entry**](SfvbApi.md#fix_sfvb_not_found_entry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
+[**flush_sfvb_store_front_cache**](SfvbApi.md#flush_sfvb_store_front_cache) | **POST** /sfvb/cache/flush | Flush the StoreFront page cache
 [**get_sfvb_affiliate_network**](SfvbApi.md#get_sfvb_affiliate_network) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 [**get_sfvb_affiliate_networks**](SfvbApi.md#get_sfvb_affiliate_networks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 [**get_sfvb_approval**](SfvbApi.md#get_sfvb_approval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -3674,6 +3675,59 @@ Name | Type | Description  | Notes
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **flush_sfvb_store_front_cache**
+> flush_sfvb_store_front_cache()
+
+Flush the StoreFront page cache
+
+Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **str**| The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**409** |  |  -  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
