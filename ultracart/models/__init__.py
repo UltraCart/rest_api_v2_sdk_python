@@ -807,6 +807,7 @@ from ultracart.model.order_auto_order_update_billing_url_response import OrderAu
 from ultracart.model.order_billing import OrderBilling
 from ultracart.model.order_buysafe import OrderBuysafe
 from ultracart.model.order_by_token_query import OrderByTokenQuery
+from ultracart.model.order_cancel_request import OrderCancelRequest
 from ultracart.model.order_channel_partner import OrderChannelPartner
 from ultracart.model.order_checkout import OrderCheckout
 from ultracart.model.order_coupon import OrderCoupon

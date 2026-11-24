@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**assign_to_affiliate**](OrderApi.md#assign_to_affiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 [**block_refund_on_order**](OrderApi.md#block_refund_on_order) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+[**cancel_order_with_options**](OrderApi.md#cancel_order_with_options) | **POST** /order/orders/{order_id}/cancel_with_options | Cancel an order with options
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
 [**duplicate_order**](OrderApi.md#duplicate_order) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
@@ -42,6 +43,7 @@ Method | HTTP request | Description
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**send_update_billing_email**](OrderApi.md#send_update_billing_email) | **POST** /order/orders/{order_id}/send_update_billing_email | Send update billing email
 [**unblock_refund_on_order**](OrderApi.md#unblock_refund_on_order) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 [**update_accounts_receivable_retry_config**](OrderApi.md#update_accounts_receivable_retry_config) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**update_order**](OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
@@ -493,6 +495,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_order_with_options**
+> BaseResponse cancel_order_with_options(order_id, cancel_request)
+
+Cancel an order with options
+
+Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to cancel. |
+ **cancel_request** | [**OrderCancelRequest**](OrderCancelRequest.md)| Cancel order options |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -3312,6 +3365,56 @@ if hasattr(api_response, 'warning') and api_response.warning is not None:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **str**| The order id to resend the shipment notification for. |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_update_billing_email**
+> BaseResponse send_update_billing_email(order_id)
+
+Send update billing email
+
+Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to send the update billing email for. |
 
 ### Return type
 

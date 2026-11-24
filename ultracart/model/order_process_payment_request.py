@@ -84,6 +84,7 @@ class OrderProcessPaymentRequest(ModelNormal):
         return {
             'amount': (float,),  # noqa: E501
             'card_verification_number_token': (str,),  # noqa: E501
+            'rotating_transaction_gateway_code': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class OrderProcessPaymentRequest(ModelNormal):
     attribute_map = {
         'amount': 'amount',  # noqa: E501
         'card_verification_number_token': 'card_verification_number_token',  # noqa: E501
+        'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class OrderProcessPaymentRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             amount (float): Specific amount to bill (optional).  If not specified the total of the order is billed.. [optional]  # noqa: E501
             card_verification_number_token (str): Card verification number token from hosted fields used during credit card transaction processing (optional). [optional]  # noqa: E501
+            rotating_transaction_gateway_code (str): Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +229,7 @@ class OrderProcessPaymentRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             amount (float): Specific amount to bill (optional).  If not specified the total of the order is billed.. [optional]  # noqa: E501
             card_verification_number_token (str): Card verification number token from hosted fields used during credit card transaction processing (optional). [optional]  # noqa: E501
+            rotating_transaction_gateway_code (str): Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
